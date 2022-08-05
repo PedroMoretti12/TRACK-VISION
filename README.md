@@ -15,4 +15,8 @@ IMPORTANTE!
 * Bancos de Dados (Modelagem e Script);
 * E demais atividade desenvolvidas em sala de aula.
 
+Sprint 4 - 07/09 
+Sprint 5 - 12/10 
+Sprint 6 - 07/12
+
 Att, Team 10.

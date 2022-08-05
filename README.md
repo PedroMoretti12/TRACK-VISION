@@ -11,8 +11,8 @@ IMPORTANTE!
 - Subir todos os arquivos possíveis que forem realizados no decorrer da sprint, sendo eles:
 
 * Documentação
-* Site Responsivo (Home, Cadastro e Login)
-* Bancos de Dados (Modelagem e Script)
-* E demais atividade desenvolvidas em sala de aula
+* Site Responsivo (Home, Cadastro e Login);
+* Bancos de Dados (Modelagem e Script);
+* E demais atividade desenvolvidas em sala de aula.
 
 Att, Team 10.

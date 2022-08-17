@@ -1383,6 +1383,11 @@ progress {
     width: 33.33333333%;
   }
 
+  .col-lg-4_1 {
+    flex: 20%;
+    width: 50%;
+  }
+
   .col-lg-5 {
     flex: 0 0 auto;
     width: 41.66666667%;
@@ -3031,13 +3036,13 @@ textarea.form-control-lg {
 
 .btn-primary {
   color: #fff;
-  background-color: #ffc800;
-  border-color: #ffc800;
+  background-color: #eeae07;
+  border-color: #eeae07;
 }
 .btn-primary:hover {
-  color: #fff;
-  background-color: #d9aa00;
-  border-color: #cca000;
+  color: #f1f1f1;
+  background-color: #eab839;
+  border-color: #ffdb80;
 }
 .btn-check:focus + .btn-primary, .btn-primary:focus {
   color: #fff;
@@ -3940,10 +3945,14 @@ textarea.form-control-lg {
   list-style: none;
 }
 
+.bg-light {
+  background-color: #41bd980b;
+}
+
 .nav-link {
   display: block;
   padding: 0.5rem 1rem;
-  color: #ffc800;
+  color: #eeae07;
   text-decoration: none;
   transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out;
 }
@@ -3953,7 +3962,7 @@ textarea.form-control-lg {
   }
 }
 .nav-link:hover, .nav-link:focus {
-  color: #cca000;
+  color: #eeae07;
 }
 .nav-link.disabled {
   color: #6c757d;
@@ -7836,10 +7845,36 @@ textarea.form-control-lg {
   background-color: rgba(var(--bs-danger-rgb), var(--bs-bg-opacity)) !important;
 }
 
-.bg-light {
-  --bs-bg-opacity: 1;
-  background-color: rgba(var(--bs-light-rgb), var(--bs-bg-opacity)) !important;
-}
+
+
+
+
+
+
+
+
+yr[]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 .bg-dark {
   --bs-bg-opacity: 1;
@@ -11383,7 +11418,7 @@ p {
     transition: font-size 0.3s ease-in-out;
   }
   #mainNav .navbar-brand img {
-    height: 2rem;
+    height: 3rem;
     transition: height 0.3s ease-in-out;
   }
   #mainNav.navbar-shrink {
@@ -11409,14 +11444,15 @@ header.masthead {
   padding-top: 10.5rem;
   padding-bottom: 6rem;
   text-align: center;
-  color: #fff;
-  background-image: url("../assets/img/header-bg.jpg");
+  color: #eeae07;
+  background-image: url("../assets/img/planodefundo1.jpg");
   background-repeat: no-repeat;
   background-attachment: scroll;
   background-position: center center;
   background-size: cover;
 }
 header.masthead .masthead-subheading {
+  color: transparent;
   font-size: 1.5rem;
   font-style: italic;
   line-height: 1.5rem;
@@ -11777,3 +11813,5 @@ section#contact form#contactForm :-ms-input-placeholder {
   font-size: 0.9rem;
   font-family: "Montserrat", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
 }
+
+

@@ -11815,3 +11815,312 @@ section#contact form#contactForm :-ms-input-placeholder {
 }
 
 
+/* TERCEIRO FUNDO */
+
+.fundo3 {
+  width: 100vw;
+  height: 85vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #f7fcfb;
+}
+
+.part2 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 5vh;
+  width: 100vw;
+  height: 60vh;
+}
+
+/* box rotativo 1 */
+.box2 {
+position: relative;
+background-color: white;
+border-radius: 50%;
+width: 20vw;
+height: 44vh;
+overflow: hidden;
+}
+
+.box2::before {
+  content: '';
+  position: absolute;
+  inset: -10px 140px;
+  background: linear-gradient(315deg, #eeae07, #000);
+  transition: 0.5s;
+  animation: animate 4s linear infinite;
+}
+
+.box2:hover::before {
+  inset: -20px 0px;
+}
+
+@keyframes animate {
+  0% 
+  {
+   transform: rotate(0deg);
+  }
+  100% 
+  {
+   transform: rotate(360deg);
+  }
+}
+
+.box2::after {
+  content: '';
+  position: absolute;
+  inset: 6px;
+  background: white;
+  border-radius: 50%;
+  z-index: 1;
+}
+
+.content {
+  position: absolute;
+  inset: 30px;
+  border: 6px solid black;
+  z-index: 3;
+  border-radius: 50%;
+  overflow: hidden;
+  background-color: black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.content .srimg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: 0.5s;
+  pointer-events: none ;
+}
+
+.box2:hover .content .srimg {
+  opacity: 0;
+}
+
+.titulo3 {
+  text-align: center;
+  font-size: 25px;
+  color: #ffffff;
+  border-bottom: 0.1vh white solid;
+}
+
+.subtitulo3 {
+  text-align: center;
+  font-size: 10px;
+  color: #ffffff;
+}
+
+.refbox1 {
+  text-align: center;
+  width: 6vw;
+  height: 3vh ;
+  text-decoration: none;
+  color: rgb(0, 0, 0);
+  background-color: white;
+  border-radius:5%;
+}
+
+/* box rotativo 2 */
+
+.box3 {
+  position: relative;
+  margin-left: 5vw;
+  background-color: white;
+  border-radius: 50%;
+  width: 20vw;
+  height: 44vh;
+  overflow: hidden;
+}
+
+.box3::before {
+    content: '';
+    position: absolute;
+    inset: -10px 140px;
+    background: linear-gradient(315deg, #eeae07, #000);
+    transition: 0.5s;
+    animation: animate2 4s linear infinite;
+}
+
+.box3:hover::before {
+    inset: -20px 0px;
+}
+
+@keyframes animate2 {
+    0% 
+    {
+     transform: rotate(0deg);
+    }
+    100% 
+    {
+     transform: rotate(360deg);
+    }
+}
+
+.box3::after {
+    content: '';
+    position: absolute;
+    inset: 6px;
+    background: white;
+    border-radius: 50%;
+    z-index: 1;
+}
+
+.content3 {
+    position: absolute;
+    inset: 30px;
+    border: 6px solid black;
+    z-index: 3;
+    border-radius: 50%;
+    overflow: hidden;
+    background-color: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.content3 .tftimg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: 0.5s;
+    pointer-events: none ;
+}
+
+.box3:hover .content3 .tftimg {
+    opacity: 0;
+}
+
+ .titulo4 {
+    text-align: center;
+    font-size: 25px;
+    color: #ffffff;
+    border-bottom: 0.1vh white solid;
+}
+
+.subtitulo4 {
+    text-align: center;
+    font-size: 10px;
+    color: #ffffff;
+}
+
+.refbox2 {
+    text-align: center;
+    width: 6vw;
+    height: 3vh ;
+    text-decoration: none;
+    color: rgb(0, 0, 0);
+    background-color: white;
+    border-radius:5%;
+}
+
+/* Box rotativo 4 */
+
+.box4 {
+  position: relative;
+  margin-left: 5vw;
+  background-color: white;
+  border-radius: 50%;
+  width: 20vw;
+  height: 44vh;
+  overflow: hidden;
+}
+
+.box4::before {
+    content: '';
+    position: absolute;
+    inset: -10px 140px;
+    background: linear-gradient(315deg, #eeae07, #000);
+    transition: 0.5s;
+    animation: animate3 4s linear infinite;
+}
+
+.box4:hover::before {
+    inset: -20px 0px;
+}
+
+@keyframes animate3 {
+    0% 
+    {
+     transform: rotate(0deg);
+    }
+    100% 
+    {
+     transform: rotate(360deg);
+    }
+}
+
+.box4::after {
+    content: '';
+    position: absolute;
+    inset: 6px;
+    background: white;
+    border-radius: 50%;
+    z-index: 1;
+}
+
+.content4 {
+    position: absolute;
+    inset: 30px;
+    border: 6px solid black;
+    z-index: 3;
+    border-radius: 50%;
+    overflow: hidden;
+    background-color: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.content4 .cblolimg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: 0.5s;
+    pointer-events: none ;
+}
+
+.box4:hover .content4 .cblolimg {
+    opacity: 0;
+}
+
+ .titulo5 {
+    text-align: center;
+    font-size: 25px;
+    color: #ffffff;
+    border-bottom: 0.1vh white solid;
+}
+
+.subtitulo5 {
+    text-align: center;
+    font-size: 10px;
+    color: #ffffff;
+}
+
+.refbox3 {
+    text-align: center;
+    width: 6vw;
+    height: 3vh ;
+    text-decoration: none;
+    color: rgb(0, 0, 0);
+    background-color: white;
+    border-radius:5%;
+}

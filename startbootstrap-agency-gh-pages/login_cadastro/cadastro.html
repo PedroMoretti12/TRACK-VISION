@@ -17,7 +17,7 @@
   <!-- Style -->
   <link rel="stylesheet" href="css/style.css">
 
-  <title>Login #7</title>
+  <title>Cadasto</title>
 </head>
 
 <body>
@@ -34,33 +34,42 @@
           <div class="row justify-content-center">
             <div class="col-md-8">
               <div class="mb-4">
-                <h3>Sign In</h3>
+                <h3>Cadastro</h3>
                 <p class="mb-4">Lorem ipsum dolor sit amet elit. Sapiente sit aut eos consectetur adipisicing.</p>
               </div>
-              <form action="#" method="post">
+              <form onsubmit="linkLogin(event)">
                 <div class="form-group first">
-                  <label for="username">Username</label>
+                  <label for="username">Nome da Empresa</label>
                   <input type="text" class="form-control" id="username">
 
                 </div>
-                <div class="form-group last mb-4">
-                  <label for="password">Password</label>
-                  <input type="password" class="form-control" id="password">
+                <div class="form-group mb-4">
+                  <label for="email">E-mail</label>
+                  <input type="text" class="form-control" id="email">
+                </div>
 
+                <div class="form-group mb-4">
+                  <label for="cnpj">CNPJ</label>
+                  <input type="text" class="form-control" id="cnpj">
+                </div>
+                <div class="form-group last mb-4">
+                  <label for="password">Senha</label>
+                  <input type="password" class="form-control" id="password">
                 </div>
 
                 <div class="d-flex mb-5 align-items-center">
-                  <label class="control control--checkbox mb-0"><span class="caption">Remember me</span>
+                  <label class="control control--checkbox mb-0"><span class="caption">Lembre-se</span>
                     <input type="checkbox" checked="checked" />
                     <div class="control__indicator"></div>
                   </label>
-                  <span class="ml-auto"><a href="#" class="forgot-pass">Forgot Password</a></span>
+                  <span class="ml-auto"><a href="#" class="forgot-pass">Esqueceu a senha?</a></span>
                 </div>
 
-                <input type="submit" value="Log In" class="btn btn-block btn-primary">
-
-                <span class="d-block text-left my-4 text-muted">&mdash; or login with &mdash;</span> <span
-                  class="ml-auto"><a href="C:\Users\isabe\OneDrive\Área de Trabalho\Faculdade\Segundo Semestre\Track-Vision\startbootstrap-agency-gh-pages\index.html" class="voltar">Voltar</a></span>
+                  <input type="submit" value="Cadastrar" class="btn btn-block btn-primary">
+               
+                <span class="d-block text-left my-4 text-muted pd_espaco"><a href="./login.html">&mdash; Logar-se
+                    &mdash;</a></span>
+                <span class="ml-auto"><a href="../index.html" class="voltar">Voltar</a></span>
               </form>
             </div>
 
@@ -81,3 +90,12 @@
 </body>
 
 </html>
+
+<script>
+
+  function linkLogin(event){
+    event.preventDefault();
+    window.location="login.html"
+  }
+
+</script>

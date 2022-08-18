@@ -18,7 +18,7 @@ a {
     text-decoration: none !important; }
 
 .content {
-  padding: 7rem 0; }
+  padding: 1.5rem 0; }
 
 h2 {
   font-size: 20px; }
@@ -204,3 +204,8 @@ h2 {
 .control--checkbox input:disabled:checked ~ .control__indicator {
   background-color: #7e0cf5;
   opacity: .2; }
+
+
+  .pd_espaco{
+    padding: 0 0 20px 0;
+  }

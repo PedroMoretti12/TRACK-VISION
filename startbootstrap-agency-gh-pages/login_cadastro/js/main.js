@@ -11,3 +11,10 @@ $(function() {
 	});
 
 });
+
+// cadastro
+
+function linkLogin(){
+	console.log("anus")
+	window.location.assign("../login.html");
+}

@@ -1,7 +1,9 @@
 body {
   font-family: "Roboto", sans-serif;
-  background-color: #f8fafb; }
-
+  background-color: #f8fafb; 
+  overflow: hidden;
+}
+  
 p {
   color: #b3b3b3;
   font-weight: 300; }
@@ -18,7 +20,8 @@ a {
     text-decoration: none !important; }
 
 .content {
-  padding: 1.5rem 0; }
+  padding: 7.5rem 0; 
+}
 
 h2 {
   font-size: 20px; }
@@ -165,11 +168,11 @@ h2 {
   background: #ccc; }
 
 .control input:checked ~ .control__indicator {
-  background: #6c63ff; }
+  background: #eeae07; }
 
 .control:hover input:not([disabled]):checked ~ .control__indicator,
 .control input:checked:focus ~ .control__indicator {
-  background: #847dff; }
+  background: #eeae07; }
 
 .control input:disabled ~ .control__indicator {
   background: #e6e6e6;

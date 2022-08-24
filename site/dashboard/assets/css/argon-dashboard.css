@@ -3485,10 +3485,19 @@ fieldset:disabled a.btn {
 
 .btn-sm,
 .btn-group-sm>.btn {
+  background-color: #000;
   padding: 0.25rem 0.5rem;
   font-size: 0.875rem;
+  color: #fff;
   line-height: 1.5;
   border-radius: 0.375rem;
+}
+
+.btn-sm:hover {
+  color: #fff;
+  background-color: #000000ab;
+  border-color: #000;
+  
 }
 
 .btn-block {

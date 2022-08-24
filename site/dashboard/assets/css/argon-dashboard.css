@@ -1506,7 +1506,7 @@ pre code {
 
   .col-xl-8 {
     flex: 0 0 66.666667%;
-    max-width: 66.666667%;
+    max-width: 100.666667%;
   }
 
   .col-xl-9 {
@@ -13503,7 +13503,7 @@ button.bg-lighter:focus {
 }
 
 .bg-gradient-default {
-  background: linear-gradient(87deg, #172b4d 0, #1a174d 100%) !important;
+  background: linear-gradient(87deg, #000 0, #000 100%) !important;
 }
 
 .bg-gradient-white {
@@ -13798,7 +13798,7 @@ button.section-darker:focus {
 }
 
 .bg-gradient-default {
-  background: linear-gradient(87deg, #172b4d 0, #1a174d 100%) !important;
+  background: linear-gradient(360deg, #000 0, #eeae07 100%) !important;
 }
 
 .bg-gradient-white {
@@ -15477,7 +15477,7 @@ a.btn-icon-only {
 }
 
 .card-stats .card-body {
-  padding: 1rem 1.5rem;
+  padding: 2rem 1.5rem;
 }
 
 .card-stats .card-status-bullet {

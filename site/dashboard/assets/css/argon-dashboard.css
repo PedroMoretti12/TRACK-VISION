@@ -1504,9 +1504,14 @@ pre code {
     max-width: 58.333333%;
   }
 
+  .div_perfil {
+    flex: 0 0 66.666667%;
+    max-width: 100%;
+  }
+
   .col-xl-8 {
     flex: 0 0 66.666667%;
-    max-width: 100.666667%;
+    max-width: 42rem;
   }
 
   .col-xl-9 {

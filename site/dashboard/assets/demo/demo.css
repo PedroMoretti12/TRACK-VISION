@@ -92,7 +92,7 @@
 
 .btn_agencia {
   color: #000;
-  font-size: 25px;
+  font-size: 24px;
 }
 
 .btn_agencia:hover {
@@ -109,4 +109,8 @@
   .perfil_font{
     font-size: 25px;
     color: #ffffff;
+  }
+
+  .cor_grafico{
+    background-color: #010300;
   }

@@ -15,6 +15,8 @@
 * The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
 
 */
+
+
 :root {
   --blue: #5e72e4;
   --indigo: #5603ad;
@@ -6897,7 +6899,7 @@ button.bg-light:focus {
 }
 
 .bg-dark {
-  background-color: #212529 !important;
+  background-color: #fff !important;
 }
 
 a.bg-dark:hover,
@@ -6908,7 +6910,7 @@ button.bg-dark:focus {
 }
 
 .bg-default {
-  background-color: #172b4d !important;
+  background-color: #010300  !important;
 }
 
 a.bg-default:hover,
@@ -13469,11 +13471,11 @@ button.bg-lighter:focus {
 }
 
 .bg-gradient-primary {
-  background: linear-gradient(87deg, #5e72e4 0, #825ee4 100%) !important;
+  background: linear-gradient(87deg, #000 0, #eeae07 100%) !important;
 }
 
 .bg-gradient-secondary {
-  background: linear-gradient(87deg, #f7fafc 0, #f7f8fc 100%) !important;
+  background: linear-gradient(87deg, #eeae07 0, #000 100%) !important;
 }
 
 .bg-gradient-success {
@@ -13764,7 +13766,7 @@ button.section-darker:focus {
 }
 
 .bg-gradient-primary {
-  background: linear-gradient(87deg, #5e72e4 0, #825ee4 100%) !important;
+  background: linear-gradient(0deg, #000 0, #eeae07 100%) !important;
 }
 
 .bg-gradient-secondary {
@@ -13876,7 +13878,7 @@ button.section-darker:focus {
 }
 
 .fill-default {
-  fill: #172b4d;
+  fill: #010300;
 }
 
 .stroke-default {

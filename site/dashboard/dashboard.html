@@ -33,6 +33,7 @@
   <link href="./assets/css/argon-dashboard.css?v=1.1.2" rel="stylesheet" />
 
   <link rel="stylesheet" href="./assets/demo/demo.css">
+
 </head>
 
 <body class="">
@@ -218,7 +219,7 @@
           <!-- Card stats -->
           <div class="row">
             <div class="col-xl-3 col-lg-6">
-              <div class="card card-stats mb-4 mb-xl-0 btn_agencia">
+              <button class="card card-stats mb-4 mb-xl-0 btn_agencia" id="btn_ag1" value="1" onclick="agencia1(this)">
                 <div class="card-body">
                   <div class="row">
                     <div class="col">
@@ -234,10 +235,10 @@
                     <span class="btn_agencia_endereco">Rua do ney 1</span>
                   </p>
                 </div>
-              </div>
+              </button>
             </div>
             <div class="col-xl-3 col-lg-6">
-              <div class="card card-stats mb-4 mb-xl-0 btn_agencia">
+              <button class="card card-stats mb-4 mb-xl-0 btn_agencia" id="btn_ag2" onclick="agencia2()">
                 <div class="card-body">
                   <div class="row">
                     <div class="col">
@@ -253,10 +254,10 @@
                     <span class="btn_agencia_endereco">Rua do ney 2</span>
                   </p>
                 </div>
-              </div>
+              </button>
             </div>
             <div class="col-xl-3 col-lg-6">
-              <div class="card card-stats mb-4 mb-xl-0 btn_agencia">
+              <button class="card card-stats mb-4 mb-xl-0 btn_agencia" id="btn_ag3" onclick="agencia3()">
                 <div class="card-body">
                   <div class="row">
                     <div class="col">
@@ -272,10 +273,10 @@
                     <span class="btn_agencia_endereco">Rua do ney 3</span>
                   </p>
                 </div>
-              </div>
+              </button>
             </div>
             <div class="col-xl-3 col-lg-6">
-              <div class="card card-stats mb-4 mb-xl-0 btn_agencia">
+              <button class="card card-stats mb-4 mb-xl-0 btn_agencia" id="btn_ag4" onclick="agencia4()">
                 <div class="card-body">
                   <div class="row">
                     <div class="col">
@@ -291,20 +292,162 @@
                     <span class="btn_agencia_endereco">Rua do ney 4</span>
                   </p>
                 </div>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="container-fluid mt--7 ">
+      <!-- Agência 1 -->
+      <div class="agencia1" id="grafico_ag1" style="display: block;">
+        <div class="row">
+          <div class="col-xl-8 mb-5 mb-xl-0 ">
+            <div class="card cor_grafico shadow">
+              <div class="card-header bg-transparent">
+                <div class="row align-items-center">
+                  <div class="col">
+                    <h2 class="text-white mb-0">Agência 1</h2>
+                    <h6 class="text-uppercase text-muted ls-1 mb-1">Gráfico 1</h6>
+                  </div>
+                  <div class="col">
+                    <ul class="nav nav-pills justify-content-end">
+                      <li class="nav-item mr-2 mr-md-0" data-toggle="chart" data-target="#chart-sales"
+                        data-update='{"data":{"datasets":[{"data":[17, 56, 3, 40, 50, 60, 70, 80, 90, 100]}]}}'
+                        data-prefix="" data-suffix="%">
+                        <a href="#" class="nav-link py-2 px-3 active" data-toggle="tab">
+                          <span class="d-none d-md-block">Caixa 1</span>
+                        </a>
+                      </li>
+                      <li class="nav-item" data-toggle="chart" data-target="#chart-sales"
+                        data-update='{"data":{"datasets":[{"data":[33, 70, 15, 40, 50, 60, 70, 80, 90, 100]}]}}'
+                        data-prefix="" data-suffix="%">
+                        <a href="#" class="nav-link py-2 px-3" data-toggle="tab">
+                          <span class="d-none d-md-block">Caixa 2</span>
+                        </a>
+
+                      </li>
+                      <li class="nav-item" data-toggle="chart" data-target="#chart-sales"
+                        data-update='{"data":{"datasets":[{"data":[15, 50, 5, 40, 50, 60, 70, 80, 90, 100]}]}}'
+                        data-prefix="" data-suffix="%">
+                        <a href="#" class="nav-link py-2 px-3" data-toggle="tab">
+                          <span class="d-none d-md-block">Caixa 3</span>
+                        </a>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+              <div class="card-body">
+                <!-- Chart -->
+                <div class="chart">
+                  <!-- Chart wrapper -->
+                  <canvas id="chart-sales" class="chart-canvas"></canvas>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-xl-4">
+            <div class="card shadow">
+              <div class="card-header bg-transparent">
+                <div class="row align-items-center">
+                  <div class="col">
+                    <h2 class="mb-0">Agência 1</h2>
+                    <h6 class="text-uppercase text-muted ls-1 mb-1">Gráfico 2</h6>
+                  </div>
+                </div>
+              </div>
+              <div class="card-body">
+                <!-- Chart -->
+                <div class="chart">
+                  <canvas id="chart-orders" class="chart-canvas"></canvas>
+                </div>
               </div>
             </div>
           </div>
         </div>
       </div>
     </div>
-    <div class="container-fluid mt--7">
+    <!-- Agência 2 -->
+    <div class="container-fluid mt--7 ">
+      <div class="agencia2" id="grafico_ag2" style="display: none;">
+        <div class="row">
+          <div class="col-xl-8 mb-5 mb-xl-0 ">
+            <div class="card cor_grafico shadow">
+              <div class="card-header bg-transparent">
+                <div class="row align-items-center">
+                  <div class="col">
+                    <h2 class="text-white mb-0">Agência 2</h2>
+                    <h6 class="text-uppercase text-muted ls-1 mb-1">Gráfico 1</h6>
+                  </div>
+                  <div class="col">
+                    <ul class="nav nav-pills justify-content-end">
+                      <li class="nav-item mr-2 mr-md-0" data-toggle="chart" data-target="#chart-sales"
+                        data-update='{"data":{"datasets":[{"data":[17, 56, 3, 40, 50, 60, 70, 80, 90, 100]}]}}'
+                        data-prefix="" data-suffix="%">
+                        <a href="#" class="nav-link py-2 px-3 active" data-toggle="tab">
+                          <span class="d-none d-md-block">Caixa 1</span>
+                        </a>
+                      </li>
+                      <li class="nav-item" data-toggle="chart" data-target="#chart-sales"
+                        data-update='{"data":{"datasets":[{"data":[33, 70, 15, 40, 50, 60, 70, 80, 90, 100]}]}}'
+                        data-prefix="" data-suffix="%">
+                        <a href="#" class="nav-link py-2 px-3" data-toggle="tab">
+                          <span class="d-none d-md-block">Caixa 2</span>
+                        </a>
+
+                      </li>
+                      <li class="nav-item" data-toggle="chart" data-target="#chart-sales"
+                        data-update='{"data":{"datasets":[{"data":[15, 50, 5, 40, 50, 60, 70, 80, 90, 100]}]}}'
+                        data-prefix="" data-suffix="%">
+                        <a href="#" class="nav-link py-2 px-3" data-toggle="tab">
+                          <span class="d-none d-md-block">Caixa 3</span>
+                        </a>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+              <div class="card-body">
+                <!-- Chart -->
+                <div class="chart">
+                  <!-- Chart wrapper -->
+                  <canvas id="chart-sales" class="chart-canvas"></canvas>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-xl-4">
+            <div class="card shadow">
+              <div class="card-header bg-transparent">
+                <div class="row align-items-center">
+                  <div class="col">
+                    <h2 class="mb-0">Agência 2</h2>
+                    <h6 class="text-uppercase text-muted ls-1 mb-1">Gráfico 2</h6>
+                  </div>
+                </div>
+              </div>
+              <div class="card-body">
+                <!-- Chart -->
+                <div class="chart">
+                  <canvas id="chart-orders" class="chart-canvas"></canvas>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Agência 3 -->
+    <div class="agencia3" id="grafico_ag3" style="display: none;">
       <div class="row">
-        <div class="col-xl-8 mb-5 mb-xl-0">
+        <div class="col-xl-8 mb-5 mb-xl-0 ">
           <div class="card cor_grafico shadow">
             <div class="card-header bg-transparent">
               <div class="row align-items-center">
                 <div class="col">
-                  <h2 class="text-white mb-0">Agência 1</h2>
+                  <h2 class="text-white mb-0">Agência 3</h2>
                   <h6 class="text-uppercase text-muted ls-1 mb-1">Gráfico 1</h6>
                 </div>
                 <div class="col">
@@ -322,7 +465,7 @@
                       <a href="#" class="nav-link py-2 px-3" data-toggle="tab">
                         <span class="d-none d-md-block">Caixa 2</span>
                       </a>
-                                           
+
                     </li>
                     <li class="nav-item" data-toggle="chart" data-target="#chart-sales"
                       data-update='{"data":{"datasets":[{"data":[15, 50, 5, 40, 50, 60, 70, 80, 90, 100]}]}}'
@@ -349,7 +492,7 @@
             <div class="card-header bg-transparent">
               <div class="row align-items-center">
                 <div class="col">
-                  <h2 class="mb-0">Agência 1</h2>
+                  <h2 class="mb-0">Agência 3</h2>
                   <h6 class="text-uppercase text-muted ls-1 mb-1">Gráfico 2</h6>
                 </div>
               </div>
@@ -363,12 +506,82 @@
           </div>
         </div>
       </div>
-
-      <!-- Footer -->
-      <footer class="footer">
-
-      </footer>
     </div>
+
+    <!-- Agência 3 -->
+    <div class="agencia4" id="grafico_ag4" style="display: none;">
+      <div class="row">
+        <div class="col-xl-8 mb-5 mb-xl-0 ">
+          <div class="card cor_grafico shadow">
+            <div class="card-header bg-transparent">
+              <div class="row align-items-center">
+                <div class="col">
+                  <h2 class="text-white mb-0">Agência 4</h2>
+                  <h6 class="text-uppercase text-muted ls-1 mb-1">Gráfico 1</h6>
+                </div>
+                <div class="col">
+                  <ul class="nav nav-pills justify-content-end">
+                    <li class="nav-item mr-2 mr-md-0" data-toggle="chart" data-target="#chart-sales"
+                      data-update='{"data":{"datasets":[{"data":[17, 56, 3, 40, 50, 60, 70, 80, 90, 100]}]}}'
+                      data-prefix="" data-suffix="%">
+                      <a href="#" class="nav-link py-2 px-3 active" data-toggle="tab">
+                        <span class="d-none d-md-block">Caixa 1</span>
+                      </a>
+                    </li>
+                    <li class="nav-item" data-toggle="chart" data-target="#chart-sales"
+                      data-update='{"data":{"datasets":[{"data":[33, 70, 15, 40, 50, 60, 70, 80, 90, 100]}]}}'
+                      data-prefix="" data-suffix="%">
+                      <a href="#" class="nav-link py-2 px-3" data-toggle="tab">
+                        <span class="d-none d-md-block">Caixa 2</span>
+                      </a>
+
+                    </li>
+                    <li class="nav-item" data-toggle="chart" data-target="#chart-sales"
+                      data-update='{"data":{"datasets":[{"data":[15, 50, 5, 40, 50, 60, 70, 80, 90, 100]}]}}'
+                      data-prefix="" data-suffix="%">
+                      <a href="#" class="nav-link py-2 px-3" data-toggle="tab">
+                        <span class="d-none d-md-block">Caixa 3</span>
+                      </a>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            <div class="card-body">
+              <!-- Chart -->
+              <div class="chart">
+                <!-- Chart wrapper -->
+                <canvas id="chart-sales" class="chart-canvas"></canvas>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-xl-4">
+          <div class="card shadow">
+            <div class="card-header bg-transparent">
+              <div class="row align-items-center">
+                <div class="col">
+                  <h2 class="mb-0">Agência 4</h2>
+                  <h6 class="text-uppercase text-muted ls-1 mb-1">Gráfico 2</h6>
+                </div>
+              </div>
+            </div>
+            <div class="card-body">
+              <!-- Chart -->
+              <div class="chart">
+                <canvas id="chart-orders" class="chart-canvas"></canvas>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+
+    </footer>
+  </div>
   </div>
   <!--   Core   -->
   <script src="./assets/js/plugins/jquery/dist/jquery.min.js"></script>
@@ -377,7 +590,7 @@
   <script src="./assets/js/plugins/chart.js/dist/Chart.min.js"></script>
   <script src="./assets/js/plugins/chart.js/dist/Chart.extension.js"></script>
   <!--   Argon JS   -->
-    <script src="./assets/js/argon-dashboard.min.js"></script>
+  <script src="./assets/js/argon-dashboard.min.js"></script>
 
   <script src="https://cdn.trackjs.com/agent/v3/latest/t.js"></script>
   <script>
@@ -387,6 +600,7 @@
         application: "argon-dashboard-free"
       });
   </script>
+  <script src="./assets/js/dashboard.js"></script>
 </body>
 
 </html>

@@ -92,7 +92,8 @@
 
 .btn_agencia {
   color: #000;
-  font-size: 24px;
+  font-size: 21px;
+  cursor: pointer;
 }
 
 .btn_agencia:hover {

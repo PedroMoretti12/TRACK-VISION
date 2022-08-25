@@ -343,7 +343,7 @@
                 <!-- Chart -->
                 <div class="chart">
                   <!-- Chart wrapper -->
-                  <canvas id="chart-sales" class="chart-canvas"></canvas>
+                  <canvas id="chart-sales" class="chart-canvas grafico_ag1" style="display: block;"></canvas>
                 </div>
               </div>
             </div>
@@ -361,7 +361,7 @@
               <div class="card-body">
                 <!-- Chart -->
                 <div class="chart">
-                  <canvas id="chart-orders" class="chart-canvas"></canvas>
+                  <canvas id="chart-orders" class="chart-canvas grafico_ag1" style="display: block;"></canvas>
                 </div>
               </div>
             </div>
@@ -413,7 +413,7 @@
                 <!-- Chart -->
                 <div class="chart">
                   <!-- Chart wrapper -->
-                  <canvas id="chart-sales" class="chart-canvas"></canvas>
+                  <canvas id="chart-sales" class="chart-canvas grafico_ag1" style="display: none;"></canvas>
                 </div>
               </div>
             </div>
@@ -431,7 +431,7 @@
               <div class="card-body">
                 <!-- Chart -->
                 <div class="chart">
-                  <canvas id="chart-orders" class="chart-canvas"></canvas>
+                  <canvas id="chart-orders" class="chart-canvas grafico_ag1" style="display: none;"></canvas>
                 </div>
               </div>
             </div>
@@ -440,148 +440,150 @@
       </div>
     </div>
     <!-- Agência 3 -->
-    <div class="agencia3" id="grafico_ag3" style="display: none;">
-      <div class="row">
-        <div class="col-xl-8 mb-5 mb-xl-0 ">
-          <div class="card cor_grafico shadow">
-            <div class="card-header bg-transparent">
-              <div class="row align-items-center">
-                <div class="col">
-                  <h2 class="text-white mb-0">Agência 3</h2>
-                  <h6 class="text-uppercase text-muted ls-1 mb-1">Gráfico 1</h6>
-                </div>
-                <div class="col">
-                  <ul class="nav nav-pills justify-content-end">
-                    <li class="nav-item mr-2 mr-md-0" data-toggle="chart" data-target="#chart-sales"
-                      data-update='{"data":{"datasets":[{"data":[17, 56, 3, 40, 50, 60, 70, 80, 90, 100]}]}}'
-                      data-prefix="" data-suffix="%">
-                      <a href="#" class="nav-link py-2 px-3 active" data-toggle="tab">
-                        <span class="d-none d-md-block">Caixa 1</span>
-                      </a>
-                    </li>
-                    <li class="nav-item" data-toggle="chart" data-target="#chart-sales"
-                      data-update='{"data":{"datasets":[{"data":[33, 70, 15, 40, 50, 60, 70, 80, 90, 100]}]}}'
-                      data-prefix="" data-suffix="%">
-                      <a href="#" class="nav-link py-2 px-3" data-toggle="tab">
-                        <span class="d-none d-md-block">Caixa 2</span>
-                      </a>
+    <div class="container-fluid mt--7 ">
+      <div class="agencia3" id="grafico_ag3" style="display: none;">
+        <div class="row">
+          <div class="col-xl-8 mb-5 mb-xl-0 ">
+            <div class="card cor_grafico shadow">
+              <div class="card-header bg-transparent">
+                <div class="row align-items-center">
+                  <div class="col">
+                    <h2 class="text-white mb-0">Agência 3</h2>
+                    <h6 class="text-uppercase text-muted ls-1 mb-1">Gráfico 1</h6>
+                  </div>
+                  <div class="col">
+                    <ul class="nav nav-pills justify-content-end">
+                      <li class="nav-item mr-2 mr-md-0" data-toggle="chart" data-target="#chart-sales"
+                        data-update='{"data":{"datasets":[{"data":[17, 56, 3, 40, 50, 60, 70, 80, 90, 100]}]}}'
+                        data-prefix="" data-suffix="%">
+                        <a href="#" class="nav-link py-2 px-3 active" data-toggle="tab">
+                          <span class="d-none d-md-block">Caixa 1</span>
+                        </a>
+                      </li>
+                      <li class="nav-item" data-toggle="chart" data-target="#chart-sales"
+                        data-update='{"data":{"datasets":[{"data":[33, 70, 15, 40, 50, 60, 70, 80, 90, 100]}]}}'
+                        data-prefix="" data-suffix="%">
+                        <a href="#" class="nav-link py-2 px-3" data-toggle="tab">
+                          <span class="d-none d-md-block">Caixa 2</span>
+                        </a>
 
-                    </li>
-                    <li class="nav-item" data-toggle="chart" data-target="#chart-sales"
-                      data-update='{"data":{"datasets":[{"data":[15, 50, 5, 40, 50, 60, 70, 80, 90, 100]}]}}'
-                      data-prefix="" data-suffix="%">
-                      <a href="#" class="nav-link py-2 px-3" data-toggle="tab">
-                        <span class="d-none d-md-block">Caixa 3</span>
-                      </a>
-                    </li>
-                  </ul>
+                      </li>
+                      <li class="nav-item" data-toggle="chart" data-target="#chart-sales"
+                        data-update='{"data":{"datasets":[{"data":[15, 50, 5, 40, 50, 60, 70, 80, 90, 100]}]}}'
+                        data-prefix="" data-suffix="%">
+                        <a href="#" class="nav-link py-2 px-3" data-toggle="tab">
+                          <span class="d-none d-md-block">Caixa 3</span>
+                        </a>
+                      </li>
+                    </ul>
+                  </div>
                 </div>
               </div>
-            </div>
-            <div class="card-body">
-              <!-- Chart -->
-              <div class="chart">
-                <!-- Chart wrapper -->
-                <canvas id="chart-sales" class="chart-canvas"></canvas>
+              <div class="card-body">
+                <!-- Chart -->
+                <div class="chart">
+                  <!-- Chart wrapper -->
+                  <canvas id="chart-sales" class="chart-canvas grafico_ag3" style="display: none;"></canvas>
+                </div>
               </div>
             </div>
           </div>
-        </div>
-        <div class="col-xl-4">
-          <div class="card shadow">
-            <div class="card-header bg-transparent">
-              <div class="row align-items-center">
-                <div class="col">
-                  <h2 class="mb-0">Agência 3</h2>
-                  <h6 class="text-uppercase text-muted ls-1 mb-1">Gráfico 2</h6>
+          <div class="col-xl-4">
+            <div class="card shadow">
+              <div class="card-header bg-transparent">
+                <div class="row align-items-center">
+                  <div class="col">
+                    <h2 class="mb-0">Agência 3</h2>
+                    <h6 class="text-uppercase text-muted ls-1 mb-1">Gráfico 2</h6>
+                  </div>
                 </div>
               </div>
-            </div>
-            <div class="card-body">
-              <!-- Chart -->
-              <div class="chart">
-                <canvas id="chart-orders" class="chart-canvas"></canvas>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- Agência 3 -->
-    <div class="agencia4" id="grafico_ag4" style="display: none;">
-      <div class="row">
-        <div class="col-xl-8 mb-5 mb-xl-0 ">
-          <div class="card cor_grafico shadow">
-            <div class="card-header bg-transparent">
-              <div class="row align-items-center">
-                <div class="col">
-                  <h2 class="text-white mb-0">Agência 4</h2>
-                  <h6 class="text-uppercase text-muted ls-1 mb-1">Gráfico 1</h6>
+              <div class="card-body">
+                <!-- Chart -->
+                <div class="chart">
+                  <canvas id="chart-orders" class="chart-canvas grafico_ag3" style="display: none;"></canvas>
                 </div>
-                <div class="col">
-                  <ul class="nav nav-pills justify-content-end">
-                    <li class="nav-item mr-2 mr-md-0" data-toggle="chart" data-target="#chart-sales"
-                      data-update='{"data":{"datasets":[{"data":[17, 56, 3, 40, 50, 60, 70, 80, 90, 100]}]}}'
-                      data-prefix="" data-suffix="%">
-                      <a href="#" class="nav-link py-2 px-3 active" data-toggle="tab">
-                        <span class="d-none d-md-block">Caixa 1</span>
-                      </a>
-                    </li>
-                    <li class="nav-item" data-toggle="chart" data-target="#chart-sales"
-                      data-update='{"data":{"datasets":[{"data":[33, 70, 15, 40, 50, 60, 70, 80, 90, 100]}]}}'
-                      data-prefix="" data-suffix="%">
-                      <a href="#" class="nav-link py-2 px-3" data-toggle="tab">
-                        <span class="d-none d-md-block">Caixa 2</span>
-                      </a>
-
-                    </li>
-                    <li class="nav-item" data-toggle="chart" data-target="#chart-sales"
-                      data-update='{"data":{"datasets":[{"data":[15, 50, 5, 40, 50, 60, 70, 80, 90, 100]}]}}'
-                      data-prefix="" data-suffix="%">
-                      <a href="#" class="nav-link py-2 px-3" data-toggle="tab">
-                        <span class="d-none d-md-block">Caixa 3</span>
-                      </a>
-                    </li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-            <div class="card-body">
-              <!-- Chart -->
-              <div class="chart">
-                <!-- Chart wrapper -->
-                <canvas id="chart-sales" class="chart-canvas"></canvas>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="col-xl-4">
-          <div class="card shadow">
-            <div class="card-header bg-transparent">
-              <div class="row align-items-center">
-                <div class="col">
-                  <h2 class="mb-0">Agência 4</h2>
-                  <h6 class="text-uppercase text-muted ls-1 mb-1">Gráfico 2</h6>
-                </div>
-              </div>
-            </div>
-            <div class="card-body">
-              <!-- Chart -->
-              <div class="chart">
-                <canvas id="chart-orders" class="chart-canvas"></canvas>
               </div>
             </div>
           </div>
         </div>
       </div>
     </div>
+    <!-- Agência 4 -->
+    <div class="container-fluid mt--7 ">
+      <div class="agencia4" id="grafico_ag4" style="display: none;">
+        <div class="row">
+          <div class="col-xl-8 mb-5 mb-xl-0 ">
+            <div class="card cor_grafico shadow">
+              <div class="card-header bg-transparent">
+                <div class="row align-items-center">
+                  <div class="col">
+                    <h2 class="text-white mb-0">Agência 4</h2>
+                    <h6 class="text-uppercase text-muted ls-1 mb-1">Gráfico 1</h6>
+                  </div>
+                  <div class="col">
+                    <ul class="nav nav-pills justify-content-end">
+                      <li class="nav-item mr-2 mr-md-0" data-toggle="chart" data-target="#chart-sales"
+                        data-update='{"data":{"datasets":[{"data":[17, 56, 3, 40, 50, 60, 70, 80, 90, 100]}]}}'
+                        data-prefix="" data-suffix="%">
+                        <a href="#" class="nav-link py-2 px-3 active" data-toggle="tab">
+                          <span class="d-none d-md-block">Caixa 1</span>
+                        </a>
+                      </li>
+                      <li class="nav-item" data-toggle="chart" data-target="#chart-sales"
+                        data-update='{"data":{"datasets":[{"data":[33, 70, 15, 40, 50, 60, 70, 80, 90, 100]}]}}'
+                        data-prefix="" data-suffix="%">
+                        <a href="#" class="nav-link py-2 px-3" data-toggle="tab">
+                          <span class="d-none d-md-block">Caixa 2</span>
+                        </a>
 
-    <!-- Footer -->
-    <footer class="footer">
+                      </li>
+                      <li class="nav-item" data-toggle="chart" data-target="#chart-sales"
+                        data-update='{"data":{"datasets":[{"data":[15, 50, 5, 40, 50, 60, 70, 80, 90, 100]}]}}'
+                        data-prefix="" data-suffix="%">
+                        <a href="#" class="nav-link py-2 px-3" data-toggle="tab">
+                          <span class="d-none d-md-block">Caixa 3</span>
+                        </a>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+              <div class="card-body">
+                <!-- Chart -->
+                <div class="chart">
+                  <!-- Chart wrapper -->
+                  <canvas id="chart-sales" class="chart-canvas grafico_ag4" style="display: none;"></canvas>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-xl-4">
+            <div class="card shadow">
+              <div class="card-header bg-transparent">
+                <div class="row align-items-center">
+                  <div class="col">
+                    <h2 class="mb-0">Agência 4</h2>
+                    <h6 class="text-uppercase text-muted ls-1 mb-1">Gráfico 2</h6>
+                  </div>
+                </div>
+              </div>
+              <div class="card-body">
+                <!-- Chart -->
+                <div class="chart">
+                  <canvas id="chart-orders" class="chart-canvas grafico_ag4" style="display: none;"></canvas>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
 
-    </footer>
-  </div>
+      <!-- Footer -->
+      <footer class="footer">
+
+      </footer>
+    </div>
   </div>
   <!--   Core   -->
   <script src="./assets/js/plugins/jquery/dist/jquery.min.js"></script>

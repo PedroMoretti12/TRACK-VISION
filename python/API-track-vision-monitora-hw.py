@@ -7,7 +7,7 @@ from datetime import date
 
 try:
     conn = mysql.connector.connect(
-    host= 'localhost', user= 'root', password= '#Gf44844181858', database= 'trackvision')
+    host= 'localhost', user= 'Ella', password= 'urubu100', database= 'trackvision')
     print("Conexão ao banco estabelecida!")
 
     fk_caixa = int(input("Informe o caixa: "));
@@ -31,7 +31,7 @@ try:
         print(inicio_segundos, "Captura de dados inserida!")
         print("\n")
         inicio_segundos += 1
-        time.sleep(60)
+        time.sleep(3.0)
         
 
 except:

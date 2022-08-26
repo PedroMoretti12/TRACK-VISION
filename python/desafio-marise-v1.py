@@ -1,11 +1,5 @@
 #Grupo 10: Track Vision
 
-#Felipe Pires | RA: 03221051
-#Isabela Hantke | RA: 03221007
-#Rafaela Dias | RA: 03221050
-#Verônica Zibord | RA: 03221003
-#Vitor Macauba | RA: 03221002
-
 import psutil
 import time
 from prettytable import PrettyTable # importando uma biblioteca de tabelas 

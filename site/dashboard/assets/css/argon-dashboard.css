@@ -6869,7 +6869,7 @@ button.bg-success:focus {
 }
 
 .bg-info {
-  background-color: #11cdef !important;
+  background-color: #000 !important;
 }
 
 a.bg-info:hover,
@@ -6880,7 +6880,7 @@ button.bg-info:focus {
 }
 
 .bg-warning {
-  background-color: #fb6340 !important;
+  background-color: #000 !important;
 }
 
 a.bg-warning:hover,
@@ -6891,7 +6891,7 @@ button.bg-warning:focus {
 }
 
 .bg-danger {
-  background-color: #f5365c !important;
+  background-color: #000 !important;
 }
 
 a.bg-danger:hover,
@@ -13386,7 +13386,7 @@ button.bg-orange:focus {
 }
 
 .bg-yellow {
-  background-color: #ffd600 !important;
+  background-color: #000 !important;
 }
 
 a.bg-yellow:hover,
@@ -16685,7 +16685,7 @@ textarea[resize="horizontal"] {
 
 .nav-pills .nav-link {
   padding: 0.75rem 1rem;
-  color: #5e72e4;
+  color: #000;
   font-weight: 500;
   font-size: 0.875rem;
   box-shadow: 0 4px 6px rgba(50, 50, 93, 0.11), 0 1px 3px rgba(0, 0, 0, 0.08);
@@ -16700,7 +16700,7 @@ textarea[resize="horizontal"] {
 .nav-pills .nav-link.active,
 .nav-pills .show>.nav-link {
   color: #fff;
-  background-color: #5e72e4;
+  background-color: #eeae07;
 }
 
 @media (max-width: 575.98px) {

@@ -9,7 +9,7 @@ from datetime import date
 try:
 
     conn = mysql.connector.connect(
-        host='localhost', user='Ella', password='urubu100', database='trackvision')
+        host='localhost', user='Aluno', password='sptech', database='trackvision')
     print("Conexão ao banco estabelecida!")
 
     fkCaixa = int(input("Informe o código do caixa: "))

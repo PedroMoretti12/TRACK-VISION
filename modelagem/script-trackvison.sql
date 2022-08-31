@@ -59,10 +59,10 @@ insert into caixa values
 (null, 501, '0238'),
 (null, 502, '8547');
 
-select * from empresa;
+-- select * from empresa;
 -- select * from usuario;
 -- select * from caixa;
--- select * from leitura;
+select * from leitura;
 						
 select * from empresa, usuario, caixa, leitura 
 		where usuario.fkEmpresa = idEmpresa 

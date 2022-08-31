@@ -1,9 +1,4 @@
-# Grupo 10: TrackVision
-# Felipe Pires | 03221051
-# Isabela Hantke | 03221007
-# Rafaela Dias | 03221050
-# Verônica Zibord | 03221003
-# Vitor Macauba | 03221002
+# Team 10: TrackVision -  Felipe Pires RA:03221051 | Isabela Hantke RA:03221007 | Rafaela Dias RA:03221050 | Verônica Zibord RA:03221003 | Vitor Macauba RA:03221002
 
 import psutil
 import time
@@ -37,7 +32,7 @@ try:
         print(inicioSegundos, "Captura(s) de dados inserida(s).")
         print("\n")
         inicioSegundos += 1
-        time.sleep(5.00)
+        time.sleep(5.0)
 
 except:
     print("Houve um erro ao conectar-se ao banco.")

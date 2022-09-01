@@ -122,7 +122,7 @@
             <input type="search" class="form-control form-control-rounded form-control-prepended" placeholder="Search"
               aria-label="Search">
             <div class="input-group-prepend">
-              <div class="input-group-text"> 
+              <div class="input-group-text">
                 <span class="fa fa-search"></span>
               </div>
             </div>
@@ -167,21 +167,21 @@
       <div class="container-fluid">
         <!-- Brand -->
         <a class="h4 mb-0 text-white text-uppercase d-none d-lg-inline-block" href=""></a>
-        
+
         <!-- User -->
         <ul class="navbar-nav align-items-center d-none d-md-flex">
           <li class="nav-item dropdown">
             <a class="nav-link pr-0" href="#" role="button" data-toggle="dropdown" aria-haspopup="true"
               aria-expanded="false">
               <div class="media align-items-center">
-              
+
                 <div class="icon icon-shape cor_perfil text-white rounded-circle shadow">
                   <i class="fa fa-user"></i>
                 </div>
-              <div class="media-body ml-2 d-none d-lg-block">
-                <span class="mb-0 font-weight-bold perfil_font">Perfil</span>
+                <div class="media-body ml-2 d-none d-lg-block">
+                  <span class="mb-0 font-weight-bold perfil_font">Perfil</span>
+                </div>
               </div>
-            </div>
             </a>
             <div class="dropdown-menu dropdown-menu-arrow dropdown-menu-right">
               <a href="./profile.html" class="dropdown-item">
@@ -214,8 +214,8 @@
           <!-- Card stats -->
           <div class="row">
             <div class="col-xl-3 col-lg-6">
-              <div class="card card-stats mb-4 mb-xl-0 btn_agencia">
-                <div class="card-body ">
+              <button class="card card-stats mb-4 mb-xl-0 btn_agencia" id="btn_ag1" value="1" onclick="agencia1(this)">
+                <div class="card-body">
                   <div class="row">
                     <div class="col">
                       <span class="font-weight-bold mb-0">Caixa Econômica</span>
@@ -230,10 +230,10 @@
                     <span class="btn_agencia_endereco">Agência 1258</span>
                   </p>
                 </div>
-              </div>
+              </button>
             </div>
             <div class="col-xl-3 col-lg-6">
-              <div class="card card-stats mb-4 mb-xl-0 btn_agencia">
+              <button class="card card-stats mb-4 mb-xl-0 btn_agencia" id="btn_ag2" onclick="agencia2()">
                 <div class="card-body">
                   <div class="row">
                     <div class="col">
@@ -249,10 +249,10 @@
                     <span class="btn_agencia_endereco">Agência 5874</span>
                   </p>
                 </div>
-              </div>
+              </button>
             </div>
             <div class="col-xl-3 col-lg-6">
-              <div class="card card-stats mb-4 mb-xl-0 btn_agencia">
+              <button class="card card-stats mb-4 mb-xl-0 btn_agencia" id="btn_ag3" onclick="agencia3()">
                 <div class="card-body">
                   <div class="row">
                     <div class="col">
@@ -268,10 +268,10 @@
                     <span class="btn_agencia_endereco">Agência 2547</span>
                   </p>
                 </div>
-              </div>
+              </button>
             </div>
             <div class="col-xl-3 col-lg-6">
-              <div class="card card-stats mb-4 mb-xl-0 btn_agencia">
+              <button class="card card-stats mb-4 mb-xl-0 btn_agencia" id="btn_ag4" onclick="agencia4()">
                 <div class="card-body">
                   <div class="row">
                     <div class="col">
@@ -287,7 +287,7 @@
                     <span class="btn_agencia_endereco">Agência 9632</span>
                   </p>
                 </div>
-              </div>
+              </button>
             </div>
           </div>
         </div>
@@ -636,267 +636,679 @@
         </div>
       </div> -->
       <!-- Dark table -->
+
       <div class="row mt-5">
         <div class="col">
           <div class="card bg-default shadow">
-            <div class="card-header bg-transparent border-0">
-              <h3 class="text-white mb-0">Caixa Econômica</h3>
-            </div>
-            <div class="table-responsive">
-              <table class="table align-items-center table-dark table-flush">
-                <thead class="thead-dark">
-                  <tr>
-                    <th scope="col">Caixa</th>
-                    <th scope="col">Processador</th>
-                    <th scope="col">Memória Ram</th>
-                    <th scope="col">Memória Disco</th>
-                    <!-- <th scope="col">Wi-fi</th>
+
+            <!-- Agencia 1 -->
+            <div class="agencia1" id="grafico_ag1" style="display: block;">
+              <div class="card-header bg-transparent border-0">
+                <h3 class="text-white mb-0">Caixa Econômica</h3>
+              </div>
+              <div class="table-responsive">
+                <table class="table align-items-center table-dark table-flush">
+                  <thead class="thead-dark">
+                    <tr>
+                      <th scope="col">Caixa</th>
+                      <th scope="col">Processador</th>
+                      <th scope="col">Memória Ram</th>
+                      <th scope="col">Memória Disco</th>
+                      <!-- <th scope="col">Wi-fi</th>
                     <th scope="col">GPU</th> -->
-                    <th scope="col"></th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <th scope="row">
-                      <div class="media align-items-center">
-                        <div class="ciculo">
-                          <div class="icon icon-shape bg-gradient-primary text-white rounded-circle shadow">
-                            <i class="fa fa-1"></i>
+                      <th scope="col"></th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <th scope="row">
+                        <div class="media align-items-center">
+                          <div class="ciculo">
+                            <div class="icon icon-shape bg-warning text-white rounded-circle shadow">
+                              <i class="fa fa-1"></i>
+                            </div>
+                          </div>
+                          <div class="media-body">
+                            <span class="mb-0 text-sm espaco_caixa_tab">Caixa 1</span>
                           </div>
                         </div>
-                        <div class="media-body">
-                          <span class="mb-0 text-sm espaco_caixa_tab">Caixa 1</span>
-                        </div>
-                      </div>
-                    </th>
-                    <td>
-                      <span class=" tab_dados">
-                        58%
-                      </span>
-                    </td>
-                    <td>
-                      <span class=" tab_dados">
-                        68%
-                      </span>
-                    </td>
-                    <td>
-                      <span class=" tab_dados">
-                        68%
-                      </span>
-                    </td>
-                    <!-- <td>
-                      <span class=" tab_dados">
-                        68%
-                      </span>
-                    </td>
-                    <td>
-                      <span class=" tab_dados">
-                        68%
-                      </span>
-                    </td>
- -->
-                    <td class="text-right">
-                      <div class="dropdown">
-                        <a class="btn_grafico" href="#">
-                          <span>Gráfico</span>
-                        </a>
-                      </div>
-                    </td>
-                  </tr>
-                  <tr>
-                    <th scope="row">
-                      <div class="media align-items-center">
-                        <div class="ciculo">
-                          <div class="icon icon-shape bg-gradient-primary text-white rounded-circle shadow">
-                            <i class="fa fa-2"></i>
-                          </div>
-                        </div>
-                        <div class="media-body">
-                          <span class="mb-0 text-sm espaco_caixa_tab">Caixa 2</span>
-                        </div>
-                      </div>
-                    </th>
-                    <td>
-                      <span class=" tab_dados">
-                        58%
-                      </span>
-                    </td>
-                    <td>
-                      <span class=" tab_dados">
-                        68%
-                      </span>
-                    </td>
-                    <td>
-                      <span class=" tab_dados">
-                        68%
-                      </span>
-                    </td>
-                    <!-- <td>
-                      <span class=" tab_dados">
-                        68%
-                      </span>
-                    </td>
-                    <td>
-                      <span class=" tab_dados">
-                        68%
-                      </span>
-                    </td> -->
+                      </th>
+                      <td>
+                        <span class=" tab_dados">
+                          58%
+                        </span>
+                      </td>
+                      <td>
+                        <span class=" tab_dados">
+                          68%
+                        </span>
+                      </td>
+                      <td>
+                        <span class=" tab_dados">
+                          68%
+                        </span>
+                      </td>
 
-                    <td class="text-right">
-                      <div class="dropdown">
-                        <a class="btn_grafico" href="#">
-                          <span>Gráfico</span>
-                        </a>
-                      </div>
-                    </td>
-                  </tr>
-                  <tr>
-                    <th scope="row">
-                      <div class="media align-items-center">
-                        <div class="ciculo">
-                          <div class="icon icon-shape bg-gradient-primary text-white rounded-circle shadow">
-                            <i class="fa fa-3"></i>
+                      <td class="text-right">
+                        <div class="dropdown">
+                          <a class="btn_grafico" href="#">
+                            <span>Gráfico</span>
+                          </a>
+                        </div>
+                      </td>
+                    </tr>
+                    <tr>
+                      <th scope="row">
+                        <div class="media align-items-center">
+                          <div class="ciculo">
+                            <div class="icon icon-shape bg-warning text-white rounded-circle shadow">
+                              <i class="fa fa-2"></i>
+                            </div>
+                          </div>
+                          <div class="media-body">
+                            <span class="mb-0 text-sm espaco_caixa_tab">Caixa 2</span>
                           </div>
                         </div>
-                        <div class="media-body">
-                          <span class="mb-0 text-sm espaco_caixa_tab">Caixa 3</span>
-                        </div>
-                      </div>
-                    </th>
-                    <td>
-                      <span class=" tab_dados">
-                        58%
-                      </span>
-                    </td>
-                    <td>
-                      <span class=" tab_dados">
-                        68%
-                      </span>
-                    </td>
-                    <td>
-                      <span class=" tab_dados">
-                        68%
-                      </span>
-                    </td>
-                    <!-- <td>
-                      <span class=" tab_dados">
-                        68%
-                      </span>
-                    </td>
-                    <td>
-                      <span class=" tab_dados">
-                        68%
-                      </span>
-                    </td>
- -->
-                    <td class="text-right">
-                      <div class="dropdown">
-                        <a class="btn_grafico" href="#">
-                          <span>Gráfico</span>
-                        </a>
-                      </div>
-                    </td>
-                  </tr>
-                  <tr>
-                    <th scope="row">
-                      <div class="media align-items-center">
-                        <div class="ciculo">
-                          <div class="icon icon-shape bg-gradient-primary text-white rounded-circle shadow">
-                            <i class="fa fa-4"></i>
-                          </div>
-                        </div>
-                        <div class="media-body">
-                          <span class="mb-0 text-sm espaco_caixa_tab">Caixa 4</span>
-                        </div>
-                      </div>
-                    </th>
-                    <td>
-                      <span class=" tab_dados">
-                        58%
-                      </span>
-                    </td>
-                    <td>
-                      <span class=" tab_dados">
-                        68%
-                      </span>
-                    </td>
-                    <td>
-                      <span class=" tab_dados">
-                        68%
-                      </span>
-                    </td>
-                    <!-- <td>
-                      <span class=" tab_dados">
-                        68%
-                      </span>
-                    </td>
-                    <td>
-                      <span class=" tab_dados">
-                        68%
-                      </span>
-                    </td> -->
+                      </th>
+                      <td>
+                        <span class=" tab_dados">
+                          58%
+                        </span>
+                      </td>
+                      <td>
+                        <span class=" tab_dados">
+                          68%
+                        </span>
+                      </td>
+                      <td>
+                        <span class=" tab_dados">
+                          68%
+                        </span>
+                      </td>
 
-                    <td class="text-right">
-                      <div class="dropdown">
-                        <a class="btn_grafico" href="#">
-                          <span>Gráfico</span>
-                        </a>
-                      </div>
-                    </td>
-                  </tr>
-                  <tr>
-                    <th scope="row">
-                      <div class="media align-items-center">
-                        <div class="ciculo">
-                          <div class="icon icon-shape bg-gradient-primary text-white rounded-circle shadow">
-                            <i class="fa fa-5"></i>
+                      <td class="text-right">
+                        <div class="dropdown">
+                          <a class="btn_grafico" href="#">
+                            <span>Gráfico</span>
+                          </a>
+                        </div>
+                      </td>
+                    </tr>
+                    <tr>
+                      <th scope="row">
+                        <div class="media align-items-center">
+                          <div class="ciculo">
+                            <div class="icon icon-shape bg-warning text-white rounded-circle shadow">
+                              <i class="fa fa-3"></i>
+                            </div>
+                          </div>
+                          <div class="media-body">
+                            <span class="mb-0 text-sm espaco_caixa_tab">Caixa 3</span>
                           </div>
                         </div>
-                        <div class="media-body">
-                          <span class="mb-0 text-sm espaco_caixa_tab">Caixa 5</span>
-                        </div>
-                      </div>
-                    </th>
-                    <td>
-                      <span class=" tab_dados">
-                        58%
-                      </span>
-                    </td>
-                    <td>
-                      <span class=" tab_dados">
-                        68%
-                      </span>
-                    </td>
-                    <td>
-                      <span class=" tab_dados">
-                        68%
-                      </span>
-                    </td>
-                    <!-- <td>
-                      <span class=" tab_dados">
-                        68%
-                      </span>
-                    </td>
-                    <td>
-                      <span class=" tab_dados">
-                        68%
-                      </span>
-                    </td> -->
+                      </th>
+                      <td>
+                        <span class=" tab_dados">
+                          58%
+                        </span>
+                      </td>
+                      <td>
+                        <span class=" tab_dados">
+                          68%
+                        </span>
+                      </td>
+                      <td>
+                        <span class=" tab_dados">
+                          68%
+                        </span>
+                      </td>
 
-                    <td class="text-right">
-                      <div class="dropdown">
-                        <a class="btn_grafico" href="#">
-                          <span>Gráfico</span>
-                        </a>
-                      </div>
-                    </td>
-                  </tr>
-                </tbody>
-              </table>
+                      <td class="text-right">
+                        <div class="dropdown">
+                          <a class="btn_grafico" href="#">
+                            <span>Gráfico</span>
+                          </a>
+                        </div>
+                      </td>
+                    </tr>
+                                      
+                  </tbody>
+                </table>
+              </div>
+            </div>
+            <!-- Agencia 2 -->
+            <div class="agencia2" id="grafico_ag2" style="display: none;">
+              <div class="card bg-default shadow">
+                <div class="card-header bg-transparent border-0">
+                  <h3 class="text-white mb-0">Caixa Econômica</h3>
+                </div>
+                <div class="table-responsive">
+                  <table class="table align-items-center table-dark table-flush">
+                    <thead class="thead-dark">
+                      <tr>
+                        <th scope="col">Caixa</th>
+                        <th scope="col">Processador</th>
+                        <th scope="col">Memória Ram</th>
+                        <th scope="col">Memória Disco</th>
+                        <!-- <th scope="col">Wi-fi</th>
+                      <th scope="col">GPU</th> -->
+                        <th scope="col"></th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <th scope="row">
+                          <div class="media align-items-center">
+                            <div class="ciculo">
+                              <div class="icon icon-shape bg-warning text-white rounded-circle shadow">
+                                <i class="fa fa-1"></i>
+                              </div>
+                            </div>
+                            <div class="media-body">
+                              <span class="mb-0 text-sm espaco_caixa_tab">Caixa 1</span>
+                            </div>
+                          </div>
+                        </th>
+                        <td>
+                          <span class=" tab_dados">
+                            58%
+                          </span>
+                        </td>
+                        <td>
+                          <span class=" tab_dados">
+                            68%
+                          </span>
+                        </td>
+                        <td>
+                          <span class=" tab_dados">
+                            68%
+                          </span>
+                        </td>
+
+                        <td class="text-right">
+                          <div class="dropdown">
+                            <a class="btn_grafico" href="#">
+                              <span>Gráfico</span>
+                            </a>
+                          </div>
+                        </td>
+                      </tr>
+                      <tr>
+                        <th scope="row">
+                          <div class="media align-items-center">
+                            <div class="ciculo">
+                              <div class="icon icon-shape bg-warning text-white rounded-circle shadow">
+                                <i class="fa fa-2"></i>
+                              </div>
+                            </div>
+                            <div class="media-body">
+                              <span class="mb-0 text-sm espaco_caixa_tab">Caixa 2</span>
+                            </div>
+                          </div>
+                        </th>
+                        <td>
+                          <span class=" tab_dados">
+                            58%
+                          </span>
+                        </td>
+                        <td>
+                          <span class=" tab_dados">
+                            68%
+                          </span>
+                        </td>
+                        <td>
+                          <span class=" tab_dados">
+                            68%
+                          </span>
+                        </td>
+
+                        <td class="text-right">
+                          <div class="dropdown">
+                            <a class="btn_grafico" href="#">
+                              <span>Gráfico</span>
+                            </a>
+                          </div>
+                        </td>
+                      </tr>
+                      <tr>
+                        <th scope="row">
+                          <div class="media align-items-center">
+                            <div class="ciculo">
+                              <div class="icon icon-shape bg-warning text-white rounded-circle shadow">
+                                <i class="fa fa-3"></i>
+                              </div>
+                            </div>
+                            <div class="media-body">
+                              <span class="mb-0 text-sm espaco_caixa_tab">Caixa 3</span>
+                            </div>
+                          </div>
+                        </th>
+                        <td>
+                          <span class=" tab_dados">
+                            58%
+                          </span>
+                        </td>
+                        <td>
+                          <span class=" tab_dados">
+                            68%
+                          </span>
+                        </td>
+                        <td>
+                          <span class=" tab_dados">
+                            68%
+                          </span>
+                        </td>
+
+                        <td class="text-right">
+                          <div class="dropdown">
+                            <a class="btn_grafico" href="#">
+                              <span>Gráfico</span>
+                            </a>
+                          </div>
+                        </td>
+                      </tr>
+                      <tr>
+                        <th scope="row">
+                          <div class="media align-items-center">
+                            <div class="ciculo">
+                              <div class="icon icon-shape bg-warning text-white rounded-circle shadow">
+                                <i class="fa fa-4"></i>
+                              </div>
+                            </div>
+                            <div class="media-body">
+                              <span class="mb-0 text-sm espaco_caixa_tab">Caixa 4</span>
+                            </div>
+                          </div>
+                        </th>
+                        <td>
+                          <span class=" tab_dados">
+                            58%
+                          </span>
+                        </td>
+                        <td>
+                          <span class=" tab_dados">
+                            68%
+                          </span>
+                        </td>
+                        <td>
+                          <span class=" tab_dados">
+                            68%
+                          </span>
+                        </td>
+
+                        <td class="text-right">
+                          <div class="dropdown">
+                            <a class="btn_grafico" href="#">
+                              <span>Gráfico</span>
+                            </a>
+                          </div>
+                        </td>
+                      </tr>
+                     
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+            <!-- Agencia 3 -->
+            <div class="agencia3" id="grafico_ag3" style="display: none;">
+              <div class="card bg-default shadow">
+                <div class="card-header bg-transparent border-0">
+                  <h3 class="text-white mb-0">Caixa Econômica</h3>
+                </div>
+                <div class="table-responsive">
+                  <table class="table align-items-center table-dark table-flush">
+                    <thead class="thead-dark">
+                      <tr>
+                        <th scope="col">Caixa</th>
+                        <th scope="col">Processador</th>
+                        <th scope="col">Memória Ram</th>
+                        <th scope="col">Memória Disco</th>
+                        <!-- <th scope="col">Wi-fi</th>
+                      <th scope="col">GPU</th> -->
+                        <th scope="col"></th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <th scope="row">
+                          <div class="media align-items-center">
+                            <div class="ciculo">
+                              <div class="icon icon-shape bg-warning text-white rounded-circle shadow">
+                                <i class="fa fa-1"></i>
+                              </div>
+                            </div>
+                            <div class="media-body">
+                              <span class="mb-0 text-sm espaco_caixa_tab">Caixa 1</span>
+                            </div>
+                          </div>
+                        </th>
+                        <td>
+                          <span class=" tab_dados">
+                            58%
+                          </span>
+                        </td>
+                        <td>
+                          <span class=" tab_dados">
+                            68%
+                          </span>
+                        </td>
+                        <td>
+                          <span class=" tab_dados">
+                            68%
+                          </span>
+                        </td>
+
+                        <td class="text-right">
+                          <div class="dropdown">
+                            <a class="btn_grafico" href="#">
+                              <span>Gráfico</span>
+                            </a>
+                          </div>
+                        </td>
+                      </tr>
+                      <tr>
+                        <th scope="row">
+                          <div class="media align-items-center">
+                            <div class="ciculo">
+                              <div class="icon icon-shape bg-warning text-white rounded-circle shadow">
+                                <i class="fa fa-2"></i>
+                              </div>
+                            </div>
+                            <div class="media-body">
+                              <span class="mb-0 text-sm espaco_caixa_tab">Caixa 2</span>
+                            </div>
+                          </div>
+                        </th>
+                        <td>
+                          <span class=" tab_dados">
+                            58%
+                          </span>
+                        </td>
+                        <td>
+                          <span class=" tab_dados">
+                            68%
+                          </span>
+                        </td>
+                        <td>
+                          <span class=" tab_dados">
+                            68%
+                          </span>
+                        </td>
+
+                        <td class="text-right">
+                          <div class="dropdown">
+                            <a class="btn_grafico" href="#">
+                              <span>Gráfico</span>
+                            </a>
+                          </div>
+                        </td>
+                      </tr>
+                      <tr>
+                        <th scope="row">
+                          <div class="media align-items-center">
+                            <div class="ciculo">
+                              <div class="icon icon-shape bg-warning text-white rounded-circle shadow">
+                                <i class="fa fa-3"></i>
+                              </div>
+                            </div>
+                            <div class="media-body">
+                              <span class="mb-0 text-sm espaco_caixa_tab">Caixa 3</span>
+                            </div>
+                          </div>
+                        </th>
+                        <td>
+                          <span class=" tab_dados">
+                            58%
+                          </span>
+                        </td>
+                        <td>
+                          <span class=" tab_dados">
+                            68%
+                          </span>
+                        </td>
+                        <td>
+                          <span class=" tab_dados">
+                            68%
+                          </span>
+                        </td>
+
+                        <td class="text-right">
+                          <div class="dropdown">
+                            <a class="btn_grafico" href="#">
+                              <span>Gráfico</span>
+                            </a>
+                          </div>
+                        </td>
+                      </tr>
+                      <tr>
+                        <th scope="row">
+                          <div class="media align-items-center">
+                            <div class="ciculo">
+                              <div class="icon icon-shape bg-warning text-white rounded-circle shadow">
+                                <i class="fa fa-4"></i>
+                              </div>
+                            </div>
+                            <div class="media-body">
+                              <span class="mb-0 text-sm espaco_caixa_tab">Caixa 4</span>
+                            </div>
+                          </div>
+                        </th>
+                        <td>
+                          <span class=" tab_dados">
+                            58%
+                          </span>
+                        </td>
+                        <td>
+                          <span class=" tab_dados">
+                            68%
+                          </span>
+                        </td>
+                        <td>
+                          <span class=" tab_dados">
+                            68%
+                          </span>
+                        </td>
+
+                        <td class="text-right">
+                          <div class="dropdown">
+                            <a class="btn_grafico" href="#">
+                              <span>Gráfico</span>
+                            </a>
+                          </div>
+                        </td>
+                      </tr>
+                      <tr>
+                        <th scope="row">
+                          <div class="media align-items-center">
+                            <div class="ciculo">
+                              <div class="icon icon-shape bg-warning text-white rounded-circle shadow">
+                                <i class="fa fa-5"></i>
+                              </div>
+                            </div>
+                            <div class="media-body">
+                              <span class="mb-0 text-sm espaco_caixa_tab">Caixa 5</span>
+                            </div>
+                          </div>
+                        </th>
+                        <td>
+                          <span class=" tab_dados">
+                            58%
+                          </span>
+                        </td>
+                        <td>
+                          <span class=" tab_dados">
+                            68%
+                          </span>
+                        </td>
+                        <td>
+                          <span class=" tab_dados">
+                            68%
+                          </span>
+                        </td>
+
+                        <td class="text-right">
+                          <div class="dropdown">
+                            <a class="btn_grafico" href="#">
+                              <span>Gráfico</span>
+                            </a>
+                          </div>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+            <!-- Agencia 4 -->
+            <div class="agencia4" id="grafico_ag4" style="display: none;">
+              <div class="card bg-default shadow">
+                <div class="card-header bg-transparent border-0">
+                  <h3 class="text-white mb-0">Caixa Econômica</h3>
+                </div>
+                <div class="table-responsive">
+                  <table class="table align-items-center table-dark table-flush">
+                    <thead class="thead-dark">
+                      <tr>
+                        <th scope="col">Caixa</th>
+                        <th scope="col">Processador</th>
+                        <th scope="col">Memória Ram</th>
+                        <th scope="col">Memória Disco</th>
+                        <!-- <th scope="col">Wi-fi</th>
+                      <th scope="col">GPU</th> -->
+                        <th scope="col"></th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <th scope="row">
+                          <div class="media align-items-center">
+                            <div class="ciculo">
+                              <div class="icon icon-shape bg-warning text-white rounded-circle shadow">
+                                <i class="fa fa-1"></i>
+                              </div>
+                            </div>
+                            <div class="media-body">
+                              <span class="mb-0 text-sm espaco_caixa_tab">Caixa 1</span>
+                            </div>
+                          </div>
+                        </th>
+                        <td>
+                          <span class=" tab_dados">
+                            58%
+                          </span>
+                        </td>
+                        <td>
+                          <span class=" tab_dados">
+                            68%
+                          </span>
+                        </td>
+                        <td>
+                          <span class=" tab_dados">
+                            68%
+                          </span>
+                        </td>
+
+                        <td class="text-right">
+                          <div class="dropdown">
+                            <a class="btn_grafico" href="#">
+                              <span>Gráfico</span>
+                            </a>
+                          </div>
+                        </td>
+                      </tr>
+                      <tr>
+                        <th scope="row">
+                          <div class="media align-items-center">
+                            <div class="ciculo">
+                              <div class="icon icon-shape bg-warning text-white rounded-circle shadow">
+                                <i class="fa fa-2"></i>
+                              </div>
+                            </div>
+                            <div class="media-body">
+                              <span class="mb-0 text-sm espaco_caixa_tab">Caixa 2</span>
+                            </div>
+                          </div>
+                        </th>
+                        <td>
+                          <span class=" tab_dados">
+                            58%
+                          </span>
+                        </td>
+                        <td>
+                          <span class=" tab_dados">
+                            68%
+                          </span>
+                        </td>
+                        <td>
+                          <span class=" tab_dados">
+                            68%
+                          </span>
+                        </td>
+
+                        <td class="text-right">
+                          <div class="dropdown">
+                            <a class="btn_grafico" href="#">
+                              <span>Gráfico</span>
+                            </a>
+                          </div>
+                        </td>
+                      </tr>
+                      <tr>
+                        <th scope="row">
+                          <div class="media align-items-center">
+                            <div class="ciculo">
+                              <div class="icon icon-shape bg-warning text-white rounded-circle shadow">
+                                <i class="fa fa-3"></i>
+                              </div>
+                            </div>
+                            <div class="media-body">
+                              <span class="mb-0 text-sm espaco_caixa_tab">Caixa 3</span>
+                            </div>
+                          </div>
+                        </th>
+                        <td>
+                          <span class=" tab_dados">
+                            58%
+                          </span>
+                        </td>
+                        <td>
+                          <span class=" tab_dados">
+                            68%
+                          </span>
+                        </td>
+                        <td>
+                          <span class=" tab_dados">
+                            68%
+                          </span>
+                        </td>
+
+                        <td class="text-right">
+                          <div class="dropdown">
+                            <a class="btn_grafico" href="#">
+                              <span>Gráfico</span>
+                            </a>
+                          </div>
+                        </td>
+                      </tr>
+          
+                    </tbody>
+                  </table>
+                </div>
+              </div>
             </div>
           </div>
         </div>
       </div>
+
+
+
+
+
+
+
+
+
       <!-- Footer -->
       <footer class="footer">
         <div class="row align-items-center justify-content-xl-between">
@@ -932,8 +1344,9 @@
   <script src="../assets/js/plugins/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
   <!--   Optional JS   -->
   <!--   Argon JS   -->
-  <script src="../assets/js/argon-dashboard.min.js?v=1.1.2"></script>
+  <script src="../assets/js/argon-dashboard.js"></script>
   <script src="https://cdn.trackjs.com/agent/v3/latest/t.js"></script>
+  <script src="../assets/js/dashboard.js"></script>
   <script>
     window.TrackJS &&
       TrackJS.install({

@@ -83,7 +83,7 @@ demo = {
     gradientFill.addColorStop(1, "rgba(249, 99, 59, 0.40)");
 
     myChart = new Chart(ctx, {
-      type: 'line',
+      type: 'bar',
       responsive: true,
       data: {
         labels: ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"],

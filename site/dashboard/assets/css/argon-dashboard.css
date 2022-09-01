@@ -1511,7 +1511,8 @@ pre code {
 
   .col-xl-8 {
     flex: 0 0 66.666667%;
-    max-width: 42rem;
+    max-width: 55rem;
+    margin: auto;
   }
 
   .col-xl-9 {
@@ -4979,7 +4980,7 @@ input[type="button"].btn-block {
 
 .card-body {
   flex: 1 1 auto;
-  padding: 1.5rem;
+  padding: 2.6rem;
 }
 
 .card-title {
@@ -8319,7 +8320,7 @@ button.bg-darker:focus {
 
 .mr-2,
 .mx-2 {
-  margin-right: 0.5rem !important;
+  margin-right: 10rem !important;
 }
 
 .mb-2,
@@ -16694,7 +16695,7 @@ textarea[resize="horizontal"] {
 }
 
 .nav-pills .nav-link:hover {
-  color: #485fe0;
+  color: #e2a507;
 }
 
 .nav-pills .nav-link.active,

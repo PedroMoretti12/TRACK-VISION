@@ -119,3 +119,12 @@
   .cor_perfil{
     background-color: #000000b6;
   }
+
+  .h2_ag{
+    color: #000;
+  }
+
+  .btn_caixa {
+    position: relative;
+    padding-bottom: 0.5rem;
+  }

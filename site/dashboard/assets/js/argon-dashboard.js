@@ -135,7 +135,7 @@ var $map = $('#map-canvas'),
   map,
   lat,
   lng,
-  color = "#5e72e4";
+  color = "#000000";
 
 function initMap() {
 
@@ -588,7 +588,7 @@ var Charts = (function() {
       'info': '#11cdef',
       'success': '#2dce89',
       'danger': '#f5365c',
-      'warning': '#fb6340'
+      'warning': '#000000'
     },
     black: '#12263F',
     white: '#FFFFFF',
@@ -807,7 +807,7 @@ var Charts = (function() {
       ticks: {
         padding: 20
       },
-      maxBarThickness: 10
+      maxBarThickness: 70
     });
 
     return options;
@@ -987,8 +987,8 @@ var OrdersChart = (function() {
           yAxes: [{
             gridLines: {
               lineWidth: 1,
-              color: '#dfe2e6',
-              zeroLineColor: '#dfe2e6'
+              color: '#000000',
+              zeroLineColor: '#000000'
             },
             ticks: {
               callback: function(value) {
@@ -1022,7 +1022,7 @@ var OrdersChart = (function() {
         labels: ['CPU','RAM','DISCO'],
         datasets: [{
           label: 'Sales',
-          data: [25, 20, 30, 22, 17, 29]
+          data: [25, 20, 30, 22, 17, 50]
         }]
       }
     });
@@ -1061,7 +1061,7 @@ var SalesChart = (function() {
   function init($chart) {
 
     var salesChart = new Chart($chart, {
-      type: 'line',
+      type: 'bar',
       options: {
         scales: {
           yAxes: [{
@@ -1090,17 +1090,17 @@ var SalesChart = (function() {
                 content += '<span class="popover-body-label mr-auto">' + label + '</span>';
               }
 
-              content += '<span class="popover-body-value">$' + yLabel + 'k</span>';
+              content += '<span class="popover-body-value">' + yLabel + '%</span>';
               return content;
             }
           }
         }
       },
       data: {
-        labels: ['May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
+        labels: ["CPU","RAM","DISCO"],
         datasets: [{
           label: 'Performance',
-          data: [10, 20, 30, 40, 50, 60, 70, 80, 90, 100]
+          data: [17, 56, 3, 40, 50, 60, 70, 80, 90, 100]
         }]
       }
     });
@@ -1108,6 +1108,232 @@ var SalesChart = (function() {
     // Save to jQuery object
 
     $chart.data('chart', salesChart);
+
+  };
+
+
+  // Events
+
+  if ($chart.length) {
+    init($chart);
+  }
+
+})();
+
+
+
+
+
+
+
+
+var SalesChart2 = (function() {
+
+  // Variables
+
+  var $chart = $('#chart-sales2');
+
+
+  // Methods
+
+  function init($chart) {
+
+    var salesChart2 = new Chart($chart, {
+      type: 'bar',
+      options: {
+        scales: {
+          yAxes: [{
+            gridLines: {
+              lineWidth: 1,
+              color: Charts.colors.gray[900],
+              zeroLineColor: Charts.colors.gray[900]
+            },
+            ticks: {
+              callback: function(value) {
+                if (!(value % 10)) {
+                  return  value + '%';
+                }
+              }
+            }
+          }]
+        },
+        tooltips: {
+          callbacks: {
+            label: function(item, data) {
+              var label = data.datasets[item.datasetIndex].label || '';
+              var yLabel = item.yLabel;
+              var content = '';
+
+              if (data.datasets.length > 1) {
+                content += '<span class="popover-body-label mr-auto">' + label + '</span>';
+              }
+
+              content += '<span class="popover-body-value">' + yLabel + '%</span>';
+              return content;
+            }
+          }
+        }
+      },
+      data: {
+        labels: ["CPU","RAM","DISCO"],
+        datasets: [{
+          label: 'Performance',
+          data: [14, 26, 7, 40, 50, 60, 70, 80, 90, 100]
+        }]
+      }
+    });
+
+    // Save to jQuery object
+
+    $chart.data('chart', salesChart2);
+
+  };
+
+
+  // Events
+
+  if ($chart.length) {
+    init($chart);
+  }
+
+})();
+
+
+
+var SalesChart3 = (function() {
+
+  // Variables
+
+  var $chart = $('#chart-sales3');
+
+
+  // Methods
+
+  function init($chart) {
+
+    var salesChart3 = new Chart($chart, {
+      type: 'bar',
+      options: {
+        scales: {
+          yAxes: [{
+            gridLines: {
+              lineWidth: 1,
+              color: Charts.colors.gray[900],
+              zeroLineColor: Charts.colors.gray[900]
+            },
+            ticks: {
+              callback: function(value) {
+                if (!(value % 10)) {
+                  return  value + '%';
+                }
+              }
+            }
+          }]
+        },
+        tooltips: {
+          callbacks: {
+            label: function(item, data) {
+              var label = data.datasets[item.datasetIndex].label || '';
+              var yLabel = item.yLabel;
+              var content = '';
+
+              if (data.datasets.length > 1) {
+                content += '<span class="popover-body-label mr-auto">' + label + '</span>';
+              }
+
+              content += '<span class="popover-body-value">' + yLabel + '%</span>';
+              return content;
+            }
+          }
+        }
+      },
+      data: {
+        labels: ["CPU","RAM","DISCO"],
+        datasets: [{
+          label: 'Performance',
+          data: [12, 31, 33, 40, 50, 60, 70, 80, 90, 100]
+        }]
+      }
+    });
+
+    // Save to jQuery object
+
+    $chart.data('chart', salesChart3);
+
+  };
+
+
+  // Events
+
+  if ($chart.length) {
+    init($chart);
+  }
+
+})();
+
+
+
+
+
+var SalesChart4 = (function() {
+
+  // Variables
+
+  var $chart = $('#chart-sales4');
+
+
+  // Methods
+
+  function init($chart) {
+
+    var salesChart4 = new Chart($chart, {
+      type: 'bar',
+      options: {
+        scales: {
+          yAxes: [{
+            gridLines: {
+              lineWidth: 1,
+              color: Charts.colors.gray[900],
+              zeroLineColor: Charts.colors.gray[900]
+            },
+            ticks: {
+              callback: function(value) {
+                if (!(value % 10)) {
+                  return  value + '%';
+                }
+              }
+            }
+          }]
+        },
+        tooltips: {
+          callbacks: {
+            label: function(item, data) {
+              var label = data.datasets[item.datasetIndex].label || '';
+              var yLabel = item.yLabel;
+              var content = '';
+
+              if (data.datasets.length > 1) {
+                content += '<span class="popover-body-label mr-auto">' + label + '</span>';
+              }
+
+              content += '<span class="popover-body-value">' + yLabel + '%</span>';
+              return content;
+            }
+          }
+        }
+      },
+      data: {
+        labels: ["CPU","RAM","DISCO"],
+        datasets: [{
+          label: 'Performance',
+          data: [37, 43, 12, 40, 50, 60, 70, 80, 90, 100]
+        }]
+      }
+    });
+
+    // Save to jQuery object
+
+    $chart.data('chart', salesChart4);
 
   };
 

@@ -79,7 +79,7 @@
 }
 
 .btn_grafico:hover {
-  color: #969696;
+  color: #eeae07;
 }
 
 .tab_dados {
@@ -103,8 +103,11 @@
 }
 
 .btn_agencia_endereco {
+  position: relative;
+  right: 20%;
   color: #605f5f;
   font-weight: 700;
+
 }
 
   .perfil_font{
@@ -121,6 +124,10 @@
   }
 
   .h2_ag{
+    color: #000;
+  }
+
+  .cor_preta{
     color: #000;
   }
 

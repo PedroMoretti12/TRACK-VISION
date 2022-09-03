@@ -1672,7 +1672,7 @@ pre code {
 
 .table-sm th,
 .table-sm td {
-  padding: 0.5rem;
+  padding: 0rem;
 }
 
 .table-bordered {
@@ -1901,8 +1901,8 @@ pre code {
 
 .table .thead-dark th {
   color: #f8f9fe;
-  background-color: #172b4d;
-  border-color: #1f3a68;
+  background-color: #ffffff;
+  border-color: #a19e8a;
 }
 
 .table .thead-light th {
@@ -1912,14 +1912,14 @@ pre code {
 }
 
 .table-dark {
-  color: #f8f9fe;
-  background-color: #172b4d;
+  color: #000000;
+  background-color: #ffffff;
 }
 
 .table-dark th,
 .table-dark td,
 .table-dark thead th {
-  border-color: #1f3a68;
+  border-color: #a19e8a;
 }
 
 .table-dark.table-bordered {
@@ -4960,7 +4960,7 @@ input[type="button"].btn-block {
   background-color: #fff;
   background-clip: border-box;
   border: 1px solid rgba(0, 0, 0, 0.05);
-  border-radius: 0.375rem;
+  border-radius: 0.240rem;
 }
 
 .card>hr {
@@ -18406,8 +18406,9 @@ textarea[resize="horizontal"] {
 }
 
 .table .thead-dark th {
-  background-color: #1c345d;
-  color: #4d7bca;
+  background-color: #ffffff;
+  color: #000000;
+  font-size: 14px;
 }
 
 .table .thead-light th {

@@ -39,10 +39,10 @@ disco float,
 ultimaLeitura DATETIME
 )auto_increment = 2000;
 
-desc empresa;
-desc usuario;
-desc caixa;
-desc leitura;
+-- desc empresa;
+-- desc usuario;
+-- desc caixa;
+-- desc leitura;
 
 insert into empresa values 
 (null, 'Caixa Econômica Federal', '00.360.305/0001-04', 'caixaeletronica@caixa.com'),
@@ -62,7 +62,17 @@ insert into caixa values
 -- select * from empresa;
 -- select * from usuario;
 -- select * from caixa;
-select * from leitura;
+
+select idLeitura as 'Cód. Leitura', 
+	fkCaixa as 'Cód do Caixa', 
+		fkUsuario as 'Cód do Usuário', 
+			processadorPorcentagem as 'CPU (%)', 
+				memoriaRAM as 'RAM (%)', 
+					disco as 'Disco (%)', 
+						ultimaLeitura as 'Momento Leitura' 
+							from leitura;
+
+/*  Selects mais especificos para obter informações 
 						
 select * from empresa, usuario, caixa, leitura 
 		where usuario.fkEmpresa = idEmpresa 
@@ -80,7 +90,4 @@ select idUsuario as 'Cód de Usuário',
 							from usuario join caixa join leitura
 								on leitura.fkusuario = idusuario 
 									and leitura.fkCaixa = idcaixa;
-
-
-
-
+*/

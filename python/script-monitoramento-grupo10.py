@@ -9,7 +9,7 @@ from datetime import date
 try:
 
     conn = mysql.connector.connect(
-        host='localhost', user='Aluno', password='sptech', database='trackvision')
+        host='localhost', user='Ella', password='urubu100', database='trackvision')
     print("Conexão ao banco estabelecida!")
 
     fkCaixa = int(input("Informe o código do caixa: "))
@@ -18,8 +18,8 @@ try:
     inicioSegundos = 1
 
     while True:
-        ramPorcentagem = psutil.virtual_memory().percent
         cpuPercent = psutil.cpu_percent(interval=1, percpu=False)
+        ramPorcentagem = psutil.virtual_memory().percent
         discoUsado = psutil.disk_usage("C:\\").percent
         ultimaLeitura = datetime.datetime.now().strftime('%d/%m/%Y %H:%M:%S')
 
@@ -33,6 +33,19 @@ try:
         print("\n")
         inicioSegundos += 1
         time.sleep(5.0)
+
+        cpu = psutil.cpu_percent(interval=1, percpu=False)
+        #memoria = psutil.virtual_memory().percent
+        #disco = psutil.disk_usage("C:\\").percent
+
+        if cpu <= 0.5:
+            print('Baixo Uso')
+        elif cpu >=1 and cpu >= 5:
+            print('Uso estável')
+        elif cpu >= 6 and cpu <=10:
+            print('Alto Uso')
+        else:
+            print(' -- ')
 
 except:
     print("Houve um erro ao conectar-se ao banco.")

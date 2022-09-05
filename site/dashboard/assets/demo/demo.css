@@ -84,6 +84,7 @@
 
 .tab_dados {
   font-size: 18px;
+  align-items: center;
 }
 
 .espaco_caixa_tab {
@@ -135,3 +136,15 @@
     position: relative;
     padding-bottom: 0.5rem;
   }
+
+  .overflowX_login_cadastro{
+    overflow-y: hidden;
+  }
+
+  .margin_bottom{
+    margin-bottom: 2rem;
+  }
+
+.td_center{
+  text-align: center;
+}

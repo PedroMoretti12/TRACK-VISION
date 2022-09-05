@@ -5,15 +5,17 @@ import time
 import mysql.connector
 import datetime
 from datetime import date
+import platform
 
 try:
 
     conn = mysql.connector.connect(
-        host='localhost', user='Ella', password='urubu100', database='trackvision')
+        host='localhost', user='root', password='#Gf44844181858', database='trackvision')
     print("Conexão ao banco estabelecida!")
 
     fkCaixa = int(input("Informe o código do caixa: "))
     fkUsuario = int(input("Informe o seu código de usuário: "))
+    print("\n")
     cursor = conn.cursor()
     inicioSegundos = 1
 
@@ -27,25 +29,26 @@ try:
         values = [fkCaixa, fkUsuario, cpuPercent, ramPorcentagem, discoUsado]
         cursor.execute(sql, values)
         conn.commit()
+        sopera = platform.system()
 
         print(ultimaLeitura)
+        print("Sistema operacional utilizado: ", sopera)
         print(inicioSegundos, "Captura(s) de dados inserida(s).")
-        print("\n")
         inicioSegundos += 1
         time.sleep(5.0)
 
-        cpu = psutil.cpu_percent(interval=1, percpu=False)
-        #memoria = psutil.virtual_memory().percent
-        #disco = psutil.disk_usage("C:\\").percent
-
-        if cpu <= 0.5:
+        if cpuPercent >= 0 and cpuPercent < 5:
             print('Baixo Uso')
-        elif cpu >=1 and cpu >= 5:
+            print("\n")
+        elif cpuPercent >= 5 and cpuPercent < 10:
             print('Uso estável')
-        elif cpu >= 6 and cpu <=10:
+            print("\n")
+        elif cpuPercent >= 10:
             print('Alto Uso')
+            print("\n")
         else:
-            print(' -- ')
+            print('--')
+            print("\n")
 
 except:
     print("Houve um erro ao conectar-se ao banco.")

@@ -38,7 +38,8 @@
   <nav class="navbar navbar-vertical fixed-left navbar-expand-md navbar-light bg-white" id="sidenav-main">
     <div class="container-fluid">
       <!-- Toggler -->
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#sidenav-collapse-main" aria-controls="sidenav-main" aria-expanded="false" aria-label="Toggle navigation">
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#sidenav-collapse-main"
+        aria-controls="sidenav-main" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
       <!-- Brand -->
@@ -57,7 +58,8 @@
               </a>
             </div>
             <div class="col-6 collapse-close">
-              <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#sidenav-collapse-main" aria-controls="sidenav-main" aria-expanded="false" aria-label="Toggle sidenav">
+              <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#sidenav-collapse-main"
+                aria-controls="sidenav-main" aria-expanded="false" aria-label="Toggle sidenav">
                 <span></span>
                 <span></span>
               </button>
@@ -73,15 +75,16 @@
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link " href="./profile.html">
-              <i class="ni ni-single-02 text-yellow"></i> Perfil
-            </a>
-          </li>
-          <li class="nav-item">
             <a class="nav-link " href="./tables.html">
               <i class="ni ni-bullet-list-67 text-red"></i> Tabelas
             </a>
           </li>
+          <li class="nav-item">
+            <a class="nav-link " href="./profile.html">
+              <i class="ni ni-single-02 text-yellow"></i> Perfil
+            </a>
+          </li>
+
           <li class="nav-item">
             <a class="nav-link" href="https://app.pipefy.com/public/form/kI792hGj" target="_blank">
               <i class="ni ni-key-25 text-info"></i> Suporte
@@ -107,64 +110,69 @@
     </div>
     <!-- Page content -->
     <div class="container-fluid mt--7">
-      
-      
-        <div class="div_perfil order-xl-1">
-          <div class="card bg-secondary shadow">
-            <div class="card-header bg-white border-0">
-              <div class="row align-items-center">
-                <div class="col-8">
-                  <h3 class="mb-0" style="color:#000 ;">Minha conta</h3>
-                </div>
-                <div class="col-4 text-right">
-                  <a href="#" class="btn btn-sm" id="editar_perfil" onclick="editar_input()">Editar</a>
-                  <a href="./profile.html" class="btn btn-sm" id="cancelar_perfil" style="display: none;">Cancelar</a>
-                  <a href="#" class="btn btn-sm" id="salvar_perfil" onclick="salvar_input()" style="display: none;">Salvar</a>
-                </div>
-                
+
+
+      <div class="div_perfil order-xl-1">
+        <div class="card bg-secondary shadow">
+          <div class="card-header bg-white border-0">
+            <div class="row align-items-center">
+              <div class="col-8">
+                <h3 class="mb-0" style="color:#000 ;">Minha conta</h3>
               </div>
-            </div>
-            <div class="card-body">
-              <form>
-                <h6 class="heading-small text-muted mb-4">Informações do Usuário</h6>
-                <div class="pl-lg-4">
-                  <div class="row">
-                    <div class="col-lg-6">
-                      <div class="form-group">
-                        <label class="form-control-label" for="input-username">Nome</label>
-                        <input type="text" id="inputUsername" class="form-control form-control-alternative" placeholder="Username" value="Fernando.Brandão" disabled>
-                      </div>
-                    </div>
-                    <div class="col-lg-6">
-                      <div class="form-group">
-                        <label class="form-control-label" for="input-email">Endereço de e-mail</label>
-                        <input type="email" id="inputEmail" class="form-control form-control-alternative" placeholder="email" value="fernando.brandao@sptech.school" disabled>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="row">
-                    <div class="col-lg-6">
-                      <div class="form-group">
-                        <label class="form-control-label" for="input-first-name">Primeiro nome</label>
-                        <input type="text" id="inputFirstName" class="form-control form-control-alternative" placeholder="First name" value="Fernando" disabled>
-                      </div>
-                    </div>
-                    <div class="col-lg-6">
-                      <div class="form-group">
-                        <label class="form-control-label" for="input-last-name">Último nome</label>
-                        <input type="text" id="inputLastName" class="form-control form-control-alternative" placeholder="Last name" value="Brandão" disabled>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <hr class="my-4" />
-              </form>
+              <div class="col-4 text-right">
+                <a href="#" class="btn btn-sm" id="editar_perfil" onclick="editar_input()">Editar</a>
+                <a href="./profile.html" class="btn btn-sm" id="cancelar_perfil" style="display: none;">Cancelar</a>
+                <a href="#" class="btn btn-sm" id="salvar_perfil" onclick="salvar_input()"
+                  style="display: none;">Salvar</a>
+              </div>
+
             </div>
           </div>
+          <div class="card-body">
+            <form>
+              <h6 class="heading-small text-muted mb-4">Informações do Usuário</h6>
+              <div class="pl-lg-4">
+                <div class="row">
+                  <div class="col-lg-6">
+                    <div class="form-group">
+                      <label class="form-control-label" for="input-username">Nome</label>
+                      <input type="text" id="inputUsername" class="form-control form-control-alternative"
+                        placeholder="Username" value="Fernando.Brandão" disabled>
+                    </div>
+                  </div>
+                  <div class="col-lg-6">
+                    <div class="form-group">
+                      <label class="form-control-label" for="input-email">Endereço de e-mail</label>
+                      <input type="email" id="inputEmail" class="form-control form-control-alternative"
+                        placeholder="email" value="fernando.brandao@sptech.school" disabled>
+                    </div>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-lg-6">
+                    <div class="form-group">
+                      <label class="form-control-label" for="input-first-name">Primeiro nome</label>
+                      <input type="text" id="inputFirstName" class="form-control form-control-alternative"
+                        placeholder="First name" value="Fernando" disabled>
+                    </div>
+                  </div>
+                  <div class="col-lg-6">
+                    <div class="form-group">
+                      <label class="form-control-label" for="input-last-name">Último nome</label>
+                      <input type="text" id="inputLastName" class="form-control form-control-alternative"
+                        placeholder="Last name" value="Brandão" disabled>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <hr class="my-4" />
+            </form>
+          </div>
         </div>
+      </div>
     </div>
   </div>
-            
+
   <!--   Core   -->
   <script src="../assets/js/plugins/jquery/dist/jquery.min.js"></script>
   <script src="../assets/js/plugins/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
@@ -184,7 +192,7 @@
 </html>
 
 <script>
-    function editar_input(){
+  function editar_input() {
     inputUsername.disabled = false
     inputEmail.disabled = false
     inputFirstName.disabled = false
@@ -195,7 +203,7 @@
     salvar_perfil.style.display = "inline";
   }
 
-  function salvar_input(){
+  function salvar_input() {
     inputUsername.disabled = true
     inputEmail.disabled = true
     inputFirstName.disabled = true

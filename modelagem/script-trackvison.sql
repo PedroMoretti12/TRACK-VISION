@@ -1,5 +1,4 @@
 -- Track Vision (Team 10): Felipe Pires, Isabela Hantke, Rafaela Dias, Verônica Zibordi, Vitor Macauba
--- drop database trackvision;
 create database trackvision;
 use trackvision;
 

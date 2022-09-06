@@ -11,14 +11,14 @@ fun main() {
         verifica.senha = JOptionPane.showInputDialog("Senha: ")
 
         if (verifica.logado()) {
-            JOptionPane.showMessageDialog(null, "Bem-Vindo a Track Vision!!")
+            JOptionPane.showMessageDialog(null, "Bem-vindo à Track Vision!")
             break
         }
         JOptionPane.showMessageDialog(null, "Tente novamente!")
         cont++
     }
     if (cont == 3) {
-        JOptionPane.showMessageDialog(null, "Número de tentativas excedidas!!")
+        JOptionPane.showMessageDialog(null, "Número de tentativas excedidas!")
     }
 }
 // Rafaela Dias (SIS) for Track Vision - Team 10

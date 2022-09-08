@@ -8,4 +8,4 @@ class Validador {
     }
 }
 
-// Rafaela Dias (SIS) for Track Vision - Team 10
+// Track Vision - Team 10

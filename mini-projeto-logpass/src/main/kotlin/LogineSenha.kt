@@ -21,4 +21,4 @@ fun main() {
         JOptionPane.showMessageDialog(null, "Número de tentativas excedidas!")
     }
 }
-// Rafaela Dias (SIS) for Track Vision - Team 10
+// Track Vision - Team 10

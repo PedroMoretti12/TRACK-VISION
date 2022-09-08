@@ -40,11 +40,13 @@
     <!-- Navbar -->
     <nav class="navbar navbar-top navbar-horizontal navbar-expand-md navbar-dark">
       <div class="container px-4">
-          <a class="navbar-brand" href="C:\Users\Dell\OneDrive\Área de Trabalho\Aulas-SPTech-2022-2\Sprint-3-2022-2\Track-Vision\site\index.html"> 
-            <!-- Add o link direto para a página inicial do site -->
+        <a class="navbar-brand"
+          href="C:\Users\Dell\OneDrive\Área de Trabalho\Aulas-SPTech-2022-2\Sprint-3-2022-2\Track-Vision\site\index.html">
+          <!-- Add o link direto para a página inicial do site -->
           <img src="../assets/img/brand/track_black.png" class="navbar-brand-img" alt="...">
         </a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-collapse-main" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-collapse-main"
+          aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbar-collapse-main">
@@ -57,7 +59,8 @@
                 </a>
               </div>
               <div class="col-6 collapse-close">
-                <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbar-collapse-main" aria-controls="sidenav-main" aria-expanded="false" aria-label="Toggle sidenav">
+                <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbar-collapse-main"
+                  aria-controls="sidenav-main" aria-expanded="false" aria-label="Toggle sidenav">
                   <span></span>
                   <span></span>
                 </button>
@@ -107,7 +110,8 @@
         </div>
       </div>
       <div class="separator separator-bottom separator-skew zindex-100">
-        <svg x="0" y="0" viewBox="0 0 2560 100" preserveAspectRatio="none" version="1.1" xmlns="http://www.w3.org/2000/svg">
+        <svg x="0" y="0" viewBox="0 0 2560 100" preserveAspectRatio="none" version="1.1"
+          xmlns="http://www.w3.org/2000/svg">
           <polygon class="fill-default" points="2560 0 2560 100 0 100"></polygon>
         </svg>
       </div>
@@ -119,7 +123,8 @@
           <div class="card bg-secondary shadow border-0">
             <div class="card-header bg-transparent">
               <div class=" text-muted text-center mt-2 mb-3">
-                <h1 style="color: #000;">Login</h1></div>              
+                <h1 style="color: #000;">Login</h1>
+              </div>
               <form role="form" onsubmit="entrar_login(event)">
                 <div class="form-group mb-3">
                   <div class="input-group input-group-alternative">
@@ -144,16 +149,16 @@
                   </label>
                 </div>
                 <div class="text-center">
-                 <button type="submit" class="btn btn-primary my-4">Entrar</button>
+                  <button type="submit" class="btn btn-primary my-4">Entrar</button>
                 </div>
               </form>
             </div>
           </div>
-          </div>
         </div>
       </div>
     </div>
-    
+  </div>
+
   </div>
   <!--   Core   -->
   <script src="../assets/js/plugins/jquery/dist/jquery.min.js"></script>
@@ -177,23 +182,17 @@
   function entrar_login(event) {
     event.preventDefault()
 
-var email1 = "fernando.brandao@sptech.school"
-var senha1 = "12345"
 
-var email1 = "taiza.marques@sptech.school"
-var senha1 = "12345"
 
-    if (email_form.value == email1 && senha_form.value == senha1) {
 
-          window.location = "../dashboard.html";
-       
+    if (email_form.value == "fernando.brandao@sptech.school" && senha_form.value == "12345") {
+
+      window.location = "../dashboard.html";
     }
-    if (email_form.value == email2 && senha_form.value == senha2) {
 
-window.location = "../dashboard.html";
+    else {
 
-}  else {
-        alert("E-mail ou senha está incorreto")
+      alert("E-mail ou senha está incorreto")
     }
-}
+  }
 </script>

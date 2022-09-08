@@ -1,6 +1,5 @@
 # Team 10: TrackVision -  Felipe Pires RA:03221051 | Isabela Hantke RA:03221007 | Rafaela Dias RA:03221050 | Verônica Zibord RA:03221003 | Vitor Macauba RA:03221002
 
-from dis import disco
 import psutil
 import time
 import mysql.connector
@@ -88,15 +87,3 @@ while True:
         print("-"*30)
         print("\n")
         time.sleep(5.0)
-
-        # sql = "INSERT INTO leitura (fkCaixa, fkUsuario, processadorPorcentagem, memoriaRAM, disco, ultimaLeitura) VALUES (%s, %s, %s, %s, %s, (SELECT Now()))"
-        # values = [fkCaixa, fkUsuario, cpuPercent, ramPorcentagem, discoUsado]
-        # cursor.execute(sql, values)
-        # conn.commit()
-        # sopera = platform.system()
-
-        # print("-"*30)
-        # print(ultimaLeitura)
-        # print("Sistema operacional utilizado: ",sopera)
-        # inicioSegundos += 1
-        # print(inicioSegundos, "Captura(s) de dados inserida(s).")

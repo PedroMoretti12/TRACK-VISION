@@ -10,13 +10,13 @@ IMPORTANTE!
 - Qualquer alteração realizada deve ser comunicado no grupo do WhatsApp, informando o arquivo que foi atualizado aqui no git;
 - Subir todos os arquivos possíveis que forem realizados no decorrer da sprint, sendo eles:
 
-* Documentação
+* Documentação;
 * Site Responsivo (Home, Cadastro e Login);
 * Bancos de Dados (Modelagem e Script);
 * E demais atividade desenvolvidas em sala de aula.
 
-- Sprint 4 - 08/09 
-- Sprint 5 - 12/10 
-- Sprint 6 - 07/12
+- Sprint 4 - 08/09;
+- Sprint 5 - 12/10;
+- Sprint 6 - 07/12;
 
 Att, Team 10.

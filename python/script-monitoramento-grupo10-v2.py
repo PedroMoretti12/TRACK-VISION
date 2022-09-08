@@ -1,4 +1,4 @@
-# Team 10: TrackVision -  Felipe Pires RA:03221051 | Isabela Hantke RA:03221007 | Rafaela Dias RA:03221050 | Verônica Zibord RA:03221003 | Vitor Macauba RA:03221002
+ # Team 10: TrackVision -  Felipe Pires RA:03221051 | Isabela Hantke RA:03221007 | Rafaela Dias RA:03221050 | Verônica Zibord RA:03221003 | Vitor Macauba RA:03221002
 
 from dis import disco
 #from distutils.util import copydir_run_2to3
@@ -63,23 +63,23 @@ while True:
         inicioSegundos += 1
         print(inicioSegundos, "Captura(s) de dados inserida(s).")
 
-        if computador[1] < 10:
+        if computador[1] < 30:
             print('CPU: Baixo uso.')
         elif computador[1] < 70:
             print('CPU: Uso médio (estável).')
         else:
             print('CPU: Alto uso, pode ser um risco!')
 
-        if  computador[2] < 10:
+        if  computador[2] < 30:
             print('Memória RAM: Baixo uso, há bastante espaço livre!')
-        elif computador[2] < 60:
+        elif computador[2] < 70:
             print('Memória RAM: Uso médio (estável).')
         else:
             print('Memória RAM: Alto uso, pode ser um risco!')
 
-        if  computador[3] < 10:
+        if  computador[3] < 30:
             print('Disco: Baixo uso, há bastante espaço livre!')
-        elif computador[3] < 65:
+        elif computador[3] < 70:
             print('Disco: Uso médio (estável).')
         else:
             print('Disco: Alto uso, pode ser um risco!')

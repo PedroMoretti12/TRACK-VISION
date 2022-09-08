@@ -99,8 +99,8 @@
 
 .btn_agencia:hover {
   transition: 0.3s;
-  background-color: #bababa;
-  color: #ffffff;
+  background-color: #b7b7b7;
+  color: #fff;
 }
 
 .btn_agencia_endereco {
@@ -146,4 +146,73 @@
 
 .td_center{
   text-align: center;
+}
+
+.normal{
+  background-color: #4dff00;
+  
+}
+
+.moderado{
+  background-color: #fff200;
+}
+
+.perigo{
+  background-color: #ff0000;
+}
+
+
+
+.card_btn_agencia_normal{
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  word-wrap: break-word;
+  background-color: #fff;
+  background-clip: border-box;
+  border: 10px solid #4dff00;
+  border-radius: 0.240rem;
+}
+
+.card_btn_agencia_normal:hover{
+  transition: 0.3s;
+  border: 10px solid #b7b7b7;
+
+}
+
+.card_btn_agencia_moderado{
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  word-wrap: break-word;
+  background-color: #fff;
+  background-clip: border-box;
+  border: 10px solid #fff200;
+  border-radius: 0.240rem;
+}
+
+.card_btn_agencia_moderado:hover{
+  transition: 0.3s;
+  border: 10px solid #b7b7b7;
+
+}
+
+.card_btn_agencia_perigo{
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  word-wrap: break-word;
+  background-color: #fff;
+  background-clip: border-box;
+  border: 10px solid #ff0000;
+  border-radius: 0.240rem;
+}
+
+.card_btn_agencia_perigo:hover{
+  transition: 0.3s;
+  border: 10px solid #b7b7b7;
+
 }

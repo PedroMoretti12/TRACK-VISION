@@ -16670,6 +16670,7 @@ textarea[resize="horizontal"] {
 .nav-link i.ni {
   position: relative;
   top: 2px;
+
 }
 
 @media (min-width: 992px) {
@@ -16693,6 +16694,7 @@ textarea[resize="horizontal"] {
   box-shadow: 0 4px 6px rgba(50, 50, 93, 0.11), 0 1px 3px rgba(0, 0, 0, 0.08);
   background-color: #fff;
   transition: all 0.15s ease;
+
 }
 
 .nav-pills .nav-link:hover {
@@ -16703,6 +16705,7 @@ textarea[resize="horizontal"] {
 .nav-pills .show>.nav-link {
   color: #fff;
   background-color: #eeae07;
+  border: 2px solid #eeae07;
 }
 
 @media (max-width: 575.98px) {

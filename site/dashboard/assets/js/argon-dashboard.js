@@ -1101,6 +1101,7 @@ var SalesChart = (function() {
         datasets: [{
           label: 'Performance',
           data: [17, 56, 3, 40, 50, 60, 70, 80, 90, 100]
+          
         }]
       }
     });
@@ -1326,7 +1327,7 @@ var SalesChart4 = (function() {
         labels: ["CPU","RAM","DISCO"],
         datasets: [{
           label: 'Performance',
-          data: [37, 43, 12, 40, 50, 60, 70, 80, 90, 100]
+          data: [17, 29, 8, 40, 50, 60, 70, 80, 90, 100]
         }]
       }
     });

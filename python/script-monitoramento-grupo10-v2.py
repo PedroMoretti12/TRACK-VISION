@@ -1,12 +1,10 @@
 # Team 10: TrackVision -  Felipe Pires RA:03221051 | Isabela Hantke RA:03221007 | Rafaela Dias RA:03221050 | Verônica Zibord RA:03221003 | Vitor Macauba RA:03221002
 
 from dis import disco
-#from distutils.util import copydir_run_2to3
 import psutil
 import time
 import mysql.connector
 import datetime
-#from datetime import date
 import platform
 
 try:
@@ -62,9 +60,9 @@ while True:
 
         print("-"*30)
         print(ultimaLeitura)
-        print("Sistema operacional utilizado: ", sopera)
         inicioSegundos += 1
         print(inicioSegundos, "Captura(s) de dados inserida(s).")
+        print("Sistema operacional utilizado: ", sopera)
 
         if computador[1] < 30:
             print('CPU: Baixo uso.')
@@ -102,30 +100,3 @@ while True:
         # print("Sistema operacional utilizado: ",sopera)
         # inicioSegundos += 1
         # print(inicioSegundos, "Captura(s) de dados inserida(s).")
-
-        # if cpuPercent >= 0 and cpuPercent <= 10:
-        #     print('CPU: Baixo uso.')
-        # elif cpuPercent >= 10 and cpuPercent <= 70:
-        #     print('CPU: Uso médio (estável).')
-        # elif cpuPercent >= 80 and cpuPercent <= 100:
-        #     print('CPU: Alto uso, pode ser um risco!')
-
-        # if ramPorcentagem >= 0 and ramPorcentagem <= 10:
-        #     print('Memória RAM: Baixo uso, há bastante espaço livre!')
-        # elif ramPorcentagem >= 10 and ramPorcentagem <= 60:
-        #     print('Memória RAM: Uso médio (estável).')
-        # elif ramPorcentagem >= 70 and ramPorcentagem <= 100:
-        #     print('Memória RAM: Alto uso, pode ser um risco!')
-
-        # if discoUsado >= 0 and discoUsado <= 10:
-        #     print('Disco: Baixo uso, há bastante espaço livre!')
-        #     print("-"*30)
-        #     print("\n")
-        # elif discoUsado >= 20 and discoUsado <= 65:
-        #     print('Disco: Uso médio (estável).')
-        #     print("-"*30)
-        #     print("\n")
-        # elif discoUsado >= 65 and discoUsado <= 100:
-        #     print('Disco: Alto uso, pode ser um risco!')
-        #     print("-"*30)
-        #     print("\n")

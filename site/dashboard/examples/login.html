@@ -40,8 +40,8 @@
     <!-- Navbar -->
     <nav class="navbar navbar-top navbar-horizontal navbar-expand-md navbar-dark">
       <div class="container px-4">
-        <a class="navbar-brand" href="C:\Users\Aluno\Desktop\Arquivos Temporários\Track-Vision\site\index.html"> 
-          <!-- Add o link direto para a página inicial do site -->
+          <a class="navbar-brand" href="C:\Users\Dell\OneDrive\Área de Trabalho\Aulas-SPTech-2022-2\Sprint-3-2022-2\Track-Vision\site\index.html"> 
+            <!-- Add o link direto para a página inicial do site -->
           <img src="../assets/img/brand/track_black.png" class="navbar-brand-img" alt="...">
         </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-collapse-main" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -177,11 +177,22 @@
   function entrar_login(event) {
     event.preventDefault()
 
-    if (email_form.value == "fernando.brandao@sptech.school" && senha_form.value == "brandao123") {
+var email1 = "fernando.brandao@sptech.school"
+var senha1 = "12345"
+
+var email1 = "taiza.marques@sptech.school"
+var senha1 = "12345"
+
+    if (email_form.value == email1 && senha_form.value == senha1) {
 
           window.location = "../dashboard.html";
        
-    } else {
+    }
+    if (email_form.value == email2 && senha_form.value == senha2) {
+
+window.location = "../dashboard.html";
+
+}  else {
         alert("E-mail ou senha está incorreto")
     }
 }

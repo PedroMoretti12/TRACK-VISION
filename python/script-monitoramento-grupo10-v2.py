@@ -1,14 +1,17 @@
 # Team 10: TrackVision -  Felipe Pires RA:03221051 | Isabela Hantke RA:03221007 | Rafaela Dias RA:03221050 | Verônica Zibord RA:03221003 | Vitor Macauba RA:03221002
 
+from dis import disco
+#from distutils.util import copydir_run_2to3
 import psutil
 import time
 import mysql.connector
 import datetime
+#from datetime import date
 import platform
 
 try:
     conn = mysql.connector.connect(
-        host='localhost', user='root', password='#Gf44844181858', database='trackvision')
+        host='localhost', user='Ella', password='urubu100', database='trackvision')
     print("Conexão ao banco estabelecida!")
 except:
     print("Houve um erro ao conectar-se ao banco.")
@@ -59,9 +62,9 @@ while True:
 
         print("-"*30)
         print(ultimaLeitura)
+        print("Sistema operacional utilizado: ", sopera)
         inicioSegundos += 1
         print(inicioSegundos, "Captura(s) de dados inserida(s).")
-        print("Sistema operacional utilizado: ", sopera)
 
         if computador[1] < 30:
             print('CPU: Baixo uso.')
@@ -86,4 +89,16 @@ while True:
 
         print("-"*30)
         print("\n")
-        time.sleep(5.0)
+        time.sleep(3.0)
+
+        # sql = "INSERT INTO leitura (fkCaixa, fkUsuario, processadorPorcentagem, memoriaRAM, disco, ultimaLeitura) VALUES (%s, %s, %s, %s, %s, (SELECT Now()))"
+        # values = [fkCaixa, fkUsuario, cpuPercent, ramPorcentagem, discoUsado]
+        # cursor.execute(sql, values)
+        # conn.commit()
+        # sopera = platform.system()
+
+        # print("-"*30)
+        # print(ultimaLeitura)
+        # print("Sistema operacional utilizado: ",sopera)
+        # inicioSegundos += 1
+        # print(inicioSegundos, "Captura(s) de dados inserida(s).")

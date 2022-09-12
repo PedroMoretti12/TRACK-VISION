@@ -8,7 +8,7 @@ import platform
 
 try:
     conn = mysql.connector.connect(
-        host='localhost', user='root', password='#Gf44844181858', database='trackvision')
+        host='localhost', user='Ella', password='urubu100', database='trackvision')
     print("Conexão ao banco estabelecida!")
 except:
     print("Houve um erro ao conectar-se ao banco.")
@@ -59,9 +59,9 @@ while True:
 
         print("-"*30)
         print(ultimaLeitura)
+        print("Sistema operacional utilizado: ", sopera)
         inicioSegundos += 1
         print(inicioSegundos, "Captura(s) de dados inserida(s).")
-        print("Sistema operacional utilizado: ", sopera)
 
         if computador[1] < 30:
             print('CPU: Baixo uso.')
@@ -86,4 +86,4 @@ while True:
 
         print("-"*30)
         print("\n")
-        time.sleep(5.0)
+        time.sleep(3.0)

@@ -12,8 +12,8 @@ from prettytable import PrettyTable
 while True:
 
     tabela1 = PrettyTable()
-    tabela1.field_names = ["1-Cpu", "1-Memória", "1-Disco", 
-                                "2-Cpu","2-Memória", "2-Disco", 
+    tabela1.field_names = ["1-Cpu", "1-Memória", "1-Disco",
+                           "2-Cpu", "2-Memória", "2-Disco",
                                     "3-Cpu", "3-Memória", "3-Disco"]
 
     cpu1 = psutil.cpu_percent(interval=1, percpu=False)

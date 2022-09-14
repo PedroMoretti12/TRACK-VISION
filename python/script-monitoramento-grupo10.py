@@ -8,7 +8,7 @@ import platform
 
 try:
     conn = mysql.connector.connect(
-        host='localhost', user='Ella', password='urubu100', database='trackvision')
+        host='localhost', user='root', password='#Gf44844181858', database='trackvision')
     print("Conexão ao banco estabelecida!")
 except:
     print("Houve um erro ao conectar-se ao banco.")

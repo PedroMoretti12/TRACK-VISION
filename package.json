@@ -1,0 +1,26 @@
+{ 
+  "type": "module",
+  "name": "track-vision",
+  "version": "1.0.0",
+  "description": "Team 10",
+  "main": "index.js",
+  "dependencies": {
+    "express": "^4.18.1",
+    "nodemon": "^2.0.19"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Rafa-Said/Track-Vision.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Rafa-Said/Track-Vision/issues"
+  },
+  "homepage": "https://github.com/Rafa-Said/Track-Vision#readme"
+}

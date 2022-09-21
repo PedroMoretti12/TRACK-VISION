@@ -5,6 +5,7 @@ const app = express();
 
 routes(app)
 app.use(express.static('site/public'));
+app.use(express.static('site/public/dashboard'))
 
 
 export default app;

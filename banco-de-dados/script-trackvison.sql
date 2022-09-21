@@ -1,92 +1,69 @@
--- Track Vision (Team 10): Felipe Pires, Isabela Hantke, Rafaela Dias, Verônica Zibordi, Vitor Macauba
-create database trackvision;
-use trackvision;
+CREATE DATABASE Trackvision;
 
-create table empresa (
-idEmpresa int primary key auto_increment,
-razaoSocial VARCHAR(45),
-cnpj char(18),
-email varchar(45)
-) auto_increment = 1000;
+USE Trackvision;
 
-create table usuario (
-idUsuario int auto_increment,
-fkEmpresa int,
-foreign key(fkEmpresa) references empresa(idEmpresa), 
-primary key(idUsuario, fkEmpresa),
-nome varchar(45),
-email varchar(45),
-senha varchar (20)
-) auto_increment = 500;
+CREATE TABLE Banco (
+id INT PRIMARY KEY AUTO_INCREMENT,
+nomeBanco VARCHAR(45),
+codigo CHAR(3),
+ISPB CHAR(8)
+);
 
-create table caixa (
-idCaixa int primary key auto_increment,
-fkUsuario int,
-foreign key(fkUsuario) references usuario(idUsuario), 
-agencia char(4)
-) auto_increment= 100;
+CREATE TABLE Usuario (
+id INT,
+fkBanco INT,
+nome VARCHAR(5),
+email VARCHAR(45),
+senha VARCHAR(45),
+FOREIGN KEY(fkBanco) REFERENCES Banco(id),
+PRIMARY KEY(id, fkBanco)
+);
 
-create table leitura (
-idLeitura int primary key auto_increment,
-fkCaixa int,
-fkUsuario int,
-foreign key(fkCaixa) references caixa(idCaixa),
-foreign key(fkUsuario) references usuario(idUsuario),
-processadorPorcentagem float,
-memoriaRAM float,
-disco float,
-ultimaLeitura DATETIME
-)auto_increment = 2000;
+CREATE TABLE Agencia (
+id INT,
+fkBanco INT,
+numeroAgencia CHAR(4),
+bairro VARCHAR(45),
+cep CHAR(8),
+rua VARCHAR(45),
+numero INT,
+FOREIGN KEY(fkBanco) REFERENCES Banco(id),
+PRIMARY KEY(id, fkBanco)
+);
 
--- desc empresa;
--- desc usuario;
--- desc caixa;
--- desc leitura;
+CREATE TABLE Caixa (
+id INT, 
+fkAgencia INT,
+numeroSerial CHAR(8),
+FOREIGN KEY(fkAgencia) REFERENCES Agencia(id),
+PRIMARY KEY(id, fkAgencia)
+);
 
-insert into empresa values 
-(null, 'Caixa Econômica Federal', '00.360.305/0001-04', 'caixaeletronica@caixa.com'),
-(null, 'Santander SA.', '12.852.987/0001-45', 'santanderatv@comercial.com'),
-(null, 'Banco do Brasil', '25.587.963/0001-45', 'bancodobrasil@bancobb.com');
+CREATE TABLE Leitura (
+fkAgencia INT,
+fkCaixa INT,
+cpuPorcentagem DECIMAL(4,2),
+ramPorcentagem DECIMAL(4,2),
+hdPorcentagem DECIMAL(4,2),
+momento DATETIME,
+FOREIGN KEY(fkAgencia) REFERENCES Agencia(id),
+FOREIGN KEY(fkCaixa) REFERENCES Caixa(id),
+PRIMARY KEY(fkAgencia, fkCaixa)
+);
 
-insert into usuario values 
-(null, 1000, 'Pedro Henrique Ventura', 'pedroventura@caixa.com', 'pedro123_'),
-(null, 1001, 'Carlos Mederiros Campos', 'carlosmedeiros@comercial.com', 'carlos123_'),
-(null, 1002, 'Maria Antônia Camargo', 'mariaacamargo@bancobb.com', 'maria123_');
-                        
-insert into caixa values 
-(null, 500, '1573'),
-(null, 501, '0238'),
-(null, 502, '8547');
+INSERT INTO Banco VALUES (NULL, 'Banco do Brasil', '001', '00000000'),
+						 (NULL, 'Bradesco', '237', '60746948'),
+                         (NULL, 'Caixa econômica federal', '104', '00360305');
+                         
+INSERT INTO Agencia VALUES (1, 1, '1234', 'Campo Limpo', '05763470', 'Rua Douglas Costa', 75);
 
--- select * from empresa;
--- select * from usuario;
--- select * from caixa;
+INSERT INTO Caixa VALUES (1, 1, '12345678'),
+						 (2, 1, '12345678'),
+                         (3, 1, '12345678');
+                         
 
-select idLeitura as 'Cód. Leitura', 
-	fkCaixa as 'Cód do Caixa', 
-		fkUsuario as 'Cód do Usuário', 
-			processadorPorcentagem as 'CPU (%)', 
-				memoriaRAM as 'RAM (%)', 
-					disco as 'Disco (%)', 
-						ultimaLeitura as 'Momento Leitura' 
-							from leitura;
 
-/*  Selects mais especificos para obter informações 
-						
-select * from empresa, usuario, caixa, leitura 
-		where usuario.fkEmpresa = idEmpresa 
-				and caixa.fkUsuario = idUsuario 
-						and leitura.fkUsuario = idUsuario 
-							and leitura.fkCaixa = idCaixa;
-                            
-select idUsuario as 'Cód de Usuário', 
-	fkEmpresa as 'Cód da Empresa',
-		idCaixa as 'Cód. do ATM', 
-			processadorPorcentagem as 'CPU (%)',
-				memoriaRAM as 'RAM (%)', 
-					disco as 'Disco (%)', 
-						ultimaLeitura as 'Data e Hora'
-							from usuario join caixa join leitura
-								on leitura.fkusuario = idusuario 
-									and leitura.fkCaixa = idcaixa;
-*/
+
+
+
+

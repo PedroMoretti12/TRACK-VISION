@@ -1,6 +1,6 @@
 # Track-Vision
 
-Team 10
+Team 04
 
 Repositório criado exclusivamente para envio de arquivos pertinentes à sprint - 2022/2
 
@@ -19,4 +19,4 @@ IMPORTANTE!
 - Sprint 5 - 12/10;
 - Sprint 6 - 07/12;
 
-Att, Team 10.
+Att, Team 04.

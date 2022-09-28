@@ -11429,7 +11429,7 @@ header.masthead {
   padding-top: 10.5rem;
   padding-bottom: 6rem;
   text-align: center;
-  color: #eeae07;
+  color: #eab839;
   background-image: url("../assets/img/foto_fundo.jpg");
   background-repeat: no-repeat;
   background-attachment: scroll;
@@ -11461,7 +11461,7 @@ header.masthead .masthead-heading {
     font-size: 2.25rem;
     font-style: italic;
     line-height: 2.25rem;
-    margin-bottom: 2rem;
+    margin-bottom: 0;
   }
   header.masthead .masthead-heading {
     font-size: 4.5rem;
@@ -11473,6 +11473,10 @@ header.masthead .masthead-heading {
     -webkit-backdrop-filter: blur(10px);
    align-items: center;
    height: 13rem;
+   text-align: center;
+   padding-top: 2rem;
+   border-radius: 7px;
+   border: #41bd980b 1px solid;
 
   }
 }

@@ -11468,6 +11468,12 @@ header.masthead .masthead-heading {
     font-weight: 700;
     line-height: 4.5rem;
     margin-bottom: 4rem;
+    background: rgba(255,255,255,0.1);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+   align-items: center;
+   height: 13rem;
+
   }
 }
 #portfolio .portfolio-item {

@@ -10,6 +10,7 @@
  * Copyright 2011-2021 Twitter, Inc.
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
  */
+ 
 :root {
   --bs-blue: #0d6efd;
   --bs-indigo: #6610f2;
@@ -11808,4 +11809,16 @@ section#contact form#contactForm :-ms-input-placeholder {
   font-size: 0.9rem;
   background-color: #eeae07;
   font-family: "Montserrat", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+}
+
+.mapa_div{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  justify-items: center;
+}
+
+.agencia_mapa{
+  margin-left: 100px;
 }

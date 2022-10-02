@@ -6,10 +6,10 @@
   "main": "index.js",
   "dependencies": {
     "express": "^4.18.1",
+    "mssql": "^9.0.1",
     "mysql2": "^2.3.3",
     "nodemon": "^2.0.19"
   },
-  "devDependencies": {},
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "nodemon server.js"

@@ -16,7 +16,7 @@ nome VARCHAR(5),
 email VARCHAR(45),
 senha VARCHAR(45),
 FOREIGN KEY(fkBanco) REFERENCES Banco(id),
-PRIMARY KEY(id, fkBanco)
+PRIMARY KEY(id)
 );
 
 CREATE TABLE Agencia (
@@ -28,7 +28,7 @@ cep CHAR(8),
 rua VARCHAR(45),
 numero INT,
 FOREIGN KEY(fkBanco) REFERENCES Banco(id),
-PRIMARY KEY(id, fkBanco)
+PRIMARY KEY(id)
 );
 
 CREATE TABLE Caixa (
@@ -36,10 +36,11 @@ id INT,
 fkAgencia INT,
 numeroSerial CHAR(8),
 FOREIGN KEY(fkAgencia) REFERENCES Agencia(id),
-PRIMARY KEY(id, fkAgencia)
+PRIMARY KEY(id)
 );
 
 CREATE TABLE Leitura (
+id INT
 fkAgencia INT,
 fkCaixa INT,
 cpuPorcentagem DECIMAL(4,2),
@@ -48,7 +49,7 @@ hdPorcentagem DECIMAL(4,2),
 momento DATETIME,
 FOREIGN KEY(fkAgencia) REFERENCES Agencia(id),
 FOREIGN KEY(fkCaixa) REFERENCES Caixa(id),
-PRIMARY KEY(fkAgencia, fkCaixa)
+PRIMARY KEY(id)
 );
 
 INSERT INTO Banco VALUES (NULL, 'Banco do Brasil', '001', '00000000'),

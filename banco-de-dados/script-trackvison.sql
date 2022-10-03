@@ -40,7 +40,7 @@ PRIMARY KEY(id)
 );
 
 CREATE TABLE Leitura (
-id INT
+id INT,
 fkAgencia INT,
 fkCaixa INT,
 cpuPorcentagem DECIMAL(4,2),
@@ -62,6 +62,7 @@ INSERT INTO Caixa VALUES (1, 1, '12345678'),
 						 (2, 1, '12345678'),
                          (3, 1, '12345678');
                          
+SELECT * FROM leitura;	
 
 
 

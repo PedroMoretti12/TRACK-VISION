@@ -8,13 +8,13 @@ import platform
 
 try:
     conn = mysql.connector.connect(
-        host='localhost', user='root', password='#Gf44844181858', database='trackvision')
+        host='localhost', user='root', password='#Gf49535932861', database='trackvision')
     print("Conexão ao banco estabelecida!")
 except:
     print("Houve um erro ao conectar-se ao banco.")
 
 #fkCaixa = int(input("Informe o código do caixa: "))
-fkUsuario = int(input("Informe o seu código de usuário: "))
+fkAgencia = int(input("Informe o seu código da sua Agência: "))
 
 fkCaixa = 100
 fkCaixa2 = 101
@@ -25,40 +25,39 @@ cursor = conn.cursor()
 inicioSegundos = 0
 
 while True:
-    cpuPercent = psutil.cpu_percent(interval=1, percpu=False)
+    cpuPorcentagem = psutil.cpu_percent(interval=1, percpu=False)
     ramPorcentagem = psutil.virtual_memory().percent
-    discoUsado = psutil.disk_usage("C:\\").percent
-    ultimaLeitura = datetime.datetime.now().strftime('%d/%m/%Y %H:%M:%S')
+    hdPorcentagem = psutil.disk_usage('/').percent
+    momento = datetime.datetime.now().strftime('%d/%m/%Y %H:%M:%S')
 
-    cpu2 = (round(cpuPercent * 1.05, 1)) if (cpuPercent * 1.05 < 100) else 100
-    cpu3 = (round(cpuPercent * 1.15, 1)) if (cpuPercent * 1.15 < 100) else 100
+    cpuPorcentagem2 = (round(cpuPorcentagem * 1.05, 1)) if (cpuPorcentagem * 1.05 < 100) else 100
+    cpuPorcentagem3 = (round(cpuPorcentagem * 1.15, 1)) if (cpuPorcentagem * 1.15 < 100) else 100
 
     ramPorcentagem2 = (round(ramPorcentagem * 0.90, 1)
                        ) if (ramPorcentagem * 1.05 < 100) else 100
     ramPorcentagem3 = (round(ramPorcentagem * 0.50, 1)
                        ) if (ramPorcentagem * 1.05 < 100) else 100
 
-    discoUsado2 = (round(discoUsado * 0.95, 1)
-                   ) if (cpuPercent * 1.05 < 100) else 100
-    discoUsado3 = (round(discoUsado * 0.33, 1)
-                   ) if (cpuPercent * 1.05 < 100) else 100
+    hdPorcentagem2 = (round(hdPorcentagem * 0.95, 1)
+                   ) if (cpuPorcentagem * 1.05 < 100) else 100
+    hdPorcentagem3 = (round(hdPorcentagem * 0.33, 1)
+                   ) if (cpuPorcentagem * 1.05 < 100) else 100
 
     maquinas = [
-        [fkCaixa, cpuPercent, ramPorcentagem, discoUsado],
-        [fkCaixa2, cpu2, ramPorcentagem2, discoUsado2],
-        [fkCaixa3, cpu3, ramPorcentagem3, discoUsado3]
+        [fkCaixa, cpuPorcentagem, ramPorcentagem, hdPorcentagem],
+        [fkCaixa2, cpuPorcentagem2, ramPorcentagem2, hdPorcentagem2],
+        [fkCaixa3, cpuPorcentagem3, ramPorcentagem3, hdPorcentagem3],
     ]
 
     for computador in maquinas:
-        sql = "INSERT INTO leitura (fkCaixa, fkUsuario, processadorPorcentagem, memoriaRAM, disco, ultimaLeitura) VALUES (%s, %s, %s, %s, %s, (SELECT Now()))"
-        values = [computador[0], fkUsuario,
-                  computador[1], computador[2], computador[3]]
+        sql = "INSERT INTO leitura (fkBanco, fkAgencia, fkCaixa, cpuPorcentagem, ramPorcentagem, hdPorcentagem, momento) VALUES (1, 1, 1, %s, %s, %s, (SELECT Now()))"
+        values = [computador[1], computador[2], computador[3]]
         cursor.execute(sql, values)
         conn.commit()
         sopera = platform.system()
 
         print("-"*30)
-        print(ultimaLeitura)
+        print(momento)
         print("Sistema operacional utilizado: ", sopera)
         inicioSegundos += 1
         print(inicioSegundos, "Captura(s) de dados inserida(s).")

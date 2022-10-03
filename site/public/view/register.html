@@ -126,16 +126,16 @@
                     <div class="input-group-prepend">
                       <span class="input-group-text"><i class="ni ni-key-25"></i></span>
                     </div>
-                    <input class="form-control" placeholder="ISPB" type="number">
+                    <input class="form-control" placeholder="ISPB" type="text" id="ispb_input">
                   </div>
                 </div>
-              <form role="form">
+              <form method="POST" role="form">
                 <div class="form-group">
                   <div class="input-group input-group-alternative mb-3">
                     <div class="input-group-prepend">
                       <span class="input-group-text"><i class="ni ni-hat-3"></i></span>
                     </div>
-                    <input class="form-control" placeholder="Nome" type="text">
+                    <input class="form-control" placeholder="Nome" type="text" id="nome_input">
                   </div>
                 </div>
 
@@ -144,7 +144,7 @@
                     <div class="input-group-prepend">
                       <span class="input-group-text"><i class="ni ni-email-83"></i></span>
                     </div>
-                    <input class="form-control" placeholder="E-mail" type="email">
+                    <input class="form-control" placeholder="E-mail" type="email" id="email_input">
                   </div>
                 </div>
                 <div class="form-group">
@@ -152,7 +152,7 @@
                     <div class="input-group-prepend">
                       <span class="input-group-text"><i class="ni ni-lock-circle-open"></i></span>
                     </div>
-                    <input class="form-control" placeholder="Senha" type="password">
+                    <input class="form-control" placeholder="Senha" type="password" id="senha_input">
                   </div>
                 </div>
 
@@ -167,8 +167,8 @@
                   </div>
                 </div>
                 <div class="text-center">
-                  <a href="./login.html">
-                    <button type="button" class="btn btn-primary mt-4">Criar Conta</button>
+                  <a>
+                    <button type="button" class="btn btn-primary mt-4" onclick="cadastrarUsuario()">Criar Conta</button>
                   </a>
                 </div>
               </form>
@@ -193,6 +193,40 @@
         token: "ee6fab19c5a04ac1a32a645abde4613a",
         application: "argon-dashboard-free"
       });
+
+      function cadastrarUsuario() {
+        
+        var ispb = ispb_input.value
+        var nome = nome_input.value
+        var email = email_input.value
+        var senha = senha_input.value
+        
+        fetch("/usuarios/cadastrarusuario", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                // crie um atributo que recebe o valor recuperado aqui
+                // Agora vá para o arquivo routes/usuario.js
+                ispbController: ispb,
+                nomeController: nome,
+                emailController: email,
+                senhaController: senha
+            })
+        }).then(function(resposta) {
+          console.log(resposta)
+          if(resposta.ok) {
+            console.log("Fetch executado com sucesso.")
+          }
+        })
+        .catch(function (resposta) {
+          console.log("Erro encontrado: ", resposta)
+        })
+      }
+
+
+
   </script>
 </body>
 

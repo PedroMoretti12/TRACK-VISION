@@ -32,12 +32,13 @@ PRIMARY KEY(id)
 );
 
 CREATE TABLE Caixa (
-id INT, 
+id INT AUTO_INCREMENT, 
+fkBanco INT,
 fkAgencia INT,
 numeroSerial CHAR(8),
 FOREIGN KEY(fkAgencia) REFERENCES Agencia(id),
 PRIMARY KEY(id)
-);
+) AUTO_INCREMENT = 10;
 
 CREATE TABLE Leitura (
 id INT AUTO_INCREMENT,
@@ -60,9 +61,9 @@ INSERT INTO Banco VALUES (NULL, 'Banco do Brasil', '001', '00000000'),
                          
 INSERT INTO Agencia VALUES (1, 1, '1234', 'Campo Limpo', '05763470', 'Rua Douglas Costa', 75);
 
-INSERT INTO Caixa VALUES (1, 1, '12345678'),
-						 (2, 1, '12345678'),
-                         (3, 1, '12345678');
+INSERT INTO Caixa (fkBanco, fkAgencia, numeroSerial) VALUES (1, 1, '12345678'),
+						                                    (2, 1, '12345678'),
+															(3, 1, '12345678');
                          
 
 

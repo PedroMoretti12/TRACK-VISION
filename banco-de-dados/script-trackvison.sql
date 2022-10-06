@@ -12,7 +12,7 @@ ISPB CHAR(8)
 CREATE TABLE Usuario (
 id INT,
 fkBanco INT,
-nome VARCHAR(5),
+nome VARCHAR(45),
 email VARCHAR(45),
 senha VARCHAR(45),
 FOREIGN KEY(fkBanco) REFERENCES Banco(id),

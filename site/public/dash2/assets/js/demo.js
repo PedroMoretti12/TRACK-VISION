@@ -3,11 +3,73 @@
 Circles.create({
 	id:           'task-complete',
 	radius:       50,
+	value:        40,
+	maxValue:     100,
+	width:        5,
+	text:         function(value){return value + '%';},
+	colors:       ['#00FF00', '#00FF00'],
+	duration:     400,
+	wrpClass:     'circles-wrp',
+	textClass:    'circles-text',
+	styleWrapper: true,
+	styleText:    true
+})
+
+//Notify
+$.notify({
+	icon: 'flaticon-alarm-1',
+	title: 'Atlantis Lite',
+	message: 'Free Bootstrap 4 Admin Dashboard',
+},{
+	type: 'info',
+	placement: {
+		from: "bottom",
+		align: "right"
+	},
+	time: 1000,
+});
+
+"use strict";
+// Cicle Chart
+Circles.create({
+	id:           'task-complete1',
+	radius:       50,
+	value:        60,
+	maxValue:     100,
+	width:        5,
+	text:         function(value){return value + '%';},
+	colors:       ['#FFFF00', '#FFFF00'],
+	duration:     400,
+	wrpClass:     'circles-wrp',
+	textClass:    'circles-text',
+	styleWrapper: true,
+	styleText:    true
+})
+
+//Notify
+$.notify({
+	icon: 'flaticon-alarm-1',
+	title: 'Atlantis Lite',
+	message: 'Free Bootstrap 4 Admin Dashboard',
+},{
+	type: 'info',
+	placement: {
+		from: "bottom",
+		align: "right"
+	},
+	time: 1000,
+});
+
+"use strict";
+// Cicle Chart
+Circles.create({
+	id:           'task-complete2',
+	radius:       50,
 	value:        80,
 	maxValue:     100,
 	width:        5,
 	text:         function(value){return value + '%';},
-	colors:       ['#36a3f7', '#fff'],
+	colors:       ['#F00', '#F00'],
 	duration:     400,
 	wrpClass:     'circles-wrp',
 	textClass:    'circles-text',
@@ -58,9 +120,9 @@ var ctx = document.getElementById('statisticsChart').getContext('2d');
 var statisticsChart = new Chart(ctx, {
 	type: 'line',
 	data: {
-		labels: ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"],
+		labels: ["14:00", "14:01", "14:02", "14:03", "14:04", "14:05", "14:06", "14:07", "14:08", "14:09", "14:10", "14:11"],
 		datasets: [ {
-			label: "Subscribers",
+			label: "Cpu",
 			borderColor: '#f3545d',
 			pointBackgroundColor: 'rgba(243, 84, 93, 0.6)',
 			pointRadius: 0,
@@ -70,7 +132,7 @@ var statisticsChart = new Chart(ctx, {
 			borderWidth: 2,
 			data: [154, 184, 175, 203, 210, 231, 240, 278, 252, 312, 320, 374]
 		}, {
-			label: "New Visitors",
+			label: "Memória",
 			borderColor: '#fdaf4b',
 			pointBackgroundColor: 'rgba(253, 175, 75, 0.6)',
 			pointRadius: 0,
@@ -80,7 +142,7 @@ var statisticsChart = new Chart(ctx, {
 			borderWidth: 2,
 			data: [256, 230, 245, 287, 240, 250, 230, 295, 331, 431, 456, 521]
 		}, {
-			label: "Active Users",
+			label: "Disco",
 			borderColor: '#177dff',
 			pointBackgroundColor: 'rgba(23, 125, 255, 0.6)',
 			pointRadius: 0,

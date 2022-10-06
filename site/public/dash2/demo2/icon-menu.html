@@ -595,12 +595,11 @@
 					<div class="page-inner py-5">
 						<div class="d-flex align-items-left align-items-md-center flex-column flex-md-row">
 							<div>
-								<h2 class="text-white pb-2 fw-bold">Dashboard</h2>
-								<h5 class="text-white op-7 mb-2">Premium Bootstrap 4 Admin Dashboard</h5>
+								<h2 class="text-white h1 fw-bold">Dashboard</h2>
+								<h5 class="text-white h2 op-7 mb-2">Média de Uso dos componentes baseado nas últimas 30 coletas.</h5>
 							</div>
 							<div class="ml-md-auto py-2 py-md-0">
-								<a href="#" class="btn btn-white btn-border btn-round mr-2">Manage</a>
-								<a href="#" class="btn btn-secondary btn-round">Add Customer</a>
+			
 							</div>
 						</div>
 					</div>
@@ -613,13 +612,13 @@
 									<div class="row">
 										<div class="col-5">
 											<div class="icon-big text-center">
-												<i class="flaticon-chart-pie text-warning"></i>
+												<i class="fas fa-microchip text-warning"></i>
 											</div>
 										</div>
 										<div class="col-7 col-stats">
 											<div class="numbers">
-												<p class="card-category">Number</p>
-												<h4 class="card-title">150GB</h4>
+												<p class="card-category">Cpu</p>
+												<h4 class="card-title">80%</h4>
 											</div>
 										</div>
 									</div>
@@ -632,13 +631,32 @@
 									<div class="row">
 										<div class="col-5">
 											<div class="icon-big text-center">
-												<i class="flaticon-coins text-success"></i>
+												<i class="fas fa-memory text-success"></i>
 											</div>
 										</div>
 										<div class="col-7 col-stats">
 											<div class="numbers">
-												<p class="card-category">Revenue</p>
-												<h4 class="card-title">$ 1,345</h4>
+												<p class="card-category">Memória</p>
+												<h4 class="card-title">45%</h4>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="col-sm-6 col-md-3">
+							<div class="card card-stats card-round">
+								<div class="card-body">
+									<div class="row">
+										<div class="col-5">
+											<div class="icon-big text-center">
+												<i class="fas fa-database text-danger"></i>
+											</div>
+										</div>
+										<div class="col-7 col-stats">
+											<div class="numbers">
+												<p class="card-category">Disco</p>
+												<h4 class="card-title">23%</h4>
 											</div>
 										</div>
 									</div>
@@ -656,27 +674,8 @@
 										</div>
 										<div class="col-7 col-stats">
 											<div class="numbers">
-												<p class="card-category">Errors</p>
-												<h4 class="card-title">23</h4>
-											</div>
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>
-						<div class="col-sm-6 col-md-3">
-							<div class="card card-stats card-round">
-								<div class="card-body">
-									<div class="row">
-										<div class="col-5">
-											<div class="icon-big text-center">
-												<i class="flaticon-twitter text-primary"></i>
-											</div>
-										</div>
-										<div class="col-7 col-stats">
-											<div class="numbers">
-												<p class="card-category">Followers</p>
-												<h4 class="card-title">+45K</h4>
+												<p class="card-category">Máquinas em Alerta</p>
+												<h4 class="card-title">19</h4>
 											</div>
 										</div>
 									</div>
@@ -685,24 +684,52 @@
 						</div>
 					</div>
 					<div class="row">
+						<div class="col-md-4">
+							<div class="card card-dark bg-primary-gradient">
+								<div class="card-body pb-0">
+									<div class="h1 fw-bold float-right">+5%</div>
+									<h2 class="mb-2">17</h2>
+									<p>Users online</p>
+									<div class="pull-in sparkline-fix chart-as-background">
+										<div id="lineChart"><canvas width="327" height="70" style="display: inline-block; width: 327px; height: 70px; vertical-align: top;"></canvas></div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="col-md-4">
+							<div class="card card-dark bg-secondary-gradient">
+								<div class="card-body pb-0">
+									<div class="h1 fw-bold float-right">-3%</div>
+									<h2 class="mb-2">27</h2>
+									<p>New Users</p>
+									<div class="pull-in sparkline-fix chart-as-background">
+										<div id="lineChart2"><canvas width="327" height="70" style="display: inline-block; width: 327px; height: 70px; vertical-align: top;"></canvas></div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="col-md-4">
+							<div class="card card-dark bg-success2">
+								<div class="card-body pb-0">
+									<div class="h1 fw-bold float-right">+7%</div>
+									<h2 class="mb-2">213</h2>
+									<p>Transactions</p>
+									<div class="pull-in sparkline-fix chart-as-background">
+										<div id="lineChart3"><canvas width="327" height="70" style="display: inline-block; width: 327px; height: 70px; vertical-align: top;"></canvas></div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+
+					<div class="row">
 						<div class="col-md-8">
 							<div class="card">
 								<div class="card-header">
 									<div class="card-head-row">
-										<div class="card-title">User Statistics</div>
+										<div class="card-title">Últimos Dados da Máquina XXX</div>
 										<div class="card-tools">
-											<a href="#" class="btn btn-info btn-border btn-round btn-sm mr-2">
-												<span class="btn-label">
-													<i class="fa fa-pencil"></i>
-												</span>
-												Export
-											</a>
-											<a href="#" class="btn btn-info btn-border btn-round btn-sm">
-												<span class="btn-label">
-													<i class="fa fa-print"></i>
-												</span>
-												Print
-											</a>
+											
 										</div>
 									</div>
 								</div>
@@ -715,24 +742,18 @@
 							</div>
 						</div>
 						<div class="col-md-4">
-							<div class="card card-primary">
-								<div class="card-header">
-									<div class="card-title">Daily Sales</div>
-									<div class="card-category">March 25 - April 02</div>
+							<div class="card">
+								<div class="card-body" style="background-color: rgba(0,0,0,0); ">
+									<h4 class="mb-1 fw-bold" style="text-align: center; color: rgb(0, 255, 0);">IDEAL</h4>
+									<div id="task-complete" class="chart-circle mt-4 mb-3" style="color: rgb(0,255,0);"></div>
 								</div>
-								<div class="card-body pb-0">
-									<div class="mb-4 mt-2">
-										<h1>$4,578.58</h1>
-									</div>
-									<div class="pull-in">
-										<canvas id="dailySalesChart"></canvas>
-									</div>
-								</div>
-							</div>
-							<div class="card card-primary bg-primary-gradient">
 								<div class="card-body">
-									<h4 class="mb-1 fw-bold">Tasks Progress</h4>
-									<div id="task-complete" class="chart-circle mt-4 mb-3"></div>
+									<h4 class="mb-1 fw-bold" style="text-align: center; color: yellow;">ALERTA</h4>
+									<div id="task-complete1" class="chart-circle mt-4 mb-3" style="color: yellow;"></div>
+								</div>
+								<div class="card-body">
+									<h4 class="mb-1 fw-bold" style="text-align: center; color: red;">CRÍTICO</h4>
+									<div id="task-complete2" class="chart-circle mt-4 mb-3" style="color:red"></div>
 								</div>
 							</div>
 						</div>

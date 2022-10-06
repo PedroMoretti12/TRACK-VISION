@@ -32,7 +32,7 @@ class Database {
                 });
         }); 
 
-}
+    }
 }
 
 export {Database};

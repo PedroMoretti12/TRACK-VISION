@@ -196,10 +196,10 @@
 
       function cadastrarUsuario() {
         
-        var ispb = ispb_input.value
-        var nome = nome_input.value
-        var email = email_input.value
-        var senha = senha_input.value
+        const ispb = ispb_input.value
+        const nome = nome_input.value
+        const email = email_input.value
+        const senha = senha_input.value
         
         fetch("/usuarios/cadastrarusuario", {
             method: "POST",
@@ -207,8 +207,6 @@
                 "Content-Type": "application/json"
             },
             body: JSON.stringify({
-                // crie um atributo que recebe o valor recuperado aqui
-                // Agora vá para o arquivo routes/usuario.js
                 ispbController: ispb,
                 nomeController: nome,
                 emailController: email,

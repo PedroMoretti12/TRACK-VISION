@@ -1,21 +1,30 @@
-import { Usuario } from "../models/Usuarios"
+import { Usuario } from "../models/Usuarios.js"
 
 class UsuarioController {
-    static async cadastrarUsuario() {
-        ispb = req.body.isbpController
-        nome = req.body.nomeController
-        email = req.body.emailController
-        senha = req.body.senhaController
+    static async cadastrarUsuario(req, res) {
 
-        Usuario.cadastrarUsuario(ispb, nome, email, senha)
-        .then(function(resultado) {
-            res.json(resultado)
-            console.log(resultado)
-        })
-        .catch(function(erro) {
-            console.log(erro)
-        })
+        const ispb = req.body.ispbController
+        const nome = req.body.nomeController
+        const email = req.body.emailController
+        const senha = req.body.senhaController
+
+        console.log("ISPB CADASTRADO: ", ispb)
+        console.log("NOME CADASTRADO: ", nome)
+        console.log("EMAIL CADASTRADO: ", email)
+        console.log("SENHA CADASTRADA: ", senha)
+
+
+
+    try {
+
+        return await Usuario.cadastrarUsuario(ispb, nome, email, senha)
     }
-};
+    catch (erro) {
 
-export default { UsuarioController };
+        console.log(erro)
+    }
+        
+    }
+}
+
+export { UsuarioController };

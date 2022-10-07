@@ -16,4 +16,8 @@ router.get("/cadastroUsuario", (req,res) => {
     res.sendFile(path.resolve("site/public/view/register.html"))
 })
 
+router.get("/dashboardTecnico", (req, res) => {
+    res.sendFile(path.resolve("site/public/dash2/demo2/icon-menu.html"))
+})
+
 export default router;

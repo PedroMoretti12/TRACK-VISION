@@ -9,7 +9,7 @@ app.use(bodyParser.json())
 routes(app)
 app.use(express.static('site/public'));
 app.use(express.static('site/public/dashboard'))
-app.use(express.static('site/public/dash2'))
+app.use(express.static('site/public/dash2/demo2'))
 app.use(cors())
 app.use(express.json())
 app.use(express.urlencoded({ extended: false }));

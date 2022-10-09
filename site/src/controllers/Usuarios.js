@@ -2,7 +2,6 @@ import { Usuario } from "../models/Usuarios.js"
 
 class UsuarioController {
     static async cadastrarUsuario(req, res) {
-
         const ispb = req.body.ispbController
         const nome = req.body.nomeController
         const email = req.body.emailController

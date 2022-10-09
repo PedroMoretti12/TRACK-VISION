@@ -25,7 +25,7 @@
 	<!-- CSS Just for demo purpose, don't include it in your project -->
 	<link rel="stylesheet" href="../assets/css/demo.css">
 </head>
-<body data-background-color="dark">
+<body onclick="plotargrafico()" data-background-color="dark">
 	<div class="wrapper sidebar_minimize">
 		<div class="main-header">
 			<!-- Logo Header -->
@@ -1087,7 +1087,6 @@
 	<script src="../assets/js/core/jquery.3.2.1.min.js"></script>
 	<script src="../assets/js/core/popper.min.js"></script>
 	<script src="../assets/js/core/bootstrap.min.js"></script>
-
 	<!-- jQuery UI -->
 	<script src="../assets/js/plugin/jquery-ui-1.12.1.custom/jquery-ui.min.js"></script>
 	<script src="../assets/js/plugin/jquery-ui-touch-punch/jquery.ui.touch-punch.min.js"></script>
@@ -1124,6 +1123,7 @@
 	<!-- Atlantis DEMO methods, don't include it in your project! -->
 	<script src="../assets/js/setting-demo.js"></script>
 	<script src="../assets/js/demo.js"></script>
+	<script src="../grafico.js"></script>
 	<script>
 		$('#lineChart').sparkline([102,109,120,99,110,105,115], {
 			type: 'line',
@@ -1154,3 +1154,4 @@
 	</script>
 </body>
 </html>
+

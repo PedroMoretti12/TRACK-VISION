@@ -7,7 +7,7 @@ router.get('/obterdados/:idCaixa', function (req, res) {
     dataController.obterdados(req, res)
 })
 
-router.post('/atualizardados', function(req, res) {
+router.get('/atualizardados/:idCaixa', function(req, res) {
     dataController.atualizardados(req, res)
 })
 

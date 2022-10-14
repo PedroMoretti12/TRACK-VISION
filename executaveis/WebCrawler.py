@@ -57,6 +57,8 @@ if(id != ''):
  maxima = float(tagmaxima.contents[0].replace(',','.'))
  variacao = float(tagvariacao.contents[0].replace(',','.'))
 
+ print(banco)
+
  #INSERT NO BANCO
 
  syntax = "update cotacao set atual = ?, minimo = ?, maximo = ?, variacao = ? where fkBanco = (select id from Banco where nomeBanco = ?)"

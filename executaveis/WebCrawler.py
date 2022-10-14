@@ -5,6 +5,7 @@ from bs4 import BeautifulSoup
 
 #Conexao
 
+
 server = 'trackvisiondb.database.windows.net'
 database = 'trackvisiondb'
 username = 'CloudSA49c766d4'
@@ -18,25 +19,24 @@ conn = pyodbc.connect('DRIVER='+driver+';'
                        'UID='+username+';'
                                                                                                  'PWD='+ password)
 cursor = conn.cursor()
-cursor.execute("select * from Usuario;")
-row = cursor.fetchone()
-while row:
-    print (row)
-    row = cursor.fetchone()
 
 
 #Escolhe a Ação do Banco
 id = ''
+fkBanco = 0
 escolha = input('Escolha um Banco: \n'
                 '1-Banco do Brasil \n'
-                '2-Banco Pan \n'
-                '3-Bradesco')
+                '2-Bradesco \n'
+                '3-Banco Pan\n')
 if(escolha == '1'):
     id = 'pair_18604'
+    fkBanco = 1
 elif(escolha == '2'):
-    id = 'pair_18614'
-elif(escolha == '3'):
     id = 'pair_18605'
+    fkBanco = 2
+elif(escolha == '3'):
+    id = 'pair_18614'
+    fkBanco = 3
 else:
     print('Nenhuma Opção Válida Encerrando o Web Crawler')
 
@@ -57,13 +57,20 @@ if(id != ''):
  maxima = float(tagmaxima.contents[0].replace(',','.'))
  variacao = float(tagvariacao.contents[0].replace(',','.'))
 
- print(banco)
- print(ultima)
- print(minima)
- print(maxima)
- print(variacao)
+ #INSERT NO BANCO
 
-syntax = "update cotacao set atual = ?, minimo = ?, maximo = ?, variacao = ? where fkBanco = 1"
-values = [ultima,minima,maxima,variacao]
-cursor.execute(syntax,values)
-cursor.commit()
+ syntax = "update cotacao set atual = ?, minimo = ?, maximo = ?, variacao = ? where fkBanco = (select id from Banco where nomeBanco = ?)"
+ values = [ultima,minima,maxima,variacao,banco]
+ cursor.execute(syntax,values)
+ cursor.commit()
+ count = cursor.rowcount
+ #CASO NÃO ESTEJA NA TABELA COTAÇÃO
+ if(count == 0):
+    syntax = "insert into cotacao values ((select id from Banco where nomeBanco = ?),0,0,0,0)"
+    values = [banco]
+    cursor.execute(syntax, values)
+    cursor.commit()
+    syntax = "update cotacao set atual = ?, minimo = ?, maximo = ?, variacao = ? where fkBanco = (select id from Banco where nomeBanco = ?)"
+    values = [ultima, minima, maxima, variacao, banco]
+    cursor.execute(syntax, values)
+    cursor.commit()

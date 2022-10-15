@@ -10,7 +10,7 @@ server = 'trackvisiondb.database.windows.net'
 database = 'trackvisiondb'
 username = 'CloudSA49c766d4'
 password = 'Urubu1004'
-driver= '{ODBC Driver 17 for SQL Server}'
+driver= '{ODBC Driver 18 for SQL Server}'
 
 conn = pyodbc.connect('DRIVER='+driver+';'
                       'SERVER=tcp:'+server+';'

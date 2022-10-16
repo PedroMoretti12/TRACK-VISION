@@ -1,10 +1,7 @@
 
-
-# Team 10: TrackVision -  Felipe Pires RA:03221051 | Isabela Hantke RA:03221007 | Rafaela Dias RA:03221050 | Verônica Zibord RA:03221003 | Vitor Macauba RA:03221002
-
+import pyodbc
 import psutil
 import time
-import mysql.connector
 import datetime
 import platform
 import matplotlib.pyplot
@@ -14,19 +11,31 @@ import sys,os
 
 
 try:
-    conn = mysql.connector.connect(
-        host='localhost', user='root', password='#Gf49535932861', database='trackvision')
-    print("Conexão ao banco estabelecida!")
+    server = 'trackvisiondb.database.windows.net'
+    database = 'trackvisiondb'
+    username = 'CloudSA49c766d4'
+    password = 'Urubu1004'
+    driver= '{ODBC Driver 18 for SQL Server}'
+
+    conn = pyodbc.connect('DRIVER='+driver+';'
+                          'SERVER=tcp:'+server+';'
+                          'PORT=1433;'
+                          'DATABASE='+database+';'
+                          'UID='+username+';'
+                          'PWD='+ password)
+
+    cursor = conn.cursor()
+
 except:
-    print("Houve um erro ao conectar-se ao banco.")
+    print("Houve um erro ao conectar-se ao banco AZURE.")
 
 #fkCaixa = int(input("Informe o código do caixa: "))
 fkAgencia = int(input("Informe o seu código da sua Agência: "))
 
 
-fkCaixa = 100
-fkCaixa2 = 101
-fkCaixa3 = 102
+fkCaixa = 1
+fkCaixa2 = 31
+fkCaixa3 = 41
 #Vetores
 dados_cpu = []
 dados_cpu2 = []
@@ -42,7 +51,6 @@ soma_cpu2 = 0
 soma_cpu3 = 0
 f = wmi.WMI()
  
-cursor = conn.cursor()
 inicioSegundos = 0
 
 
@@ -93,12 +101,13 @@ while (i < 5):
     media_cpu3 = round ((soma_cpu3/len(dados_cpu3)/3),2)
     ai = [media_cpu,media_cpu2,media_cpu3]
         
-
+    
     for count, computador in enumerate(maquinas):
-        sql = "INSERT INTO leitura (fkBanco, fkAgencia, fkCaixa, cpuPorcentagem, ramPorcentagem, hdPorcentagem, momento) VALUES (1, 1, %s, %s, %s, %s, (SELECT Now()))"
+        sql = "INSERT INTO Leitura (fkBanco, fkAgencia, fkCaixa, cpuPorcentagem, ramPorcentagem, hdPorcentagem, momento) VALUES (1, 1, ?, ?, ?, ?, (GETDATE()))"
+        print(computador[0], computador[1], computador[2], computador[3])
         values = [computador[0], computador[1], computador[2], computador[3]]
         cursor.execute(sql, values)
-        conn.commit()
+        cursor.commit()
         sopera = platform.system()
 
         

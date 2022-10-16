@@ -128,9 +128,7 @@ while (i < 5):
             print('Disco: Uso médio (estável).')
         else:
             print('Disco: Alto uso, pode ser um risco!')
-    
-
-        
+            
 matplotlib.pyplot.title('Porcentagem de uso da CPU')
 matplotlib.pyplot.xlabel('Numero de Identificação do Dado')
 matplotlib.pyplot.ylabel('Porcentagem')

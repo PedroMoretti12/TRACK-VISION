@@ -1,19 +1,23 @@
 
 let idCaixa = 1
 
-let dadoscpu = []
-let dadosmemoria = []
-let dadosdisco = []
+let dados_cpu = []
+let dados_memoria = []
+let dados_disco = []
+let momento = []
 
 function pegardados(idCaixa) {
   fetch(`/data/obterdados/${idCaixa}`, { cache: 'no-store' }).then(function (response) {
-	console.log("scooby doo?")
 	if (response.ok) {
-	  response.json().then(function (response) {
-		console.log(response)
-		dadoscpu.push(response[0].consumo)
-		dados.push(response[0].id)
-	  });
+	for(cont = 0; cont<response.length;cont++){
+		response.json().then(function (response) {
+			dados_cpu.push(response[cont].cpuPorcentagem)
+			dados_disco.push(response[cont].hdPorcentagem)
+			dados_memoria.push(response[cont].ramPorcentagem)
+			momento.pusu(response[cont].momento)
+		});
+	}	
+
 	} else {
 	  console.error("Falha ao Executar a API")
 	  return

@@ -595,8 +595,8 @@
 					<div class="page-inner py-5">
 						<div class="d-flex align-items-left align-items-md-center flex-column flex-md-row">
 							<div>
-								<h2 class="text-white h1 fw-bold">Dashboard</h2>
-								<h5 class="text-white h2 op-7 mb-2">Média de Uso dos componentes baseado nas últimas 30 coletas.</h5>
+								<h2 class="text-white h1 fw-bold">Monitoramento de ATM'S</h2>
+								<h5 class="text-white h2 op-7 mb-2">Média de uso dos componentes por agência</h5>
 							</div>
 							<div class="ml-md-auto py-2 py-md-0">
 			
@@ -618,7 +618,7 @@
 										<div class="col-7 col-stats">
 											<div class="numbers">
 												<p class="card-category">Cpu</p>
-												<h4 class="card-title">80%</h4>
+												<h4 class="card-title" id="media_cpu"></h4>
 											</div>
 										</div>
 									</div>
@@ -637,7 +637,7 @@
 										<div class="col-7 col-stats">
 											<div class="numbers">
 												<p class="card-category">Memória</p>
-												<h4 class="card-title">45%</h4>
+												<h4 class="card-title" id="media_ram"></h4>
 											</div>
 										</div>
 									</div>
@@ -656,7 +656,7 @@
 										<div class="col-7 col-stats">
 											<div class="numbers">
 												<p class="card-category">Disco</p>
-												<h4 class="card-title">23%</h4>
+												<h4 class="card-title" id="media_hd"></h4>
 											</div>
 										</div>
 									</div>
@@ -722,6 +722,12 @@
 								<div class="card-header">
 									<div class="card-head-row">
 										<div class="card-title">Últimos Dados da Máquina XXX</div>
+										&nbsp; &nbsp; 
+										<select name="" id="select_caixa" onchange="pegardados(select_caixa.value)">
+											<option value=1>Caixa 1</option>
+											<option value=31>Caixa 2</option>
+											<option value=41>Caixa 3</option>
+										</select>
 										<div class="card-tools">
 											
 										</div>
@@ -1011,7 +1017,6 @@
 		</div>
 		
 		
-		<!-- Custom template | don't include it in your project! -->
 		<div class="custom-template">
 			<div class="title">Settings</div>
 			<div class="custom-content">
@@ -1155,8 +1160,26 @@
 </html>
 
 <script>
+
+function pegarMedia(idAgencia) {
 	
-let idCaixa = 1
+	fetch(`/data/obterMedia/${idAgencia}`, {cache: 'no-store'}).then(function(response) {
+		if(response.ok) {
+			response.json().then(function(response) {
+				media_cpu.innerHTML = response[0].Cpu + "%"
+				media_ram.innerHTML = response[0].Ram + "%"
+				media_hd.innerHTML = response[0].Hd + "%"
+			})
+		} else {
+			console.log("Deu erro.")
+			return
+		}
+	})
+}
+
+pegarMedia(1)
+
+
 
 let dados_cpu = []
 let dados_memoria = []
@@ -1164,6 +1187,11 @@ let dados_disco = []
 let momento = []
 
 function pegardados(idCaixa) {
+	dados_cpu = []
+	dados_memoria = []
+	dados_disco = []
+	momento = []
+	
   fetch(`/data/obterdados/${idCaixa}`, { cache: 'no-store' }).then(function (response) {
 	if (response.ok) {
 	  response.json().then(function (response) {
@@ -1286,6 +1314,9 @@ for (var i = 0; i < legendItems.length; i += 1) {
 	legendItems[i].addEventListener("click", legendClickCallback, false);
 }
 }   
+
+
+
 
 
 

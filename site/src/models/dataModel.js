@@ -16,6 +16,16 @@ class dataModel {
             console.log(error)
         }
     }
+
+    static obterMedia(idAgencia) {
+        try {
+        return Database.executarQuery(`SELECT AVG(cpuPorcentagem) AS "Cpu", AVG(ramPorcentagem) AS "Ram", AVG(hdPorcentagem) AS "Hd" FROM Leitura WHERE fkAgencia = ${idAgencia};`)
+        }
+        catch (error) {
+            console.log(error)
+        } 
+    }
+
 }
 
 export { dataModel }

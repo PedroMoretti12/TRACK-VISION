@@ -201,9 +201,11 @@
       console.log("Realizando login")
 
       if(resposta.ok) {
-        console.log("aaaaaaaaaaaa")
+
         location.href = "dashboardTecnico"
         sessionStorage.USER_EMAIL = email
+        sessionStorage.USER_ISPB = 0000
+
       } else {
         console.log("Login desconhecido ou errado.")
       }

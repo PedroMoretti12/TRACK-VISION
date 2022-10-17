@@ -21,8 +21,6 @@ class Database {
                 sql.connect(sqlServerConfig).then(function () {
                     return sql.query(instrucao);
                 }).then(function (resultados) {
-                    console.log("sera que esta aqui???? scooby doo")
-                    console.log(" scooby doo descobriu")
                     console.log(resultados);
                     resolve(resultados.recordset);
                 }).catch(function (erro) {

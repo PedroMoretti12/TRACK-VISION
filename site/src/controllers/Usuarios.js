@@ -25,9 +25,6 @@ class UsuarioController {
         const email = req.body.emailController
         const senha = req.body.senhaController
 
-        console.log(req.body.emailController)
-        console.log(req.body.senhaController)
-
         try {
             
             const usuario = await Usuario.entrar(email, senha)

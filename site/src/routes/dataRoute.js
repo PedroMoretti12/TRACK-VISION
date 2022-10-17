@@ -11,4 +11,8 @@ router.get('/atualizardados/:idCaixa', function(req, res) {
     dataController.atualizardados(req, res)
 })
 
+router.get('/obtermedia/:idAgencia', function(req, res){
+    dataController.obterMedia(req, res)
+})
+
 export default router

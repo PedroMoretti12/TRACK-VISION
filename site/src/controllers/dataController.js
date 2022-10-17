@@ -6,10 +6,8 @@ class dataController {
 
         dataModel.obterdados(idCaixa)
             .then(response => {
-                console.log("https://github.com/trepudox")
                 res.status(200).json(response)
             }).catch(e => {
-                console.log("https://github.com/LeandroVCosta")
                 console.log(e)
                 res.status(500).send()
             })
@@ -26,10 +24,10 @@ class dataController {
 
         dataModel.atualizardados(idCaixa)
             .then(response => {
-                console.log("https://github.com/trepudox")
+
                 res.status(200).json(response)
             }).catch(e => {
-                console.log("https://github.com/LeandroVCosta")
+           
                 console.log(e)
                 res.status(500).send()
             })
@@ -39,6 +37,22 @@ class dataController {
             // return await dataModel.obterdados(idCaixa)
         // } catch (erro) {
         //}   
+    }
+
+    static obterMedia(req, res) {
+
+        var idAgencia = req.params.idAgencia;
+        console.log(idAgencia)
+
+        dataModel.obterMedia(idAgencia)
+        .then(response => {
+            res.status(200).json(response)
+        })
+        .catch(error => {
+            console.log(error)
+            res.status(500).send()
+        })
+
     }
 }
 

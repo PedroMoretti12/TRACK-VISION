@@ -25,7 +25,7 @@
 	<!-- CSS Just for demo purpose, don't include it in your project -->
 	<link rel="stylesheet" href="/assets/css/demo.css">
 </head>
-<body onclick="plotargrafico()" data-background-color="dark">
+<body onload="pegardados(1)" data-background-color="dark">
 	<div class="wrapper sidebar_minimize">
 		<div class="main-header">
 			<!-- Logo Header -->
@@ -595,8 +595,8 @@
 					<div class="page-inner py-5">
 						<div class="d-flex align-items-left align-items-md-center flex-column flex-md-row">
 							<div>
-								<h2 class="text-white h1 fw-bold">Dashboard</h2>
-								<h5 class="text-white h2 op-7 mb-2">Média de Uso dos componentes baseado nas últimas 30 coletas.</h5>
+								<h2 class="text-white h1 fw-bold">Monitoramento de ATM'S</h2>
+								<h5 class="text-white h2 op-7 mb-2">Média de uso dos componentes por agência</h5>
 							</div>
 							<div class="ml-md-auto py-2 py-md-0">
 			
@@ -618,7 +618,7 @@
 										<div class="col-7 col-stats">
 											<div class="numbers">
 												<p class="card-category">Cpu</p>
-												<h4 class="card-title">80%</h4>
+												<h4 class="card-title" id="media_cpu"></h4>
 											</div>
 										</div>
 									</div>
@@ -637,7 +637,7 @@
 										<div class="col-7 col-stats">
 											<div class="numbers">
 												<p class="card-category">Memória</p>
-												<h4 class="card-title">45%</h4>
+												<h4 class="card-title" id="media_ram"></h4>
 											</div>
 										</div>
 									</div>
@@ -656,7 +656,7 @@
 										<div class="col-7 col-stats">
 											<div class="numbers">
 												<p class="card-category">Disco</p>
-												<h4 class="card-title">23%</h4>
+												<h4 class="card-title" id="media_hd"></h4>
 											</div>
 										</div>
 									</div>
@@ -722,6 +722,12 @@
 								<div class="card-header">
 									<div class="card-head-row">
 										<div class="card-title">Últimos Dados da Máquina XXX</div>
+										&nbsp; &nbsp; 
+										<select name="" id="select_caixa" onchange="pegardados(select_caixa.value)">
+											<option value=1>Caixa 1</option>
+											<option value=31>Caixa 2</option>
+											<option value=41>Caixa 3</option>
+										</select>
 										<div class="card-tools">
 											
 										</div>
@@ -1011,7 +1017,6 @@
 		</div>
 		
 		
-		<!-- Custom template | don't include it in your project! -->
 		<div class="custom-template">
 			<div class="title">Settings</div>
 			<div class="custom-content">
@@ -1123,7 +1128,6 @@
 	<!-- Atlantis DEMO methods, don't include it in your project! -->
 	<script src="/assets/js/setting-demo.js"></script>
 	<script src="/assets/js/demo.js"></script>
-	<script src="/grafico.js"></script>
 	<script>
 		$('#lineChart').sparkline([102,109,120,99,110,105,115], {
 			type: 'line',
@@ -1155,3 +1159,166 @@
 </body>
 </html>
 
+<script>
+
+function pegarMedia(idAgencia) {
+	
+	fetch(`/data/obterMedia/${idAgencia}`, {cache: 'no-store'}).then(function(response) {
+		if(response.ok) {
+			response.json().then(function(response) {
+				media_cpu.innerHTML = response[0].Cpu + "%"
+				media_ram.innerHTML = response[0].Ram + "%"
+				media_hd.innerHTML = response[0].Hd + "%"
+			})
+		} else {
+			console.log("Deu erro.")
+			return
+		}
+	})
+}
+
+pegarMedia(1)
+
+
+
+let dados_cpu = []
+let dados_memoria = []
+let dados_disco = []
+let momento = []
+
+function pegardados(idCaixa) {
+	dados_cpu = []
+	dados_memoria = []
+	dados_disco = []
+	momento = []
+	
+  fetch(`/data/obterdados/${idCaixa}`, { cache: 'no-store' }).then(function (response) {
+	if (response.ok) {
+	  response.json().then(function (response) {
+		for(cont=0;cont<5;cont++){
+			dados_cpu.push(response[cont].cpuPorcentagem);
+			dados_disco.push(response[cont].hdPorcentagem);
+			dados_memoria.push(response[cont].ramPorcentagem);
+			momento.push(response[cont].momento);
+		}
+	  });
+	} else {
+	  console.error("Falha ao Executar a API")
+	  return
+	}
+  });
+  var ctx = document.getElementById('statisticsChart').getContext('2d');
+
+
+var statisticsChart = new Chart(ctx, {
+	type: 'line',
+	data: {
+		labels: momento,
+		datasets: [ {
+			label: "Cpu",
+			borderColor: '#f3545d',
+			pointBackgroundColor: 'rgba(243, 84, 93, 0.6)',
+			pointRadius: 0,
+			backgroundColor: 'rgba(243, 84, 93, 0.4)',
+			legendColor: '#f3545d',
+			fill: true,
+			borderWidth: 2,
+			data: dados_cpu
+		}, {
+			label: "Memória",
+			borderColor: '#fdaf4b',
+			pointBackgroundColor: 'rgba(253, 175, 75, 0.6)',
+			pointRadius: 0,
+			backgroundColor: 'rgba(253, 175, 75, 0.4)',
+			legendColor: '#fdaf4b',
+			fill: true,
+			borderWidth: 2,
+			data: dados_memoria
+		}, {
+			label: "Disco",
+			borderColor: '#177dff',
+			pointBackgroundColor: 'rgba(23, 125, 255, 0.6)',
+			pointRadius: 0,
+			backgroundColor: 'rgba(23, 125, 255, 0.4)',
+			legendColor: '#177dff',
+			fill: true,
+			borderWidth: 2,
+			data: dados_disco
+		}]
+	},
+	options : {
+		responsive: true, 
+		maintainAspectRatio: false,
+		legend: {
+			display: false
+		},
+		tooltips: {
+			bodySpacing: 4,
+			mode:"nearest",
+			intersect: 0,
+			position:"nearest",
+			xPadding:10,
+			yPadding:10,
+			caretPadding:10
+		},
+		layout:{
+			padding:{left:5,right:5,top:15,bottom:15}
+		},
+		scales: {
+			yAxes: [{
+				ticks: {
+					fontStyle: "500",
+					beginAtZero: false,
+					maxTicksLimit: 5,
+					padding: 10
+				},
+				gridLines: {
+					drawTicks: false,
+					display: false
+				}
+			}],
+			xAxes: [{
+				gridLines: {
+					zeroLineColor: "transparent"
+				},
+				ticks: {
+					padding: 10,
+					fontStyle: "500"
+				}
+			}]
+		}, 
+		legendCallback: function(chart) { 
+			var text = []; 
+			text.push('<ul class="' + chart.id + '-legend html-legend">'); 
+			for (var i = 0; i < chart.data.datasets.length; i++) { 
+				text.push('<li><span style="background-color:' + chart.data.datasets[i].legendColor + '"></span>'); 
+				if (chart.data.datasets[i].label) { 
+					text.push(chart.data.datasets[i].label); 
+				} 
+				text.push('</li>'); 
+			} 
+			text.push('</ul>'); 
+			return text.join(''); 
+		}  
+	}
+});
+
+var myLegendContainer = document.getElementById("myChartLegend");
+
+// generate HTML legend
+myLegendContainer.innerHTML = statisticsChart.generateLegend();
+
+// bind onClick event to all LI-tags of the legend
+var legendItems = myLegendContainer.getElementsByTagName('li');
+for (var i = 0; i < legendItems.length; i += 1) {
+	legendItems[i].addEventListener("click", legendClickCallback, false);
+}
+}   
+
+
+
+
+
+
+
+</script>

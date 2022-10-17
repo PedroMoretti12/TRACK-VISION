@@ -6,7 +6,6 @@ import datetime
 import platform
 import matplotlib.pyplot
 import matplotlib.pyplot as plt
-import wmi
 import sys,os
 
 
@@ -49,7 +48,7 @@ i = 0
 soma_cpu = 0
 soma_cpu2 = 0
 soma_cpu3 = 0
-f = wmi.WMI()
+
  
 inicioSegundos = 0
 
@@ -183,13 +182,6 @@ plt.title("Média de uso da CPU por máquina")
 plt.ylim(0, 100)
 plt.show()
 medias_cpu=[]
-
-print("pid   Process name")
- 
-for process in f.Win32_Process():
-     
-    
-    print(f"{process.ProcessId:<10} {process.Name}") 
 
 print("\n")            
 

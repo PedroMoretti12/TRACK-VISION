@@ -25,7 +25,7 @@
 	<!-- CSS Just for demo purpose, don't include it in your project -->
 	<link rel="stylesheet" href="/assets/css/demo.css">
 </head>
-<body onload="pegardados(1)" data-background-color="dark">
+<body onload="" data-background-color="dark">
 	<div class="wrapper sidebar_minimize">
 		<div class="main-header">
 			<!-- Logo Header -->
@@ -721,9 +721,9 @@
 							<div class="card">
 								<div class="card-header">
 									<div class="card-head-row">
-										<div class="card-title">Últimos Dados da Máquina XXX</div>
+										<div class="card-title">Últimos Dados da Agencia 3501</div>
 										&nbsp; &nbsp; 
-										<select name="" id="select_caixa" onchange="pegardados(select_caixa.value)">
+										<select name="" id="select_caixa" onchange="pegardados(statisticsChart,select_caixa.value)">
 											<option value=1>Caixa 1</option>
 											<option value=31>Caixa 2</option>
 											<option value=41>Caixa 3</option>
@@ -1161,6 +1161,8 @@
 
 <script>
 
+let proximaAtualizacao;
+
 function pegarMedia(idAgencia) {
 	
 	fetch(`/data/obterMedia/${idAgencia}`, {cache: 'no-store'}).then(function(response) {
@@ -1181,39 +1183,21 @@ pegarMedia(1)
 
 
 
-let dados_cpu = []
-let dados_memoria = []
-let dados_disco = []
-let momento = []
 
-function pegardados(idCaixa) {
-	dados_cpu = []
-	dados_memoria = []
-	dados_disco = []
-	momento = []
-	
-  fetch(`/data/obterdados/${idCaixa}`, { cache: 'no-store' }).then(function (response) {
-	if (response.ok) {
-	  response.json().then(function (response) {
-		for(cont=0;cont<5;cont++){
-			dados_cpu.push(response[cont].cpuPorcentagem);
-			dados_disco.push(response[cont].hdPorcentagem);
-			dados_memoria.push(response[cont].ramPorcentagem);
-			momento.push(response[cont].momento);
-		}
-	  });
-	} else {
-	  console.error("Falha ao Executar a API")
-	  return
-	}
-  });
-  var ctx = document.getElementById('statisticsChart').getContext('2d');
+
+
+
+
+
+
+
+var ctx = document.getElementById('statisticsChart').getContext('2d');
 
 
 var statisticsChart = new Chart(ctx, {
 	type: 'line',
 	data: {
-		labels: momento,
+		labels: [],
 		datasets: [ {
 			label: "Cpu",
 			borderColor: '#f3545d',
@@ -1223,7 +1207,7 @@ var statisticsChart = new Chart(ctx, {
 			legendColor: '#f3545d',
 			fill: true,
 			borderWidth: 2,
-			data: dados_cpu
+			data: ["CPU"]
 		}, {
 			label: "Memória",
 			borderColor: '#fdaf4b',
@@ -1233,7 +1217,7 @@ var statisticsChart = new Chart(ctx, {
 			legendColor: '#fdaf4b',
 			fill: true,
 			borderWidth: 2,
-			data: dados_memoria
+			data: ["RAM"]
 		}, {
 			label: "Disco",
 			borderColor: '#177dff',
@@ -1243,7 +1227,7 @@ var statisticsChart = new Chart(ctx, {
 			legendColor: '#177dff',
 			fill: true,
 			borderWidth: 2,
-			data: dados_disco
+			data: ["DISCO"]
 		}]
 	},
 	options : {
@@ -1307,16 +1291,75 @@ var myLegendContainer = document.getElementById("myChartLegend");
 
 // generate HTML legend
 myLegendContainer.innerHTML = statisticsChart.generateLegend();
+pegardados(statisticsChart,1);
 
 // bind onClick event to all LI-tags of the legend
 var legendItems = myLegendContainer.getElementsByTagName('li');
 for (var i = 0; i < legendItems.length; i += 1) {
 	legendItems[i].addEventListener("click", legendClickCallback, false);
 }
-}   
 
 
 
+function pegardados(statisticsChart,idCaixa) {
+	dados_cpu = []
+	dados_memoria = []
+	dados_disco = []
+	momento = []
+	if (proximaAtualizacao != undefined) {
+            clearTimeout(proximaAtualizacao);
+        }
+  fetch(`/data/obterdados/${idCaixa}`, { cache: 'no-store' }).then(function (response) {
+	if (response.ok) {
+	  response.json().then(function (response) {
+		for(cont=0;cont<5;cont++){
+			dados_cpu.push(response[cont].cpuPorcentagem);
+			dados_disco.push(response[cont].hdPorcentagem);
+			dados_memoria.push(response[cont].ramPorcentagem);
+			momento.push(response[cont].momento);
+		}
+		statisticsChart.data.datasets[0].data = dados_cpu
+		statisticsChart.data.datasets[1].data = dados_memoria
+		statisticsChart.data.datasets[2].data = dados_disco
+		statisticsChart.data.labels = momento
+		statisticsChart.update()
+		atualizardados(statisticsChart,idCaixa)
+	  });	  
+	} else {
+	  console.error("Falha ao Executar a API")
+	  return
+	}
+  });
+}  
+
+
+
+function atualizardados(statisticsChart,idCaixa){
+	fetch(`/data/atualizardados/${idCaixa}`, { cache: 'no-store' }).then(function (response) {
+	if (response.ok) {
+	  response.json().then(function (response) {
+
+		statisticsChart.data.labels.shift()
+        statisticsChart.data.labels.push(response[0].momento); // incluir um novo momento
+
+        statisticsChart.data.datasets[0].data.shift();  // apagar o primeiro de umidade
+        statisticsChart.data.datasets[0].data.push(response[0].cpuPorcentagem); // incluir uma nova medida de umidade
+
+        statisticsChart.data.datasets[1].data.shift();  // apagar o primeiro de temperatura
+        statisticsChart.data.datasets[1].data.push(response[0].hdPorcentagem); // incluir uma nova medida de temperatura
+
+		statisticsChart.data.datasets[2].data.shift();  // apagar o primeiro de temperatura
+        statisticsChart.data.datasets[2].data.push(response[0].ramPorcentagem); 
+		statisticsChart.update()
+		proximaAtualizacao = setTimeout(() => atualizardados(statisticsChart,idCaixa), 2000);
+	  });
+	} else {
+	  console.error("Falha ao Executar a API")
+	  proximaAtualizacao = setTimeout(() => atualizardados(statisticsChart,idCaixa), 2000);
+	  return
+	}
+  });
+}
 
 
 

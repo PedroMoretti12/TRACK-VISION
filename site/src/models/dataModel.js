@@ -11,7 +11,7 @@ class dataModel {
 
     static atualizardados(idCaixa) {
         try {
-            return Database.executarQuery(`select * from Caixa where id = ${idCaixa};`)
+            return Database.executarQuery(`select top 1 * from Leitura where fkCaixa = 1 ORDER BY momento desc;`)
         } catch (error) {
             console.log(error)
         }

@@ -267,6 +267,7 @@
 												<p class="text-muted">hello@example.com</p><a href="profile.html" class="btn btn-xs btn-secondary btn-sm">View Profile</a>
 											</div>
 										</div>
+										
 									</li>
 									<li>
 										<div class="dropdown-divider"></div>
@@ -286,6 +287,7 @@
 			</nav>
 			<!-- End Navbar -->
 		</div>
+		<b style="color: red;"></b>
 
 		<!-- Sidebar -->
 		<div class="sidebar"  data-background-color="orange2">			
@@ -785,7 +787,9 @@
 									Pipefy
 								</a>
 							</li>
-
+							<td>
+								<button type="button" class="btn btn-focus" id="alert_demo_2"> Show me</button>		
+							</td>
 						</ul>
 					</nav>
 					<div class="copyright ml-auto">
@@ -968,7 +972,7 @@ pegarMedia(1)
 
 
 
-
+var verificar = 0
 
 
 var ctx = document.getElementById('statisticsChart').getContext('2d');
@@ -1111,14 +1115,10 @@ function pegardados(statisticsChart,idCaixa) {
 	}
   });
 }  
-
-
-
 function atualizardados(statisticsChart,idCaixa){
 	fetch(`/data/atualizardados/${idCaixa}`, { cache: 'no-store' }).then(function (response) {
 	if (response.ok) {
 	  response.json().then(function (response) {
-
 		statisticsChart.data.labels.shift()
         statisticsChart.data.labels.push(response[0].momento); // incluir um novo momento
 
@@ -1126,12 +1126,28 @@ function atualizardados(statisticsChart,idCaixa){
         statisticsChart.data.datasets[0].data.push(response[0].cpuPorcentagem); // incluir uma nova medida de umidade
 
         statisticsChart.data.datasets[1].data.shift();  
-        statisticsChart.data.datasets[1].data.push(response[0].hdPorcentagem); // incluir uma nova medida de temperatura
+        statisticsChart.data.datasets[1].data.push(response[0].ramPorcentagem); // incluir uma nova medida de temperatura
 
 		statisticsChart.data.datasets[2].data.shift();  
-        statisticsChart.data.datasets[2].data.push(response[0].ramPorcentagem); 
+        statisticsChart.data.datasets[2].data.push(response[0].hdPorcentagem); 
 		statisticsChart.update()
 		proximaAtualizacao = setTimeout(() => atualizardados(statisticsChart,idCaixa), 2000);
+		var cpu = response[0].cpuPorcentagem
+		var hd = response[0].hdPorcentagem
+		var ram = response[0].ramPorcentagem
+		verificar++
+		console.log(verificar)
+		if(verificar == 10){
+
+			if((cpu > 40 && cpu <= 60) || (hd > 70 && hd <= 100) || (ram > 40 && ram <= 60)){
+				alerta(null,idCaixa)
+				verificar = 0
+			}
+			else if((cpu > 60 && cpu <= 100) || (hd > 60 && hd <= 100) || (ram > 60 && ram <= 100)){
+				critico(null,idCaixa)
+				verificar = 0
+			}
+		}
 	  });
 	} else {
 	  console.error("Falha ao Executar a API")
@@ -1139,6 +1155,25 @@ function atualizardados(statisticsChart,idCaixa){
 	  return
 	}
   });
+function alerta (e,idCaixa) {
+					swal(`Dados Anormais Detectados`, `Alguns dados acima do ideal foram identificados verifique os seus Caixas.\n\n Numero do Caixa:${idCaixa}`, {
+						buttons: {        			
+							confirm: {
+								className : 'btn btn-warning'
+							}
+						},
+					});
+				}
+
+function critico (e,idCaixa) {
+					swal(`Dados Críticos detectados.`, `Verifique com Urgência seu Caixa ele pode estár sofrendo um Ataque.\n\n Numero do Caixa:${idCaixa}`, {
+						buttons: {        			
+							confirm: {
+								className : 'btn btn-danger'
+							}
+						},
+					});
+				}
 }
 
 

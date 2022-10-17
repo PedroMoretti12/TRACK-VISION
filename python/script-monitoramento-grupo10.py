@@ -1,4 +1,5 @@
 
+
 import pyodbc
 import psutil
 import time
@@ -9,24 +10,21 @@ import matplotlib.pyplot as plt
 import sys,os
 
 
-try:
-    server = 'trackvisiondb.database.windows.net'
-    database = 'trackvisiondb'
-    username = 'CloudSA49c766d4'
-    password = 'Urubu1004'
-    driver= '{ODBC Driver 18 for SQL Server}'
 
-    conn = pyodbc.connect('DRIVER='+driver+';'
+server = 'trackvisiondb.database.windows.net'
+database = 'trackvisiondb'
+username = 'CloudSA49c766d4'
+password = 'Urubu1004'
+driver= '/opt/microsoft/msodbcsql18/lib64/libmsodbcsql-18.1.so.1.1'
+
+conn = pyodbc.connect('DRIVER='+driver+';'
                           'SERVER=tcp:'+server+';'
                           'PORT=1433;'
                           'DATABASE='+database+';'
                           'UID='+username+';'
                           'PWD='+ password)
 
-    cursor = conn.cursor()
-
-except:
-    print("Houve um erro ao conectar-se ao banco AZURE.")
+cursor = conn.cursor()
 
 #fkCaixa = int(input("Informe o código do caixa: "))
 fkAgencia = int(input("Informe o seu código da sua Agência: "))

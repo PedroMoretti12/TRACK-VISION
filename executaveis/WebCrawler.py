@@ -1,5 +1,6 @@
 import requests
 import pyodbc
+import matplotlib.pyplot as plt
 from bs4 import BeautifulSoup
 
 
@@ -10,7 +11,7 @@ server = 'trackvisiondb.database.windows.net'
 database = 'trackvisiondb'
 username = 'CloudSA49c766d4'
 password = 'Urubu1004'
-driver= '{ODBC Driver 18 for SQL Server}'
+driver= '{ODBC Driver 17 for SQL Server}'
 
 conn = pyodbc.connect('DRIVER='+driver+';'
                       'SERVER=tcp:'+server+';'
@@ -76,3 +77,19 @@ if(id != ''):
     values = [ultima, minima, maxima, variacao, banco]
     cursor.execute(syntax, values)
     cursor.commit()
+
+labels = ["Ultima","Minima","Maxima","Variação"]
+data = [ultima,minima,maxima,variacao]
+fig,ax = plt.subplots(figsize=(8, 5))
+ax.bar(labels,data)
+ax.set_title("Cotação das Ações do "+banco+'',fontsize=10)
+ax.set_ylabel("Valor em R$")
+ax.set_xlabel("Contexto")
+plt.show()
+
+syntax = "select * from cotacao where fkBanco = (select id from banco where nomeBanco = ?)"
+values = (banco)
+cursor.execute(syntax,values)
+row = cursor.fetchone
+for row in cursor:
+    print(row)

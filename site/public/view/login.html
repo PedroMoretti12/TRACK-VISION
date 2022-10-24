@@ -197,6 +197,8 @@
         senhaController: senha
       })
     }).then(function(resposta) {
+
+      
       
       console.log("Realizando login")
 
@@ -204,7 +206,6 @@
 
         location.href = "dashboardTecnico"
         sessionStorage.USER_EMAIL = email
-        sessionStorage.USER_ISPB = 0000
 
       } else {
         console.log("Login desconhecido ou errado.")

@@ -202,28 +202,33 @@
       const nome = nome_input.value
       const email = email_input.value
       const senha = senha_input.value
-
-      fetch("/usuarios/cadastrarusuario", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json"
-        },
-        body: JSON.stringify({
-          ispbController: ispb,
-          nomeController: nome,
-          emailController: email,
-          senhaController: senha
+      
+      if (ispb != "" || nome != "" || email != "" || senha != "") {
+        fetch("/usuarios/cadastrarusuario", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json"
+          },
+          body: JSON.stringify({
+            ispbController: ispb,
+            nomeController: nome,
+            emailController: email,
+            senhaController: senha
+          })
+        }).then(function (resposta) {
+          console.log(resposta)
+          if (resposta.ok) {
+            console.log("Fetch executado com sucesso.")
+            location.href = "login"
+          }
         })
-      }).then(function (resposta) {
-        console.log(resposta)
-        if (resposta.ok) {
-          console.log("Fetch executado com sucesso.")
-        }
-      })
-        .catch(function (resposta) {
-          console.log("Erro encontrado: ", resposta)
-        })
-    }  
+          .catch(function (resposta) {
+            console.log("Erro encontrado: ", resposta)
+          })
+    } else {
+      console.log("Algum dado não foi definido.")
+    }
+  }
   </script>
 </body>
 

@@ -6,11 +6,14 @@ class UsuarioController {
         const nome = req.body.nomeController
         const email = req.body.emailController
         const senha = req.body.senhaController
-
-    try {
-
-        return await Usuario.cadastrarUsuario(ispb, nome, email, senha)
     
+    try {
+        if (ispb != "" || nome != "" || email != "" || senha != "") {
+            res.status(200).send("Cadastro realizado")
+            return await Usuario.cadastrarUsuario(ispb, nome, email, senha)
+        } else {
+            res.status(501).send("Algum dado indefinido.")
+        }
     }
     catch (erro) {
 

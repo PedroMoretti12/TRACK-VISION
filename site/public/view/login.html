@@ -156,6 +156,20 @@
           </div>
         </div>
       </div>
+      <div class="modal fade bd-example-modal-sm" id="bd-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-sm">
+          <div class="modal-content">
+            Login realizado. Redirecionando para o dashboard.
+          </div>
+        </div>
+      </div>
+      <div class="modal fade bd-example-modal-sm" id="bd-example-modal-sm1" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-sm">
+          <div class="modal-content">
+            Login errado. Faça seu cadastro ou nos contate.
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 
@@ -204,11 +218,15 @@
 
       if(resposta.ok) {
 
-        location.href = "dashboardTecnico"
-        sessionStorage.USER_EMAIL = email
+        setTimeout(() => {
+          location.href = 'dashboardTecnico'
+          $('#bd-example-modal-sm').modal('hide')
+        }, 4000)
+        $('#bd-example-modal-sm').modal('show')
 
       } else {
         console.log("Login desconhecido ou errado.")
+        $('#bd-example-modal-sm1').modal('show')
       }
 
     })

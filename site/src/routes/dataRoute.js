@@ -15,4 +15,8 @@ router.get('/obtermedia/:idAgencia', function(req, res){
     dataController.obterMedia(req, res)
 })
 
+router.get('/obterRegressao/:idAgencia', function(req, res) {
+    dataController.obterRegressao(req, res)
+})
+
 export default router

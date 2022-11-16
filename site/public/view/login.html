@@ -195,7 +195,6 @@
 <script>
 
   function entrar() {
-
     event.preventDefault()
 
     const email = email_input.value
@@ -213,17 +212,18 @@
     }).then(function(resposta) {
 
       
-      
       console.log("Realizando login")
 
       if(resposta.ok) {
-
+        resposta.json().then(resposta => {
+          console.log(resposta)
+        })
         setTimeout(() => {
           location.href = 'dashboardTecnico'
           $('#bd-example-modal-sm').modal('hide')
         }, 4000)
         $('#bd-example-modal-sm').modal('show')
-
+        
       } else {
         console.log("Login desconhecido ou errado.")
         $('#bd-example-modal-sm1').modal('show')

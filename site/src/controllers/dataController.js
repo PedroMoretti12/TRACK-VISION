@@ -54,6 +54,20 @@ class dataController {
         })
 
     }
+
+    static obterRegressao(req, res) {
+
+        var idAgencia = req.params.idAgencia;
+        
+        dataModel.regressao(idAgencia)
+        .then(response => {
+            res.status(200).json(response)
+        })
+        .catch(error => {
+            console.log(error)
+            res.status(500).send()
+        })
+    }
 }
 
 export { dataController }

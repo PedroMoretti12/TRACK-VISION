@@ -1,4 +1,5 @@
 import { Database } from "../database/config.js"
+import regression from "regression"
 
 class dataModel {
     static obterdados(idCaixa) {
@@ -26,6 +27,15 @@ class dataModel {
         } 
     }
 
+    static regressao(idAgencia) {
+        try {
+            return Database.executarQuery(`SELECT * FROM Leitura WHERE fkAgencia = ${idAgencia}`)
+        } catch (error) {
+            console.log(error)
+        }
+    }
+
 }
 
+export default regression;
 export { dataModel }

@@ -1,5 +1,4 @@
 import { Database } from "../database/config.js"
-import regression from "regression"
 
 class dataModel {
     static obterdados(idCaixa) {
@@ -37,5 +36,4 @@ class dataModel {
 
 }
 
-export default regression;
 export { dataModel }

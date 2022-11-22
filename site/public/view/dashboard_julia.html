@@ -347,12 +347,12 @@
 									<div class="row">
 										<div class="col-5">
 											<div class="icon-big text-center">
-												<i class="fas fa-microchip text-warning"></i>
+												<i class="glyph-icon flaticon-error"></i>
 											</div>
 										</div>
 										<div class="col-7 col-stats">
 											<div class="numbers">
-												<p class="card-category">Cpu</p>
+												<p class="card-category">Processos finalizados</p>
 												<h4 class="card-title" id="media_cpu"></h4>
 											</div>
 										</div>
@@ -366,12 +366,12 @@
 									<div class="row">
 										<div class="col-5">
 											<div class="icon-big text-center">
-												<i class="fas fa-memory text-success"></i>
+												<i class="glyph-icon flaticon-upward"></i>
 											</div>
 										</div>
 										<div class="col-7 col-stats">
 											<div class="numbers">
-												<p class="card-category">Memória</p>
+												<p class="card-category">Serviços ativos</p>
 												<h4 class="card-title" id="media_ram"></h4>
 											</div>
 										</div>
@@ -385,12 +385,12 @@
 									<div class="row">
 										<div class="col-5">
 											<div class="icon-big text-center">
-												<i class="fas fa-database text-danger"></i>
+												<i class="glyph-icon flaticon-upward"></i>
 											</div>
 										</div>
 										<div class="col-7 col-stats">
 											<div class="numbers">
-												<p class="card-category">Disco</p>
+												<p class="card-category">Processos ativos</p>
 												<h4 class="card-title" id="media_hd"></h4>
 											</div>
 										</div>
@@ -404,12 +404,12 @@
 									<div class="row">
 										<div class="col-5">
 											<div class="icon-big text-center">
-												<i class="flaticon-error text-danger"></i>
+												<i class="glyph-icon flaticon-exclamation"></i>
 											</div>
 										</div>
 										<div class="col-7 col-stats">
 											<div class="numbers">
-												<p class="card-category">Máquinas em Alerta</p>
+												<p class="card-category">Alertas por máquina (semanais)</p>
 												<h4 class="card-title">19</h4>
 											</div>
 										</div>
@@ -469,7 +469,7 @@
 									</div>
 								</div>
 								<div class="card-body">
-									<div class="chart-container" style="min-height: 375px">
+									<div class="chart-container" style="min-height: 375px;">
 										<canvas id="statisticsChart"></canvas>
 									</div>
 									<div id="myChartLegend"></div>
@@ -482,7 +482,7 @@
 							<div class="card">
 								<div class="card-header">
 									<div class="card-head-row">
-										<h4 class="card-title">Mapeamento dos Caixas</h4>
+										<h4 class="card-title">Frequência de alertas por caixa e  </h4>
 										<div class="card-tools">
 											<button class="btn btn-icon btn-link btn-primary btn-xs"><span class="fa fa-angle-down"></span></button>
 											<button class="btn btn-icon btn-link btn-primary btn-xs btn-refresh-card"><span class="fa fa-sync-alt"></span></button>
@@ -492,103 +492,15 @@
 									<p class="card-category">
 									Mapeamento dos Caixas do Banco e seus Status.</p>
 								</div>
-								<div class="card-body">
+								<div class="card-body" style="justify-content:space-around ;">
 									<div class="row">
 										<div class="col-md-6">
-											<div class="table-responsive table-hover table-sales">
-												<table class="table">
-													<tbody>
-														<tr>
-															<td>
-																<div class="flag">
-																	<img src="/assets/imgdash/flags/certo.png" alt="certo">
-																</div>
-															</td>
-															<td>Caixa 01</td>
-															<td class="text-right">
-																A1
-															</td>
-															<td class="text-right">
-																Estável
-															</td>
-														</tr>
-														<tr>
-															<td>
-																<div class="flag">
-																	<img src="/assets/imgdash/flags/certo.png" alt="united states">
-																</div>
-															</td>
-															<td>Caixa 02</td>
-															<td class="text-right">
-																A2
-															</td>
-															<td class="text-right">
-																Estável
-															</td>
-														</tr>
-														<tr>
-															<td>
-																<div class="flag">
-																	<img src="/assets/imgdash/flags/certo.png" alt="australia">
-																</div>
-															</td>
-															<td>Caixa 03</td>
-															<td class="text-right">
-																A3
-															</td>
-															<td class="text-right">
-																Estável
-															</td>
-														</tr>
-														<tr>
-															<td>
-																<div class="flag">
-																	<img src="/assets/imgdash/flags/certo.png" alt="russia">
-																</div>
-															</td>
-															<td>Caixa 04</td>
-															<td class="text-right">
-																A4
-															</td>
-															<td class="text-right">
-																Estável
-															</td>
-														</tr>
-														<tr>
-															<td>
-																<div class="flag">
-																	<img src="/assets/imgdash/flags/certo.png" alt="china">
-																</div>
-															</td>
-															<td>Caixa 05</td>
-															<td class="text-right">
-																B1
-															</td>
-															<td class="text-right">
-																Estável
-															</td>
-														</tr>
-														<tr>
-															<td>
-																<div class="flag">
-																	<img src="/assets/imgdash/flags/certo.png" alt="brazil">
-																</div>
-															</td>
-															<td>Caixa 06</td>
-															<td class="text-right">
-																B2
-															</td>
-															<td class="text-right">
-																Estável
-															</td>
-														</tr>
-													</tbody>
-												</table>
-											</div>
+											#LUGAR PARA O GRÁFICO DE BARRAS DE FREQUENCIA 
+										
 										</div>
 										<div class="col-md-6">
 											<div class="mapcontainer">
-												<img src="/assets/imgdash/mapacaixas.png" class="vmap"></div>
+											 #LUGAR PARA UM POSSÍVEL GRÁFICO DE PIZZA
 											</div>
 										</div>
 									</div>
@@ -887,6 +799,14 @@
 </html>
 
 <script>
+function obterRegressao(idAgencia) {
+	fetch(`/data/obterRegressao/${idAgencia}`, {cache: 'no-store'}).then(function(response) {
+		response.json().then(function(response) {
+			console.log(response)
+		})
+	})
+}
+
 
 let proximaAtualizacao;
 
@@ -1100,6 +1020,7 @@ function atualizardados(statisticsChart,idCaixa){
 	}
   });
 function alerta (e,idCaixa) {
+					alerta_automatizado("Bahia", "Feio", "Dados anormais detectados.", "Dados anormais foram detectados. Uso exacerbado pode atingir estado crítico ou que inutilize o caixa eletrônico.")
 					swal(`Dados Anormais Detectados`, `Alguns dados acima do ideal foram identificados verifique os seus Caixas.\n\n Numero do Caixa:${idCaixa}`, {
 						buttons: {        			
 							confirm: {
@@ -1110,6 +1031,7 @@ function alerta (e,idCaixa) {
 				}
 
 function critico (e,idCaixa) {
+					alerta_automatizado("Bahia", "Feio", "Dados críticos detectados", "Dados críticos, ou seja, acima de 80% foram detectados. Recomendamos atenção para o caixa.")
 					swal(`Dados Críticos detectados.`, `Verifique com Urgência seu Caixa ele pode estár sofrendo um Ataque.\n\n Numero do Caixa:${idCaixa}`, {
 						buttons: {        			
 							confirm: {
@@ -1120,7 +1042,22 @@ function critico (e,idCaixa) {
 				}
 }
 
+function alerta_automatizado(banco, agencia, title, desc) {
+	const options = {
+  method: 'POST',
+  headers: {
+    accept: 'application/json',
+    'content-type': 'application/json',
+    authorization: 'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJ1c2VyIjp7ImlkIjozMDIxODI2NTAsImVtYWlsIjoidHJhY2t2aXNpb24wNEBnbWFpbC5jb20iLCJhcHBsaWNhdGlvbiI6MzAwMjEzMTY0fX0.rooYQntvZsjGYViQw3yZCUpN3vZkgy7uLe-UFiPOoGv4yXXFVcAuT-Av89vBkDfolICREJi5ivEOLwklWTU4Cg'
+  },
+  body: JSON.stringify({query: `mutation {           createCard(input: {             pipe_id:302814723,             title: "Card",             fields_attributes:[               {field_id: "banco", field_value: "${banco}"},{field_id: "ag_ncia", field_value: "${agencia}"},{field_id: "qual_o_assunto_do_seu_pedido", field_value: "${title}"}, {field_id: "texto_longo", field_value: "${desc}"}             ],           }) {               card {                 title               }             }           }`})
+};
 
+fetch('https://api.pipefy.com/graphql', options)
+  .then(response => response.json())
+  .then(response => console.log(response))
+  .catch(err => console.error(err));
+}
 
 
 </script>

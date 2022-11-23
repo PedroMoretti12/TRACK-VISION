@@ -909,18 +909,14 @@ function pegarMedia(idAgencia) {
 
 pegarMedia(1)
 
-
-
-
-
-
-
-
 var verificar = 0
 
-
 var ctx = document.getElementById('statisticsChart').getContext('2d');
-
+setInterval(() => {
+	if(sessionStorage.getItem('Nome') == null) {
+	location.href = 'login'
+}
+}, 3000);
 
 var statisticsChart = new Chart(ctx, {
 	type: 'line',

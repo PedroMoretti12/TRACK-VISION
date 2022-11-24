@@ -194,7 +194,9 @@
 
 <script>
 
-  function entrar() {
+sessionStorage.clear()
+
+function entrar() {
     event.preventDefault()
 
     const email = email_input.value
@@ -216,7 +218,11 @@
 
       if(resposta.ok) {
         resposta.json().then(resposta => {
-          console.log(resposta)
+          console.log(resposta[0])
+          sessionStorage.setItem('Nome', resposta[0].nome)
+          sessionStorage.setItem('Email', resposta[0].email)
+          sessionStorage.setItem('idBanco', resposta[0].fkBanco)
+          sessionStorage.setItem('IdUsuario', resposta[0].id)
         })
         setTimeout(() => {
           location.href = 'dashboardTecnico'

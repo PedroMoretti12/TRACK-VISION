@@ -39,7 +39,7 @@ class UsuarioController {
 
             } else {
 
-                res.status(200).send("Login encontrado.")
+                res.status(200).send(usuario)
 
             }
 

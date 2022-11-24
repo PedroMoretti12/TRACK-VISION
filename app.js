@@ -1,7 +1,7 @@
 import express from "express";
 import routes from "./site/src/routes/indexRoute.js"
 import cors from "cors";
-import bodyParser from 'body-parser'
+import bodyParser from 'body-parser';
 
 const app = express();
 app.use(bodyParser.json())
@@ -9,6 +9,7 @@ app.use(bodyParser.json())
 routes(app)
 app.use(express.static('site/public'));
 app.use(express.static('site/public/dashboard'))
+app.use(express.static('site/public/dashboard/assets/js'))
 app.use(cors())
 app.use(express.json())
 app.use(express.urlencoded({ extended: false }));

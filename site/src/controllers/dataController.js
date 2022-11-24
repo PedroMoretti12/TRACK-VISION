@@ -18,6 +18,7 @@ class dataController {
         // } catch (erro) {
         //}   
     }
+    
 
     static atualizardados(req, res) {
         var idCaixa = req.params.idCaixa;

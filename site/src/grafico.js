@@ -128,6 +128,8 @@ var statisticsChart = new Chart(ctx, {
 	}
 });
 
+
+
 var myLegendContainer = document.getElementById("myChartLegend");
 
 // generate HTML legend

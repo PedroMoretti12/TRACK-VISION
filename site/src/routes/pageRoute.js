@@ -20,4 +20,7 @@ router.get("/dashboardTecnico", (req, res) => {
     res.sendFile(path.resolve("site/public/view/dashboard.html"))
 })
 
+router.get("/dashboardSeguranca", (req, res) => {
+    res.sendFile(path.resolve("site/public/view/dashboard_julia.html"))
+})
 export default router;

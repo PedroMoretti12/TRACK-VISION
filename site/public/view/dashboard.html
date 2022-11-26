@@ -1099,6 +1099,7 @@ function atualizardados(statisticsChart,idCaixa){
 	}
   });
 function alerta (e,idCaixa) {
+					alerta_automatizado(sessionStorage.getItem('idBanco'), 1, 'Alerta de uso moderado', 'Sua máquina pode estar estar sofrendo ataques ou mau desempenho.')
 					swal(`Dados Anormais Detectados`, `Alguns dados acima do ideal foram identificados verifique os seus Caixas.\n\n Numero do Caixa:${idCaixa}`, {
 						buttons: {        			
 							confirm: {
@@ -1109,6 +1110,7 @@ function alerta (e,idCaixa) {
 				}
 
 function critico (e,idCaixa) {
+					alerta_automatizado(sessionStorage.getItem('idBanco'), 1, 'Alerta de uso crítico', 'Sua máquina pode estar sofrendo um ataque grave.')
 					swal(`Dados Críticos detectados.`, `Verifique com Urgência seu Caixa ele pode estár sofrendo um Ataque.\n\n Numero do Caixa:${idCaixa}`, {
 						buttons: {        			
 							confirm: {
@@ -1120,6 +1122,21 @@ function critico (e,idCaixa) {
 }
 
 
+function alerta_automatizado(banco, agencia, title, desc) {
+	const options = {
+  method: 'POST',
+  headers: {
+    accept: 'application/json',
+    'content-type': 'application/json',
+    authorization: 'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJ1c2VyIjp7ImlkIjozMDIxODI2NTAsImVtYWlsIjoidHJhY2t2aXNpb24wNEBnbWFpbC5jb20iLCJhcHBsaWNhdGlvbiI6MzAwMjEzMTY0fX0.rooYQntvZsjGYViQw3yZCUpN3vZkgy7uLe-UFiPOoGv4yXXFVcAuT-Av89vBkDfolICREJi5ivEOLwklWTU4Cg'
+  },
+  body: JSON.stringify({query: `mutation {           createCard(input: {             pipe_id:302814723,             title: "Card",             fields_attributes:[               {field_id: "banco", field_value: "${banco}"},{field_id: "ag_ncia", field_value: "${agencia}"},{field_id: "qual_o_assunto_do_seu_pedido", field_value: "${title}"}, {field_id: "texto_longo", field_value: "${desc}"}             ],           }) {               card {                 title               }             }           }`})
+};
 
+fetch('https://api.pipefy.com/graphql', options)
+  .then(response => response.json())
+  .then(response => console.log(response))
+  .catch(err => console.error(err));
+}
 
 </script>

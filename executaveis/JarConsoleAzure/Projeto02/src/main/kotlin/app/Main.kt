@@ -1,6 +1,7 @@
 package app
 import com.github.britooo.looca.api.core.Looca
 import com.github.britooo.looca.api.group.processos.ProcessosGroup
+import com.github.britooo.looca.api.group.temperatura.Temperatura
 import javax.swing.JOptionPane
 import configuracao.Conexao
    fun main (){
@@ -8,7 +9,7 @@ import configuracao.Conexao
             val conexao = Conexao().getJdbcTemplate()
 
 
-           /* var processJ = repositorio.grupoDeProcessos.processos
+           var processJ = repositorio.grupoDeProcessos.processos
             var servicosJ = repositorio.grupoDeServicos.servicos
             var processosPadrao = mutableListOf<String>()
             var servicosPadrao = mutableListOf<String>()
@@ -32,6 +33,7 @@ import configuracao.Conexao
                 var processAtuais = (repositorio.grupoDeProcessos.processos.size).toInt()
                 var processosPerigosos = (processAtuais - processosPadrao.size).toInt()
                 var servicosPerigosos = (servicosAtuais - servicosPadrao.size).toInt()
+                var Temperatura = (repositorio.temperatura)
 
                 Conexao().inserir(uso_cpu, uso_ram, uso_disco, servicosAtuais, processAtuais, processosPerigosos, servicosPerigosos)
 
@@ -54,6 +56,6 @@ import configuracao.Conexao
 
                 }
 
-            }*/
+            }
         }
 

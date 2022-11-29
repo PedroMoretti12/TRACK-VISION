@@ -36,6 +36,7 @@ id INT AUTO_INCREMENT,
 fkBanco INT,
 fkAgencia INT,
 numeroSerial CHAR(8),
+dataCompra CHAR(10),
 FOREIGN KEY(fkAgencia) REFERENCES Agencia(id),
 PRIMARY KEY(id)
 ) AUTO_INCREMENT = 100;

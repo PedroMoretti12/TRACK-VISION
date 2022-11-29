@@ -51,8 +51,8 @@ hdPorcentagem DECIMAL(5,2),
 processosAtivos INT,
 servicoAtivos INT,
 momento DATETIME,
-processosIncoerentes INT,
-servicosIncoerentes INT,
+processosPerigosos INT,
+servicosPerigosos INT,
 FOREIGN KEY(fkAgencia) REFERENCES Agencia(id),
 FOREIGN KEY(fkCaixa) REFERENCES Caixa(id),
 FOREIGN KEY(fkBanco) REFERENCES Banco(id),
@@ -72,6 +72,8 @@ nomeProcesso VARCHAR(30),
 usoCpuProcesso DECIMAL (5,2),
 usoMemoriaProcesso DECIMAL (5,2)
 );
+
+
 
 
 INSERT INTO Banco VALUES (NULL, 'Banco do Brasil', '001', '00000000'),

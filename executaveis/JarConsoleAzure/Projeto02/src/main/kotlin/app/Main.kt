@@ -3,18 +3,18 @@ import com.github.britooo.looca.api.core.Looca
 import com.github.britooo.looca.api.group.processos.ProcessosGroup
 import javax.swing.JOptionPane
 import configuracao.Conexao
-   fun main {
+   fun main (){
             val repositorio = Looca()
             val conexao = Conexao().getJdbcTemplate()
 
-            var c = 0
+       
 
             var processJ = repositorio.grupoDeProcessos.processos
             var servicosJ = repositorio.grupoDeServicos.servicos
             var processosPadrao = mutableListOf<String>()
             var servicosPadrao = mutableListOf<String>()
 
-
+            var c = 0
             while(c < processJ.size) {
                 processosPadrao.add(repositorio.grupoDeProcessos.processos[c].nome)
                 c++

@@ -7,9 +7,8 @@ import configuracao.Conexao
             val repositorio = Looca()
             val conexao = Conexao().getJdbcTemplate()
 
-       
 
-            var processJ = repositorio.grupoDeProcessos.processos
+           /* var processJ = repositorio.grupoDeProcessos.processos
             var servicosJ = repositorio.grupoDeServicos.servicos
             var processosPadrao = mutableListOf<String>()
             var servicosPadrao = mutableListOf<String>()
@@ -55,6 +54,6 @@ import configuracao.Conexao
 
                 }
 
-            }
+            }*/
         }
 

@@ -48,12 +48,31 @@ fkCaixa INT,
 cpuPorcentagem DECIMAL(5,2),
 ramPorcentagem DECIMAL(5,2),
 hdPorcentagem DECIMAL(5,2),
+processosAtivos INT,
+servicoAtivos INT,
 momento DATETIME,
+processosIncoerentes INT,
+servicosIncoerentes INT,
 FOREIGN KEY(fkAgencia) REFERENCES Agencia(id),
 FOREIGN KEY(fkCaixa) REFERENCES Caixa(id),
 FOREIGN KEY(fkBanco) REFERENCES Banco(id),
 PRIMARY KEY(id)
 );
+
+
+CREATE TABLE Projeto_Julia (
+fkBanco INT,
+FOREIGN KEY(fkBanco) REFERENCES Banco(id),
+fkAgencia INT,
+FOREIGN KEY(fkAgencia) REFERENCES Agencia(id),
+fkCaixa INT,
+FOREIGN KEY (FkCaixa) REFERENCES Caixa(id),
+pid INT, 
+nomeProcesso VARCHAR(30),
+usoCpuProcesso DECIMAL (5,2),
+usoMemoriaProcesso DECIMAL (5,2)
+);
+
 
 INSERT INTO Banco VALUES (NULL, 'Banco do Brasil', '001', '00000000'),
 						 (NULL, 'Bradesco', '237', '60746948'),
@@ -64,13 +83,3 @@ INSERT INTO Agencia VALUES (1, 1, '1234', 'Campo Limpo', '05763470', 'Rua Dougla
 INSERT INTO Caixa (fkBanco, fkAgencia, numeroSerial) VALUES (1, 1, '12345678'),
 						                                    (2, 1, '12345678'),
 															(3, 1, '12345678');
-                                                            
-														
-                                                            
-
-
-
-
-
-
-

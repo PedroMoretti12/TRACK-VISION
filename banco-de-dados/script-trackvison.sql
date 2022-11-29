@@ -1,4 +1,5 @@
 CREATE DATABASE Trackvision;
+-- DROP DATABASE Trackvision;
 
 USE Trackvision;
 
@@ -73,8 +74,22 @@ usoCpuProcesso DECIMAL (5,2),
 usoMemoriaProcesso DECIMAL (5,2)
 );
 
+CREATE TABLE Projeto_Michelly (
+id INT PRIMARY KEY AUTO_INCREMENT,
+dataTemp DATE,
+horaTemp TIME,
+min DECIMAL(5,2),
+med decimal(5,2),
+max decimal(5,2),
+fkAgencia INT,
+FOREIGN KEY(fkAgencia) REFERENCES Agencia(id),
+fkCaixa INT,
+FOREIGN KEY(fkCaixa) REFERENCES Caixa(id),
+fkBanco INT,
+FOREIGN KEY(fkBanco) REFERENCES Banco(id)
+)AUTO_INCREMENT = 1000;
 
-
+select * from Projeto_Michelly;
 
 INSERT INTO Banco VALUES (NULL, 'Banco do Brasil', '001', '00000000'),
 						 (NULL, 'Bradesco', '237', '60746948'),
@@ -82,6 +97,6 @@ INSERT INTO Banco VALUES (NULL, 'Banco do Brasil', '001', '00000000'),
                          
 INSERT INTO Agencia VALUES (1, 1, '1234', 'Campo Limpo', '05763470', 'Rua Douglas Costa', 75);
 
-INSERT INTO Caixa (fkBanco, fkAgencia, numeroSerial) VALUES (1, 1, '12345678'),
-						                                    (2, 1, '12345678'),
-															(3, 1, '12345678');
+INSERT INTO Caixa (id, fkBanco, fkAgencia, numeroSerial) VALUES (NULL, 1, 1, '12345678'),
+																(NULL, 2, 1, '12345678'),
+																(NULL, 3, 1, '12345678');

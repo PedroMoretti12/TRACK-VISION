@@ -22,27 +22,82 @@ try:
 except:
     pass
 
-cursor.execute('SELECT cpuPorcentagem FROM Leitura')
+'''
+Código da captura de dados do dia.
+'''
+
+cursor.execute("SELECT TOP(24) cpuPorcentagem FROM [dbo].[Leitura] WHERE FORMAT(momento, 'dd') = FORMAT(DATEADD(DAY, -1 , GETDATE()), 'dd') ORDER BY id DESC;")
 row = cursor.fetchall()
-dados_cpu = []
 
-for x in range(len(row)):
-    dados_cpu.append(row[x][0])
+cpu_diario = []
 
-cursor.execute('SELECT hdPorcentagem FROM Leitura')
+if len(row) == 24:
+    print("24 Dados do dia anterior capturados.")
+    for x in range(len(row)):
+        cpu_diario.append(row[x][0])
+else:
+    cursor.execute("SELECT TOP(24) cpuPorcentagem FROM Leitura ORDER BY id DESC;")
+    row = cursor.fetchall()
+    print("Não existem 24 dados no dia anterior, pegando os últimos 24 dados registrados.")
+    for x in range(len(row)):
+        cpu_diario.append(row[x][0])
+
+
+'''
+
+'''
+cursor.execute("SELECT TOP(24) ramPorcentagem FROM [dbo].[Leitura] WHERE FORMAT(momento, 'dd') = FORMAT(DATEADD(DAY, -1 , GETDATE()), 'dd') ORDER BY id DESC;")
 row = cursor.fetchall()
-dados_hd = []
 
-for x in range(len(row)):
-    dados_hd.append(row[x][0])
+ram_diario = []
 
-cursor.execute('SELECT ramPorcentagem FROM Leitura')
+if len(row) == 24:
+    print("24 Dados do dia anterior capturados.")
+    for x in range(len(row)):
+        ram_diario.append(row[x][0])
+else:
+    cursor.execute("SELECT TOP(24) ramPorcentagem FROM Leitura ORDER BY id DESC;")
+    row = cursor.fetchall()
+    print("Não existem 24 dados no dia anterior, pegando os últimos 24 dados registrados.")
+    for x in range(len(row)):
+        cpu_diario.append(row[x][0])
+
+cursor.execute("SELECT TOP(24) hdPorcentagem FROM [dbo].[Leitura] WHERE FORMAT(momento, 'dd') = FORMAT(DATEADD(DAY, -1 , GETDATE()), 'dd') ORDER BY id DESC;")
 row = cursor.fetchall()
-dados_ram = []
+'''
 
-for x in range(len(row)):
-    dados_ram.append(row[x][0])
+'''
+hd_diario = []
 
+if len(row) == 24:
+    print("24 Dados do dia anterior capturados.")
+    for x in range(len(row)):
+        hd_diario.append(row[x][0])
+else:
+    cursor.execute("SELECT TOP(24) hdPorcentagem FROM Leitura ORDER BY id DESC;")
+    row = cursor.fetchall()
+    print("Não existem 24 dados no dia anterior, pegando os últimos 24 dados registrados.")
+    for x in range(len(row)):
+        cpu_diario.append(row[x][0])
+
+'''
+Código da captura de dados da semana.
+'''
+cpu_semanal = []
+ram_semanal = []
+hd_semanal = []
+
+cursor.execute("SELECT TOP(1) cpuPorcentagem FROM Leitura WHERE FORMAT(momento, 'dd') = FORMAT(DATEADD(DAY, -0, GETDATE()), 'dd') ORDER BY id DESC")
+teste = cursor.fetchall()
+
+'''
+Código da captura de dados do mês.
+'''
+
+
+'''
+Códigos da parte gráfica da aplicação.
+'''
 app = Dash(__name__)
 
 app.layout = html.Div([

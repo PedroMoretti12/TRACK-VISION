@@ -1,4 +1,5 @@
 CREATE DATABASE Trackvision;
+-- DROP DATABASE Trackvision;
 
 USE Trackvision;
 
@@ -52,14 +53,14 @@ hdPorcentagem DECIMAL(5,2),
 processosAtivos INT,
 servicoAtivos INT,
 momento DATETIME,
-processosIncoerentes INT,
-servicosIncoerentes INT,
+processosPerigosos INT,
+servicosPerigosos INT,
+tempCpu DECIMAL (5,2),
 FOREIGN KEY(fkAgencia) REFERENCES Agencia(id),
 FOREIGN KEY(fkCaixa) REFERENCES Caixa(id),
 FOREIGN KEY(fkBanco) REFERENCES Banco(id),
 PRIMARY KEY(id)
 );
-
 
 CREATE TABLE Projeto_Julia (
 fkBanco INT,
@@ -74,7 +75,6 @@ usoCpuProcesso DECIMAL (5,2),
 usoMemoriaProcesso DECIMAL (5,2)
 );
 
-
 INSERT INTO Banco VALUES (NULL, 'Banco do Brasil', '001', '00000000'),
 						 (NULL, 'Bradesco', '237', '60746948'),
                          (NULL, 'Caixa econômica federal', '104', '00360305');
@@ -82,5 +82,5 @@ INSERT INTO Banco VALUES (NULL, 'Banco do Brasil', '001', '00000000'),
 INSERT INTO Agencia VALUES (1, 1, '1234', 'Campo Limpo', '05763470', 'Rua Douglas Costa', 75);
 
 INSERT INTO Caixa (fkBanco, fkAgencia, numeroSerial) VALUES (1, 1, '12345678'),
-						                                    (2, 1, '12345678'),
-															(3, 1, '12345678');
+																(2, 1, '12345678'),
+																(3, 1, '12345678');

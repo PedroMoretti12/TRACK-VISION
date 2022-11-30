@@ -848,7 +848,7 @@
 
 	function pegarMedia(idAgencia) {
 
-		fetch(`/data/obterMedia/${idAgencia}`, { cache: 'no-store' }).then(function (response) {
+		fetch(`/data/obterprocessosJulia/${idAgencia}`, { cache: 'no-store' }).then(function (response) {
 			if (response.ok) {
 				response.json().then(function (response) {
 					media_cpu.innerHTML = (response[0].Cpu).toFixed(2) + "%"

@@ -17,9 +17,20 @@ class dataModel {
         }
     }
 
+
+
     static obterMedia(idAgencia) {
         try {
         return Database.executarQuery(`SELECT AVG(cpuPorcentagem) AS "Cpu", AVG(ramPorcentagem) AS "Ram", AVG(hdPorcentagem) AS "Hd" FROM Leitura WHERE fkAgencia = ${idAgencia};`)
+        }
+        catch (error) {
+            console.log(error)
+        } 
+    }
+
+    static obterprocessosJulia(idAgencia) {
+        try {
+        return Database.executarQuery(`SELECT (processosAtivos) AS "Processos Ativos", (servicosAtivos) AS "Serviços Ativos", (hdPorcentagem) AS "Hd" FROM Leitura WHERE fkAgencia = ${idAgencia};`)
         }
         catch (error) {
             console.log(error)

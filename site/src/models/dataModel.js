@@ -28,9 +28,9 @@ class dataModel {
         } 
     }
 
-    static obterprocessosJulia(idAgencia) {
+    static obterprocessosJulia(idCaixa) {
         try {
-        return Database.executarQuery(`SELECT (processosAtivos) AS "Processos Ativos", (servicosAtivos) AS "Serviços Ativos", (hdPorcentagem) AS "Hd" FROM Leitura WHERE fkAgencia = ${idAgencia};`)
+        return Database.executarQuery(`SELECT processosAtivos, servicosAtivos FROM Leitura WHERE fkCaixa = ${idCaixa};`)
         }
         catch (error) {
             console.log(error)

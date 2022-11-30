@@ -846,14 +846,15 @@
 <script>
 	let proximaAtualizacao;
 
-	function pegarMedia(idAgencia) {
+	function pegarMedia(idCaixa) {
 
-		fetch(`/data/obterprocessosJulia/${idAgencia}`, { cache: 'no-store' }).then(function (response) {
+		fetch(`/data/obterprocessosJulia/${idCaixa}`, { cache: 'no-store' }).then(function (response) {
+			console.log(response.json.)
 			if (response.ok) {
 				response.json().then(function (response) {
-					media_cpu.innerHTML = (response[0].Cpu).toFixed(2) + "%"
+					media_cpu.innerHTML = (response[0].cpu).toFixed(2) + "%"
 					media_ram.innerHTML = (response[0].Ram).toFixed(2) + "%"
-					media_hd.innerHTML = (response[0].Hd).toFixed(2) + "%"
+				
 				})
 
 			} else {

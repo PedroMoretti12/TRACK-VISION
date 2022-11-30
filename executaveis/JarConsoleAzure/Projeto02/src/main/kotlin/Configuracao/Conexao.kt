@@ -17,18 +17,18 @@ class Conexao {
         return JdbcTemplate(dataSource)
     }
 
-    fun inserir(cpu:Double,disco:Double,ram:Double,servicosAtuais:Int,processosAtuais:Int,processosPerigosos:Int,servicosPerigosos:Int){
+    fun inserir(cpu:Double,disco:Double,ram:Double,servicosAtuais:Int,processosAtuais:Int,processosPerigosos:Int,servicosPerigosos:Int,tempCpu:Double){
         val conexao = getJdbcTemplate()
-        conexao.update("DECLARE @Date DATETIME; SET @Date = GETDATE(); insert into Leitura(fkBanco,fkAgencia,fkCaixa,cpuPorcentagem,ramPorcentagem,hdPorcentagem,processosAtivos,servicosAtivos,processosPerigosos,servicosPerigosos,momento) values(1,1,1,?,?,?,?,?,?,?,@Date)", cpu,ram,disco,servicosAtuais,processosAtuais,processosPerigosos,servicosPerigosos)
-        conexao.update("DECLARE @Date DATETIME; SET @Date = GETDATE(); insert into Leitura(fkBanco,fkAgencia,fkCaixa,cpuPorcentagem,ramPorcentagem,hdPorcentagem,processosAtivos,servicosAtivos,processosPerigosos,servicosPerigosos,momento) values(1,1,31,?,?,?,?,?,?,?,@Date)", cpu*1.05,ram*1.00,disco*1.05,servicosAtuais * 2,processosAtuais * 2,processosPerigosos*2,servicosPerigosos*2)
-        conexao.update("DECLARE @Date DATETIME; SET @Date = GETDATE(); insert into Leitura(fkBanco,fkAgencia,fkCaixa,cpuPorcentagem,ramPorcentagem,hdPorcentagem,processosAtivos,servicosAtivos,processosPerigosos,servicosPerigosos,momento) values(1,1,41,?,?,?,?,?,?,?,@Date)", cpu*1.20,ram*1.05,disco*1.20,servicosAtuais,processosAtuais,processosPerigosos,servicosPerigosos)
+        conexao.update("DECLARE @Date DATETIME; SET @Date = GETDATE(); insert into Leitura(fkBanco,fkAgencia,fkCaixa,cpuPorcentagem,ramPorcentagem,hdPorcentagem,processosAtivos,servicosAtivos,processosPerigosos,servicosPerigosos,tempCpu,momento) values(1,1,1,?,?,?,?,?,?,?,?,@Date)", cpu,ram,disco,servicosAtuais,processosAtuais,processosPerigosos,servicosPerigosos,tempCpu)
+        conexao.update("DECLARE @Date DATETIME; SET @Date = GETDATE(); insert into Leitura(fkBanco,fkAgencia,fkCaixa,cpuPorcentagem,ramPorcentagem,hdPorcentagem,processosAtivos,servicosAtivos,processosPerigosos,servicosPerigosos,tempCpu,momento) values(1,1,31,?,?,?,?,?,?,?,?,@Date)", cpu*1.05,ram*1.00,disco*1.05,servicosAtuais ,processosAtuais ,processosPerigosos*2,servicosPerigosos+1*2,tempCpu+4)
+        conexao.update("DECLARE @Date DATETIME; SET @Date = GETDATE(); insert into Leitura(fkBanco,fkAgencia,fkCaixa,cpuPorcentagem,ramPorcentagem,hdPorcentagem,processosAtivos,servicosAtivos,processosPerigosos,servicosPerigosos,tempCpu,momento) values(1,1,41,?,?,?,?,?,?,?,?,@Date)", cpu*1.20,ram*1.05,disco*1.20,servicosAtuais,processosAtuais,processosPerigosos+1,servicosPerigosos+2,tempCpu*2)
     }
 
     fun inserirProcesso(pid:Int,nomeProcesso:String,uso_cpu:Double,uso_memoria:Double){
         val conexao = getJdbcTemplate()
-        conexao.update("insert into Leitura(fkBanco,fkAgencia,fkCaixa,pid, nomeProcesso, usoCpuProcesso,UsoMemoriaProcesso) values(1,1,1,?,?,?)",pid,nomeProcesso,uso_cpu,uso_memoria)
-        conexao.update("insert into Leitura(fkBanco,fkAgencia,fkCaixa,pid, nomeProcesso, usoCpuProcesso,UsoMemoriaProcesso) values(1,1,2,?,?,?)",pid,nomeProcesso,uso_cpu*1.25,uso_memoria*1.25)
-        conexao.update("insert into Leitura(fkBanco,fkAgencia,fkCaixa,pid, nomeProcesso, usoCpuProcesso,UsoMemoriaProcesso) values(1,1,3,?,?,?)",pid,nomeProcesso,uso_cpu*1.05,uso_memoria*1.05)
+        conexao.update("insert into Projeto_Julia(fkBanco,fkAgencia,fkCaixa,pid, nomeProcesso, usoCpuProcesso,UsoMemoriaProcesso) values(1,1,1,?,?,?,?)",pid,nomeProcesso,uso_cpu,uso_memoria)
+        conexao.update("insert into Projeto_Julia(fkBanco,fkAgencia,fkCaixa,pid, nomeProcesso, usoCpuProcesso,UsoMemoriaProcesso) values(1,1,2,?,?,?,?)",pid,nomeProcesso,uso_cpu*1.25,uso_memoria*1.25)
+        conexao.update("insert into Projeto_Julia(fkBanco,fkAgencia,fkCaixa,pid, nomeProcesso, usoCpuProcesso,UsoMemoriaProcesso) values(1,1,3,?,?,?,?)",pid,nomeProcesso,uso_cpu*1.05,uso_memoria*1.05)
     }
 
 

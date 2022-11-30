@@ -1,8 +1,6 @@
 package app
+
 import com.github.britooo.looca.api.core.Looca
-import com.github.britooo.looca.api.group.processos.ProcessosGroup
-import com.github.britooo.looca.api.group.temperatura.Temperatura
-import javax.swing.JOptionPane
 import configuracao.Conexao
    fun main (){
             val repositorio = Looca()
@@ -10,7 +8,6 @@ import configuracao.Conexao
 
 
            var processJ = repositorio.grupoDeProcessos.processos
-            var servicosJ = repositorio.grupoDeServicos.servicos
             var processosPadrao = mutableListOf<String>()
             var servicosPadrao = mutableListOf<String>()
 
@@ -20,7 +17,7 @@ import configuracao.Conexao
                 c++
             }
 
-            while(c < servicosJ.size) {
+            while(c < repositorio.grupoDeServicos.servicos.size) {
                 servicosPadrao.add(repositorio.grupoDeServicos.servicos[c].nome)
                 c++
             }
@@ -33,9 +30,9 @@ import configuracao.Conexao
                 var processAtuais = (repositorio.grupoDeProcessos.processos.size).toInt()
                 var processosPerigosos = (processAtuais - processosPadrao.size).toInt()
                 var servicosPerigosos = (servicosAtuais - servicosPadrao.size).toInt()
-                var Temperatura = (repositorio.temperatura)
+                var tempCpu = (repositorio.temperatura.temperatura).toDouble()
 
-                Conexao().inserir(uso_cpu, uso_ram, uso_disco, servicosAtuais, processAtuais, processosPerigosos, servicosPerigosos)
+                Conexao().inserir(uso_cpu, uso_ram, uso_disco, servicosAtuais, processAtuais, processosPerigosos, servicosPerigosos,tempCpu)
 
 
                 while (c < repositorio.grupoDeProcessos.processos.size) {

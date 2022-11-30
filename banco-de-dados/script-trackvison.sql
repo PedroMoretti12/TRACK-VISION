@@ -81,6 +81,6 @@ INSERT INTO Banco VALUES (NULL, 'Banco do Brasil', '001', '00000000'),
                          
 INSERT INTO Agencia VALUES (1, 1, '1234', 'Campo Limpo', '05763470', 'Rua Douglas Costa', 75);
 
-INSERT INTO Caixa (fkBanco, fkAgencia, numeroSerial) VALUES (1, 1, '12345678'),
-																(2, 1, '12345678'),
-																(3, 1, '12345678');
+INSERT INTO Caixa (fkBanco, fkAgencia, numeroSerial, dataCompra) VALUES (1, 1, '12345678', '30/11/2022'),
+																(2, 1, '12345678', '11/01/2011'),
+																(3, 1, '12345678', '15/12/2020');

@@ -1,6 +1,7 @@
 import pyodbc
 from dash import Dash, dcc, html, Input, Output
 import plotly.express as px
+import random
 
 conexao = False
 try:
@@ -152,6 +153,9 @@ print("Dados Mensais do HD capturados.")
 '''
 Parte de confiabilidade do código. 
 '''
+
+print("\nPreenchendo quaisquer campos vazios + Cálculo de confiabilidade.")
+
 medida_confiavel_cpu_mensal = 0
 medida_confiavel_cpu_semanal = 0
 medida_confiavel_ram = 0
@@ -168,24 +172,28 @@ else:
 print("Confiabilidade diária: ", confiabilidade_diario, "%")
 
 for i in range(len(cpu_semanal)):
-     if(len(cpu_semanal[i]) == 1):
+    if(len(cpu_semanal[i]) == 1):
         medida_confiavel_cpu_semanal += 1
+    else:
+        cpu_semanal[i] = round(random.randint(25, 75), 2)
 
+        
 confiabilidade_semanal = round((medida_confiavel_cpu_semanal/7)*100, 2)
 print("Confiabilidade semanal: ", confiabilidade_semanal, "%")
 
 for i in range(len(cpu_mensal)):
     if(len(cpu_mensal[i]) == 1):
         medida_confiavel_cpu_mensal += 1
+    else:
+        cpu_mensal[i] = round(random.randint(25, 75), 2)
 
 confiabilidade_mensal = round((medida_confiavel_cpu_mensal/30)*100,2)
 print("Confiabilidade mensal: ", confiabilidade_mensal, "%")
 
-'''
-Correção dos dados vazios de cada um dos arrays.
-'''
+print("\n", cpu_diario)
+print("\n", cpu_semanal)
+print("\n", cpu_mensal)
 
-print("Corrigindo quaisquer dados vazios.")
 
 
 '''

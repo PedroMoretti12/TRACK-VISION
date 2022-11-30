@@ -10,7 +10,7 @@ fun main() {
 
     val processJ = repositorio.grupoDeProcessos.processos
     val processosPadrao = mutableListOf<String>()
-    val servicosPadrao = mutableListOf<String>()
+    val  servicosPadrao = mutableListOf<String>()
 
     var c = 0
     while (c < processJ.size - 1) {

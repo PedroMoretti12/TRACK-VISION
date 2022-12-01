@@ -38,6 +38,7 @@ fkBanco INT,
 fkAgencia INT,
 numeroSerial CHAR(8),
 dataCompra CHAR(10),
+vidaUtil int,
 FOREIGN KEY(fkAgencia) REFERENCES Agencia(id),
 PRIMARY KEY(id)
 ) AUTO_INCREMENT = 100;
@@ -81,6 +82,11 @@ INSERT INTO Banco VALUES (NULL, 'Banco do Brasil', '001', '00000000'),
                          
 INSERT INTO Agencia VALUES (1, 1, '1234', 'Campo Limpo', '05763470', 'Rua Douglas Costa', 75);
 
-INSERT INTO Caixa (fkBanco, fkAgencia, numeroSerial, dataCompra) VALUES (1, 1, '12345678', '30/11/2022'),
-																(2, 1, '12345678', '11/01/2011'),
-																(3, 1, '12345678', '15/12/2020');
+INSERT INTO Caixa (fkBanco, fkAgencia, numeroSerial, dataCompra, vidaUtil) VALUES (1, 1, '12345678', '30/11/2022', 14000),
+																(2, 1, '12345678', '11/01/2011', 25500),
+																(3, 1, '12345678', '15/12/2020', 10000);
+                                                                
+select * from Caixa;	
+update Caixa set vidaUtil = 25000 where id = (select id from Caixa order by id desc limit 1);
+
+update Caixa set vidaUtil = 1000 where id in (select id from (select id from Caixa order by id desc limit 1) as t);

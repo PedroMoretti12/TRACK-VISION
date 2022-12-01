@@ -46,7 +46,7 @@ fun main() {
         )
 
         println("foi")
-        var r = 0
+       var r = 0
         while (r < repositorio.grupoDeProcessos.processos.size - 1) {
             if (processJ[r].usoCpu > 0.5) {
                 val pid = (processJ[r].pid).toInt()

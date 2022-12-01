@@ -357,6 +357,7 @@
 				</div>
 				<div class="page-inner mt--5">
 					<div class="row row-card-no-pd mt--2">
+
 						<div class="col-sm-6 col-md-3">
 							<div class="card card-stats card-round">
 								<div class="card-body ">
@@ -534,8 +535,9 @@
 								</div>
 							</div>
 						</div>
+						
 						<div class="row">
-							<div class="col-md-6">
+						<!--	<div class="col-md-6">
 								<div class="card">
 									<div class="card-header">
 										<div class="card-title">Atividades Recentes</div>
@@ -673,7 +675,7 @@
 							</div>
 						</div>
 					</div>
-				</div>
+				</div> -->
 				<footer class="footer">
 					<div class="container-fluid">
 						<nav class="pull-left">
@@ -851,13 +853,12 @@
 
 	function pegarMedia(idCaixa) {
 
-		fetch(`/data/obterprocessosJulia/${idCaixa}`, { cache: 'no-store' }).then(function (response) {
-			console.log(response.json.)
+		fetch(`/data/obterdados/${idCaixa}`, { cache: 'no-store' }).then(function (response) {
+			response.json().then((resultado => {console.log(response)}))
 			if (response.ok) {
 				response.json().then(function (response) {
 					media_cpu.innerHTML = (response[0].cpu).toFixed(2) + "%"
 					media_ram.innerHTML = (response[0].Ram).toFixed(2) + "%"
-				
 				})
 
 			} else {
@@ -906,16 +907,6 @@
 				fill: true,
 				borderWidth: 2,
 				data: ["RAM"]
-			}, {
-				label: "Disco",
-				borderColor: '#177dff',
-				pointBackgroundColor: 'rgba(23, 125, 255, 0.6)',
-				pointRadius: 0,
-				backgroundColor: 'rgba(23, 125, 255, 0.4)',
-				legendColor: '#177dff',
-				fill: true,
-				borderWidth: 2,
-				data: ["DISCO"]
 			}]
 		},
 		options: {
@@ -979,7 +970,7 @@
 
 	// generate HTML legend
 	myLegendContainer.innerHTML = statisticsChart.generateLegend();
-	pegardados(statisticsChart, 1);
+	pegardadosJulia(statisticsChart, 1);
 
 	// bind onClick event to all LI-tags of the legend
 	var legendItems = myLegendContainer.getElementsByTagName('li');
@@ -987,31 +978,48 @@
 		legendItems[i].addEventListener("click", legendClickCallback, false);
 	}
 
+	function pegardadosJulia(idCaixa) {
+	fetch(`/data/obterdadosJulia/${idCaixa}`, { cache: 'no-store' }).then(function (response) {
+	  if (response.ok) {
+	  for(cont = 0; cont<response.length;cont++){
+		  response.json().then(function (response) {
+			  pid.push(response[cont].pid)
+			  usoCpuProcesso.push(response[cont].usoCpuProcesso)
+			  usoMemoriaProcesso.push(response[cont].usoMemoriaProcesso)
+			  
+		  });
+	  }	
+  
+	  } else {
+		console.error("Falha ao Executar a API")
+		return
+	  }
+	});
+  }
 
 
-	function pegardados(statisticsChart, idCaixa) {
-		dados_cpu = []
-		dados_memoria = []
-		dados_disco = []
-		momento = []
+	function pegardadosJulia(statisticsChart, idCaixa) {
+let pid = []
+let usoCpuProcesso = []
+let usoMemoriaProcesso = []
 		if (proximaAtualizacao != undefined) {
 			clearTimeout(proximaAtualizacao);
 		}
-		fetch(`/data/obterdados/${idCaixa}`, { cache: 'no-store' }).then(function (response) {
+		fetch(`/data/obterdadosJulia/${idCaixa}`, { cache: 'no-store' }).then(function (response) {
+			response.json().then(resultado => {console.log(response)})
 			if (response.ok) {
 				response.json().then(function (response) {
 					for (cont = 0; cont < 5; cont++) {
-						dados_cpu.push(response[cont].cpuPorcentagem);
-						dados_disco.push(response[cont].hdPorcentagem);
-						dados_memoria.push(response[cont].ramPorcentagem);
-						momento.push(response[cont].momento);
+			  pid.push(response[cont].pid);
+			  usoCpuProcesso.push(response[cont].usoCpuProcesso);
+			  usoMemoriaProcesso.push(response[cont].usoMemoriaProcesso);
+			
 					}
-					statisticsChart.data.datasets[0].data = dados_cpu
-					statisticsChart.data.datasets[1].data = dados_memoria
-					statisticsChart.data.datasets[2].data = dados_disco
-					statisticsChart.data.labels = momento
+					statisticsChart.data.datasets[0].data = usoCpuProcesso
+					statisticsChart.data.datasets[1].data = usoMemoriaProcesso
+					statisticsChart.data.labels = pid
 					statisticsChart.update()
-					atualizardados(statisticsChart, idCaixa)
+					atualizardadosJulia(statisticsChart, idCaixa)
 				});
 			} else {
 				console.error("Falha ao Executar a API")
@@ -1019,43 +1027,43 @@
 			}
 		});
 	}
-	function atualizardados(statisticsChart, idCaixa) {
-		fetch(`/data/atualizardados/${idCaixa}`, { cache: 'no-store' }).then(function (response) {
+	function atualizardadosJulia(statisticsChart, idCaixa) {
+		fetch(`/data/atualizardadosJulia/${idCaixa}`, { cache: 'no-store' }).then(function (response) {
+
 			if (response.ok) {
-				response.json().then(function (response) {
-					statisticsChart.data.labels.shift()
-					statisticsChart.data.labels.push(response[0].momento); // incluir um novo momento
+				response.json().then(function (resposta) {
+					console.log(resposta)
+				// 	statisticsChart.data.labels.shift()
+				// 	statisticsChart.data.labels.push(response[0].pid); // incluir um novo momento
 
-					statisticsChart.data.datasets[0].data.shift();  // apagar o primeiro de umidade
-					statisticsChart.data.datasets[0].data.push(response[0].cpuPorcentagem); // incluir uma nova medida de umidade
+				// 	statisticsChart.data.datasets[0].data.shift();  // apagar o primeiro de umidade
+				// 	statisticsChart.data.datasets[0].data.push(response[0].usoCpuProcesso); // incluir uma nova medida de umidade
 
-					statisticsChart.data.datasets[1].data.shift();
-					statisticsChart.data.datasets[1].data.push(response[0].ramPorcentagem); // incluir uma nova medida de temperatura
+				// 	statisticsChart.data.datasets[1].data.shift();
+				// 	statisticsChart.data.datasets[1].data.push(response[0].usoMemoriaProcesso); // incluir uma nova medida de temperatura
 
-					statisticsChart.data.datasets[2].data.shift();
-					statisticsChart.data.datasets[2].data.push(response[0].hdPorcentagem);
-					statisticsChart.update()
-					proximaAtualizacao = setTimeout(() => atualizardados(statisticsChart, idCaixa), 2000);
-					var cpu = response[0].cpuPorcentagem
-					var hd = response[0].hdPorcentagem
-					var ram = response[0].ramPorcentagem
-					verificar++
-					console.log(verificar)
-					if (verificar == 10) {
+				// 	statisticsChart.update()
+				// 	proximaAtualizacao = setTimeout(() => atualizardadosJulia(statisticsChart, idCaixa), 2000);
+				// 	var cpu = response[0].usoCpuProcesso
+				// 	var mem = response[0].usoMemoriaProcesso
+					
+				// 	verificar++
+				// 	console.log(verificar)
+				// 	if (verificar == 10) {
 
-						if ((cpu > 40 && cpu <= 60) || (hd > 70 && hd <= 100) || (ram > 40 && ram <= 60)) {
-							alerta(null, idCaixa)
-							verificar = 0
-						}
-						else if ((cpu > 60 && cpu <= 100) || (hd > 60 && hd <= 100) || (ram > 60 && ram <= 100)) {
-							critico(null, idCaixa)
-							verificar = 0
-						}
-					}
+				// 		if ((cpu > 2.0 && cpu <= 40.0) || (mem > 2.0 && mem <= 40.0)) {
+				// 			alerta(null, idCaixa)
+				// 			verificar = 0
+				// 		}
+				// 		else if ((cpu > 60.0 && cpu <= 100.0) || (mem > 60.0 && mem <= 100.0)) {
+				// 			critico(null, idCaixa)
+				// 			verificar = 0
+				// 		}
+				// 	}
 				});
 			} else {
 				console.error("Falha ao Executar a API")
-				proximaAtualizacao = setTimeout(() => atualizardados(statisticsChart, idCaixa), 2000);
+				proximaAtualizacao = setTimeout(() => atualizardadosJulia(statisticsChart, idCaixa), 2000);
 				return
 			}
 		});

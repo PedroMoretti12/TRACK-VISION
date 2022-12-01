@@ -17,6 +17,13 @@ class dataModel {
         }
     }
 
+    static atualizardadosJulia(idCaixa) {
+        try {
+            return Database.executarQuery(`select t2.* from (select nomeProcesso, max(momento) as momento from Projeto_Julia where fkCaixa = ${idCaixa} group by nomeProcesso) t1 join [dbo].[Projeto_Julia] t2 on t1.momento = t2.momento`)
+        } catch (error) {
+            console.log(error)
+        }
+    }
 
 
     static obterMedia(idAgencia) {
@@ -28,9 +35,9 @@ class dataModel {
         } 
     }
 
-    static obterprocessosJulia(idCaixa) {
+    static obterdadosJulia(idCaixa) {
         try {
-        return Database.executarQuery(`SELECT processosAtivos, servicosAtivos FROM Leitura WHERE fkCaixa = ${idCaixa};`)
+        return Database.executarQuery(`SELECT * FROM Projeto_Julia WHERE fkCaixa = ${idCaixa};`)
         }
         catch (error) {
             console.log(error)

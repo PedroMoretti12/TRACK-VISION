@@ -26,9 +26,9 @@ class Conexao {
 
     fun inserirProcesso(pid:Int,nomeProcesso:String,uso_cpu:Double,uso_memoria:Double){
         val conexao = getJdbcTemplate()
-        conexao.update("insert into Projeto_Julia(fkBanco,fkAgencia,fkCaixa,pid, nomeProcesso, usoCpuProcesso,UsoMemoriaProcesso) values(1,1,1,?,?,?,?)",pid,nomeProcesso,uso_cpu,uso_memoria)
-        conexao.update("insert into Projeto_Julia(fkBanco,fkAgencia,fkCaixa,pid, nomeProcesso, usoCpuProcesso,UsoMemoriaProcesso) values(1,1,31,?,?,?,?)",pid,nomeProcesso,uso_cpu*1.25,uso_memoria*1.25)
-        conexao.update("insert into Projeto_Julia(fkBanco,fkAgencia,fkCaixa,pid, nomeProcesso, usoCpuProcesso,UsoMemoriaProcesso) values(1,1,41,?,?,?,?)",pid,nomeProcesso,uso_cpu*1.05,uso_memoria*1.05)
+        conexao.update("DECLARE @Date DATETIME; SET @Date = GETDATE(); insert into Projeto_Julia(fkBanco,fkAgencia,fkCaixa,pid, nomeProcesso, usoCpuProcesso,UsoMemoriaProcesso,momento) values(1,1,1,?,?,?,?,@Date)",pid,nomeProcesso,uso_cpu,uso_memoria)
+        conexao.update("DECLARE @Date DATETIME; SET @Date = GETDATE(); insert into Projeto_Julia(fkBanco,fkAgencia,fkCaixa,pid, nomeProcesso, usoCpuProcesso,UsoMemoriaProcesso,momento) values(1,1,31,?,?,?,?,@Date)",pid,nomeProcesso,uso_cpu,uso_memoria*1.25)
+        conexao.update("DECLARE @Date DATETIME; SET @Date = GETDATE(); insert into Projeto_Julia(fkBanco,fkAgencia,fkCaixa,pid, nomeProcesso, usoCpuProcesso,UsoMemoriaProcesso,momento) values(1,1,41,?,?,?,?,@Date)",pid,nomeProcesso,uso_cpu*1.05,uso_memoria*1.05)
     }
 
 

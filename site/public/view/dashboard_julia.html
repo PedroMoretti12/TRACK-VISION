@@ -304,10 +304,7 @@
 										<a href="dashboardTecnico">
 											<i class="fas fa-th-list"></i>
 											<p>Dashboard Tecnico</p>
-										</a>
-										<a href="dashboardVidaUtil">
-											<i class="fas fa-th-list"></i>
-											<p>Dashboard Gabriel</p>
+
 										</a>
 								</ul>
 							</div>
@@ -977,25 +974,6 @@
 	for (var i = 0; i < legendItems.length; i += 1) {
 		legendItems[i].addEventListener("click", legendClickCallback, false);
 	}
-
-	function pegardadosJulia(idCaixa) {
-	fetch(`/data/obterdadosJulia/${idCaixa}`, { cache: 'no-store' }).then(function (response) {
-	  if (response.ok) {
-	  for(cont = 0; cont<response.length;cont++){
-		  response.json().then(function (response) {
-			  pid.push(response[cont].pid)
-			  usoCpuProcesso.push(response[cont].usoCpuProcesso)
-			  usoMemoriaProcesso.push(response[cont].usoMemoriaProcesso)
-			  
-		  });
-	  }	
-  
-	  } else {
-		console.error("Falha ao Executar a API")
-		return
-	  }
-	});
-  }
 
 
 	function pegardadosJulia(statisticsChart, idCaixa) {

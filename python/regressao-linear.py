@@ -175,9 +175,16 @@ for i in range(len(cpu_semanal)):
     if(len(cpu_semanal[i]) == 1):
         medida_confiavel_cpu_semanal += 1
     else:
-        cpu_semanal[i] = round(random.randint(25, 75), 2)
+        cpu_semanal[i] = [round(random.randint(25, 75), 2)]
 
-        
+for i in range(len(ram_semanal)):
+    if(len(ram_semanal[i]) != 1):
+        ram_semanal[i] = [round(random.randint(25, 75), 2)]
+
+for i in range(len(hd_semanal)):
+    if(len(hd_semanal[i]) != 1):
+        hd_semanal[i] = [round(random.randint(25, 75), 2)]
+
 confiabilidade_semanal = round((medida_confiavel_cpu_semanal/7)*100, 2)
 print("Confiabilidade semanal: ", confiabilidade_semanal, "%")
 
@@ -185,7 +192,16 @@ for i in range(len(cpu_mensal)):
     if(len(cpu_mensal[i]) == 1):
         medida_confiavel_cpu_mensal += 1
     else:
-        cpu_mensal[i] = round(random.randint(25, 75), 2)
+        cpu_mensal[i] = [round(random.randint(25, 75), 2)]
+
+for i in range(len(ram_mensal)):
+    if(len(ram_mensal[i]) != 1):
+        ram_mensal[i] = [round(random.randint(25, 75), 2)]
+
+for i in range(len(hd_mensal)):
+    if(len(hd_mensal[i]) != 1):
+        hd_mensal[i] = [round(random.randint(25, 75), 2)]
+
 
 confiabilidade_mensal = round((medida_confiavel_cpu_mensal/30)*100,2)
 print("Confiabilidade mensal: ", confiabilidade_mensal, "%")
@@ -194,6 +210,9 @@ print("\n", cpu_diario)
 print("\n", cpu_semanal)
 print("\n", cpu_mensal)
 
+'''
+Finalização do tratamento dos dados
+'''
 
 
 '''

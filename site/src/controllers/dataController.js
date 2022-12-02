@@ -18,6 +18,24 @@ class dataController {
         // } catch (erro) {
         //}   
     }
+
+    static obterdadosJulia(req, res) {
+        var idCaixa = req.params.idCaixa;
+
+        dataModel.obterdadosJulia(idCaixa)
+            .then(response => {
+                res.status(200).json(response)
+            }).catch(e => {
+                console.log(e)
+                res.status(500).send()
+            })
+
+        // try {
+
+            // return await dataModel.obterdados(idCaixa)
+        // } catch (erro) {
+        //}   
+    }
     
 
     static atualizardados(req, res) {
@@ -26,6 +44,25 @@ class dataController {
         dataModel.atualizardados(idCaixa)
             .then(response => {
 
+                res.status(200).json(response)
+            }).catch(e => {
+           
+                console.log(e)
+                res.status(500).send()
+            })
+
+        // try {
+
+            // return await dataModel.obterdados(idCaixa)
+        // } catch (erro) {
+        //}   
+    }
+
+    static atualizardadosJulia(req, res) {
+        var idCaixa = req.params.idCaixa;
+
+        dataModel.atualizardadosJulia(idCaixa)
+            .then(response => {
                 res.status(200).json(response)
             }).catch(e => {
            

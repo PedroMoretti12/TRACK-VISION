@@ -1,18 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
 	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
 	<title>Track Vision - Dashboard</title>
 	<meta content='width=device-width, initial-scale=1.0, shrink-to-fit=no' name='viewport' />
-	<link rel="icon" href="/dashboard/assets/img/icons/logo_icon.ico" type="image/x-icon"/>
+	<link rel="icon" href="/dashboard/assets/img/icons/logo_icon.ico" type="image/x-icon" />
 
 	<!-- Fonts and icons -->
 	<script src="/assets/js/plugin/webfont/webfont.min.js"></script>
 	<script>
 		WebFont.load({
-			google: {"families":["Lato:300,400,700,900"]},
-			custom: {"families":["Flaticon", "Font Awesome 5 Solid", "Font Awesome 5 Regular", "Font Awesome 5 Brands", "simple-line-icons"], urls: ['/assets/css/fonts.min.css']},
-			active: function() {
+			google: { "families": ["Lato:300,400,700,900"] },
+			custom: { "families": ["Flaticon", "Font Awesome 5 Solid", "Font Awesome 5 Regular", "Font Awesome 5 Brands", "simple-line-icons"], urls: ['/assets/css/fonts.min.css'] },
+			active: function () {
 				sessionStorage.fonts = true;
 			}
 		});
@@ -25,16 +26,19 @@
 	<!-- CSS Just for demo purpose, don't include it in your project -->
 	<link rel="stylesheet" href="/assets/css/demo.css">
 </head>
+
 <body onload="" data-background-color="orange">
 	<div class="wrapper sidebar_minimize">
 		<div class="main-header">
 			<!-- Logo Header -->
 			<div class="logo-header" data-background-color="orange2">
-				
+
 				<a href="index.html" class="logo">
-					<img src="/dashboard/assets/img/icons/logo_icon.ico" alt="navbar brand" class="navbar-brand" style="width: 50px; height:50px; ">
+					<img src="/dashboard/assets/img/icons/logo_icon.ico" alt="navbar brand" class="navbar-brand"
+						style="width: 50px; height:50px; ">
 				</a>
-				<button class="navbar-toggler sidenav-toggler ml-auto" type="button" data-toggle="collapse" data-target="collapse" aria-expanded="false" aria-label="Toggle navigation">
+				<button class="navbar-toggler sidenav-toggler ml-auto" type="button" data-toggle="collapse"
+					data-target="collapse" aria-expanded="false" aria-label="Toggle navigation">
 					<span class="navbar-toggler-icon">
 						<i class="icon-menu"></i>
 					</span>
@@ -50,7 +54,7 @@
 
 			<!-- Navbar Header -->
 			<nav class="navbar navbar-header navbar-expand-lg" data-background-color="orange2">
-				
+
 				<div class="container-fluid">
 					<!-- <div class="collapse" id="search-nav">
 						<form class="navbar-left navbar-form nav-search mr-md-3">
@@ -66,18 +70,21 @@
 					</div> -->
 					<ul class="navbar-nav topbar-nav ml-md-auto align-items-center">
 						<li class="nav-item toggle-nav-search hidden-caret">
-							<a class="nav-link" data-toggle="collapse" href="#search-nav" role="button" aria-expanded="false" aria-controls="search-nav">
+							<a class="nav-link" data-toggle="collapse" href="#search-nav" role="button"
+								aria-expanded="false" aria-controls="search-nav">
 								<i class="fa fa-search"></i>
 							</a>
 						</li>
 						<li class="nav-item dropdown hidden-caret">
-							<a class="nav-link dropdown-toggle" href="#" id="messageDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+							<a class="nav-link dropdown-toggle" href="#" id="messageDropdown" role="button"
+								data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 								<i class="fa fa-envelope"></i>
 							</a>
-							<ul class="dropdown-menu messages-notif-box animated fadeIn" aria-labelledby="messageDropdown">
+							<ul class="dropdown-menu messages-notif-box animated fadeIn"
+								aria-labelledby="messageDropdown">
 								<li>
 									<div class="dropdown-title d-flex justify-content-between align-items-center">
-										Mensagens								
+										Mensagens
 										<a href="#" class="small">Marcar todas como lidas.</a>
 									</div>
 								</li>
@@ -85,7 +92,7 @@
 									<div class="message-notif-scroll scrollbar-outer">
 										<div class="notif-center">
 											<a href="#">
-												<div class="notif-img"> 
+												<div class="notif-img">
 													<img src="/assets/imgdash/jm_denis.jpg" alt="Img Profile">
 												</div>
 												<div class="notif-content">
@@ -93,11 +100,11 @@
 													<span class="block">
 														Consertou o meu Problema?
 													</span>
-													<span class="time">5 minutos Atrás</span> 
+													<span class="time">5 minutos Atrás</span>
 												</div>
 											</a>
 											<a href="#">
-												<div class="notif-img"> 
+												<div class="notif-img">
 													<img src="/assets/imgdash/chadengle.jpg" alt="Img Profile">
 												</div>
 												<div class="notif-content">
@@ -105,11 +112,11 @@
 													<span class="block">
 														Obrigado!
 													</span>
-													<span class="time">12 minutos atrás</span> 
+													<span class="time">12 minutos atrás</span>
 												</div>
 											</a>
 											<a href="#">
-												<div class="notif-img"> 
+												<div class="notif-img">
 													<img src="/assets/imgdash/mlane.jpg" alt="Img Profile">
 												</div>
 												<div class="notif-content">
@@ -117,11 +124,11 @@
 													<span class="block">
 														Meu PC ainda está travando....
 													</span>
-													<span class="time">12 minutos atrás</span> 
+													<span class="time">12 minutos atrás</span>
 												</div>
 											</a>
 											<a href="#">
-												<div class="notif-img"> 
+												<div class="notif-img">
 													<img src="/assets/imgdash/talha.jpg" alt="Img Profile">
 												</div>
 												<div class="notif-content">
@@ -129,19 +136,21 @@
 													<span class="block">
 														Oi, tenho algumas dúvidas, poderia me ajudar?
 													</span>
-													<span class="time">17 minutos atrás</span> 
+													<span class="time">17 minutos atrás</span>
 												</div>
 											</a>
 										</div>
 									</div>
 								</li>
 								<li>
-									<a class="see-all" href="javascript:void(0);">Ver todas as mensagens.<i class="fa fa-angle-right"></i> </a>
+									<a class="see-all" href="javascript:void(0);">Ver todas as mensagens.<i
+											class="fa fa-angle-right"></i> </a>
 								</li>
 							</ul>
 						</li>
 						<li class="nav-item dropdown hidden-caret">
-							<a class="nav-link dropdown-toggle" href="#" id="notifDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+							<a class="nav-link dropdown-toggle" href="#" id="notifDropdown" role="button"
+								data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 								<i class="fa fa-bell"></i>
 								<span class="notification">4</span>
 							</a>
@@ -153,32 +162,34 @@
 									<div class="notif-scroll scrollbar-outer">
 										<div class="notif-center">
 											<a href="#">
-												<div class="notif-icon notif-primary"> <i class="fa fa-user-plus"></i> </div>
+												<div class="notif-icon notif-primary"> <i class="fa fa-user-plus"></i>
+												</div>
 												<div class="notif-content">
 													<span class="block">
 														Novos Usuarios
 													</span>
-													<span class="time">5 minutos atrás</span> 
+													<span class="time">5 minutos atrás</span>
 												</div>
 											</a>
 											<a href="#">
-												<div class="notif-icon notif-success"> <i class="fa fa-comment"></i> </div>
+												<div class="notif-icon notif-success"> <i class="fa fa-comment"></i>
+												</div>
 												<div class="notif-content">
 													<span class="block">
 														Ronald se conectou!
 													</span>
-													<span class="time">12 minutos atrás</span> 
+													<span class="time">12 minutos atrás</span>
 												</div>
 											</a>
 											<a href="#">
-												<div class="notif-img"> 
+												<div class="notif-img">
 													<img src="/assets/imgdash/profile2.jpg" alt="Img Profile">
 												</div>
 												<div class="notif-content">
 													<span class="block">
 														Ronaldo mandou uma mensagem para você!
 													</span>
-													<span class="time">12 minutos atrás</span> 
+													<span class="time">12 minutos atrás</span>
 												</div>
 											</a>
 											<a href="#">
@@ -187,22 +198,24 @@
 													<span class="block">
 														Fernanda reagiu a sua mensagem
 													</span>
-													<span class="time">17 minutos atrás</span> 
+													<span class="time">17 minutos atrás</span>
 												</div>
 											</a>
 										</div>
 									</div>
 								</li>
 								<li>
-									<a class="see-all" href="javascript:void(0);">Ver todas notificações.<i class="fa fa-angle-right"></i> </a>
+									<a class="see-all" href="javascript:void(0);">Ver todas notificações.<i
+											class="fa fa-angle-right"></i> </a>
 								</li>
 							</ul>
 						</li>
 						<li class="nav-item dropdown hidden-caret">
 
-							
+
 						<li class="nav-item dropdown hidden-caret">
-							<a class="dropdown-toggle profile-pic" data-toggle="dropdown" href="#" aria-expanded="false">
+							<a class="dropdown-toggle profile-pic" data-toggle="dropdown" href="#"
+								aria-expanded="false">
 								<div class="avatar-sm">
 									<img src="/assets/imgdash/profile.jpg" alt="..." class="avatar-img rounded-circle">
 								</div>
@@ -240,7 +253,7 @@
 		<b style="color: red;"></b>
 
 		<!-- Sidebar -->
-		<div class="sidebar"  data-background-color="orange2">			
+		<div class="sidebar" data-background-color="orange2">
 			<div class="sidebar-wrapper scrollbar scrollbar-inner">
 				<div class="sidebar-content">
 					<div class="user">
@@ -311,7 +324,7 @@
 
 					<ul class="nav nav-primary">
 						<li class="nav-item">
-							<a href="https://app.pipefy.com/public/form/eTV_ItfA"target="_blank" >
+							<a href="https://app.pipefy.com/public/form/eTV_ItfA" target="_blank">
 								<i class="fas 
 								icon-call-out"></i>
 								<p>Pipefy</p>
@@ -321,7 +334,7 @@
 					</ul>
 					<ul class="nav nav-primary">
 						<li class="nav-item">
-							<a  href="/" class="collapsed">
+							<a href="/" class="collapsed">
 								<i class="fas 
 								icon-logout
 "></i>
@@ -345,7 +358,7 @@
 								<h5 class="text-black  h2 op-7 mb-2">Média de uso dos componentes por agência</h5>
 							</div>
 							<div class="ml-md-auto py-2 py-md-0">
-			
+
 							</div>
 						</div>
 					</div>
@@ -444,7 +457,7 @@
 							<div class="card card-yellow">
 								<div class="card-body pb-0">
 									<h2 class="mb-2" style="text-align: center; color: #ff8c00;">ALERTA</h2>
-									<p style="text-align: center; color: #ff8c00;" >60%</p>
+									<p style="text-align: center; color: #ff8c00;">60%</p>
 									<div class="pull-in sparkline-fix chart-as-background">
 									</div>
 								</div>
@@ -468,14 +481,15 @@
 								<div class="card-header">
 									<div class="card-head-row">
 										<div class="card-title">Últimos Dados da Agencia 3501</div>
-										&nbsp; &nbsp; 
-										<select name="" id="select_caixa" onchange="pegardados(statisticsChart,select_caixa.value)">
+										&nbsp; &nbsp;
+										<select name="" id="select_caixa"
+											onchange="pegardados(statisticsChart,select_caixa.value)">
 											<option value=1>Caixa 1</option>
 											<option value=31>Caixa 2</option>
 											<option value=41>Caixa 3</option>
 										</select>
 										<div class="card-tools">
-											
+
 										</div>
 									</div>
 								</div>
@@ -487,119 +501,130 @@
 								</div>
 							</div>
 						</div>
-						
-					<div class="row row-card-no-pd">
-						<div class="col-md-12">
-							<div class="card">
-								<div class="card-header">
-									<div class="card-head-row">
-										<h4 class="card-title">Mapeamento dos Caixas</h4>
-										<div class="card-tools">
-											<button class="btn btn-icon btn-link btn-primary btn-xs"><span class="fa fa-angle-down"></span></button>
-											<button class="btn btn-icon btn-link btn-primary btn-xs btn-refresh-card"><span class="fa fa-sync-alt"></span></button>
-											<button class="btn btn-icon btn-link btn-primary btn-xs"><span class="fa fa-times"></span></button>
-										</div>
-									</div>
-									<p class="card-category">
-									Mapeamento dos Caixas do Banco e seus Status.</p>
-								</div>
-								<div class="card-body">
-									<div class="row">
-										<div class="col-md-6">
-											<div class="table-responsive table-hover table-sales">
-												<table class="table">
-													<tbody>
-														<tr>
-															<td>
-																<div class="flag">
-																	<img src="/assets/imgdash/flags/certo.png" alt="certo">
-																</div>
-															</td>
-															<td>Caixa 01</td>
-															<td class="text-right">
-																A1
-															</td>
-															<td class="text-right">
-																Estável
-															</td>
-														</tr>
-														<tr>
-															<td>
-																<div class="flag">
-																	<img src="/assets/imgdash/flags/certo.png" alt="united states">
-																</div>
-															</td>
-															<td>Caixa 02</td>
-															<td class="text-right">
-																A2
-															</td>
-															<td class="text-right">
-																Estável
-															</td>
-														</tr>
-														<tr>
-															<td>
-																<div class="flag">
-																	<img src="/assets/imgdash/flags/certo.png" alt="australia">
-																</div>
-															</td>
-															<td>Caixa 03</td>
-															<td class="text-right">
-																A3
-															</td>
-															<td class="text-right">
-																Estável
-															</td>
-														</tr>
-														<tr>
-															<td>
-																<div class="flag">
-																	<img src="/assets/imgdash/flags/certo.png" alt="russia">
-																</div>
-															</td>
-															<td>Caixa 04</td>
-															<td class="text-right">
-																A4
-															</td>
-															<td class="text-right">
-																Estável
-															</td>
-														</tr>
-														<tr>
-															<td>
-																<div class="flag">
-																	<img src="/assets/imgdash/flags/certo.png" alt="china">
-																</div>
-															</td>
-															<td>Caixa 05</td>
-															<td class="text-right">
-																B1
-															</td>
-															<td class="text-right">
-																Estável
-															</td>
-														</tr>
-														<tr>
-															<td>
-																<div class="flag">
-																	<img src="/assets/imgdash/flags/certo.png" alt="brazil">
-																</div>
-															</td>
-															<td>Caixa 06</td>
-															<td class="text-right">
-																B2
-															</td>
-															<td class="text-right">
-																Estável
-															</td>
-														</tr>
-													</tbody>
-												</table>
+
+						<div class="row row-card-no-pd">
+							<div class="col-md-12">
+								<div class="card">
+									<div class="card-header">
+										<div class="card-head-row">
+											<h4 class="card-title">Mapeamento dos Caixas</h4>
+											<div class="card-tools">
+												<button class="btn btn-icon btn-link btn-primary btn-xs"><span
+														class="fa fa-angle-down"></span></button>
+												<button
+													class="btn btn-icon btn-link btn-primary btn-xs btn-refresh-card"><span
+														class="fa fa-sync-alt"></span></button>
+												<button class="btn btn-icon btn-link btn-primary btn-xs"><span
+														class="fa fa-times"></span></button>
 											</div>
 										</div>
-										<div class="col-md-6">
-											<div class="mapcontainer">
-												<img src="/assets/imgdash/mapacaixas.png" class="vmap"></div>
+										<p class="card-category">
+											Mapeamento dos Caixas do Banco e seus Status.</p>
+									</div>
+									<div class="card-body">
+										<div class="row">
+											<div class="col-md-6">
+												<div class="table-responsive table-hover table-sales">
+													<table class="table">
+														<tbody>
+															<tr>
+																<td>
+																	<div class="flag">
+																		<img src="/assets/imgdash/flags/certo.png"
+																			alt="certo">
+																	</div>
+																</td>
+																<td>Caixa 01</td>
+																<td class="text-right">
+																	A1
+																</td>
+																<td class="text-right">
+																	Estável
+																</td>
+															</tr>
+															<tr>
+																<td>
+																	<div class="flag">
+																		<img src="/assets/imgdash/flags/certo.png"
+																			alt="united states">
+																	</div>
+																</td>
+																<td>Caixa 02</td>
+																<td class="text-right">
+																	A2
+																</td>
+																<td class="text-right">
+																	Estável
+																</td>
+															</tr>
+															<tr>
+																<td>
+																	<div class="flag">
+																		<img src="/assets/imgdash/flags/certo.png"
+																			alt="australia">
+																	</div>
+																</td>
+																<td>Caixa 03</td>
+																<td class="text-right">
+																	A3
+																</td>
+																<td class="text-right">
+																	Estável
+																</td>
+															</tr>
+															<tr>
+																<td>
+																	<div class="flag">
+																		<img src="/assets/imgdash/flags/certo.png"
+																			alt="russia">
+																	</div>
+																</td>
+																<td>Caixa 04</td>
+																<td class="text-right">
+																	A4
+																</td>
+																<td class="text-right">
+																	Estável
+																</td>
+															</tr>
+															<tr>
+																<td>
+																	<div class="flag">
+																		<img src="/assets/imgdash/flags/certo.png"
+																			alt="china">
+																	</div>
+																</td>
+																<td>Caixa 05</td>
+																<td class="text-right">
+																	B1
+																</td>
+																<td class="text-right">
+																	Estável
+																</td>
+															</tr>
+															<tr>
+																<td>
+																	<div class="flag">
+																		<img src="/assets/imgdash/flags/certo.png"
+																			alt="brazil">
+																	</div>
+																</td>
+																<td>Caixa 06</td>
+																<td class="text-right">
+																	B2
+																</td>
+																<td class="text-right">
+																	Estável
+																</td>
+															</tr>
+														</tbody>
+													</table>
+												</div>
+											</div>
+											<div class="col-md-6">
+												<div class="mapcontainer">
+													<img src="/assets/imgdash/mapacaixas.png" class="vmap">
+												</div>
 											</div>
 										</div>
 									</div>
@@ -625,7 +650,8 @@
 										</li>
 										<li class="feed-item feed-item-info">
 											<time class="date" datetime="9-23">Set 23</time>
-											<span class="text">Entrou no grupo de chamado <a href="single-group.php">"Alto Uso Banco do Brasil"</a></span>
+											<span class="text">Entrou no grupo de chamado <a
+													href="single-group.php">"Alto Uso Banco do Brasil"</a></span>
 										</li>
 										<li class="feed-item feed-item-warning">
 											<time class="date" datetime="9-21">Set 21</time>
@@ -633,11 +659,13 @@
 										</li>
 										<li class="feed-item feed-item-warning">
 											<time class="date" datetime="9-18">Set 18</time>
-											<span class="text">Criou um tópico <a href="#">"Dúvidas Frequentes"</a></span>
+											<span class="text">Criou um tópico <a href="#">"Dúvidas
+													Frequentes"</a></span>
 										</li>
 										<li class="feed-item">
 											<time class="date" datetime="9-17">Set 17</time>
-											<span class="text">Encerrou o chamado <a href="single-event.php">"Problemas no Banco PAN"</a></span>
+											<span class="text">Encerrou o chamado <a href="single-event.php">"Problemas
+													no Banco PAN"</a></span>
 										</li>
 									</ol>
 								</div>
@@ -649,21 +677,25 @@
 									<div class="card-head-row">
 										<div class="card-title">Histórico de Problemas</div>
 										<div class="card-tools">
-											<ul class="nav nav-pills nav-secondary nav-pills-no-bd nav-sm" id="pills-tab" role="tablist">
+											<ul class="nav nav-pills nav-secondary nav-pills-no-bd nav-sm"
+												id="pills-tab" role="tablist">
 												<li class="nav-item">
-													<a class="nav-link active" id="pills-today" data-toggle="pill" href="#pills-today" role="tab" aria-selected="true">Hoje</a>
+													<a class="nav-link active" id="pills-today" data-toggle="pill"
+														href="#pills-today" role="tab" aria-selected="true">Hoje</a>
 												</li>
-					</ul>
+											</ul>
 										</div>
 									</div>
 								</div>
 								<div class="card-body">
 									<div class="d-flex">
 										<div class="avatar avatar-online">
-											<span class="avatar-title rounded-circle border border-white bg-info">J</span>
+											<span
+												class="avatar-title rounded-circle border border-white bg-info">J</span>
 										</div>
 										<div class="flex-1 ml-3 pt-1">
-											<h6 class="text-uppercase fw-bold mb-1">João Carlos <span class="text-warning pl-3">Pendente</span></h6>
+											<h6 class="text-uppercase fw-bold mb-1">João Carlos <span
+													class="text-warning pl-3">Pendente</span></h6>
 											<span class="text-muted">Estou tendo problemas nos meus caixas.</span>
 										</div>
 										<div class="float-right pt-1">
@@ -673,10 +705,12 @@
 									<div class="separator-dashed"></div>
 									<div class="d-flex">
 										<div class="avatar avatar-offline">
-											<span class="avatar-title rounded-circle border border-white bg-secondary">P</span>
+											<span
+												class="avatar-title rounded-circle border border-white bg-secondary">P</span>
 										</div>
 										<div class="flex-1 ml-3 pt-1">
-											<h6 class="text-uppercase fw-bold mb-1">Paulo João <span class="text-success pl-3">Aberto</span></h6>
+											<h6 class="text-uppercase fw-bold mb-1">Paulo João <span
+													class="text-success pl-3">Aberto</span></h6>
 											<span class="text-muted">Não consigo instalar o python no caixa.</span>
 										</div>
 										<div class="float-right pt-1">
@@ -686,11 +720,14 @@
 									<div class="separator-dashed"></div>
 									<div class="d-flex">
 										<div class="avatar avatar-away">
-											<span class="avatar-title rounded-circle border border-white bg-danger">L</span>
+											<span
+												class="avatar-title rounded-circle border border-white bg-danger">L</span>
 										</div>
 										<div class="flex-1 ml-3 pt-1">
-											<h6 class="text-uppercase fw-bold mb-1">Leo Morais<span class="text-muted pl-3">Fechado</span></h6>
-											<span class="text-muted">Aqui está o histórico de uso de cpu dos caixas.</span>
+											<h6 class="text-uppercase fw-bold mb-1">Leo Morais<span
+													class="text-muted pl-3">Fechado</span></h6>
+											<span class="text-muted">Aqui está o histórico de uso de cpu dos
+												caixas.</span>
 										</div>
 										<div class="float-right pt-1">
 											<small class="text-muted">2 Dias Atrás.</small>
@@ -699,11 +736,14 @@
 									<div class="separator-dashed"></div>
 									<div class="d-flex">
 										<div class="avatar avatar-offline">
-											<span class="avatar-title rounded-circle border border-white bg-secondary">P</span>
+											<span
+												class="avatar-title rounded-circle border border-white bg-secondary">P</span>
 										</div>
 										<div class="flex-1 ml-3 pt-1">
-											<h6 class="text-uppercase fw-bold mb-1">Pedro Alves <span class="text-success pl-3">Aberto</span></h6>
-											<span class="text-muted">Estou tendo problemas com o uso de memória dos caixas.</span>
+											<h6 class="text-uppercase fw-bold mb-1">Pedro Alves <span
+													class="text-success pl-3">Aberto</span></h6>
+											<span class="text-muted">Estou tendo problemas com o uso de memória dos
+												caixas.</span>
 										</div>
 										<div class="float-right pt-1">
 											<small class="text-muted">2 Dias Atrás</small>
@@ -712,11 +752,14 @@
 									<div class="separator-dashed"></div>
 									<div class="d-flex">
 										<div class="avatar avatar-away">
-											<span class="avatar-title rounded-circle border border-white bg-danger">L</span>
+											<span
+												class="avatar-title rounded-circle border border-white bg-danger">L</span>
 										</div>
 										<div class="flex-1 ml-3 pt-1">
-											<h6 class="text-uppercase fw-bold mb-1">Leonardo Alves <span class="text-muted pl-3">Fechado</span></h6>
-											<span class="text-muted">Relatório da Agencia 3501, solucione os problemas já!!!.</span>
+											<h6 class="text-uppercase fw-bold mb-1">Leonardo Alves <span
+													class="text-muted pl-3">Fechado</span></h6>
+											<span class="text-muted">Relatório da Agencia 3501, solucione os problemas
+												já!!!.</span>
 										</div>
 										<div class="float-right pt-1">
 											<small class="text-muted">2 Dias Atrás</small>
@@ -743,18 +786,18 @@
 								</a>
 							</li>
 							<td>
-								<button type="button" class="btn btn-focus" id="alert_demo_2"> Show me</button>		
+								<button type="button" class="btn btn-focus" id="alert_demo_2"> Show me</button>
 							</td>
 						</ul>
 					</nav>
 					<div class="copyright ml-auto">
 						2022, Feito pela Equipe TRACK VISION</a>
-					</div>				
+					</div>
 				</div>
 			</footer>
 		</div>
-		
-		
+
+
 		<div class="custom-template">
 			<div class="title">Settings</div>
 			<div class="custom-content">
@@ -770,7 +813,7 @@
 							<button type="button" class="changeLogoHeaderColor" data-color="orange"></button>
 							<button type="button" class="changeLogoHeaderColor" data-color="red"></button>
 							<button type="button" class="changeLogoHeaderColor" data-color="white"></button>
-							<br/>
+							<br />
 							<button type="button" class="changeLogoHeaderColor" data-color="dark2"></button>
 							<button type="button" class="changeLogoHeaderColor" data-color="blue2"></button>
 							<button type="button" class="changeLogoHeaderColor" data-color="purple2"></button>
@@ -791,7 +834,7 @@
 							<button type="button" class="changeTopBarColor" data-color="orange"></button>
 							<button type="button" class="changeTopBarColor" data-color="red"></button>
 							<button type="button" class="changeTopBarColor" data-color="white"></button>
-							<br/>
+							<br />
 							<button type="button" class="changeTopBarColor" data-color="dark2"></button>
 							<button type="button" class="selected changeTopBarColor" data-color="blue2"></button>
 							<button type="button" class="changeTopBarColor" data-color="purple2"></button>
@@ -867,7 +910,7 @@
 	<script src="/assets/js/setting-demo.js"></script>
 	<script src="/assets/js/demo.js"></script>
 	<script>
-		$('#lineChart').sparkline([102,109,120,99,110,105,115], {
+		$('#lineChart').sparkline([102, 109, 120, 99, 110, 105, 115], {
 			type: 'line',
 			height: '70',
 			width: '100%',
@@ -876,7 +919,7 @@
 			fillColor: 'rgba(23, 125, 255, 0.14)'
 		});
 
-		$('#lineChart2').sparkline([99,125,122,105,110,124,115], {
+		$('#lineChart2').sparkline([99, 125, 122, 105, 110, 124, 115], {
 			type: 'line',
 			height: '70',
 			width: '100%',
@@ -885,7 +928,7 @@
 			fillColor: 'rgba(243, 84, 93, .14)'
 		});
 
-		$('#lineChart3').sparkline([105,103,123,100,95,105,115], {
+		$('#lineChart3').sparkline([105, 103, 123, 100, 95, 105, 115], {
 			type: 'line',
 			height: '70',
 			width: '100%',
@@ -895,256 +938,259 @@
 		});
 	</script>
 </body>
+
 </html>
 
 <script>
 
-let proximaAtualizacao;
+	let proximaAtualizacao;
 
-function pegarMedia(idAgencia) {
-	
-	fetch(`/data/obterMedia/${idAgencia}`, {cache: 'no-store'}).then(function(response) {
-		if(response.ok) {
-			response.json().then(function(response) {
-				media_cpu.innerHTML = (response[0].Cpu).toFixed(2) + "%"
-				media_ram.innerHTML = (response[0].Ram).toFixed(2) + "%"
-				media_hd.innerHTML = (response[0].Hd).toFixed(2) + "%"
-			})
-	
-		} else {
-			console.log("Deu erro.")
-			return
+	function pegarMedia(idAgencia) {
+
+		fetch(`/data/obterMedia/${idAgencia}`, { cache: 'no-store' }).then(function (response) {
+			if (response.ok) {
+				response.json().then(function (response) {
+					media_cpu.innerHTML = (response[0].Cpu).toFixed(2) + "%"
+					media_ram.innerHTML = (response[0].Ram).toFixed(2) + "%"
+					media_hd.innerHTML = (response[0].Hd).toFixed(2) + "%"
+				})
+
+			} else {
+				console.log("Deu erro.")
+				return
+			}
+		})
+	}
+
+	pegarMedia(1)
+
+	var verificar = 0
+
+	var ctx = document.getElementById('statisticsChart').getContext('2d');
+	setInterval(() => {
+		if (sessionStorage.getItem('Nome') == null) {
+			location.href = 'login'
 		}
-	})
-}
+	}, 3000);
 
-pegarMedia(1)
-
-var verificar = 0
-
-var ctx = document.getElementById('statisticsChart').getContext('2d');
-setInterval(() => {
-	if(sessionStorage.getItem('Nome') == null) {
-	location.href = 'login'
-}
-}, 3000);
-
-var statisticsChart = new Chart(ctx, {
-	type: 'line',
-	data: {
-		labels: [],
-		datasets: [ {
-			label: "Cpu",
-			borderColor: '#f3545d',
-			pointBackgroundColor: 'rgba(243, 84, 93, 0.6)',
-			pointRadius: 0,
-			backgroundColor: 'rgba(243, 84, 93, 0.4)',
-			legendColor: '#f3545d',
-			fill: true,
-			borderWidth: 2,
-			data: ["CPU"]
-		}, {
-			label: "Memória",
-			borderColor: '#fdaf4b',
-			pointBackgroundColor: 'rgba(253, 175, 75, 0.6)',
-			pointRadius: 0,
-			backgroundColor: 'rgba(253, 175, 75, 0.4)',
-			legendColor: '#fdaf4b',
-			fill: true,
-			borderWidth: 2,
-			data: ["RAM"]
-		}, {
-			label: "Disco",
-			borderColor: '#177dff',
-			pointBackgroundColor: 'rgba(23, 125, 255, 0.6)',
-			pointRadius: 0,
-			backgroundColor: 'rgba(23, 125, 255, 0.4)',
-			legendColor: '#177dff',
-			fill: true,
-			borderWidth: 2,
-			data: ["DISCO"]
-		}]
-	},
-	options : {
-		responsive: true, 
-		maintainAspectRatio: false,
-		legend: {
-			display: false
-		},
-		tooltips: {
-			bodySpacing: 4,
-			mode:"nearest",
-			intersect: 0,
-			position:"nearest",
-			xPadding:10,
-			yPadding:10,
-			caretPadding:10
-		},
-		layout:{
-			padding:{left:5,right:5,top:15,bottom:15}
-		},
-		scales: {
-			yAxes: [{
-				ticks: {
-					fontStyle: "500",
-					beginAtZero: false,
-					maxTicksLimit: 5,
-					padding: 10
-				},
-				gridLines: {
-					drawTicks: false,
-					display: false
-				}
-			}],
-			xAxes: [{
-				gridLines: {
-					zeroLineColor: "transparent"
-				},
-				ticks: {
-					padding: 10,
-					fontStyle: "500"
-				}
+	var statisticsChart = new Chart(ctx, {
+		type: 'line',
+		data: {
+			labels: [],
+			datasets: [{
+				label: "Cpu",
+				borderColor: '#f3545d',
+				pointBackgroundColor: 'rgba(243, 84, 93, 0.6)',
+				pointRadius: 0,
+				backgroundColor: 'rgba(243, 84, 93, 0.4)',
+				legendColor: '#f3545d',
+				fill: true,
+				borderWidth: 2,
+				data: ["CPU"]
+			}, {
+				label: "Memória",
+				borderColor: '#fdaf4b',
+				pointBackgroundColor: 'rgba(253, 175, 75, 0.6)',
+				pointRadius: 0,
+				backgroundColor: 'rgba(253, 175, 75, 0.4)',
+				legendColor: '#fdaf4b',
+				fill: true,
+				borderWidth: 2,
+				data: ["RAM"]
+			}, {
+				label: "Disco",
+				borderColor: '#177dff',
+				pointBackgroundColor: 'rgba(23, 125, 255, 0.6)',
+				pointRadius: 0,
+				backgroundColor: 'rgba(23, 125, 255, 0.4)',
+				legendColor: '#177dff',
+				fill: true,
+				borderWidth: 2,
+				data: ["DISCO"]
 			}]
-		}, 
-		legendCallback: function(chart) { 
-			var text = []; 
-			text.push('<ul class="' + chart.id + '-legend html-legend">'); 
-			for (var i = 0; i < chart.data.datasets.length; i++) { 
-				text.push('<li><span style="background-color:' + chart.data.datasets[i].legendColor + '"></span>'); 
-				if (chart.data.datasets[i].label) { 
-					text.push(chart.data.datasets[i].label); 
-				} 
-				text.push('</li>'); 
-			} 
-			text.push('</ul>'); 
-			return text.join(''); 
-		}  
-	}
-});
-
-var myLegendContainer = document.getElementById("myChartLegend");
-
-// generate HTML legend
-myLegendContainer.innerHTML = statisticsChart.generateLegend();
-pegardados(statisticsChart,1);
-
-// bind onClick event to all LI-tags of the legend
-var legendItems = myLegendContainer.getElementsByTagName('li');
-for (var i = 0; i < legendItems.length; i += 1) {
-	legendItems[i].addEventListener("click", legendClickCallback, false);
-}
-
-
-
-function pegardados(statisticsChart,idCaixa) {
-	dados_cpu = []
-	dados_memoria = []
-	dados_disco = []
-	momento = []
-	if (proximaAtualizacao != undefined) {
-            clearTimeout(proximaAtualizacao);
-        }
-  fetch(`/data/obterdados/${idCaixa}`, { cache: 'no-store' }).then(function (response) {
-	if (response.ok) {
-	  response.json().then(function (response) {
-		for(cont=0;cont<5;cont++){
-			dados_cpu.push(response[cont].cpuPorcentagem);
-			dados_disco.push(response[cont].hdPorcentagem);
-			dados_memoria.push(response[cont].ramPorcentagem);
-			momento.push(response[cont].momento);
-		}
-		statisticsChart.data.datasets[0].data = dados_cpu
-		statisticsChart.data.datasets[1].data = dados_memoria
-		statisticsChart.data.datasets[2].data = dados_disco
-		statisticsChart.data.labels = momento
-		statisticsChart.update()
-		atualizardados(statisticsChart,idCaixa)
-	  });	  
-	} else {
-	  console.error("Falha ao Executar a API")
-	  return
-	}
-  });
-}  
-function atualizardados(statisticsChart,idCaixa){
-	fetch(`/data/atualizardados/${idCaixa}`, { cache: 'no-store' }).then(function (response) {
-	if (response.ok) {
-	  response.json().then(function (response) {
-		statisticsChart.data.labels.shift()
-        statisticsChart.data.labels.push(response[0].momento); // incluir um novo momento
-
-        statisticsChart.data.datasets[0].data.shift();  // apagar o primeiro de umidade
-        statisticsChart.data.datasets[0].data.push(response[0].cpuPorcentagem); // incluir uma nova medida de umidade
-
-        statisticsChart.data.datasets[1].data.shift();  
-        statisticsChart.data.datasets[1].data.push(response[0].ramPorcentagem); // incluir uma nova medida de temperatura
-
-		statisticsChart.data.datasets[2].data.shift();  
-        statisticsChart.data.datasets[2].data.push(response[0].hdPorcentagem); 
-		statisticsChart.update()
-		proximaAtualizacao = setTimeout(() => atualizardados(statisticsChart,idCaixa), 2000);
-		var cpu = response[0].cpuPorcentagem
-		var hd = response[0].hdPorcentagem
-		var ram = response[0].ramPorcentagem
-		verificar++
-		console.log(verificar)
-		if(verificar == 10){
-
-			if((cpu > 40 && cpu <= 60) || (hd > 70 && hd <= 100) || (ram > 40 && ram <= 60)){
-				alerta(null,idCaixa)
-				verificar = 0
-			}
-			else if((cpu > 60 && cpu <= 100) || (hd > 60 && hd <= 100) || (ram > 60 && ram <= 100)){
-				critico(null,idCaixa)
-				verificar = 0
+		},
+		options: {
+			responsive: true,
+			maintainAspectRatio: false,
+			legend: {
+				display: false
+			},
+			tooltips: {
+				bodySpacing: 4,
+				mode: "nearest",
+				intersect: 0,
+				position: "nearest",
+				xPadding: 10,
+				yPadding: 10,
+				caretPadding: 10
+			},
+			layout: {
+				padding: { left: 5, right: 5, top: 15, bottom: 15 }
+			},
+			scales: {
+				yAxes: [{
+					ticks: {
+						fontStyle: "500",
+						beginAtZero: false,
+						maxTicksLimit: 5,
+						padding: 10
+					},
+					gridLines: {
+						drawTicks: false,
+						display: false
+					}
+				}],
+				xAxes: [{
+					gridLines: {
+						zeroLineColor: "transparent"
+					},
+					ticks: {
+						padding: 10,
+						fontStyle: "500"
+					}
+				}]
+			},
+			legendCallback: function (chart) {
+				var text = [];
+				text.push('<ul class="' + chart.id + '-legend html-legend">');
+				for (var i = 0; i < chart.data.datasets.length; i++) {
+					text.push('<li><span style="background-color:' + chart.data.datasets[i].legendColor + '"></span>');
+					if (chart.data.datasets[i].label) {
+						text.push(chart.data.datasets[i].label);
+					}
+					text.push('</li>');
+				}
+				text.push('</ul>');
+				return text.join('');
 			}
 		}
-	  });
-	} else {
-	  console.error("Falha ao Executar a API")
-	  proximaAtualizacao = setTimeout(() => atualizardados(statisticsChart,idCaixa), 2000);
-	  return
+	});
+
+	var myLegendContainer = document.getElementById("myChartLegend");
+
+	// generate HTML legend
+	myLegendContainer.innerHTML = statisticsChart.generateLegend();
+	pegardados(statisticsChart, 1);
+
+	// bind onClick event to all LI-tags of the legend
+	var legendItems = myLegendContainer.getElementsByTagName('li');
+	for (var i = 0; i < legendItems.length; i += 1) {
+		legendItems[i].addEventListener("click", legendClickCallback, false);
 	}
-  });
-function alerta (e,idCaixa) {
-					alerta_automatizado(sessionStorage.getItem('idBanco'), 1, 'Alerta de uso moderado', 'Sua máquina pode estar estar sofrendo ataques ou mau desempenho.')
-					swal(`Dados Anormais Detectados`, `Alguns dados acima do ideal foram identificados verifique os seus Caixas.\n\n Numero do Caixa:${idCaixa}`, {
-						buttons: {        			
-							confirm: {
-								className : 'btn btn-warning'
-							}
-						},
-					});
-				}
-
-function critico (e,idCaixa) {
-					alerta_automatizado(sessionStorage.getItem('idBanco'), 1, 'Alerta de uso crítico', 'Sua máquina pode estar sofrendo um ataque grave.')
-					swal(`Dados Críticos detectados.`, `Verifique com Urgência seu Caixa ele pode estár sofrendo um Ataque.\n\n Numero do Caixa:${idCaixa}`, {
-						buttons: {        			
-							confirm: {
-								className : 'btn btn-danger'
-							}
-						},
-					});
-				}
-}
 
 
-function alerta_automatizado(banco, agencia, title, desc) {
-	const options = {
-  method: 'POST',
-  headers: {
-    accept: 'application/json',
-    'content-type': 'application/json',
-    authorization: 'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJ1c2VyIjp7ImlkIjozMDIxODI2NTAsImVtYWlsIjoidHJhY2t2aXNpb24wNEBnbWFpbC5jb20iLCJhcHBsaWNhdGlvbiI6MzAwMjEzMTY0fX0.rooYQntvZsjGYViQw3yZCUpN3vZkgy7uLe-UFiPOoGv4yXXFVcAuT-Av89vBkDfolICREJi5ivEOLwklWTU4Cg'
-  },
-  body: JSON.stringify({query: `mutation {           createCard(input: {             pipe_id:302814723,             title: "Card",             fields_attributes:[               {field_id: "banco", field_value: "${banco}"},{field_id: "ag_ncia", field_value: "${agencia}"},{field_id: "qual_o_assunto_do_seu_pedido", field_value: "${title}"}, {field_id: "texto_longo", field_value: "${desc}"}             ],           }) {               card {                 title               }             }           }`})
-};
 
-fetch('https://api.pipefy.com/graphql', options)
-  .then(response => response.json())
-  .then(response => console.log(response))
-  .catch(err => console.error(err));
-}
+	function pegardados(statisticsChart, idCaixa) {
+		dados_cpu = []
+		dados_memoria = []
+		dados_disco = []
+		momento = []
+		if (proximaAtualizacao != undefined) {
+			clearTimeout(proximaAtualizacao);
+		}
+		fetch(`/data/obterdados/${idCaixa}`, { cache: 'no-store' }).then(function (response) {
+			console.log(momento)
+			if (response.ok) {
+				response.json().then(function (response) {
+					for (cont = 0; cont < 5; cont++) {
+						dados_cpu.push(response[cont].cpuPorcentagem);
+						dados_disco.push(response[cont].hdPorcentagem);
+						dados_memoria.push(response[cont].ramPorcentagem);
+						momento.push(response[cont].momento);
+					}
+					statisticsChart.data.datasets[0].data = dados_cpu
+					statisticsChart.data.datasets[1].data = dados_memoria
+					statisticsChart.data.datasets[2].data = dados_disco
+					statisticsChart.data.labels = momento
+					statisticsChart.update()
+					atualizardados(statisticsChart, idCaixa)
+				});
+			} else {
+				console.error("Falha ao Executar a API")
+				return
+			}
+		});
+	}
+	function atualizardados(statisticsChart, idCaixa) {
+		fetch(`/data/atualizardados/${idCaixa}`, { cache: 'no-store' }).then(function (response) {
+			// console.log(response)
+			if (response.ok) {
+				response.json().then(function (response) {
+					statisticsChart.data.labels.shift()
+					statisticsChart.data.labels.push(response[0].momento); // incluir um novo momento
+
+					statisticsChart.data.datasets[0].data.shift();  // apagar o primeiro de umidade
+					statisticsChart.data.datasets[0].data.push(response[0].cpuPorcentagem); // incluir uma nova medida de umidade
+
+					statisticsChart.data.datasets[1].data.shift();
+					statisticsChart.data.datasets[1].data.push(response[0].ramPorcentagem); // incluir uma nova medida de temperatura
+
+					statisticsChart.data.datasets[2].data.shift();
+					statisticsChart.data.datasets[2].data.push(response[0].hdPorcentagem);
+					statisticsChart.update()
+					proximaAtualizacao = setTimeout(() => atualizardados(statisticsChart, idCaixa), 2000);
+					var cpu = response[0].cpuPorcentagem
+					var hd = response[0].hdPorcentagem
+					var ram = response[0].ramPorcentagem
+					verificar++
+					console.log(verificar)
+					if (verificar == 10) {
+
+						if ((cpu > 40 && cpu <= 60) || (hd > 70 && hd <= 100) || (ram > 40 && ram <= 60)) {
+							alerta(null, idCaixa)
+							verificar = 0
+						}
+						else if ((cpu > 60 && cpu <= 100) || (hd > 60 && hd <= 100) || (ram > 60 && ram <= 100)) {
+							critico(null, idCaixa)
+							verificar = 0
+						}
+					}
+				});
+			} else {
+				console.error("Falha ao Executar a API")
+				proximaAtualizacao = setTimeout(() => atualizardados(statisticsChart, idCaixa), 2000);
+				return
+			}
+		});
+		function alerta(e, idCaixa) {
+			alerta_automatizado(sessionStorage.getItem('idBanco'), 1, 'Alerta de uso moderado', 'Sua máquina pode estar estar sofrendo ataques ou mau desempenho.')
+			swal(`Dados Anormais Detectados`, `Alguns dados acima do ideal foram identificados verifique os seus Caixas.\n\n Numero do Caixa:${idCaixa}`, {
+				buttons: {
+					confirm: {
+						className: 'btn btn-warning'
+					}
+				},
+			});
+		}
+
+		function critico(e, idCaixa) {
+			alerta_automatizado(sessionStorage.getItem('idBanco'), 1, 'Alerta de uso crítico', 'Sua máquina pode estar sofrendo um ataque grave.')
+			swal(`Dados Críticos detectados.`, `Verifique com Urgência seu Caixa ele pode estár sofrendo um Ataque.\n\n Numero do Caixa:${idCaixa}`, {
+				buttons: {
+					confirm: {
+						className: 'btn btn-danger'
+					}
+				},
+			});
+		}
+	}
+
+
+	function alerta_automatizado(banco, agencia, title, desc) {
+		const options = {
+			method: 'POST',
+			headers: {
+				accept: 'application/json',
+				'content-type': 'application/json',
+				authorization: 'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJ1c2VyIjp7ImlkIjozMDIxODI2NTAsImVtYWlsIjoidHJhY2t2aXNpb24wNEBnbWFpbC5jb20iLCJhcHBsaWNhdGlvbiI6MzAwMjEzMTY0fX0.rooYQntvZsjGYViQw3yZCUpN3vZkgy7uLe-UFiPOoGv4yXXFVcAuT-Av89vBkDfolICREJi5ivEOLwklWTU4Cg'
+			},
+			body: JSON.stringify({ query: `mutation {           createCard(input: {             pipe_id:302814723,             title: "Card",             fields_attributes:[               {field_id: "banco", field_value: "${banco}"},{field_id: "ag_ncia", field_value: "${agencia}"},{field_id: "qual_o_assunto_do_seu_pedido", field_value: "${title}"}, {field_id: "texto_longo", field_value: "${desc}"}             ],           }) {               card {                 title               }             }           }` })
+		};
+
+		fetch('https://api.pipefy.com/graphql', options)
+			.then(response => response.json())
+			.then(response => console.log(response))
+			.catch(err => console.error(err));
+	}
 
 </script>

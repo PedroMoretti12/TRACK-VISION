@@ -9,59 +9,59 @@ let usoCpuProcesso = []
 let usoMemoriaProcesso = []
 
 function pegardados(idCaixa) {
-  fetch(`/data/obterdados/${idCaixa}`, { cache: 'no-store' }).then(function (response) {
-	if (response.ok) {
-	for(cont = 0; cont<response.length;cont++){
-		response.json().then(function (response) {
-			dados_cpu.push(response[cont].cpuPorcentagem)
-			dados_disco.push(response[cont].hdPorcentagem)
-			dados_memoria.push(response[cont].ramPorcentagem)
-			momento.pusu(response[cont].momento)
-		});
-	}	
+	fetch(`/data/obterdados/${idCaixa}`, { cache: 'no-store' }).then(function (response) {
+		if (response.ok) {
+			for (cont = 0; cont < response.length; cont++) {
+				response.json().then(function (response) {
+					dados_cpu.push(response[cont].cpuPorcentagem)
+					dados_disco.push(response[cont].hdPorcentagem)
+					dados_memoria.push(response[cont].ramPorcentagem)
+					momento.push(response[cont].momento)
+				});
+			}
 
-	} else {
-	  console.error("Falha ao Executar a API")
-	  return
-	}
-  });
-}   
+		} else {
+			console.error("Falha ao Executar a API")
+			return
+		}
+	});
+}
 
 
 function pegardadosJulia(idCaixa) {
 	fetch(`/data/obterdadosJulia/${idCaixa}`, { cache: 'no-store' }).then(function (response) {
-	  if (response.ok) {
-	  for(cont = 0; cont<response.length;cont++){
-		  response.json().then(function (response) {
-			  pid.push(response[cont].pid)
-			  usoCpuProcesso.push(response[cont].usoCpuProcesso)
-			  usoMemoriaProcesso.push(response[cont].usoMemoriaProcesso)
-			  
-		  });
-	  }	
-  
-	  } else {
-		console.error("Falha ao Executar a API")
-		return
-	  }
+		if (response.ok) {
+			for (cont = 0; cont < response.length; cont++) {
+				response.json().then(function (response) {
+					pid.push(response[cont].pid)
+					usoCpuProcesso.push(response[cont].usoCpuProcesso)
+					usoMemoriaProcesso.push(response[cont].usoMemoriaProcesso)
+					momento.push(response[cont].momento)
+				});
+			}
+
+		} else {
+			console.error("Falha ao Executar a API")
+			return
+		}
 	});
-  } 
+}
 
 
 
 var ctx = document.getElementById('statisticsChart').getContext('2d');
 
 
-for(cont = 0; response.length;cont++){
-    
- 	statisticsChart.labels = response.nome
+for (cont = 0; response.length; cont++) {
+
+	statisticsChart.labels = response.nome
 }
 
 var statisticsChart = new Chart(ctx, {
 	type: 'line',
 	data: {
 		labels: ["14:00", "14:01", "14:02", "14:03", "14:04", "14:05", "14:06", "14:07", "14:08", "14:09", "14:10", "14:11"],
-		datasets: [ {
+		datasets: [{
 			label: "Cpu",
 			borderColor: '#f3545d',
 			pointBackgroundColor: 'rgba(243, 84, 93, 0.6)',
@@ -93,23 +93,23 @@ var statisticsChart = new Chart(ctx, {
 			data: [542, 480, 430, 550, 530, 453, 380, 434, 568, 610, 700, 900]
 		}]
 	},
-	options : {
-		responsive: true, 
+	options: {
+		responsive: true,
 		maintainAspectRatio: false,
 		legend: {
 			display: false
 		},
 		tooltips: {
 			bodySpacing: 4,
-			mode:"nearest",
+			mode: "nearest",
 			intersect: 0,
-			position:"nearest",
-			xPadding:10,
-			yPadding:10,
-			caretPadding:10
+			position: "nearest",
+			xPadding: 10,
+			yPadding: 10,
+			caretPadding: 10
 		},
-		layout:{
-			padding:{left:5,right:5,top:15,bottom:15}
+		layout: {
+			padding: { left: 5, right: 5, top: 15, bottom: 15 }
 		},
 		scales: {
 			yAxes: [{
@@ -133,20 +133,20 @@ var statisticsChart = new Chart(ctx, {
 					fontStyle: "500"
 				}
 			}]
-		}, 
-		legendCallback: function(chart) { 
-			var text = []; 
-			text.push('<ul class="' + chart.id + '-legend html-legend">'); 
-			for (var i = 0; i < chart.data.datasets.length; i++) { 
-				text.push('<li><span style="background-color:' + chart.data.datasets[i].legendColor + '"></span>'); 
-				if (chart.data.datasets[i].label) { 
-					text.push(chart.data.datasets[i].label); 
-				} 
-				text.push('</li>'); 
-			} 
-			text.push('</ul>'); 
-			return text.join(''); 
-		}  
+		},
+		legendCallback: function (chart) {
+			var text = [];
+			text.push('<ul class="' + chart.id + '-legend html-legend">');
+			for (var i = 0; i < chart.data.datasets.length; i++) {
+				text.push('<li><span style="background-color:' + chart.data.datasets[i].legendColor + '"></span>');
+				if (chart.data.datasets[i].label) {
+					text.push(chart.data.datasets[i].label);
+				}
+				text.push('</li>');
+			}
+			text.push('</ul>');
+			return text.join('');
+		}
 	}
 });
 

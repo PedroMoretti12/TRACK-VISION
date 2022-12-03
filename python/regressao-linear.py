@@ -36,6 +36,7 @@ if len(row) == 24:
     for x in range(len(row)):
         cpu_diario.append(row[x][0])
 else:
+    cpu_diario = []
     cursor.execute("SELECT TOP(24) cpuPorcentagem FROM Leitura ORDER BY id DESC;")
     row = cursor.fetchall()
     print("Não existem 24 dados no dia anterior, pegando os últimos 24 dados registrados.")
@@ -49,7 +50,6 @@ cursor.execute("SELECT TOP(24) ramPorcentagem FROM [dbo].[Leitura] WHERE FORMAT(
 row = cursor.fetchall()
 
 ram_diario = []
-
 if len(row) == 24:
     print("24 Dados do dia anterior capturados.")
     for x in range(len(row)):
@@ -59,7 +59,7 @@ else:
     row = cursor.fetchall()
     print("Não existem 24 dados no dia anterior, pegando os últimos 24 dados registrados.")
     for x in range(len(row)):
-        cpu_diario.append(row[x][0])
+        ram_diario.append(row[x][0])
 
 cursor.execute("SELECT TOP(24) hdPorcentagem FROM [dbo].[Leitura] WHERE FORMAT(momento, 'dd') = FORMAT(DATEADD(DAY, -1 , GETDATE()), 'dd') ORDER BY id DESC;")
 row = cursor.fetchall()
@@ -77,7 +77,7 @@ else:
     row = cursor.fetchall()
     print("Não existem 24 dados no dia anterior, pegando os últimos 24 dados registrados.")
     for x in range(len(row)):
-        cpu_diario.append(row[x][0])
+        hd_diario.append(row[x][0])
 
 '''
 Código da captura de dados da semana.
@@ -113,7 +113,6 @@ for i in range(7):
     hd_semanal.append(dado)
 
 print("Dados semanais do HD capturados.")
-
 '''
 Código da captura de dados do mês.
 '''

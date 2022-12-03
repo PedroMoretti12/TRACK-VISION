@@ -2,6 +2,9 @@ import pyodbc
 from dash import Dash, dcc, html, Input, Output
 import plotly.express as px
 import random
+import matplotlib.pyplot as plt
+from scipy import stats
+import pandas as pd
 
 conexao = False
 try:
@@ -241,37 +244,47 @@ print("\n", cpu_semanal)
 print("\n", cpu_mensal)
 
 '''
-Finalização do tratamento dos dados
-'''
-
-
-'''
 Códigos da parte gráfica da aplicação.
 '''
+
+df = pd.DataFrame({
+    "Dias da semana": [1, 2, 3, 4, 5, 6, 7],
+    "Porcentagem da cpu": cpu_semanal
+})
+
+fig = px.scatter(df, x="Dias da semana", y="Porcentagem da cpu", trendline="ols")
+
+df = pd.DataFrame({
+    "Dias da semana": [1, 2, 3, 4, 5, 6, 7],
+    "Porcentagem da ram": ram_semanal
+})
+
+fig2 = px.scatter(df, x="Dias da semana", y="Porcentagem da ram", trendline="ols")
+
+df = pd.DataFrame({
+    "Dias da semana": [1, 2, 3, 4, 5, 6, 7],
+    "Porcentagem do hd": hd_semanal
+})
+
+fig3 = px.scatter(df, x="Dias da semana", y="Porcentagem do hd", trendline="ols")
+
 app = Dash(__name__)
 
 app.layout = html.Div([
-    html.H4('Life expentancy progression of countries per continents'),
-    dcc.Graph(id="graph"),
-    dcc.Checklist(
-        id="checklist",
-        options=["Asia", "Europe", "Africa","Americas","Oceania"],
-        value=["Americas", "Oceania"],
-        inline=True
+    html.H4("REGRESSÃO LINEAR"),
+    dcc.Graph(
+        id="exemplo",
+        figure=fig
+    ),
+    dcc.Graph(
+        id="exemplo",
+        figure=fig2
+    ),
+    dcc.Graph(
+        id="exemplo",
+        figure=fig3
     ),
     html.A('Voltar para o dashboard padrão.', href='http://localhost:8080/dashboardTecnico')
 ])
-
-
-@app.callback(
-    Output("graph", "figure"), 
-    Input("checklist", "value"))
-def update_line_chart(continents):
-    df = px.data.gapminder() # replace with your own data source
-    mask = df.continent.isin(continents)
-    fig = px.line(df[mask], 
-        x="year", y="lifeExp", color='country')
-    return fig
-
 
 app.run_server(debug=True)

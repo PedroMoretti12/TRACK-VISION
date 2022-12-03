@@ -88,11 +88,15 @@ hd_semanal = []
 vetor = [-7, -6, -5, -4, -3, -2, -1]
 
 for i in range(7):
-    mensagem = "SELECT TOP(1) cpuPorcentagem FROM Leitura WHERE FORMAT(momento, 'dd') = FORMAT(DATEADD(DAY, ?, GETDATE()), 'dd') ORDER BY id DESC"
+    mensagem = "SELECT TOP(1) cpuPorcentagem AS DECIMAL FROM Leitura WHERE FORMAT(momento, 'dd') = FORMAT(DATEADD(DAY, ?, GETDATE()), 'dd') ORDER BY id DESC"
     valor = vetor[i]
     cursor.execute(mensagem, valor)
     dado = cursor.fetchall()
-    cpu_semanal.append(dado)
+    try:
+        dado_refinado = dado[0][0]
+    except:
+        dado_refinado = []
+    cpu_semanal.append(dado_refinado)
 
 print("Dados semanais da CPU capturados.")
 
@@ -101,7 +105,11 @@ for i in range(7):
     valor = vetor[i]
     cursor.execute(mensagem, valor)
     dado = cursor.fetchall()
-    ram_semanal.append(dado)
+    try:
+        dado_refinado = dado[0][0]
+    except:
+        dado_refinado = []
+    ram_semanal.append(dado_refinado)
 
 print("Dados semanais da RAM capturados.")
 
@@ -110,13 +118,16 @@ for i in range(7):
     valor = vetor[i]
     cursor.execute(mensagem, valor)
     dado = cursor.fetchall()
-    hd_semanal.append(dado)
+    try:
+        dado_refinado = dado[0][0]
+    except:
+        dado_refinado = []
+    hd_semanal.append(dado_refinado)
 
 print("Dados semanais do HD capturados.")
 '''
 Código da captura de dados do mês.
 '''
-
 cpu_mensal = []
 ram_mensal = []
 hd_mensal = []
@@ -127,7 +138,11 @@ for i in range(30):
     valor = vetor[i]
     cursor.execute(mensagem, valor)
     dado = cursor.fetchall()
-    cpu_mensal.append(dado)
+    try:
+        dado_refinado = dado[0][0]
+    except:
+        dado_refinado = []
+    cpu_mensal.append(dado_refinado)
 
 print("Dados Mensais da CPU capturados.")
 
@@ -136,7 +151,11 @@ for i in range(30):
     valor = vetor[i]
     cursor.execute(mensagem, valor)
     dado = cursor.fetchall()
-    ram_mensal.append(dado)
+    try:
+        dado_refinado = dado[0][0]
+    except:
+        dado_refinado = []
+    ram_mensal.append(dado_refinado)
 
 print("Dados Mensais da RAM capturados.")
 
@@ -145,7 +164,11 @@ for i in range(30):
     valor = vetor[i]
     cursor.execute(mensagem, valor)
     dado = cursor.fetchall()
-    hd_mensal.append(dado)
+    try:
+        dado_refinado = dado[0][0]
+    except:
+        dado_refinado = []
+    hd_mensal.append(dado_refinado)
 
 print("Dados Mensais do HD capturados.")
 
@@ -157,8 +180,6 @@ print("\nPreenchendo quaisquer campos vazios + Cálculo de confiabilidade.")
 
 medida_confiavel_cpu_mensal = 0
 medida_confiavel_cpu_semanal = 0
-medida_confiavel_ram = 0
-medida_confiavel_hd = 0
 confiabilidade_diario = 0.0
 confiabilidade_semanal = 0.0
 confiabilidade_mensal = 0.0
@@ -171,35 +192,45 @@ else:
 print("Confiabilidade diária: ", confiabilidade_diario, "%")
 
 for i in range(len(cpu_semanal)):
-    if(len(cpu_semanal[i]) == 1):
+    try:
+        test = 1 + cpu_semanal[i]
         medida_confiavel_cpu_semanal += 1
-    else:
-        cpu_semanal[i] = [round(random.randint(25, 75), 2)]
+    except:
+        cpu_semanal[i] = round(random.randint(25, 75), 2)
 
 for i in range(len(ram_semanal)):
-    if(len(ram_semanal[i]) != 1):
-        ram_semanal[i] = [round(random.randint(25, 75), 2)]
+    try:
+        test = 1 + ram_semanal[i]
+    except:
+        ram_semanal[i] = round(random.randint(25, 75), 2)
 
 for i in range(len(hd_semanal)):
-    if(len(hd_semanal[i]) != 1):
-        hd_semanal[i] = [round(random.randint(25, 75), 2)]
+    try:
+        test = 1 + hd_semanal[i]
+    except:
+        hd_semanal[i] = round(random.randint(25, 75), 2)
 
 confiabilidade_semanal = round((medida_confiavel_cpu_semanal/7)*100, 2)
 print("Confiabilidade semanal: ", confiabilidade_semanal, "%")
 
 for i in range(len(cpu_mensal)):
-    if(len(cpu_mensal[i]) == 1):
+    try:
+        test = 1 + cpu_mensal[i]
         medida_confiavel_cpu_mensal += 1
-    else:
-        cpu_mensal[i] = [round(random.randint(25, 75), 2)]
+    except:
+        cpu_mensal[i] = round(random.randint(25, 75), 2)
 
 for i in range(len(ram_mensal)):
-    if(len(ram_mensal[i]) != 1):
-        ram_mensal[i] = [round(random.randint(25, 75), 2)]
+    try:
+        test = 1 + ram_mensal[i]
+    except:
+        ram_mensal[i] = round(random.randint(25, 75), 2)
 
 for i in range(len(hd_mensal)):
-    if(len(hd_mensal[i]) != 1):
-        hd_mensal[i] = [round(random.randint(25, 75), 2)]
+    try:
+        test = 1 + hd_mensal[i]
+    except:
+        hd_mensal[i] = round(random.randint(25, 75), 2)
 
 
 confiabilidade_mensal = round((medida_confiavel_cpu_mensal/30)*100,2)

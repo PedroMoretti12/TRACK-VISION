@@ -5,6 +5,11 @@ import random
 import matplotlib.pyplot as plt
 from scipy import stats
 import pandas as pd
+from plotly.subplots import make_subplots
+import plotly.graph_objects as go
+import dash_bootstrap_components as dbc
+
+external_stylesheets = [dbc.themes.BOOTSTRAP]
 
 conexao = False
 try:
@@ -247,44 +252,138 @@ print("\n", cpu_mensal)
 Códigos da parte gráfica da aplicação.
 '''
 
+'''
+DIA
+'''
+
+df = pd.DataFrame({
+    "Horas do dia": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24],
+    "Porcentagem da cpu": cpu_diario
+})
+
+fig = px.scatter(df, x="Horas do dia", y="Porcentagem da cpu", trendline="ols")
+
+df = pd.DataFrame({
+    "Horas do dia": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24],
+    "Porcentagem da ram": ram_diario
+})
+
+fig2 = px.scatter(df, x="Horas do dia", y="Porcentagem da ram", trendline="ols")
+
+df = pd.DataFrame({
+    "Horas do dia": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24],
+    "Porcentagem do hd": hd_diario
+})
+
+fig3 = px.scatter(df, x="Horas do dia", y="Porcentagem do hd", trendline="ols")
+
+'''
+SEMANA
+'''
+
 df = pd.DataFrame({
     "Dias da semana": [1, 2, 3, 4, 5, 6, 7],
     "Porcentagem da cpu": cpu_semanal
 })
 
-fig = px.scatter(df, x="Dias da semana", y="Porcentagem da cpu", trendline="ols")
+fig4 = px.scatter(df, x="Dias da semana", y="Porcentagem da cpu", trendline="ols")
 
 df = pd.DataFrame({
     "Dias da semana": [1, 2, 3, 4, 5, 6, 7],
     "Porcentagem da ram": ram_semanal
 })
 
-fig2 = px.scatter(df, x="Dias da semana", y="Porcentagem da ram", trendline="ols")
+fig5 = px.scatter(df, x="Dias da semana", y="Porcentagem da ram", trendline="ols")
 
 df = pd.DataFrame({
     "Dias da semana": [1, 2, 3, 4, 5, 6, 7],
     "Porcentagem do hd": hd_semanal
 })
 
-fig3 = px.scatter(df, x="Dias da semana", y="Porcentagem do hd", trendline="ols")
+fig6 = px.scatter(df, x="Dias da semana", y="Porcentagem do hd", trendline="ols")
 
-app = Dash(__name__)
+'''
+MENSAL
+'''
 
-app.layout = html.Div([
-    html.H4("REGRESSÃO LINEAR"),
-    dcc.Graph(
-        id="exemplo",
-        figure=fig
-    ),
-    dcc.Graph(
-        id="exemplo",
-        figure=fig2
-    ),
-    dcc.Graph(
-        id="exemplo",
-        figure=fig3
-    ),
-    html.A('Voltar para o dashboard padrão.', href='http://localhost:8080/dashboardTecnico')
+df = pd.DataFrame({
+    "Dias do mês": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30],
+    "Porcentagem da cpu": cpu_mensal
+})
+
+fig7 = px.scatter(df, x="Dias do mês", y="Porcentagem da cpu", trendline="ols")
+
+df = pd.DataFrame({
+    "Dias do mês": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30],
+    "Porcentagem da ram": ram_mensal
+})
+
+fig8 = px.scatter(df, x="Dias do mês", y="Porcentagem da ram", trendline="ols")
+
+df = pd.DataFrame({
+    "Dias do mês": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30],
+    "Porcentagem do hd": hd_mensal
+})
+
+fig9 = px.scatter(df, x="Dias do mês", y="Porcentagem do hd", trendline="ols")
+
+app = Dash(__name__, external_stylesheets=external_stylesheets)
+
+app.layout = dbc.Container([
+    html.H1("Dados diários", style={"margin-top": "50px", "text-align": "center"}),
+    html.Div(id='output'),
+    dbc.Row([
+        dbc.Col([
+            html.H3("Porcentagem do HD", style={"margin-top": "50px", "text-align": "center"}),
+            dcc.Graph(figure=fig3)
+        ], width=6),
+        dbc.Col([
+            html.H3("Porcentagem da RAM", style={"margin-top": "50px", "text-align": "center"}),
+            dcc.Graph(figure=fig2)
+        ], width=6)
+    ]),
+    dbc.Row([
+        dbc.Col([
+            html.H3("Porcentagem da CPU", style={"margin-top": "50px", "text-align": "center"}),
+            dcc.Graph(figure=fig)
+        ])
+    ]),
+    html.H1("Dados semanais", style={"margin-top": "50px", "text-align": "center"}),
+    html.Div(id='output2'),
+    dbc.Row([
+        dbc.Col([
+            html.H3("Porcentagem do HD", style={"margin-top": "50px", "text-align": "center"}),
+            dcc.Graph(figure=fig6)
+        ], width=6),
+        dbc.Col([
+            html.H3("Porcentagem da RAM", style={"margin-top": "50px", "text-align": "center"}),
+            dcc.Graph(figure=fig5)
+        ], width=6)
+    ]),
+    dbc.Row([
+        dbc.Col([
+            html.H3("Porcentagem da CPU", style={"margin-top": "50px", "text-align": "center"}),
+            dcc.Graph(figure=fig4)
+        ])
+    ]),
+    html.H1("Dados mensais", style={"margin-top": "50px", "text-align": "center"}),
+    html.Div(id='output3'),
+    dbc.Row([
+        dbc.Col([
+            html.H3("Porcentagem do HD", style={"margin-top": "50px", "text-align": "center"}),
+            dcc.Graph(figure=fig9)
+        ], width=6),
+        dbc.Col([
+            html.H3("Porcentagem da RAM", style={"margin-top": "50px", "text-align": "center"}),
+            dcc.Graph(figure=fig8)
+        ], width=6)
+    ]),
+    dbc.Row([
+        dbc.Col([
+            html.H3("Porcentagem da CPU", style={"margin-top": "50px", "text-align": "center"}),
+            dcc.Graph(figure=fig7)
+        ])
+    ])
 ])
 
-app.run_server(debug=True)
+app.run(debug=True, port=8008)

@@ -2116,7 +2116,8 @@ body {
   .card .b-b1, .card-light .b-b1 {
     border-bottom: 1px solid rgba(255, 255, 255, 0.3); }
   .card .card-body, .card-light .card-body {
-    padding: 1.25rem; }
+    padding: 1.25rem; 
+  width: max-content; }
   .card .card-footer, .card-light .card-footer {
     background-color: transparent;
     line-height: 30px;

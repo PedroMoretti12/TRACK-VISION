@@ -368,7 +368,7 @@
 										<div class="col-7 col-stats">
 											<div class="numbers">
 												<p class="card-category">Processos Ativos</p>
-												<h4 class="card-title" id="media_cpu">210</h4>
+												<h4 class="card-title" id="processinhos">210</h4>
 											</div>
 										</div>
 									</div>
@@ -388,7 +388,7 @@
 										<div class="col-7 col-stats">
 											<div class="numbers">
 												<p class="card-category">Serviços Ativos</p>
-												<h4 class="card-title">19</h4>
+												<h4 class="card-title" id="servicinhos">19</h4>
 											</div>
 										</div>
 									</div>
@@ -436,7 +436,7 @@
 									<div class="card-head-row">
 										<div class="card-title">Últimos Dados da Agencia 3501</div>
 										&nbsp; &nbsp;
-										<select name="" id="select_caixa" onchange="pegardados(statisticsChart,select_caixa.value)">
+										<select name="" id="select_caixa" onchange="pegardadosJulia(statisticsChart,select_caixa.value)">
 											<option value=1>Caixa 1</option>
 											<option value=31>Caixa 2</option>
 											<option value=41>Caixa 3</option>
@@ -841,14 +841,15 @@
 <script>
 	let proximaAtualizacao;
 
-	function pegarMedia(idCaixa) {
-
-		fetch(`/data/obterdadosJulia/${idCaixa}`, { cache: 'no-store' }).then(function (response) {
-			response.json().then((resultado => { console.log(response) }))
+	function pegarCard(idCaixa) {
+         processinhos.innerHTML = ``
+		 servicinhos.innerHTML = ``
+		fetch(`/data/atualizarcards/${idCaixa}`, { cache: 'no-store' }).then(function (response) {
 			if (response.ok) {
 				response.json().then(function (response) {
-					media_cpu.innerHTML = (response[0].cpu).toFixed(2) + "%"
-					media_ram.innerHTML = (response[0].Ram).toFixed(2) + "%"
+					console.log("Estou no card" + response[0].Process)
+					servicinhos.innerHTML = response[0].Service
+					processinhos.innerHTML = response[0].Process
 				})
 
 			} else {
@@ -856,16 +857,7 @@
 				return
 			}
 		})
-	}
-
-	pegarMedia(1)
-
-
-
-
-
-
-
+	} 
 
 	var verificar = 0
 
@@ -974,6 +966,7 @@
 
 
 	function pegardadosJulia(statisticsChart, idCaixa) {
+		pegarCard(idCaixa)
 		pid = []
 		usoCpuProcesso = []
 		usoMemoriaProcesso = []
@@ -985,6 +978,7 @@
 			if (response.ok) {
 				response.json().then(function (response) {
 					for (cont = 0; cont < 5; cont++) {
+						response.reverse
 						usoCpuProcesso.push(response[cont].usoCpuProcesso);
 						usoMemoriaProcesso.push(response[cont].usoMemoriaProcesso);
 						pid.push(response[cont].pid);
@@ -1007,30 +1001,33 @@
 			if (response.ok) {
 				console.log(response);
 				response.json().then(function (resposta) {
+					console.log("Resposta:" + resposta[0].pid)
 					statisticsChart.data.labels.shift()
-					statisticsChart.data.labels.push(response[0].pid); // incluir um novo momento
+					statisticsChart.data.labels.push(resposta[0].pid); // incluir um novo momento
 
 					statisticsChart.data.datasets[0].data.shift();  // apagar o primeiro de umidade
-					statisticsChart.data.datasets[0].data.push(response[0].usoCpuProcesso); // incluir uma nova medida de umidade
+					statisticsChart.data.datasets[0].data.push(resposta[0].usoCpuProcesso); // incluir uma nova medida de umidade
 
 					statisticsChart.data.datasets[1].data.shift();
-					statisticsChart.data.datasets[1].data.push(response[0].usoMemoriaProcesso); // incluir uma nova medida de temperatura
+					statisticsChart.data.datasets[1].data.push(resposta[0].usoMemoriaProcesso); // incluir uma nova medida de temperatura
 
 					statisticsChart.update()
 					proximaAtualizacao = setTimeout(() => atualizardadosJulia(statisticsChart, idCaixa), 2000);
-					var cpu = response[0].usoCpuProcesso
-					var mem = response[0].usoMemoriaProcesso
+					var pid = resposta[0].pid
+					var cpu = resposta[0].usoCpuProcesso
+					var mem = resposta[0].usoMemoriaProcesso
 					
 					verificar++
 					console.log(verificar)
 					if (verificar == 10) {
-
+					    pegarCard(idCaixa)
+                        
 						if ((cpu > 2.0 && cpu <= 40.0) || (mem > 2.0 && mem <= 40.0)) {
-							alerta(null, idCaixa)
+							alerta(null, idCaixa,pid)
 							verificar = 0
 						}
 						else if ((cpu > 60.0 && cpu <= 100.0) || (mem > 60.0 && mem <= 100.0)) {
-							critico(null, idCaixa)
+							critico(null, idCaixa,pid)
 							verificar = 0
 						}
 					}
@@ -1042,7 +1039,7 @@
 			}
 		});
 		function alerta(e, idCaixa) {
-			swal(`Dados Anormais Detectados`, `Alguns dados acima do ideal foram identificados verifique os seus Caixas.\n\n Numero do Caixa:${idCaixa}`, {
+			swal(`Dados Anormais Detectados`, `Alguns dados acima do ideal foram identificados verifique os seus Caixas.\n\n Numero do Caixa:${idCaixa}, PID do Processo: ${pid}`, {
 				buttons: {
 					confirm: {
 						className: 'btn btn-warning'
@@ -1052,7 +1049,7 @@
 		}
 
 		function critico(e, idCaixa) {
-			swal(`Dados Críticos detectados.`, `Verifique com Urgência seu Caixa ele pode estár sofrendo um Ataque.\n\n Numero do Caixa:${idCaixa}`, {
+			swal(`Dados Críticos detectados.`, `Verifique com Urgência seu Caixa ele pode estár sofrendo um Ataque.\n\n Numero do Caixa:${idCaixa} PID do Processo: ${píd}`, {
 				buttons: {
 					confirm: {
 						className: 'btn btn-danger'

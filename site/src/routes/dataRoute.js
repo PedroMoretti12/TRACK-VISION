@@ -27,4 +27,9 @@ router.get('/obterRegressao/:idAgencia', function(req, res) {
     dataController.obterRegressao(req, res)
 })
 
+router.get('/atualizarCards/:idCaixa', function(req, res) {
+    dataController.atualizarCards(req, res)
+})
+
+
 export default router

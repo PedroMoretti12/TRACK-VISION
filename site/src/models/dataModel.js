@@ -19,7 +19,7 @@ class dataModel {
 
     static atualizardadosJulia(idCaixa) {
         try {
-            return Database.executarQuery(`select t2.* from (select nomeProcesso, max(momento) as momento from Projeto_Julia where fkCaixa = ${idCaixa} group by nomeProcesso) t1 join [dbo].[Projeto_Julia] t2 on t1.momento = t2.momento`)
+            return Database.executarQuery(`SELECT TOP 1 * FROM Projeto_Julia  WHERE fkCaixa = ${idCaixa} order by momento desc;`)
         } catch (error) {
             console.log(error)
         }
@@ -35,9 +35,18 @@ class dataModel {
         } 
     }
 
+    static atualizarCards(idCaixa){
+        try {
+            return Database.executarQuery(`select top 1 servicosAtivos as Service,processosAtivos as Process from Leitura where fkCaixa = ${idCaixa} order by momento desc;`)
+            }
+            catch (error) {
+                console.log(error)
+            } 
+    }
+
     static obterdadosJulia(idCaixa) {
         try {
-        return Database.executarQuery(`SELECT * FROM Projeto_Julia WHERE fkCaixa = ${idCaixa};`)
+        return Database.executarQuery(`SELECT TOP 5 * FROM Projeto_Julia  WHERE fkCaixa = ${idCaixa} order by momento desc;`)
         }
         catch (error) {
             console.log(error)

@@ -70,6 +70,14 @@ class dataModel {
         }
     }
 
+    static obterdadosMichelly(idCaixaMichelly) {
+        try {
+            return Database.executarQuery(`select * from Proj_Michelly where fkCaixa = ${idCaixaMichelly};`)
+        } catch (error) {
+            console.log(error)
+        }
+    }
+
 }
 
 export { dataModel }

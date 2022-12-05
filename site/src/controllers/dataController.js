@@ -19,6 +19,24 @@ class dataController {
         //}   
     }
 
+    static obterdadosMichelly(req, res) {
+        var idCaixaMichelly = req.params.idCaixaMichelly;
+
+        dataModel.obterdadosMichelly(idCaixaMichelly)
+            .then(response => {
+                res.status(200).json(response)
+            }).catch(e => {
+                console.log(e)
+                res.status(500).send()
+            })
+
+        // try {
+
+            // return await dataModel.obterdados(idCaixa)
+        // } catch (erro) {
+        //}   
+    }
+
     static obterdadosJulia(req, res) {
         var idCaixa = req.params.idCaixa;
 

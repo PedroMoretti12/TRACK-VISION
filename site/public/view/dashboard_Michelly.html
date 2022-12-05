@@ -317,10 +317,6 @@
 											<i class="fas fa-th-list"></i>
 											<p>Dashboard Pedro</p>
 										</a>
-										<a href="dashboardTemp">
-											<i class="fas fa-th-list"></i>
-											<p>Dashboard Michelly</p>
-										</a>
 								</ul>
 							</div>
 						</li>
@@ -399,15 +395,15 @@
 										</div>
 										<div class="col-7 col-stats">
 											<div class="numbers">
-												<p class="card-category">Memória</p>
-												<h4 class="card-title" id="media_ram"></h4>
+												<p class="card-category">Temperatura</p>
+												<h4 class="card-title" id="media_temp"></h4>
 											</div>
 										</div>
 									</div>
 								</div>
 							</div>
 						</div>
-						<div class="col-sm-6 col-md-3">
+						<!-- <div class="col-sm-6 col-md-3">
 							<div class="card card-stats card-round">
 								<div class="card-body">
 									<div class="row">
@@ -425,7 +421,7 @@
 									</div>
 								</div>
 							</div>
-						</div>
+						</div> -->
 						<div class="col-sm-6 col-md-3">
 							<div class="card card-stats card-round">
 								<div class="card-body">
@@ -487,7 +483,7 @@
 										<div class="card-title">Últimos Dados da Agencia 3501</div>
 										&nbsp; &nbsp;
 										<select name="" id="select_caixa"
-											onchange="pegardados(statisticsChart,select_caixa.value)">
+											onchange="pegardados(chartMichelly,select_caixa.value)">
 											<option value=1>Caixa 1</option>
 											<option value=31>Caixa 2</option>
 											<option value=41>Caixa 3</option>
@@ -499,7 +495,7 @@
 								</div>
 								<div class="card-body">
 									<div class="chart-container" style="min-height: 375px">
-										<canvas id="statisticsChart"></canvas>
+										<canvas id="chartMichelly"></canvas>
 									</div>
 									<div id="myChartLegend"></div>
 								</div>
@@ -947,16 +943,15 @@
 
 <script>
 
-	let proximaAtualizacao;
+	let proximaAtualizacaoMichelly;
 
-	function pegarMedia(idAgencia) {
+	function mediaMichelly(idAgenciaMichelly) {
 
-		fetch(`/data/obterMedia/${idAgencia}`, { cache: 'no-store' }).then(function (response) {
+		fetch(`/data/obterMedia/${idAgenciaMichelly}`, { cache: 'no-store' }).then(function (response) {
 			if (response.ok) {
 				response.json().then(function (response) {
 					media_cpu.innerHTML = (response[0].Cpu).toFixed(2) + "%"
-					media_ram.innerHTML = (response[0].Ram).toFixed(2) + "%"
-					media_hd.innerHTML = (response[0].Hd).toFixed(2) + "%"
+					media_temp.innerHTML = (response[0].Temperatura).toFixed(2) + "%"
 				})
 
 			} else {
@@ -966,18 +961,18 @@
 		})
 	}
 
-	pegarMedia(1)
+	// pegarMedia(1)
 
 	var verificar = 0
 
-	var ctx = document.getElementById('statisticsChart').getContext('2d');
+	var ctx1 = document.getElementById('chartMichelly').getContext('2d');
 	setInterval(() => {
 		if (sessionStorage.getItem('Nome') == null) {
 			location.href = 'login'
 		}
 	}, 3000);
 
-	var statisticsChart = new Chart(ctx, {
+	var chartMichelly = new Chart(ctx1, {
 		type: 'line',
 		data: {
 			labels: [],
@@ -992,7 +987,7 @@
 				borderWidth: 2,
 				data: ["CPU"]
 			}, {
-				label: "Memória",
+				label: "Temperatura",
 				borderColor: '#fdaf4b',
 				pointBackgroundColor: 'rgba(253, 175, 75, 0.6)',
 				pointRadius: 0,
@@ -1000,18 +995,8 @@
 				legendColor: '#fdaf4b',
 				fill: true,
 				borderWidth: 2,
-				data: ["RAM"]
-			}, {
-				label: "Disco",
-				borderColor: '#177dff',
-				pointBackgroundColor: 'rgba(23, 125, 255, 0.6)',
-				pointRadius: 0,
-				backgroundColor: 'rgba(23, 125, 255, 0.4)',
-				legendColor: '#177dff',
-				fill: true,
-				borderWidth: 2,
-				data: ["DISCO"]
-			}]
+				data: ["Temperatura"]
+			},]
 		},
 		options: {
 			responsive: true,
@@ -1073,8 +1058,8 @@
 	var myLegendContainer = document.getElementById("myChartLegend");
 
 	// generate HTML legend
-	myLegendContainer.innerHTML = statisticsChart.generateLegend();
-	pegardados(statisticsChart, 1);
+	myLegendContainer.innerHTML = chartMichelly.generateLegend();
+	pegardados(chartMichelly, 1);
 
 	// bind onClick event to all LI-tags of the legend
 	var legendItems = myLegendContainer.getElementsByTagName('li');
@@ -1084,31 +1069,28 @@
 
 
 
-	function pegardados(statisticsChart, idCaixa) {
+	function pegardadosMichelly(chartMichelly, idCaixaMichelly) {
 		dados_cpu = []
-		dados_memoria = []
-		dados_disco = []
+		dados_temp = []
 		momento = []
-		if (proximaAtualizacao != undefined) {
-			clearTimeout(proximaAtualizacao);
+		if (proximaAtualizacaoMichelly != undefined) {
+			clearTimeout(proximaAtualizacaoMichelly);
 		}
-		fetch(`/data/obterdados/${idCaixa}`, { cache: 'no-store' }).then(function (response) {
+		fetch(`/data/obterdadosMichelly/${idCaixaMichelly}`, { cache: 'no-store' }).then(function (response) {
 			console.log(momento)
 			if (response.ok) {
 				response.json().then(function (response) {
 					for (cont = 0; cont < 5; cont++) {
 						dados_cpu.push(response[cont].cpuPorcentagem);
-						dados_disco.push(response[cont].hdPorcentagem);
-						dados_memoria.push(response[cont].ramPorcentagem);
+						dados_temp.push(response[cont].tempPorcentagem);
 						momento.push(response[cont].momento);
 						console.log("Toma no cu julia")
 					}
-					statisticsChart.data.datasets[0].data = dados_cpu
-					statisticsChart.data.datasets[1].data = dados_memoria
-					statisticsChart.data.datasets[2].data = dados_disco
-					statisticsChart.data.labels = momento
-					statisticsChart.update()
-					atualizardados(statisticsChart, idCaixa)
+					chartMichelly.data.datasets[0].data = dados_cpu
+					chartMichelly.data.datasets[1].data = dados_temp
+					chartMichelly.data.labels = momento
+					chartMichelly.update()
+					atualizardados(chartMichelly, idCaixaMichelly)
 				});
 			} else {
 				console.error("Falha ao Executar a API")
@@ -1116,50 +1098,47 @@
 			}
 		});
 	}
-	function atualizardados(statisticsChart, idCaixa) {
-		fetch(`/data/atualizardados/${idCaixa}`, { cache: 'no-store' }).then(function (response) {
+	function atualizardados(chartMichelly, idCaixaMichelly) {
+		fetch(`/data/atualizardadosMichelly/${idCaixaMichelly}`, { cache: 'no-store' }).then(function (response) {
 			// console.log(response)
 			if (response.ok) {
 				response.json().then(function (response) {
-					statisticsChart.data.labels.shift()
-					statisticsChart.data.labels.push(response[0].momento); // incluir um novo momento
+					chartMichelly.data.labels.shift()
+					chartMichelly.data.labels.push(response[0].momento); // incluir um novo momento
 
-					statisticsChart.data.datasets[0].data.shift();  // apagar o primeiro de umidade
-					statisticsChart.data.datasets[0].data.push(response[0].cpuPorcentagem); // incluir uma nova medida de umidade
+					chartMichelly.data.datasets[0].data.shift();  // apagar o primeiro de umidade
+					chartMichelly.data.datasets[0].data.push(response[0].cpuPorcentagem); // incluir uma nova medida de umidade
 
-					statisticsChart.data.datasets[1].data.shift();
-					statisticsChart.data.datasets[1].data.push(response[0].ramPorcentagem); // incluir uma nova medida de temperatura
+					chartMichelly.data.datasets[1].data.shift();
+					chartMichelly.data.datasets[1].data.push(response[0].tempPorcentagem); // incluir uma nova medida de temperatura
 
-					statisticsChart.data.datasets[2].data.shift();
-					statisticsChart.data.datasets[2].data.push(response[0].hdPorcentagem);
-					statisticsChart.update()
-					proximaAtualizacao = setTimeout(() => atualizardados(statisticsChart, idCaixa), 2000);
+					chartMichelly.update()
+					proximaAtualizacaoMichelly = setTimeout(() => atualizardados(chartMichelly, idCaixaMichelly), 2000);
 					var cpu = response[0].cpuPorcentagem
-					var hd = response[0].hdPorcentagem
-					var ram = response[0].ramPorcentagem
+					var temp = response[0].tempPorcentagem
 					verificar++
 					console.log(verificar)
 					if (verificar == 10) {
 
-						if ((cpu > 40 && cpu <= 60) || (hd > 70 && hd <= 100) || (ram > 40 && ram <= 60)) {
-							alerta(null, idCaixa)
+						if ((cpu > 40 && cpu <= 60) || (temp > 55 && temp <= 60)) {
+							alerta(null, idCaixaMichelly)
 							verificar = 0
 						}
-						else if ((cpu > 60 && cpu <= 100) || (hd > 60 && hd <= 100) || (ram > 60 && ram <= 100)) {
-							critico(null, idCaixa)
+						else if ((cpu > 60 && cpu <= 100) || (temp > 60 && temp <= 100)) {
+							critico(null, idCaixaMichelly)
 							verificar = 0
 						}
 					}
 				});
 			} else {
 				console.error("Falha ao Executar a API")
-				proximaAtualizacao = setTimeout(() => atualizardados(statisticsChart, idCaixa), 2000);
+				proximaAtualizacaoMichelly = setTimeout(() => atualizardados(chartMichelly, idCaixaMichelly), 2000);
 				return
 			}
 		});
-		function alerta(e, idCaixa) {
+		function alerta(e, idCaixaMichelly) {
 			alerta_automatizado(sessionStorage.getItem('idBanco'), 1, 'Alerta de uso moderado', 'Sua máquina pode estar estar sofrendo ataques ou mau desempenho.')
-			swal(`Dados Anormais Detectados`, `Alguns dados acima do ideal foram identificados verifique os seus Caixas.\n\n Numero do Caixa:${idCaixa}`, {
+			swal(`Temperatura Anormal Detectada`, `Temperatura acima do ideal foram identificadas verifique os seus Caixas.\n\n Numero do Caixa:${idCaixaMichelly}`, {
 				buttons: {
 					confirm: {
 						className: 'btn btn-warning'
@@ -1168,9 +1147,9 @@
 			});
 		}
 
-		function critico(e, idCaixa) {
+		function critico(e, idCaixaMichelly) {
 			alerta_automatizado(sessionStorage.getItem('idBanco'), 1, 'Alerta de uso crítico', 'Sua máquina pode estar sofrendo um ataque grave.')
-			swal(`Dados Críticos detectados.`, `Verifique com Urgência seu Caixa ele pode estár sofrendo um Ataque.\n\n Numero do Caixa:${idCaixa}`, {
+			swal(`Temperatura Crítica detectada.`, `Verifique com Urgência seu Caixa, Temperatura elevada.\n\n Numero do Caixa:${idCaixaMichelly}`, {
 				buttons: {
 					confirm: {
 						className: 'btn btn-danger'

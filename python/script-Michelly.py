@@ -54,10 +54,6 @@ while (True):
                 # med_caixa2 = conversor(data['Children'],[0]['Children'][1]['Children'][1]['Children'][0]['Value'])
                 # max_caixa2 = conversor(data['Children'],[0]['Children'][1]['Children'][1]['Children'][0]['Max'])
 
-                # min_caixa3 = conversor(data['Children'],[0]['Children'][1]['Children'][1]['Children'][0]['Min'])
-                # med_caixa3 = conversor(data['Children'],[0]['Children'][1]['Children'][1]['Children'][0]['Value'])
-                # max_caixa3 = conversor(data['Children'],[0]['Children'][1]['Children'][1]['Children'][0]['Max'])
-
                 hora = datetime.now().strftime('%H:%M:%S')
                 data = datetime.now().strftime('%Y-%m-%d')
 

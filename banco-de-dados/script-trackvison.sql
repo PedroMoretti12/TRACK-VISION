@@ -97,6 +97,7 @@ INSERT INTO Agencia VALUES (1, 1, '1234', 'Campo Limpo', '05763470', 'Rua Dougla
 INSERT INTO Caixa (fkBanco, fkAgencia, numeroSerial, dataCompra, vidaUtil) VALUES (1, 1, '12345678', '30/11/2022', 14000),
 																(2, 1, '12345678', '11/01/2011', 25500),
 																(3, 1, '12345678', '15/12/2020', 10000);
+																															
                                                                 
 -- select * from Caixa;	
 -- update Caixa set vidaUtil = 25000 where id = (select id from Caixa order by id desc limit 1);

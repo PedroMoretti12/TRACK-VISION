@@ -345,7 +345,7 @@
 						<div class="d-flex align-items-left align-items-md-center flex-column flex-md-row">
 							<div>
 								<h2 class="text-black h1 fw-bold">Monitoramento de ATM'S</h2>
-								<h5 class="text-black  h2 op-7 mb-2">Média de uso dos componentes por agência</h5>
+								<h5 class="text-black  h2 op-7 mb-2">Monitoramento de processos e serviços ativos nesse momento em cada máquina:</h5>
 							</div>
 							<div class="ml-md-auto py-2 py-md-0">
 
@@ -437,7 +437,7 @@
 							<div class="card">
 								<div class="card-header">
 									<div class="card-head-row">
-										<div class="card-title">Últimos Dados da Agencia 3501</div>
+										<div class="card-title">Últimos processos com maior relevância da Agencia 3501</div>
 										&nbsp; &nbsp;
 										<select name="" id="select_caixa"
 											onchange="pegardadosJulia(statisticsChart,select_caixa.value)">
@@ -464,8 +464,7 @@
 								<div class="card">
 									<div class="card-header">
 										<div class="card-head-row">
-											<h4 class="card-title">Frequência de alertas por caixa e processos e
-												serviços ativos</h4>
+											<h4 class="card-title">Monitoramento da quantidade de processos e serviços que estão fora do padrão</h4>
 											<div class="card-tools">
 												<button class="btn btn-icon btn-link btn-primary btn-xs"><span
 														class="fa fa-angle-down"></span></button>
@@ -477,7 +476,7 @@
 											</div>
 										</div>
 										<p class="card-category">
-											Mapeamento dos Caixas do Banco e seus Status.</p>
+											Importante que essas métricas se encontrem zeradas</p>
 									</div>
 									<div class="card-body" style="justify-content:space-around ;">
 										<div class="row">
@@ -1104,11 +1103,11 @@
 						pegarCard(idCaixa)
 						pegarCard2(idCaixa)
 
-						if ((cpu > 5.1 && cpu <= 10.0) || (mem > 5.1 && mem <= 10.0)) {
+						if ((cpu > 5.1 && cpu <= 9.0) || (mem > 5.1 && mem <= 9.0)) {
 							alerta(null, idCaixa, pid)
 							verificar = 0
 						}
-						else if ((cpu > 10.01 && cpu <= 100.0) || (mem > 10.01 && mem <= 100.0)) {
+						else if ((cpu > 9.01 && cpu <= 100.0) || (mem > 9.01 && mem <= 100.0)) {
 							critico(null, idCaixa, pid)
 							verificar = 0
 						}

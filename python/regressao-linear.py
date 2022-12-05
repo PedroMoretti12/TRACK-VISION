@@ -244,10 +244,6 @@ for i in range(len(hd_mensal)):
 confiabilidade_mensal = round((medida_confiavel_cpu_mensal/30)*100,2)
 print("Confiabilidade mensal: ", confiabilidade_mensal, "%")
 
-print("\n", cpu_diario)
-print("\n", cpu_semanal)
-print("\n", cpu_mensal)
-
 '''
 Códigos da parte gráfica da aplicação.
 '''
@@ -327,11 +323,25 @@ df = pd.DataFrame({
 
 fig9 = px.scatter(df, x="Dias do mês", y="Porcentagem do hd", trendline="ols")
 
+df = pd.DataFrame({
+    "Tipo": ["Diária", "Semanal", "Mensal"],
+    "Dado": [confiabilidade_diario, confiabilidade_semanal, confiabilidade_mensal]
+})
+
+fig10 = px.bar(df, x="Tipo", y="Dado")
+
 app = Dash(__name__, external_stylesheets=external_stylesheets)
 
 app.layout = dbc.Container([
-    html.H1("Dados diários", style={"margin-top": "50px", "text-align": "center"}),
-    html.Div(id='output'),
+    html.A("Voltar para o dashboard padrão.", href="http://localhost:8080/dashboardTecnico", style={"margin-top": "50px", "text-align": "center", "color": "orange"}),
+    html.H1("Regressão Linear dos dados bancários de suas agências", style={"margin-top": "50px", "text-align": "center"}),
+    html.H3("% Confiabilidade dos dados", style={"margin-top": "50px", "text-align": "center"}),
+    dbc.Row([
+        dbc.Col([
+            dcc.Graph(figure=fig10)
+        ])
+    ]),
+    html.H1("Dados diários", style={"margin-top": "50px", "text-align": "center", "border-bottom": "solid 10px orange"}),
     dbc.Row([
         dbc.Col([
             html.H3("Porcentagem do HD", style={"margin-top": "50px", "text-align": "center"}),
@@ -348,7 +358,7 @@ app.layout = dbc.Container([
             dcc.Graph(figure=fig)
         ])
     ]),
-    html.H1("Dados semanais", style={"margin-top": "50px", "text-align": "center"}),
+    html.H1("Dados semanais", style={"margin-top": "50px", "text-align": "center", "border-bottom": "solid 10px orange"}),
     html.Div(id='output2'),
     dbc.Row([
         dbc.Col([
@@ -366,7 +376,7 @@ app.layout = dbc.Container([
             dcc.Graph(figure=fig4)
         ])
     ]),
-    html.H1("Dados mensais", style={"margin-top": "50px", "text-align": "center"}),
+    html.H1("Dados mensais", style={"margin-top": "50px", "text-align": "center", "border-bottom": "solid 10px orange"}),
     html.Div(id='output3'),
     dbc.Row([
         dbc.Col([

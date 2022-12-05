@@ -1021,30 +1021,31 @@
 			if (response.ok) {
 				response.json().then(function (response) {
 					statisticsChart.data.labels.shift()
-					statisticsChart.data.labels.push(response[0].momento); // incluir um novo momento
+					statisticsChart.data.labels.push(response[0].momento);
 
-					statisticsChart.data.datasets[0].data.shift();  // apagar o primeiro de umidade
-					statisticsChart.data.datasets[0].data.push(response[0].cpuPorcentagem); // incluir uma nova medida de umidade
+					statisticsChart.data.datasets[0].data.shift();
+					statisticsChart.data.datasets[0].data.push(response[0].cpuPorcentagem);
 
 					statisticsChart.data.datasets[1].data.shift();
-					statisticsChart.data.datasets[1].data.push(response[0].ramPorcentagem); // incluir uma nova medida de temperatura
+					statisticsChart.data.datasets[1].data.push(response[0].ramPorcentagem);
 
 					statisticsChart.data.datasets[2].data.shift();
-					statisticsChart.data.datasets[2].data.push(response[0].hdPorcentagem);
+					statisticsChart.data.datasets[2].data.push(response[0].vidaUtilHoras);
+
 					statisticsChart.update()
 					proximaAtualizacao = setTimeout(() => atualizardados(statisticsChart, idCaixa), 2000);
 					var cpu = response[0].cpuPorcentagem
-					var hd = response[0].hdPorcentagem
 					var ram = response[0].ramPorcentagem
+					var vidaUtil = response[0].vidaUtilHoras
 					verificar++
 					console.log(verificar)
 					if (verificar == 10) {
 
-						if ((cpu > 40 && cpu <= 60) || (hd > 70 && hd <= 100) || (ram > 40 && ram <= 60)) {
+						if ((cpu > 40 && cpu <= 60) || (ram > 40 && ram <= 60)) {
 							alerta(null, idCaixa)
 							verificar = 0
 						}
-						else if ((cpu > 60 && cpu <= 100) || (hd > 60 && hd <= 100) || (ram > 60 && ram <= 100)) {
+						else if ((cpu > 60 && cpu <= 100) || (ram > 60 && ram <= 100)) {
 							critico(null, idCaixa)
 							verificar = 0
 						}

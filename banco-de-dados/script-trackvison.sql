@@ -87,6 +87,4 @@ INSERT INTO Caixa (fkBanco, fkAgencia, numeroSerial, dataCompra, vidaUtil) VALUE
 																(3, 1, '12345678', '15/12/2020', 10000);
                                                                 
 select * from Caixa;	
-update Caixa set vidaUtil = 25000 where id = (select id from Caixa order by id desc limit 1);
-
-update Caixa set vidaUtil = 1000 where id in (select id from (select id from Caixa order by id desc limit 1) as t);
+-- update Caixa set vidaUtil = 1000 where id in (select id from (select id from Caixa order by id desc limit 1) as t);	

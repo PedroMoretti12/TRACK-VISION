@@ -76,6 +76,22 @@ usoCpuProcesso DECIMAL (5,2),
 usoMemoriaProcesso DECIMAL (5,2)
 );
 
+CREATE TABLE Proj_Michelly(
+id INT PRIMARY KEY AUTO_INCREMENT,
+hora time,
+data_data date,
+tempCpuMin DECIMAL (5,2),
+tempCpuMed DECIMAL (5,2),
+tempCpuMax DECIMAL (5,2),
+fkCaixa INT,
+FOREIGN KEY (fkCaixa) REFERENCES Caixa (id)
+)auto_increment = 200;
+
+select * from proj_michelly;
+select * from Banco;
+select * from Caixa;
+select * from Agencia;
+
 INSERT INTO Banco VALUES (NULL, 'Banco do Brasil', '001', '00000000'),
 						 (NULL, 'Bradesco', '237', '60746948'),
                          (NULL, 'Caixa econômica federal', '104', '00360305');

@@ -80,17 +80,13 @@ CREATE TABLE Proj_Michelly(
 id INT PRIMARY KEY AUTO_INCREMENT,
 hora time,
 data_data date,
+cpuPorcentagem DECIMAL(5,2),
 tempCpuMin DECIMAL (5,2),
 tempCpuMed DECIMAL (5,2),
 tempCpuMax DECIMAL (5,2),
 fkCaixa INT,
 FOREIGN KEY (fkCaixa) REFERENCES Caixa (id)
-)auto_increment = 200;
-
-select * from proj_michelly;
-select * from Banco;
-select * from Caixa;
-select * from Agencia;
+)auto_increment = 200; 
 
 INSERT INTO Banco VALUES (NULL, 'Banco do Brasil', '001', '00000000'),
 						 (NULL, 'Bradesco', '237', '60746948'),
@@ -102,7 +98,7 @@ INSERT INTO Caixa (fkBanco, fkAgencia, numeroSerial, dataCompra, vidaUtil) VALUE
 																(2, 1, '12345678', '11/01/2011', 25500),
 																(3, 1, '12345678', '15/12/2020', 10000);
                                                                 
-select * from Caixa;	
-update Caixa set vidaUtil = 25000 where id = (select id from Caixa order by id desc limit 1);
+-- select * from Caixa;	
+-- update Caixa set vidaUtil = 25000 where id = (select id from Caixa order by id desc limit 1);
 
-update Caixa set vidaUtil = 1000 where id in (select id from (select id from Caixa order by id desc limit 1) as t);
+-- update Caixa set vidaUtil = 1000 where id in (select id from (select id from Caixa order by id desc limit 1) as t);

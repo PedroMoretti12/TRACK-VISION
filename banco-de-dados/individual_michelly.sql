@@ -35,6 +35,7 @@ CREATE TABLE Proj_Michelly(
 id INT PRIMARY KEY AUTO_INCREMENT,
 hora time,
 data_data date,
+cpuPorcentagem DECIMAL(5,2),
 tempCpuMin DECIMAL (5,2),
 tempCpuMed DECIMAL (5,2),
 tempCpuMax DECIMAL (5,2),
@@ -46,6 +47,7 @@ SELECT
     *
 FROM
     Proj_Michelly;
+truncate Proj_Michelly;
 select * from Banco;
 select * from Caixa;
 select * from Agencia;
@@ -59,3 +61,5 @@ INSERT INTO Agencia VALUES (1, 1, '1234', 'Campo Limpo', '05763470', 'Rua Dougla
 INSERT INTO Caixa (fkBanco, fkAgencia, numeroSerial) VALUES (1, 1, '12345678'),
 																(2, 1, '12345678'),
 																(3, 1, '12345678');
+
+describe Proj_Michelly;

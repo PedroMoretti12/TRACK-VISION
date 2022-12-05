@@ -14,7 +14,7 @@ import textwrap
 
 try:
         trackvision_bd = mysql.connector.connect(
-            host = 'localhost', user = 'MichellyMendes', password = 'Urubu100', database = 'Trackvision')
+            host = 'localhost', user = 'MichellyMendes', password = 'Urubu100', database = 'Track_vision')
 
 except mysql.connector.Error as error:
     if error.errno == errorcode.ER_BAD_DB_ERROR:
@@ -23,6 +23,9 @@ except mysql.connector.Error as error:
         print("Falha na credencial")
     else:
         print(error)    
+    # CPU 
+    # print (psutil.cpu_percent(1))
+
 
 while (True):
     def conversor(valor):
@@ -38,10 +41,12 @@ while (True):
                 rep = rep - 1
                 response = pool.request('GET', 'http://localhost:8085/data.json')
                 data = loads(response.data.decode('utf-8'))
+                
+                min_caixa1 = conversor(data['Children'][0]['Children'][0]['Children'][1]['Children'][0]['Min'])
+                med_caixa1 = conversor(data['Children'][0]['Children'][0]['Children'][1]['Children'][0]['Value'])
+                max_caixa1 = conversor(data['Children'][0]['Children'][0]['Children'][1]['Children'][0]['Max'])
 
-                min_caixa1 = conversor(data['Children'][0]['Children'][1]['Children'][1]['Children'][0]['Min'])
-                med_caixa1 = conversor(data['Children'][0]['Children'][1]['Children'][1]['Children'][0]['Value'])
-                max_caixa1 = conversor(data['Children'][0]['Children'][1]['Children'][1]['Children'][0]['Max'])
+                cpuPorcentagem = psutil.cpu_percent(interval=1, percpu=False)
 
                 cursorLocal = trackvision_bd.cursor()
 
@@ -55,12 +60,17 @@ while (True):
 
                 hora = datetime.now().strftime('%H:%M:%S')
                 data = datetime.now().strftime('%Y-%m-%d')
+
                 fkCaixa = 100
-                sql = (f"insert into Proj_Michelly (hora, data_data, tempCpuMin, tempCpuMed, tempCpuMax, fkCaixa) VALUES ('{hora}', '{data}', {min_caixa1},{med_caixa1}, {max_caixa1}, {fkCaixa});")
+                
+                sql = (f"insert into Proj_Michelly (hora, data_data, cpuPorcentagem, tempCpuMin, tempCpuMed, tempCpuMax, fkCaixa) VALUES ('{hora}', '{data}', {cpuPorcentagem}, {min_caixa1},{med_caixa1}, {max_caixa1}, {fkCaixa});")
            
                 cursorLocal.execute(sql)
+                trackvision_bd.commit()
+                
 
             print(cursorLocal.rowcount, "Inseriu no Banco")
-            print("momento:",hora,data, "Temperatura", med_caixa1)
-            trackvision_bd.commit()
+            print("momento:",hora,data, "Temperatura min", min_caixa1)
+            print("momento:",hora,data, "Temperatura med", med_caixa1)
+            print("momento:",hora,data, "Temperatura max", max_caixa1)
             time.sleep(3)

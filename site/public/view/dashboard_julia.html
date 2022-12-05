@@ -1152,7 +1152,7 @@
           function atualizar(idCaixa) {
 
             vetor_alerta = []
-            fetch(`/atualizardados/${idCaixa}`)
+            fetch(`/atualizarcards/${idCaixa}`)
               .then(result => result.json())
               .then(formatted => {
                 console.log("aa"+formatted)

@@ -71,6 +71,19 @@ class dataController {
         })
     }
 
+    static atualizarCards2(req, res) {
+        var idCaixa = req.params.idCaixa;
+
+        dataModel.atualizarCards2(idCaixa)
+        .then(response => {
+            res.status(200).json(response)
+        }).catch(e => {
+       
+            console.log(e)
+            res.status(500).send()
+        })
+    }
+
     static atualizardadosJulia(req, res) {
         var idCaixa = req.params.idCaixa;
 

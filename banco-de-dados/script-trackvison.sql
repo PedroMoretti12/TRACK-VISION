@@ -76,6 +76,18 @@ usoCpuProcesso DECIMAL (5,2),
 usoMemoriaProcesso DECIMAL (5,2)
 );
 
+CREATE TABLE Proj_Michelly(
+id INT PRIMARY KEY AUTO_INCREMENT,
+hora time,
+data_data date,
+cpuPorcentagem DECIMAL(5,2),
+tempCpuMin DECIMAL (5,2),
+tempCpuMed DECIMAL (5,2),
+tempCpuMax DECIMAL (5,2),
+fkCaixa INT,
+FOREIGN KEY (fkCaixa) REFERENCES Caixa (id)
+)auto_increment = 200; 
+
 INSERT INTO Banco VALUES (NULL, 'Banco do Brasil', '001', '00000000'),
 						 (NULL, 'Bradesco', '237', '60746948'),
                          (NULL, 'Caixa econômica federal', '104', '00360305');
@@ -86,5 +98,12 @@ INSERT INTO Caixa (fkBanco, fkAgencia, numeroSerial, dataCompra, vidaUtil) VALUE
 																(2, 1, '12345678', '11/01/2011', 25500),
 																(3, 1, '12345678', '15/12/2020', 10000);
                                                                 
+<<<<<<< HEAD
 select * from Caixa;	
 -- update Caixa set vidaUtil = 1000 where id in (select id from (select id from Caixa order by id desc limit 1) as t);	
+=======
+-- select * from Caixa;	
+-- update Caixa set vidaUtil = 25000 where id = (select id from Caixa order by id desc limit 1);
+
+-- update Caixa set vidaUtil = 1000 where id in (select id from (select id from Caixa order by id desc limit 1) as t);
+>>>>>>> 2aeec2b71e62ec1a1658b3fbd3479577d49adf45

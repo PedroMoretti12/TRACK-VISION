@@ -32,4 +32,8 @@ router.get("/dashboardTemp", (req, res) => {
     res.sendFile(path.resolve("site/public/view/dashboard_Michelly.html"))
 })
 
+router.get("/dashboardTemperatura", (req, res) => {
+    res.sendFile(path.resolve("site/public/view/dashboard_aaa.html"))
+})
+
 export default router;

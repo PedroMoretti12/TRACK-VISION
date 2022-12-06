@@ -70,12 +70,22 @@ class dataModel {
         }
     }
 
-    static obterdadosMichelly(idCaixaMichelly) {
+    static obterdadosMichelly(idCaixa) {
         try {
-            return Database.executarQuery(`select * from Proj_Michelly where fkCaixa = ${idCaixaMichelly};`)
-        } catch (error) {
-            console.log(error)
+        return Database.executarQuery(`SELECT cpuPorcentagem AS "Cpu" FROM Leitura WHERE fkCaixa = ${idCaixa};`)
         }
+        catch (error) {
+            console.log(error)
+        } 
+    }
+
+    static obterdadosMichelly1(idCaixa) {
+        try {
+        return Database.executarQuery(`SELECT tempCpuMed AS "Temperatura" FROM Leitura WHERE fkCaixa = ${idCaixa};`)
+        }
+        catch (error) {
+            console.log(error)
+        } 
     }
 
 }

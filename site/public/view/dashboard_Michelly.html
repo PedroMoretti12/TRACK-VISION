@@ -998,14 +998,15 @@
 
 	let proximaAtualizacao;
 
-	function pegarMedia(idAgencia) {
+	function pegarMedia(idCaixa) {
 
-		fetch(`/data/obterMedia/${idAgencia}`, { cache: 'no-store' }).then(function (response) {
+		fetch(`/data/obterMedia/${idCaixa}`, { cache: 'no-store' }).then(function (response) {
 			if (response.ok) {
 				response.json().then(function (response) {
 					media_cpu.innerHTML = (response[0].Cpu).toFixed(2) + "%"
-					media_ram.innerHTML = (response[0].Ram).toFixed(2) + "%"
-					media_hd.innerHTML = (response[0].Hd).toFixed(2) + "%"
+					// media_temp.innerHTML = (response[0].Temperatura).toFixed(2) + "%"
+					// media_ram.innerHTML = (response[0].Ram).toFixed(2) + "%"
+					// media_hd.innerHTML = (response[0].Hd).toFixed(2) + "%"
 				})
 
 			} else {
@@ -1016,6 +1017,26 @@
 	}
 
 	pegarMedia(1)
+
+	function pegarMedia1(idCaixa) {
+
+fetch(`/data/obterMedia1/${idCaixa}`, { cache: 'no-store' }).then(function (response) {
+	if (response.ok) {
+		response.json().then(function (response) {
+			// media_cpu.innerHTML = (response[0].Cpu).toFixed(2) + "%"
+			media_temp.innerHTML = (response[0].Temperatura).toFixed(2) + "%"
+			// media_ram.innerHTML = (response[0].Ram).toFixed(2) + "%"
+			// media_hd.innerHTML = (response[0].Hd).toFixed(2) + "%"
+		})
+
+	} else {
+		console.log("Deu erro.")
+		return
+	}
+})
+}
+
+pegarMedia1(1)
 
 	var verificar = 0
 
@@ -1039,9 +1060,9 @@
 				legendColor: '#f3545d',
 				fill: true,
 				borderWidth: 2,
-				data: ["CPU"]
+				data: ["Cpu"]
 			}, {
-				label: "Memória",
+				label: "Temperatura",
 				borderColor: '#fdaf4b',
 				pointBackgroundColor: 'rgba(253, 175, 75, 0.6)',
 				pointRadius: 0,
@@ -1049,18 +1070,20 @@
 				legendColor: '#fdaf4b',
 				fill: true,
 				borderWidth: 2,
-				data: ["RAM"]
-			}, {
-				label: "Disco",
-				borderColor: '#177dff',
-				pointBackgroundColor: 'rgba(23, 125, 255, 0.6)',
-				pointRadius: 0,
-				backgroundColor: 'rgba(23, 125, 255, 0.4)',
-				legendColor: '#177dff',
-				fill: true,
-				borderWidth: 2,
-				data: ["DISCO"]
-			}]
+				data: ["Temperatura"]
+			}
+			// , {
+			// 	label: "Disco",
+			// 	borderColor: '#177dff',
+			// 	pointBackgroundColor: 'rgba(23, 125, 255, 0.6)',
+			// 	pointRadius: 0,
+			// 	backgroundColor: 'rgba(23, 125, 255, 0.4)',
+			// 	legendColor: '#177dff',
+			// 	fill: true,
+			// 	borderWidth: 2,
+			// 	data: ["DISCO"]
+			// }
+		]
 		},
 		options: {
 			responsive: true,
@@ -1123,7 +1146,10 @@
 
 	// generate HTML legend
 	myLegendContainer.innerHTML = statisticsChart.generateLegend();
-	pegardados(statisticsChart, 1);
+	pegardadosMichelly(statisticsChart, 1);
+
+	myLegendContainer.innerHTML = statisticsChart.generateLegend();
+	pegardadosMichelly1(statisticsChart, 1);
 
 	// bind onClick event to all LI-tags of the legend
 	var legendItems = myLegendContainer.getElementsByTagName('li');
@@ -1133,28 +1159,30 @@
 
 
 
-	function pegardados(statisticsChart, idCaixa) {
+	function pegardadosMichelly(statisticsChart, idCaixa) {
 		dados_cpu = []
-		dados_memoria = []
-		dados_disco = []
+		dados_Temperatura = []
+		// dados_disco = []
 		momento = []
 		if (proximaAtualizacao != undefined) {
 			clearTimeout(proximaAtualizacao);
 		}
-		fetch(`/data/obterdados/${idCaixa}`, { cache: 'no-store' }).then(function (response) {
+		fetch(`/data/obterdadosMichelly/${idCaixa}`, { cache: 'no-store' }).then(function (response) {
 			console.log(momento)
 			if (response.ok) {
 				response.json().then(function (response) {
 					for (cont = 0; cont < 5; cont++) {
 						dados_cpu.push(response[cont].cpuPorcentagem);
-						dados_disco.push(response[cont].hdPorcentagem);
-						dados_memoria.push(response[cont].ramPorcentagem);
+						dados_Temperatura.push(response[cont].tempCpuMed);
+						// dados_disco.push(response[cont].hdPorcentagem);
+						// dados_memoria.push(response[cont].ramPorcentagem);
 						momento.push(response[cont].momento);
 						
 					}
 					statisticsChart.data.datasets[0].data = dados_cpu
-					statisticsChart.data.datasets[1].data = dados_memoria
-					statisticsChart.data.datasets[2].data = dados_disco
+					statisticsChart.data.datasets[0].data = dados_Temperatura
+					// statisticsChart.data.datasets[1].data = dados_memoria
+					// statisticsChart.data.datasets[2].data = dados_disco
 					statisticsChart.data.labels = momento
 					statisticsChart.update()
 					atualizardados(statisticsChart, idCaixa)
@@ -1176,25 +1204,25 @@
 					statisticsChart.data.datasets[0].data.shift();  // apagar o primeiro de umidade
 					statisticsChart.data.datasets[0].data.push(response[0].cpuPorcentagem); // incluir uma nova medida de umidade
 
-					statisticsChart.data.datasets[1].data.shift();
-					statisticsChart.data.datasets[1].data.push(response[0].ramPorcentagem); // incluir uma nova medida de temperatura
+				    statisticsChart.data.datasets[1].data.shift();
+					statisticsChart.data.datasets[1].data.push(response[0].tempCpuMed); // incluir uma nova medida de temperatura
 
-					statisticsChart.data.datasets[2].data.shift();
-					statisticsChart.data.datasets[2].data.push(response[0].hdPorcentagem);
+					// statisticsChart.data.datasets[2].data.shift();
+					// statisticsChart.data.datasets[2].data.push(response[0].hdPorcentagem);
 					statisticsChart.update()
 					proximaAtualizacao = setTimeout(() => atualizardados(statisticsChart, idCaixa), 2000);
 					var cpu = response[0].cpuPorcentagem
-					var hd = response[0].hdPorcentagem
-					var ram = response[0].ramPorcentagem
+					var temp = response[0].tempCpuMed
+					// var ram = response[0].ramPorcentagem
 					verificar++
 					console.log(verificar)
 					if (verificar == 10) {
 
-						if ((cpu > 40 && cpu <= 60) || (hd > 70 && hd <= 100) || (ram > 40 && ram <= 60)) {
+						if ((cpu > 40 && cpu <= 60 || temp > 50 && temp <= 70)) {
 							alerta(null, idCaixa)
 							verificar = 0
 						}
-						else if ((cpu > 60 && cpu <= 100) || (hd > 60 && hd <= 100) || (ram > 60 && ram <= 100)) {
+						else if ((cpu > 60 && cpu <= 100 || temp > 70 && temp <= 90)) {
 							critico(null, idCaixa)
 							verificar = 0
 						}

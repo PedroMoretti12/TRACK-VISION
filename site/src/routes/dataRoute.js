@@ -11,12 +11,28 @@ router.get('/obterdadosJulia/:idCaixa', function (req, res) {
     dataController.obterdadosJulia(req, res)
 })
 
+router.get('/obterdadosMichelly/:idCaixa', function (req, res) {
+    dataController.obterdadosMichelly(req, res)
+})
+
+router.get('/obterdadosMichelly1/:idCaixa', function (req, res) {
+    dataController.obterdadosMichelly1(req, res)
+})
+
 router.get('/atualizardados/:idCaixa', function(req, res) {
     dataController.atualizardados(req, res)
 })
 
 router.get('/atualizardadosJulia/:idCaixa', function(req, res) {
     dataController.atualizardadosJulia(req, res)
+})
+
+router.get('/atualizardadosMichelly/:idCaixa', function(req, res) {
+    dataController.atualizardadosMichelly(req, res)
+})
+
+router.get('/atualizardadosMichelly1/:idCaixa', function(req, res) {
+    dataController.atualizardadosMichelly1(req, res)
 })
 
 router.get('/obtermedia/:idAgencia', function(req, res){

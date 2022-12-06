@@ -70,9 +70,18 @@ class dataModel {
         }
     }
 
+    static obterMedia(idCaixa) {
+        try {
+        return Database.executarQuery(`SELECT cpuPorcentagem AS "Cpu" FROM Proj_Michelly WHERE fkCaixa = ${idCaixa};`)
+        }
+        catch (error) {
+            console.log(error)
+        } 
+    }
+
     static obterdadosMichelly(idCaixa) {
         try {
-        return Database.executarQuery(`SELECT cpuPorcentagem AS "Cpu" FROM Leitura WHERE fkCaixa = ${idCaixa};`)
+        return Database.executarQuery(`SELECT cpuPorcentagem AS "Cpu" FROM Proj_Michelly WHERE fkCaixa = ${idCaixa};`)
         }
         catch (error) {
             console.log(error)
@@ -81,12 +90,21 @@ class dataModel {
 
     static obterdadosMichelly1(idCaixa) {
         try {
-        return Database.executarQuery(`SELECT tempCpuMed AS "Temperatura" FROM Leitura WHERE fkCaixa = ${idCaixa};`)
+        return Database.executarQuery(`SELECT tempCpuMed AS "Temperatura" FROM Proj_Michelly WHERE fkCaixa = ${idCaixa};`)
         }
         catch (error) {
             console.log(error)
         } 
     }
+
+    static atualizardadosMichelly(idCaixa) {
+        try {
+            return Database.executarQuery(`SELECT TOP 1 * FROM Proj_Michelly WHERE fkCaixa = ${idCaixa} order by hora desc;`)
+        } catch (error) {
+            console.log(error)
+        }
+    }
+
 
 }
 

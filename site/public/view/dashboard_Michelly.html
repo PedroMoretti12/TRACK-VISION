@@ -1004,7 +1004,7 @@
 			if (response.ok) {
 				response.json().then(function (response) {
 					media_cpu.innerHTML = (response[0].Cpu).toFixed(2) + "%"
-					// media_temp.innerHTML = (response[0].Temperatura).toFixed(2) + "%"
+					media_temp.innerHTML = (response[0].Temperatura).toFixed(2) + "%"
 					// media_ram.innerHTML = (response[0].Ram).toFixed(2) + "%"
 					// media_hd.innerHTML = (response[0].Hd).toFixed(2) + "%"
 				})
@@ -1018,25 +1018,7 @@
 
 	pegarMedia(1)
 
-	function pegarMedia1(idCaixa) {
-
-fetch(`/data/obterMedia1/${idCaixa}`, { cache: 'no-store' }).then(function (response) {
-	if (response.ok) {
-		response.json().then(function (response) {
-			// media_cpu.innerHTML = (response[0].Cpu).toFixed(2) + "%"
-			media_temp.innerHTML = (response[0].Temperatura).toFixed(2) + "%"
-			// media_ram.innerHTML = (response[0].Ram).toFixed(2) + "%"
-			// media_hd.innerHTML = (response[0].Hd).toFixed(2) + "%"
-		})
-
-	} else {
-		console.log("Deu erro.")
-		return
-	}
-})
-}
-
-pegarMedia1(1)
+	function pegarMedia1(idCaixa) 
 
 	var verificar = 0
 
@@ -1176,7 +1158,7 @@ pegarMedia1(1)
 						dados_Temperatura.push(response[cont].tempCpuMed);
 						// dados_disco.push(response[cont].hdPorcentagem);
 						// dados_memoria.push(response[cont].ramPorcentagem);
-						momento.push(response[cont].momento);
+						momento.push(response[cont].hora);
 						
 					}
 					statisticsChart.data.datasets[0].data = dados_cpu
@@ -1185,7 +1167,7 @@ pegarMedia1(1)
 					// statisticsChart.data.datasets[2].data = dados_disco
 					statisticsChart.data.labels = momento
 					statisticsChart.update()
-					atualizardados(statisticsChart, idCaixa)
+					atualizardadosMichelly(statisticsChart, idCaixa)
 				});
 			} else {
 				console.error("Falha ao Executar a API")
@@ -1193,8 +1175,8 @@ pegarMedia1(1)
 			}
 		});
 	}
-	function atualizardados(statisticsChart, idCaixa) {
-		fetch(`/data/atualizardados/${idCaixa}`, { cache: 'no-store' }).then(function (response) {
+	function atualizardadosMichelly(statisticsChart, idCaixa) {
+		fetch(`/data/atualizardadosMichelly/${idCaixa}`, { cache: 'no-store' }).then(function (response) {
 			// console.log(response)
 			if (response.ok) {
 				response.json().then(function (response) {
@@ -1210,7 +1192,7 @@ pegarMedia1(1)
 					// statisticsChart.data.datasets[2].data.shift();
 					// statisticsChart.data.datasets[2].data.push(response[0].hdPorcentagem);
 					statisticsChart.update()
-					proximaAtualizacao = setTimeout(() => atualizardados(statisticsChart, idCaixa), 2000);
+					proximaAtualizacao = setTimeout(() => atualizardadosMichelly(statisticsChart, idCaixa), 2000);
 					var cpu = response[0].cpuPorcentagem
 					var temp = response[0].tempCpuMed
 					// var ram = response[0].ramPorcentagem
@@ -1230,7 +1212,7 @@ pegarMedia1(1)
 				});
 			} else {
 				console.error("Falha ao Executar a API")
-				proximaAtualizacao = setTimeout(() => atualizardados(statisticsChart, idCaixa), 2000);
+				proximaAtualizacao = setTimeout(() => atualizardadosMichelly(statisticsChart, idCaixa), 2000);
 				return
 			}
 		});

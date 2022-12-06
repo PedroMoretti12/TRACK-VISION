@@ -121,6 +121,25 @@ class dataController {
         //}   
     }
 
+    static atualizardadosMichelly(req, res) {
+        var idCaixa = req.params.idCaixa;
+
+        dataModel.atualizardadosMichelly(idCaixa)
+            .then(response => {
+                res.status(200).json(response)
+            }).catch(e => {
+           
+                console.log(e)
+                res.status(500).send()
+            })
+
+        // try {
+
+            // return await dataModel.obterdados(idCaixa)
+        // } catch (erro) {
+        //}   
+    }
+
     static obterMedia(req, res) {
 
         var idAgencia = req.params.idAgencia;

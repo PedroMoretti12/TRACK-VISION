@@ -20,10 +20,6 @@ router.get("/dashboardTecnico", (req, res) => {
     res.sendFile(path.resolve("site/public/view/dashboard.html"))
 })
 
-router.get("/dashboardTemp", (req, res) => {
-    res.sendFile(path.resolve("site/public/view/dashboard_Michelly.html"))
-})
-
 router.get("/dashboardSeguranca", (req, res) => {
     res.sendFile(path.resolve("site/public/view/dashboard_julia.html"))
 })
@@ -31,4 +27,9 @@ router.get("/dashboardSeguranca", (req, res) => {
 router.get("/dashboardVidaUtil", (req, res) => {
     res.sendFile(path.resolve("site/public/view/dashboard_gabriel.html"))
 })
+
+router.get("/dashboardTemp", (req, res) => {
+    res.sendFile(path.resolve("site/public/view/dashboard_Michelly.html"))
+})
+
 export default router;

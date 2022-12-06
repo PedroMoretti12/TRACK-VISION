@@ -70,13 +70,32 @@ class dataModel {
         }
     }
 
-    static obterdadosMichelly(idCaixaMichelly) {
+    static obterMediaMichelly(idCaixa) {
         try {
-            return Database.executarQuery(`select * from Proj_Michelly where fkCaixa = ${idCaixaMichelly};`)
+        return Database.executarQuery(`SELECT cpuPorcentagem from Proj_Michelly where fkcaixa = 1;`)
+        }
+        catch (error) {
+            console.log(error)
+        } 
+    }
+
+    static obterdadosMichelly(idCaixa) {
+        try {
+        return Database.executarQuery(`SELECT cpuPorcentagem AS "Cpu" FROM Proj_Michelly WHERE fkCaixa = ${idCaixa};`)
+        }
+        catch (error) {
+            console.log(error)
+        } 
+    }
+
+    static atualizardadosMichelly(idCaixa) {
+        try {
+            return Database.executarQuery(`SELECT TOP 1 * FROM Proj_Michelly WHERE fkCaixa = ${idCaixa} order by hora desc;`)
         } catch (error) {
             console.log(error)
         }
     }
+
 
 }
 

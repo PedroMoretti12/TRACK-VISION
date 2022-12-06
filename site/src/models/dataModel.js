@@ -70,9 +70,9 @@ class dataModel {
         }
     }
 
-    static obterMedia(idCaixa) {
+    static obterMediaMichelly(idCaixa) {
         try {
-        return Database.executarQuery(`SELECT cpuPorcentagem AS "Cpu" FROM Proj_Michelly WHERE fkCaixa = ${idCaixa};`)
+        return Database.executarQuery(`SELECT cpuPorcentagem from Proj_Michelly where fkcaixa = 1;`)
         }
         catch (error) {
             console.log(error)
@@ -82,15 +82,6 @@ class dataModel {
     static obterdadosMichelly(idCaixa) {
         try {
         return Database.executarQuery(`SELECT cpuPorcentagem AS "Cpu" FROM Proj_Michelly WHERE fkCaixa = ${idCaixa};`)
-        }
-        catch (error) {
-            console.log(error)
-        } 
-    }
-
-    static obterdadosMichelly1(idCaixa) {
-        try {
-        return Database.executarQuery(`SELECT tempCpuMed AS "Temperatura" FROM Proj_Michelly WHERE fkCaixa = ${idCaixa};`)
         }
         catch (error) {
             console.log(error)

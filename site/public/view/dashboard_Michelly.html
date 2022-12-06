@@ -1000,7 +1000,7 @@
 
 	function pegarMedia(idCaixa) {
 
-		fetch(`/data/obterMedia/${idCaixa}`, { cache: 'no-store' }).then(function (response) {
+		fetch(`/data/obterMediaMichelly/${idCaixa}`, { cache: 'no-store' }).then(function (response) {
 			if (response.ok) {
 				response.json().then(function (response) {
 					media_cpu.innerHTML = (response[0].Cpu).toFixed(2) + "%"
@@ -1017,8 +1017,6 @@
 	}
 
 	pegarMedia(1)
-
-	function pegarMedia1(idCaixa) 
 
 	var verificar = 0
 

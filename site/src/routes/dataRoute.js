@@ -31,10 +31,6 @@ router.get('/atualizardadosMichelly/:idCaixa', function(req, res) {
     dataController.atualizardadosMichelly(req, res)
 })
 
-router.get('/atualizardadosMichelly1/:idCaixa', function(req, res) {
-    dataController.atualizardadosMichelly1(req, res)
-})
-
 router.get('/obtermedia/:idAgencia', function(req, res){
     dataController.obterMedia(req, res)
 })

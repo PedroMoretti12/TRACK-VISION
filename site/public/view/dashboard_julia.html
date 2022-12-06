@@ -1099,15 +1099,15 @@
 
 					verificar++
 					console.log(verificar)
-					if (verificar == 10) {
+					if (verificar == 5) {
 						pegarCard(idCaixa)
 						pegarCard2(idCaixa)
 
-						if ((cpu > 5.1 && cpu <= 9.0) || (mem > 5.1 && mem <= 9.0)) {
+						if ((cpu > 10.0 && cpu <= 15.0) || (mem > 0 && mem <= 100.0)) {
 							alerta(null, idCaixa, pid)
 							verificar = 0
 						}
-						else if ((cpu > 9.01 && cpu <= 100.0) || (mem > 9.01 && mem <= 100.0)) {
+						else if ((cpu > 15.01 && cpu <= 100.0) || (mem > 15.01 && mem <= 100.0)) {
 							critico(null, idCaixa, pid)
 							verificar = 0
 						}

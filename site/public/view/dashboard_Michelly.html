@@ -317,6 +317,10 @@
 											<i class="fas fa-th-list"></i>
 											<p>Dashboard Pedro</p>
 										</a>
+										<!-- <a href="dashboardTemp">
+											<i class="fas fa-th-list"></i>
+											<p>Dashboard Michelly</p>
+										</a> -->
 								</ul>
 							</div>
 						</li>
@@ -355,7 +359,7 @@
 						<div class="d-flex align-items-left align-items-md-center flex-column flex-md-row">
 							<div>
 								<h2 class="text-black h1 fw-bold">Monitoramento de ATM'S</h2>
-								<h5 class="text-black  h2 op-7 mb-2">Média de uso dos componentes por agência</h5>
+								<h5 class="text-black  h2 op-7 mb-2">Temperatura - CPU</h5>
 							</div>
 							<div class="ml-md-auto py-2 py-md-0">
 
@@ -365,7 +369,7 @@
 				</div>
 				<div class="page-inner mt--5">
 					<div class="row row-card-no-pd mt--2">
-						<div class="col-sm-6 col-md-3">
+						<div class="col-sm-6 col-md-6">
 							<div class="card card-stats card-round">
 								<div class="card-body ">
 									<div class="row">
@@ -384,7 +388,7 @@
 								</div>
 							</div>
 						</div>
-						<div class="col-sm-6 col-md-3">
+						<!-- <div class="col-sm-6 col-md-3">
 							<div class="card card-stats card-round">
 								<div class="card-body ">
 									<div class="row">
@@ -395,14 +399,14 @@
 										</div>
 										<div class="col-7 col-stats">
 											<div class="numbers">
-												<p class="card-category">Temperatura</p>
-												<h4 class="card-title" id="media_temp"></h4>
+												<p class="card-category">Memória</p>
+												<h4 class="card-title" id="media_ram"></h4>
 											</div>
 										</div>
 									</div>
 								</div>
 							</div>
-						</div>
+						</div> -->
 						<!-- <div class="col-sm-6 col-md-3">
 							<div class="card card-stats card-round">
 								<div class="card-body">
@@ -422,7 +426,26 @@
 								</div>
 							</div>
 						</div> -->
-						<div class="col-sm-6 col-md-3">
+						<div class="col-sm-6 col-md-6">
+							<div class="card card-stats card-round">
+								<div class="card-body">
+									<div class="row">
+										<div class="col-5">
+											<div class="icon-big text-center">
+												<i class="fas fa-thermometer-half"></i>
+											</div>
+										</div>
+										<div class="col-7 col-stats">
+											<div class="numbers">
+												<p class="card-category">Temperatura</p>
+												<h4 class="card-title" id="media_temp"></h4>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<!-- <div class="col-sm-6 col-md-3">
 							<div class="card card-stats card-round">
 								<div class="card-body">
 									<div class="row">
@@ -434,40 +457,70 @@
 										<div class="col-7 col-stats">
 											<div class="numbers">
 												<p class="card-category">Máquinas em Alerta</p>
-												<h4 class="card-title">19</h4>
+												<h4 class="card-title">9</h4>
 											</div>
 										</div>
 									</div>
 								</div>
 							</div>
-						</div>
+						</div> -->
 					</div>
 					<div class="row">
-						<div class="col-md-4">
+						<div class="col-md-2">
 							<div class="card card-green">
 								<div class="card-body pb-0">
-									<h2 class="mb-2" style="text-align: center; color: green;">IDEAL</h2>
+									<h2 class="mb-2" style="text-align: center; font-size: 19px; color: green;">IDEAL CPU</h2>
 									<p style="text-align: center; color: green;">40%</p>
 									<div class="pull-in sparkline-fix chart-as-background">
 									</div>
 								</div>
 							</div>
 						</div>
-						<div class="col-md-4">
+						<div class="col-md-2">
 							<div class="card card-yellow">
 								<div class="card-body pb-0">
-									<h2 class="mb-2" style="text-align: center; color: #ff8c00;">ALERTA</h2>
+									<h2 class="mb-2" style="text-align: center; font-size: 19px; color: #ff8c00;">ALERTA CPU</h2>
 									<p style="text-align: center; color: #ff8c00;">60%</p>
 									<div class="pull-in sparkline-fix chart-as-background">
 									</div>
 								</div>
 							</div>
 						</div>
-						<div class="col-md-4">
+						<div class="col-md-2">
 							<div class="card card-red">
 								<div class="card-body pb-0">
-									<h2 class="mb-2" style="text-align: center; color: red;">CRÍTICO</h2>
+									<h2 class="mb-2" style="text-align: center; font-size: 19px; color: red;">CRÍTICO CPU</h2>
 									<p style="text-align: center; color: red;">80%</p>
+									<div class="pull-in sparkline-fix chart-as-background">
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="col-md-2">
+							<div class="card card-green">
+								<div class="card-body pb-0">
+									<h2 class="mb-2" style="text-align: center; font-size: 19px; color: green;">IDEAL TEMP</h2>
+									<p style="text-align: center; color: green;">30C°</p>
+									<div class="pull-in sparkline-fix chart-as-background">
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="col-md-2">
+							<div class="card card-yellow">
+								<div class="card-body pb-0">
+									<h2 class="mb-2" style="text-align: center; font-size: 19px; color: #ff8c00;">ALERTA TEMP</h2>
+									<p style="text-align: center; color: #ff8c00;">50C°</p>
+									<div class="pull-in sparkline-fix chart-as-background">
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="col-md-2">
+							<div class="card card-red">
+								<div class="card-body pb-1">
+									<h2 class="mb-2" style="text-align: center; font-size: 19px; color: red;">CRÍTICO TEMP</h2>
+									<p style="text-align: center; color: red;">80C°</p>
 									<div class="pull-in sparkline-fix chart-as-background">
 									</div>
 								</div>
@@ -483,7 +536,7 @@
 										<div class="card-title">Últimos Dados da Agencia 3501</div>
 										&nbsp; &nbsp;
 										<select name="" id="select_caixa"
-											onchange="pegardados(chartMichelly,select_caixa.value)">
+											onchange="pegardados(statisticsChart,select_caixa.value)">
 											<option value=1>Caixa 1</option>
 											<option value=31>Caixa 2</option>
 											<option value=41>Caixa 3</option>
@@ -495,14 +548,14 @@
 								</div>
 								<div class="card-body">
 									<div class="chart-container" style="min-height: 375px">
-										<canvas id="chartMichelly"></canvas>
+										<canvas id="statisticsChart"></canvas>
 									</div>
 									<div id="myChartLegend"></div>
 								</div>
 							</div>
 						</div>
 
-						<div class="row row-card-no-pd">
+						<!-- <div class="row row-card-no-pd">
 							<div class="col-md-12">
 								<div class="card">
 									<div class="card-header">
@@ -631,8 +684,8 @@
 								</div>
 							</div>
 						</div>
-					</div>
-					<div class="row">
+					</div> -->
+					<!-- <div class="row">
 						<div class="col-md-6">
 							<div class="card">
 								<div class="card-header">
@@ -768,7 +821,7 @@
 								</div>
 							</div>
 						</div>
-					</div>
+					</div> -->
 				</div>
 			</div>
 			<footer class="footer">
@@ -791,7 +844,7 @@
 						</ul>
 					</nav>
 					<div class="copyright ml-auto">
-						2022, Feito pela Equipe TRACK VISION</a>
+						2022, Desenvolvido por Michelly Mendes</a>
 					</div>
 				</div>
 			</footer>
@@ -943,15 +996,16 @@
 
 <script>
 
-	let proximaAtualizacaoMichelly;
+	let proximaAtualizacao;
 
-	function mediaMichelly(idAgenciaMichelly) {
+	function pegarMedia(idAgencia) {
 
-		fetch(`/data/obterMedia/${idAgenciaMichelly}`, { cache: 'no-store' }).then(function (response) {
+		fetch(`/data/obterMedia/${idAgencia}`, { cache: 'no-store' }).then(function (response) {
 			if (response.ok) {
 				response.json().then(function (response) {
 					media_cpu.innerHTML = (response[0].Cpu).toFixed(2) + "%"
-					media_temp.innerHTML = (response[0].Temperatura).toFixed(2) + "%"
+					media_ram.innerHTML = (response[0].Ram).toFixed(2) + "%"
+					media_hd.innerHTML = (response[0].Hd).toFixed(2) + "%"
 				})
 
 			} else {
@@ -961,18 +1015,18 @@
 		})
 	}
 
-	// pegarMedia(1)
+	pegarMedia(1)
 
 	var verificar = 0
 
-	var ctx1 = document.getElementById('chartMichelly').getContext('2d');
+	var ctx = document.getElementById('statisticsChart').getContext('2d');
 	setInterval(() => {
 		if (sessionStorage.getItem('Nome') == null) {
 			location.href = 'login'
 		}
 	}, 3000);
 
-	var chartMichelly = new Chart(ctx1, {
+	var statisticsChart = new Chart(ctx, {
 		type: 'line',
 		data: {
 			labels: [],
@@ -987,7 +1041,7 @@
 				borderWidth: 2,
 				data: ["CPU"]
 			}, {
-				label: "Temperatura",
+				label: "Memória",
 				borderColor: '#fdaf4b',
 				pointBackgroundColor: 'rgba(253, 175, 75, 0.6)',
 				pointRadius: 0,
@@ -995,8 +1049,18 @@
 				legendColor: '#fdaf4b',
 				fill: true,
 				borderWidth: 2,
-				data: ["Temperatura"]
-			},]
+				data: ["RAM"]
+			}, {
+				label: "Disco",
+				borderColor: '#177dff',
+				pointBackgroundColor: 'rgba(23, 125, 255, 0.6)',
+				pointRadius: 0,
+				backgroundColor: 'rgba(23, 125, 255, 0.4)',
+				legendColor: '#177dff',
+				fill: true,
+				borderWidth: 2,
+				data: ["DISCO"]
+			}]
 		},
 		options: {
 			responsive: true,
@@ -1058,8 +1122,8 @@
 	var myLegendContainer = document.getElementById("myChartLegend");
 
 	// generate HTML legend
-	myLegendContainer.innerHTML = chartMichelly.generateLegend();
-	pegardados(chartMichelly, 1);
+	myLegendContainer.innerHTML = statisticsChart.generateLegend();
+	pegardados(statisticsChart, 1);
 
 	// bind onClick event to all LI-tags of the legend
 	var legendItems = myLegendContainer.getElementsByTagName('li');
@@ -1069,28 +1133,31 @@
 
 
 
-	function pegardadosMichelly(chartMichelly, idCaixaMichelly) {
+	function pegardados(statisticsChart, idCaixa) {
 		dados_cpu = []
-		dados_temp = []
+		dados_memoria = []
+		dados_disco = []
 		momento = []
-		if (proximaAtualizacaoMichelly != undefined) {
-			clearTimeout(proximaAtualizacaoMichelly);
+		if (proximaAtualizacao != undefined) {
+			clearTimeout(proximaAtualizacao);
 		}
-		fetch(`/data/obterdadosMichelly/${idCaixaMichelly}`, { cache: 'no-store' }).then(function (response) {
+		fetch(`/data/obterdados/${idCaixa}`, { cache: 'no-store' }).then(function (response) {
 			console.log(momento)
 			if (response.ok) {
 				response.json().then(function (response) {
 					for (cont = 0; cont < 5; cont++) {
 						dados_cpu.push(response[cont].cpuPorcentagem);
-						dados_temp.push(response[cont].tempPorcentagem);
+						dados_disco.push(response[cont].hdPorcentagem);
+						dados_memoria.push(response[cont].ramPorcentagem);
 						momento.push(response[cont].momento);
-						console.log("Toma no cu julia")
+						
 					}
-					chartMichelly.data.datasets[0].data = dados_cpu
-					chartMichelly.data.datasets[1].data = dados_temp
-					chartMichelly.data.labels = momento
-					chartMichelly.update()
-					atualizardados(chartMichelly, idCaixaMichelly)
+					statisticsChart.data.datasets[0].data = dados_cpu
+					statisticsChart.data.datasets[1].data = dados_memoria
+					statisticsChart.data.datasets[2].data = dados_disco
+					statisticsChart.data.labels = momento
+					statisticsChart.update()
+					atualizardados(statisticsChart, idCaixa)
 				});
 			} else {
 				console.error("Falha ao Executar a API")
@@ -1098,47 +1165,50 @@
 			}
 		});
 	}
-	function atualizardados(chartMichelly, idCaixaMichelly) {
-		fetch(`/data/atualizardadosMichelly/${idCaixaMichelly}`, { cache: 'no-store' }).then(function (response) {
+	function atualizardados(statisticsChart, idCaixa) {
+		fetch(`/data/atualizardados/${idCaixa}`, { cache: 'no-store' }).then(function (response) {
 			// console.log(response)
 			if (response.ok) {
 				response.json().then(function (response) {
-					chartMichelly.data.labels.shift()
-					chartMichelly.data.labels.push(response[0].momento); // incluir um novo momento
+					statisticsChart.data.labels.shift()
+					statisticsChart.data.labels.push(response[0].momento); // incluir um novo momento
 
-					chartMichelly.data.datasets[0].data.shift();  // apagar o primeiro de umidade
-					chartMichelly.data.datasets[0].data.push(response[0].cpuPorcentagem); // incluir uma nova medida de umidade
+					statisticsChart.data.datasets[0].data.shift();  // apagar o primeiro de umidade
+					statisticsChart.data.datasets[0].data.push(response[0].cpuPorcentagem); // incluir uma nova medida de umidade
 
-					chartMichelly.data.datasets[1].data.shift();
-					chartMichelly.data.datasets[1].data.push(response[0].tempPorcentagem); // incluir uma nova medida de temperatura
+					statisticsChart.data.datasets[1].data.shift();
+					statisticsChart.data.datasets[1].data.push(response[0].ramPorcentagem); // incluir uma nova medida de temperatura
 
-					chartMichelly.update()
-					proximaAtualizacaoMichelly = setTimeout(() => atualizardados(chartMichelly, idCaixaMichelly), 2000);
+					statisticsChart.data.datasets[2].data.shift();
+					statisticsChart.data.datasets[2].data.push(response[0].hdPorcentagem);
+					statisticsChart.update()
+					proximaAtualizacao = setTimeout(() => atualizardados(statisticsChart, idCaixa), 2000);
 					var cpu = response[0].cpuPorcentagem
-					var temp = response[0].tempPorcentagem
+					var hd = response[0].hdPorcentagem
+					var ram = response[0].ramPorcentagem
 					verificar++
 					console.log(verificar)
 					if (verificar == 10) {
 
-						if ((cpu > 40 && cpu <= 60) || (temp > 55 && temp <= 60)) {
-							alerta(null, idCaixaMichelly)
+						if ((cpu > 40 && cpu <= 60) || (hd > 70 && hd <= 100) || (ram > 40 && ram <= 60)) {
+							alerta(null, idCaixa)
 							verificar = 0
 						}
-						else if ((cpu > 60 && cpu <= 100) || (temp > 60 && temp <= 100)) {
-							critico(null, idCaixaMichelly)
+						else if ((cpu > 60 && cpu <= 100) || (hd > 60 && hd <= 100) || (ram > 60 && ram <= 100)) {
+							critico(null, idCaixa)
 							verificar = 0
 						}
 					}
 				});
 			} else {
 				console.error("Falha ao Executar a API")
-				proximaAtualizacaoMichelly = setTimeout(() => atualizardados(chartMichelly, idCaixaMichelly), 2000);
+				proximaAtualizacao = setTimeout(() => atualizardados(statisticsChart, idCaixa), 2000);
 				return
 			}
 		});
-		function alerta(e, idCaixaMichelly) {
+		function alerta(e, idCaixa) {
 			alerta_automatizado(sessionStorage.getItem('idBanco'), 1, 'Alerta de uso moderado', 'Sua máquina pode estar estar sofrendo ataques ou mau desempenho.')
-			swal(`Temperatura Anormal Detectada`, `Temperatura acima do ideal foram identificadas verifique os seus Caixas.\n\n Numero do Caixa:${idCaixaMichelly}`, {
+			swal(`Dados Anormais Detectados`, `Alguns dados acima do ideal foram identificados verifique os seus Caixas.\n\n Numero do Caixa:${idCaixa}`, {
 				buttons: {
 					confirm: {
 						className: 'btn btn-warning'
@@ -1147,9 +1217,9 @@
 			});
 		}
 
-		function critico(e, idCaixaMichelly) {
+		function critico(e, idCaixa) {
 			alerta_automatizado(sessionStorage.getItem('idBanco'), 1, 'Alerta de uso crítico', 'Sua máquina pode estar sofrendo um ataque grave.')
-			swal(`Temperatura Crítica detectada.`, `Verifique com Urgência seu Caixa, Temperatura elevada.\n\n Numero do Caixa:${idCaixaMichelly}`, {
+			swal(`Dados Críticos detectados.`, `Verifique com Urgência seu Caixa ele pode estár sofrendo um Ataque.\n\n Numero do Caixa:${idCaixa}`, {
 				buttons: {
 					confirm: {
 						className: 'btn btn-danger'

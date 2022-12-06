@@ -3,7 +3,7 @@ import { Database } from "../database/config.js"
 class dataModel {
     static obterdados(idCaixa) {
         try {
-            return Database.executarQuery(`select * from Leitura where fkCaixa = ${idCaixa};`)
+            return Database.executarQuery(`select * from Leitura where fkCaixa = ${idCaixa} order by momento desc;`)
         } catch (error) {
             console.log(error)
         }
@@ -11,7 +11,7 @@ class dataModel {
 
     static atualizardados(idCaixa) {
         try {
-            return Database.executarQuery(`select top 1 * from Leitura where fkCaixa = 1 ORDER BY momento desc;`)
+            return Database.executarQuery(`select top 1 * from Leitura where fkCaixa = ${idCaixa} ORDER BY momento desc;`)
         } catch (error) {
             console.log(error)
         }

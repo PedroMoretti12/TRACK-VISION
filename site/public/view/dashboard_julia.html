@@ -440,7 +440,7 @@
 										<div class="card-title">Últimos processos com maior relevância da Agencia 3501</div>
 										&nbsp; &nbsp;
 										<select name="" id="select_caixa"
-											onchange="pegardadosJulia(statisticsChart,select_caixa.value)">
+											onchange="pegardadosJulia(statisticsChart, select_caixa.value)">
 											<option value=1>Caixa 1</option>
 											<option value=31>Caixa 2</option>
 											<option value=41>Caixa 3</option>
@@ -478,15 +478,15 @@
 										<p class="card-category">
 											Importante que essas métricas se encontrem zeradas</p>
 									</div>
-									<div class="card-body" style="justify-content:space-around ;">
+									<div class="card-body" style="justify-content:space-around ; ">
 										<div class="row">
-											<div class="col-md-6">
-												#LUGAR PARA O GRÁFICO DE BARRAS DE FREQUENCIA DE ALERTAS DE PROCESSOS
-												STRANGE THINGaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-												<div class="chart-container" style="height: 375px;">
-													<canvas id="pizzaChart"></canvas>
+											<div style="margin-bottom: 10%; color: #fff;" class="col-md-6">
+												aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+												<div class="chart-container" style="height: 100%; width: 100%;">
+													<canvas id="myChart"></canvas>
 												</div>
 											</div>
+											
 											<div class="col-md-6">
 												<div style="
     box-shadow: 2px 6px 15px 0 rgb(69 65 78 / 10%);
@@ -898,6 +898,8 @@
 </html>
 
 <script>
+	let vetor_processosP = []
+	let vetor_servicosP = []
 	let proximaAtualizacao;
 
 	function pegarCard(idCaixa) {
@@ -906,6 +908,7 @@
 		fetch(`/data/atualizarcards/${idCaixa}`, { cache: 'no-store' }).then(function (response) {
 			if (response.ok) {
 				response.json().then(function (response) {
+					console.log("card" + JSON.stringify(response))
 					console.log("Estou no card" + response[0].Process)
 					servicinhos.innerHTML = response[0].Service
 					processinhos.innerHTML = response[0].Process
@@ -923,6 +926,8 @@
 	function pegarCard2(idCaixa) {
 		processinhoP.innerHTML = ``
 		servicinhoP.innerHTML = ``
+		let servicoss = []
+        let procesoss = []
 		fetch(`/data/atualizarcards2/${idCaixa}`, { cache: 'no-store' }).then(function (response) {
 			if (response.ok) {
 				response.json().then(function (response) {
@@ -930,6 +935,7 @@
 					console.log("Estou no card2" + response[0].ProcessP)
 					servicinhoP.innerHTML = response[0].ServiceP
 					processinhoP.innerHTML = response[0].ProcessP
+
 				})
 
 			} else {
@@ -938,6 +944,101 @@
 			}
 		})
 	}
+
+     function capturardados(idCaixa) { 
+	
+	if (proximaAtualizacao != undefined) {
+			clearTimeout(proximaAtualizacao);
+		}
+		fetch(`/data/obterdados/${idCaixa}`, { cache: 'no-store' }).then(function (response) {
+			
+			if (response.ok) { 	
+				response.json().then(function (response) {
+					console.log('aa' + JSON.stringify(response))
+					for (cont = 0; cont < 5; cont++) {
+						vetor_servicos.push(response[cont].servicosPerigosos);
+						vetor_processos.push(response[cont].processosPerigosos);
+					}
+				});
+			} else {
+				console.error("Falha ao Executar a API")
+				return
+			}
+		});
+	}
+
+
+        setTimeout(() => plotarGrafico('myChart'), 1000);
+
+	function plotarGrafico(idCanva){
+		idCaixa = 1
+		fetch(`/data/obterdados/${idCaixa}`, { cache: 'no-store' }).then(function (response) {
+			if (response.ok) { 	
+				response.json().then(function (response) {
+					console.log('aa' + JSON.stringify(response))
+						vetor_servicosP.push(response[0].servicosPerigosos);
+						vetor_processosP.push(response[0].processosPerigosos);
+						console.log("porra")
+				    console.log(vetor_processosP[0])
+					console.log(vetor_servicosP[0])
+				});
+			} else {
+				console.error("Falha ao Executar a API")
+				return
+			}
+		});
+
+        var ctx1 = document.getElementById(idCanva);
+
+        const data = {
+            labels: [
+                'Serviços',
+                'Processos',
+                
+            ],
+            datasets: [{
+                label: 'Qtde de programas perigosos',
+                data: ([vetor_processosP[0],vetor_servicosP[0]]),
+                backgroundColor: [
+                    'yellow',
+                    'orange',
+                    
+                ],
+                borderColor: ['#FFD700',  'rgb(230, 22, 22)'],
+                hoverOffset: 4
+            }]
+        };
+
+        console.log(data)
+
+
+        let myChart = new Chart(ctx1, {
+            type: 'doughnut',
+            data: data,
+        });
+
+        setTimeout(() => atualizarGraficosComponentes(data,myChart,idCanva), 20000);
+
+    }
+
+
+	function atualizarGraficosComponentes(data, myChart, idCanva){
+        
+        if(idCanva == 'myChart'){
+        
+
+        myChart.destroy()
+        
+        
+        vetor_servicos = []
+        vetor_processos = []
+
+        setTimeout (() => capturardados(), 1000)
+       
+
+   
+
+    }
 
 	var verificar = 0
 
@@ -1051,27 +1152,11 @@
 		}
 	}, 3000);
 
-var statisticsChart2 = new Chart(ctx2, {
-  type: 'doughnut',
-  data: {
-  labels: [
-    'Processos',
-    'Serviços'
-  ],
-  datasets: [{
-    label: 'Perigo',
-    data: [300, 50, 100],
-    backgroundColor: [
-      'rgb(255, 99, 132)',
-      'rgb(54, 162, 235)',
-      'rgb(255, 205, 86)'
-    ],
-    hoverOffset: 4
-  }]
-  }});
+
+  /////////////////////////////////////////////////////////////
 
 
-	function pegardadosJulia(statisticsChart, statisticsChart2, idCaixa) {
+	function pegardadosJulia(statisticsChart,   idCaixa) {
 		pegarCard(idCaixa)
 		pegarCard2(idCaixa)
 		
@@ -1092,8 +1177,7 @@ var statisticsChart2 = new Chart(ctx2, {
 						usoCpuProcesso.push(response[cont].usoCpuProcesso);
 						usoMemoriaProcesso.push(response[cont].usoMemoriaProcesso);
 						pid.push(response[cont].pid);
-						processinhoPeri.push(response[cont].ProcessP)
-						servicoPeri.push(response[cont].ServiceP)
+
 					}
 					console.log(statisticsChart)
 					statisticsChart.data.datasets[0].data = usoCpuProcesso
@@ -1101,17 +1185,19 @@ var statisticsChart2 = new Chart(ctx2, {
 					statisticsChart.data.labels = pid
 					statisticsChart.update()
 
-					statisticsChart2.data.datasets[0].data = processinhoPeri
-					statisticsChart2.data.datasets[1].data = servicinhoPeri
-					statisticsChart2.update()
-					atualizardadosJulia(statisticsChart, statisticsChart2, idCaixa)
+				
+					atualizardadosJulia(statisticsChart,  idCaixa)
 				});
 			} else {
 				console.error("Falha ao Executar a API")
 				return
 			}
 		});
+
+
 	}
+
+	
 	function atualizardadosJulia(statisticsChart, idCaixa) {
 		fetch(`/data/atualizardadosJulia/${idCaixa}`, { cache: 'no-store' }).then(function (response) {
 			if (response.ok) {
@@ -1133,13 +1219,16 @@ var statisticsChart2 = new Chart(ctx2, {
 					var cpu = resposta[0].usoCpuProcesso
 					var mem = resposta[0].usoMemoriaProcesso
 
+
+					 
+
 					verificar++
 					console.log(verificar)
-					if (verificar == 5) {
+					if (verificar == 15) {
 						pegarCard(idCaixa)
 						pegarCard2(idCaixa)
 
-						if ((cpu > 10.0 && cpu <= 15.0) || (mem > 0 && mem <= 100.0)) {
+						if ((cpu > 10.0 && cpu <= 15.0) || (mem > 10.0 && mem <= 15.0)) {
 							alerta(null, idCaixa, pid)
 							verificar = 0
 						}
@@ -1207,7 +1296,7 @@ var statisticsChart2 = new Chart(ctx2, {
 
 
           }
-
+		}
 
 
 

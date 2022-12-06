@@ -918,6 +918,8 @@
 		})
 	}
 
+
+	
 	function pegarCard2(idCaixa) {
 		processinhoP.innerHTML = ``
 		servicinhoP.innerHTML = ``
@@ -1042,14 +1044,42 @@
 		legendItems[i].addEventListener("click", legendClickCallback, false);
 	}
 
+	var ctx2 = document.getElementById('statisticsChart2').getContext('2d');
+	setInterval(() => {
+		if (sessionStorage.getItem('Nome') == null) {
+			location.href = 'login'
+		}
+	}, 3000);
 
-	function pegardadosJulia(statisticsChart, idCaixa) {
+var statisticsChart2 = new Chart(ctx2, {
+  type: 'doughnut',
+  data: {
+  labels: [
+    'Processos',
+    'Serviços'
+  ],
+  datasets: [{
+    label: 'Perigo',
+    data: [300, 50, 100],
+    backgroundColor: [
+      'rgb(255, 99, 132)',
+      'rgb(54, 162, 235)',
+      'rgb(255, 205, 86)'
+    ],
+    hoverOffset: 4
+  }]
+  }});
+
+
+	function pegardadosJulia(statisticsChart, statisticsChart2, idCaixa) {
 		pegarCard(idCaixa)
 		pegarCard2(idCaixa)
 		
 		pid = []
 		usoCpuProcesso = []
 		usoMemoriaProcesso = []
+		processinhoPeri=[]
+		servicoPeri =[]
 		if (proximaAtualizacao != undefined) {
 			clearTimeout(proximaAtualizacao);
 		}
@@ -1062,13 +1092,19 @@
 						usoCpuProcesso.push(response[cont].usoCpuProcesso);
 						usoMemoriaProcesso.push(response[cont].usoMemoriaProcesso);
 						pid.push(response[cont].pid);
+						processinhoPeri.push(response[cont].ProcessP)
+						servicoPeri.push(response[cont].ServiceP)
 					}
 					console.log(statisticsChart)
 					statisticsChart.data.datasets[0].data = usoCpuProcesso
 					statisticsChart.data.datasets[1].data = usoMemoriaProcesso
 					statisticsChart.data.labels = pid
 					statisticsChart.update()
-					atualizardadosJulia(statisticsChart, idCaixa)
+
+					statisticsChart2.data.datasets[0].data = processinhoPeri
+					statisticsChart2.data.datasets[1].data = servicinhoPeri
+					statisticsChart2.update()
+					atualizardadosJulia(statisticsChart, statisticsChart2, idCaixa)
 				});
 			} else {
 				console.error("Falha ao Executar a API")
@@ -1171,6 +1207,9 @@
 
 
           }
+
+
+
 
 </script>
 

@@ -93,7 +93,7 @@ class dataModel {
         try {
         return Database.executarQuery(`declare @Existingdate datetime
         Set @Existingdate=GETDATE()
-        Select TOP 20 CONVERT(varchar, dateadd(hour, -3, @Existingdate), 24) as formatada, * FROM Proj_Michelly WHERE fkCaixa = ${idCaixa} order by hora desc;`)
+        Select TOP 15 CONVERT(varchar, dateadd(hour, -3, @Existingdate), 24) as formatada, * FROM Proj_Michelly WHERE fkCaixa = ${idCaixa} order by hora desc;`)
         }
         catch (error) {
             console.log(error)

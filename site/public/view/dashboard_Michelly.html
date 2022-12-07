@@ -1210,8 +1210,8 @@
 			}
 		});
 		function alerta(e, idCaixa) {
-			alerta_automatizado(sessionStorage.getItem('idBanco'), 1, 'Alerta de uso moderado', 'Sua máquina pode estar estar sofrendo ataques ou mau desempenho.')
-			swal(`Dados Anormais Detectados`, `Alguns dados acima do ideal foram identificados verifique os seus Caixas.\n\n Numero do Caixa:${idCaixa}`, {
+			alerta_automatizado(sessionStorage.getItem('idBanco'), 1, 'Alerta de temperatura moderada', 'Sua máquina pode estar sobrecarregando e sofrendo mau desempenho.')
+			swal(`Temperatura Anormal Detectada`, `Alguns dados acima do ideal foram identificados verifique os seus Caixas.\n\n Numero do Caixa:${idCaixa}`, {
 				buttons: {
 					confirm: {
 						className: 'btn btn-warning'
@@ -1221,8 +1221,8 @@
 		}
 
 		function critico(e, idCaixa) {
-			alerta_automatizado(sessionStorage.getItem('idBanco'), 1, 'Alerta de uso crítico', 'Sua máquina pode estar sofrendo um ataque grave.')
-			swal(`Dados Críticos detectados.`, `Verifique com Urgência seu Caixa ele pode estár sofrendo um Ataque.\n\n Numero do Caixa:${idCaixa}`, {
+			alerta_automatizado(sessionStorage.getItem('idBanco'), 1, 'Alerta de Temperatura crítica', 'Sua máquina pode estar sobrecarregada.')
+			swal(`Temperatura Crítica detectada.`, `Verifique com Urgência seu Caixa ele pode estar superaquecendo.\n\n Numero do Caixa:${idCaixa}`, {
 				buttons: {
 					confirm: {
 						className: 'btn btn-danger'

@@ -20,9 +20,9 @@ class dataController {
     }
 
     static obterdadosMichelly(req, res) {
-        var idCaixaMichelly = req.params.idCaixaMichelly;
+        var idCaixa = req.params.idCaixa;
 
-        dataModel.obterdadosMichelly(idCaixaMichelly)
+        dataModel.obterdadosMichelly(idCaixa)
             .then(response => {
                 res.status(200).json(response)
             }).catch(e => {

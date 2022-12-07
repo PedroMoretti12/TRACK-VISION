@@ -96,7 +96,7 @@ hd_semanal = []
 vetor = [-7, -6, -5, -4, -3, -2, -1]
 
 for i in range(7):
-    mensagem = "SELECT TOP(1) cpuPorcentagem AS DECIMAL FROM Leitura WHERE FORMAT(momento, 'dd') = FORMAT(DATEADD(DAY, ?, GETDATE()), 'dd') ORDER BY id DESC"
+    mensagem = "SELECT AVG(cpuPorcentagem) AS DECIMAL FROM Leitura WHERE FORMAT(momento, 'dd') = FORMAT(DATEADD(DAY, ?, GETDATE()), 'dd')"
     valor = vetor[i]
     cursor.execute(mensagem, valor)
     dado = cursor.fetchall()
@@ -109,7 +109,7 @@ for i in range(7):
 print("Dados semanais da CPU capturados.")
 
 for i in range(7):
-    mensagem = "SELECT TOP(1) ramPorcentagem FROM Leitura WHERE FORMAT(momento, 'dd') = FORMAT(DATEADD(DAY, ?, GETDATE()), 'dd') ORDER BY id DESC"
+    mensagem = "SELECT AVG(ramPorcentagem) FROM Leitura WHERE FORMAT(momento, 'dd') = FORMAT(DATEADD(DAY, ?, GETDATE()), 'dd')"
     valor = vetor[i]
     cursor.execute(mensagem, valor)
     dado = cursor.fetchall()
@@ -122,7 +122,7 @@ for i in range(7):
 print("Dados semanais da RAM capturados.")
 
 for i in range(7):
-    mensagem = "SELECT TOP(1) hdPorcentagem FROM Leitura WHERE FORMAT(momento, 'dd') = FORMAT(DATEADD(DAY, ?, GETDATE()), 'dd') ORDER BY id DESC"
+    mensagem = "SELECT AVG(hdPorcentagem) FROM Leitura WHERE FORMAT(momento, 'dd') = FORMAT(DATEADD(DAY, ?, GETDATE()), 'dd')"
     valor = vetor[i]
     cursor.execute(mensagem, valor)
     dado = cursor.fetchall()
@@ -142,7 +142,7 @@ hd_mensal = []
 vetor = [-30, -29, -28, -27, -26, -25, -24, -23, -22, -21, -20, -19, -18, -17, -16, -15, -14, -13, -12, -11, -10, -9, -8, -7, -6, -5, -4, -3, -2, -1]
 
 for i in range(30):
-    mensagem = "SELECT TOP(1) cpuPorcentagem FROM Leitura WHERE FORMAT(momento, 'dd') = FORMAT(DATEADD(DAY, ?, GETDATE()), 'dd') ORDER BY id DESC"
+    mensagem = "SELECT AVG(cpuPorcentagem) FROM Leitura WHERE FORMAT(momento, 'dd') = FORMAT(DATEADD(DAY, ?, GETDATE()), 'dd')"
     valor = vetor[i]
     cursor.execute(mensagem, valor)
     dado = cursor.fetchall()
@@ -155,7 +155,7 @@ for i in range(30):
 print("Dados Mensais da CPU capturados.")
 
 for i in range(30):
-    mensagem = "SELECT TOP(1) ramPorcentagem FROM Leitura WHERE FORMAT(momento, 'dd') = FORMAT(DATEADD(DAY, ?, GETDATE()), 'dd') ORDER BY id DESC"
+    mensagem = "SELECT AVG(ramPorcentagem) FROM Leitura WHERE FORMAT(momento, 'dd') = FORMAT(DATEADD(DAY, ?, GETDATE()), 'dd')"
     valor = vetor[i]
     cursor.execute(mensagem, valor)
     dado = cursor.fetchall()
@@ -168,7 +168,7 @@ for i in range(30):
 print("Dados Mensais da RAM capturados.")
 
 for i in range(30):
-    mensagem = "SELECT TOP(1) hdPorcentagem FROM Leitura WHERE FORMAT(momento, 'dd') = FORMAT(DATEADD(DAY, ?, GETDATE()), 'dd') ORDER BY id DESC"
+    mensagem = "SELECT AVG(hdPorcentagem) FROM Leitura WHERE FORMAT(momento, 'dd') = FORMAT(DATEADD(DAY, ?, GETDATE()), 'dd')"
     valor = vetor[i]
     cursor.execute(mensagem, valor)
     dado = cursor.fetchall()

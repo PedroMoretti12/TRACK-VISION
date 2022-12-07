@@ -156,22 +156,6 @@ class dataController {
 
     }
 
-    static obterMedia(req, res) {
-
-        var idAgencia = req.params.idAgencia;
-        console.log(idAgencia)
-
-        dataModel.obterMedia(idAgencia)
-        .then(response => {
-            res.status(200).json(response)
-        })
-        .catch(error => {
-            console.log(error)
-            res.status(500).send()
-        })
-
-    }
-
     static obterRegressao(req, res) {
 
         var idAgencia = req.params.idAgencia;

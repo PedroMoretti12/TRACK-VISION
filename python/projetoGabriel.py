@@ -1,13 +1,31 @@
 import mysql.connector
+import pyodbc
 import datetime
 from datetime import date
 from datetime import datetime
-import time
-import tkinter
 from tkinter import *
 
-conn = mysql.connector.connect(user='aluno',password='sptech',database='trackvision',port='3306')
-cursor = conn.cursor()
+try:
+    server = 'trackvisiondb.database.windows.net'
+    database = 'trackvisiondb'
+    username = 'CloudSA49c766d4'
+    password = 'Urubu1004'
+    driver = '{ODBC Driver 18 for SQL Server}'
+
+    conn = pyodbc.connect('DRIVER=' + driver + ';'
+                           'SERVER=tcp:' + server + ';'
+                           'PORT=1433;'
+                           'DATABASE=' + database + ';'
+                           'UID=' + username + ';'
+                           'PWD=' + password)
+
+    cursor = conn.cursor()
+    conexao = True
+except:
+    pass
+
+connn = mysql.connector.connect(user='aluno',password='sptech',database='trackvision',port='3306')
+cursorr = connn.cursor()
 
 janela = Tk()
 janela.title("Cadastro dos caixa")
@@ -33,42 +51,40 @@ def Cadastrar():
    return
 
   else:    
-   syntax = "insert into Caixa (fkBanco, fkAgencia, numeroSerial, dataCompra) values(1,1,%s,%s)"
+   syntax = "insert into Caixa (fkBanco, fkAgencia, numeroSerial, dataCompra) values(1,1,?,?)"
    values = [numSerial,dataCompra]
    cursor.execute(syntax,values)
-   conn.commit()
+   cursor.commit()
    cursor.execute("select dataCompra from Caixa")
 
    texto_resposta['text'] = 'Dados cadastrados com sucesso'
    print(numSerial, dataCompra)
 
-   while 1:
+   
 # Formatação das datas --------------------------------
-    dataAtual = date.today()
-    data = cursor.fetchall()
-    i = len(data)
+   dataAtual = date.today()
+   data = cursor.fetchall()
+   i = len(data)
 
-    dataCaixa = datetime.strptime(data[i - 1][0],'%d/%m/%Y').date() 
+   dataCaixa = datetime.strptime(data[i - 1][0],'%d/%m/%Y').date() 
 
 # Calculo da quantidade de dias ----------------------------------
-    dias = (dataAtual - dataCaixa)    
-    print(dias.days)
+   dias = (dataAtual - dataCaixa)    
+   print(dias.days)
 
 # Calculo de vida útil ------------------------------------------
-    vidaUtil = 5 * (24 * dias.days)
+   vidaUtil = 7 * (24 * dias.days)
 
-# Temporizador --------------------------------------------------
-    print("A vida útil do caixa é de", vidaUtil, "HRs")
+   print("A vida útil do caixa é de", vidaUtil, "HRs")
 
-    syntax = "update Caixa set vidaUtil = %s where id in (select id from (select id from Caixa order by id desc limit 1) as t);"
-    values = [vidaUtil]
-    cursor.execute(syntax,values)
-    conn.commit()
-    cursor.execute("select vidaUtil from Caixa")
+   syntax = "update Caixa set vidaUtil = ? where id in (select id from (select top(1) id from Caixa order by id desc) as t);"
+   values = [vidaUtil]
+   cursor.execute(syntax,values)
+   cursor.commit()
+   cursor.execute("select vidaUtil from Caixa")
    
 # Temporizador de atualização dos dados ----------------------------------
-    time.sleep()
-    texto_resposta2['text'] = 'Dados atualizados com sucesso'
+   texto_resposta2['text'] = 'Dados atualizados com sucesso'
 
 # Número serial ------------------------------------
 Label_numSerial = Label(janela, text=("Insira o número serial do caixa:"), font=('Arial 10'), anchor='w')

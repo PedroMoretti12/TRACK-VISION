@@ -44,6 +44,16 @@ class dataModel {
             } 
     }
 
+    static obterdadosGabriel(idCaixa) {
+        try {
+        return Database.executarQuery(`SELECT TOP(1) vidaUtil FROM Caixa ORDER BY id DESC;`)
+        } 
+        catch (error) {
+            console.log(error)
+        }
+    }
+
+
     static atualizarCards2(idCaixa){
         try {
             return Database.executarQuery(`select top 1 servicosPerigosos as ServiceP,processosPerigosos as ProcessP from Leitura where fkCaixa = ${idCaixa} order by momento desc;`)

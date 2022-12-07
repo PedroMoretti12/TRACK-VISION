@@ -350,7 +350,7 @@
 								<h5 class="text-black  h2 op-7 mb-2">Média de uso dos componentes por agência</h5>
 							</div>
 							<div class="ml-md-auto py-2 py-md-0">
-			
+
 							</div>
 						</div>
 					</div>
@@ -406,8 +406,8 @@
 										</div>
 										<div class="col-7 col-stats">
 											<div class="numbers">
-												<p class="card-category">Disco</p>
-												<h4 class="card-title" id="media_hd"></h4>
+												<p class="card-category">Vida útil em horas</p>
+												<h4 class="card-title" id="horas_vida"></h4>
 											</div>
 										</div>
 									</div>
@@ -449,7 +449,7 @@
 							<div class="card card-yellow">
 								<div class="card-body pb-0">
 									<h2 class="mb-2" style="text-align: center; color: #ff8c00;">ALERTA</h2>
-									<p style="text-align: center; color: #ff8c00;" >60%</p>
+									<p style="text-align: center; color: #ff8c00;">60%</p>
 									<div class="pull-in sparkline-fix chart-as-background">
 									</div>
 								</div>
@@ -499,7 +499,8 @@
 								<div class="card">
 									<div class="card-header">
 										<div class="card-head-row">
-											<h4 class="card-title">Média de uso por caixa e calculo de vida util dos caixas</h4>
+											<h4 class="card-title">Média de uso por caixa e calculo de vida util dos
+												caixas</h4>
 											<div class="card-tools">
 												<button class="btn btn-icon btn-link btn-primary btn-xs"><span
 														class="fa fa-angle-down"></span></button>
@@ -511,7 +512,7 @@
 											</div>
 										</div>
 										<p class="card-category">
-											</p>
+										</p>
 									</div>
 									<div class="card-body" style="justify-content:space-around ;">
 										<div class="row">
@@ -854,7 +855,6 @@
 				response.json().then(function (response) {
 					media_cpu.innerHTML = (response[0].Cpu).toFixed(2) + "%"
 					media_ram.innerHTML = (response[0].Ram).toFixed(2) + "%"
-					media_hd.innerHTML = (response[0].Hd).toFixed(2) + "%"
 				})
 
 			} else {
@@ -862,10 +862,22 @@
 				return
 			}
 		})
-	}
+	} pegarMedia(1)
 
-	pegarMedia(1)
+	function pegarVida(idCaixa) {
 
+		fetch(`/data/obterdadosGabriel/${idCaixa}`, { cache: 'no-store' }).then(function (response) {
+			if (response.ok) {
+				response.json().then(function (response) {
+					horas_vida.innerHTML = (response[0].vidaUtil) + "HRs"
+				})
+
+			} else {
+				console.log("Deu erro.")
+				return
+			}
+		})
+	} pegarVida(1)
 
 
 
@@ -890,7 +902,7 @@
 				pointRadius: 0,
 				backgroundColor: 'rgba(243, 84, 93, 0.4)',
 				legendColor: '#f3545d',
-				fill: true,
+				fill: false,
 				borderWidth: 2,
 				data: ["CPU"]
 			}, {
@@ -900,19 +912,9 @@
 				pointRadius: 0,
 				backgroundColor: 'rgba(253, 175, 75, 0.4)',
 				legendColor: '#fdaf4b',
-				fill: true,
+				fill: false,
 				borderWidth: 2,
 				data: ["RAM"]
-			}, {
-				label: "Disco",
-				borderColor: '#177dff',
-				pointBackgroundColor: 'rgba(23, 125, 255, 0.6)',
-				pointRadius: 0,
-				backgroundColor: 'rgba(23, 125, 255, 0.4)',
-				legendColor: '#177dff',
-				fill: true,
-				borderWidth: 2,
-				data: ["DISCO"]
 			}]
 		},
 		options: {
@@ -989,7 +991,7 @@
 	function pegardados(statisticsChart, idCaixa) {
 		dados_cpu = []
 		dados_memoria = []
-		dados_disco = []
+		dados_vidaUtil = []
 		momento = []
 		if (proximaAtualizacao != undefined) {
 			clearTimeout(proximaAtualizacao);
@@ -999,13 +1001,13 @@
 				response.json().then(function (response) {
 					for (cont = 0; cont < 5; cont++) {
 						dados_cpu.push(response[cont].cpuPorcentagem);
-						dados_disco.push(response[cont].hdPorcentagem);
+						//dados_vidaUtil.push(response[cont].vidaUtil);
 						dados_memoria.push(response[cont].ramPorcentagem);
 						momento.push(response[cont].momento);
 					}
 					statisticsChart.data.datasets[0].data = dados_cpu
 					statisticsChart.data.datasets[1].data = dados_memoria
-					statisticsChart.data.datasets[2].data = dados_disco
+					//statisticsChart.data.datasets[2].data = dados_vidaUtil
 					statisticsChart.data.labels = momento
 					statisticsChart.update()
 					atualizardados(statisticsChart, idCaixa)
@@ -1029,8 +1031,8 @@
 					statisticsChart.data.datasets[1].data.shift();
 					statisticsChart.data.datasets[1].data.push(response[0].ramPorcentagem);
 
-					statisticsChart.data.datasets[2].data.shift();
-					statisticsChart.data.datasets[2].data.push(response[0].vidaUtilHoras);
+					// statisticsChart.data.datasets[2].data.shift();
+					// statisticsChart.data.datasets[2].data.push(response[0].vidaUtilHoras);
 
 					statisticsChart.update()
 					proximaAtualizacao = setTimeout(() => atualizardados(statisticsChart, idCaixa), 2000);

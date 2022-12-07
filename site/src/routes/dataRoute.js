@@ -27,6 +27,10 @@ router.get('/atualizardadosJulia/:idCaixa', function(req, res) {
     dataController.atualizardadosJulia(req, res)
 })
 
+router.get('/obterdadosGabriel/:idCaixa', function (req, res){
+    dataController.obterdadosGabriel(req, res)
+})
+
 router.get('/atualizardadosMichelly/:idCaixa', function(req, res) {
     dataController.atualizardadosMichelly(req, res)
 })

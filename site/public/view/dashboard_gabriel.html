@@ -6,6 +6,7 @@
 	<title>Track Vision - Dashboard</title>
 	<meta content='width=device-width, initial-scale=1.0, shrink-to-fit=no' name='viewport' />
 	<link rel="icon" href="/dashboard/assets/img/icons/logo_icon.ico" type="image/x-icon" />
+	<link rel="stylesheet" href="/assets/css/graficoGabriel.css">
 
 	<!-- Fonts and icons -->
 	<script src="/assets/js/plugin/webfont/webfont.min.js"></script>
@@ -517,9 +518,9 @@
 									<div class="card-body" style="justify-content:space-around ;">
 										<div class="row">
 											<div class="col-md-6">
-												#LUGAR PARA O GRÁFICO DE BARRAS DE FREQUENCIA DE ALTERAÇÃO DA VIDA ÚTIL
+												<h1>Gráfico de depreciação do caixa</h1>
 												<div class="chart-container" style="height: 500px;">
-													<canvas id="freqChart"></canvas>
+													<canvas id="myChart" width="500" height="400"></canvas>
 												</div>
 											</div>
 											<div class="col-md-6">
@@ -1084,5 +1085,28 @@
 
 
 <script>
+	var data = [{
+        data: ['30','30',''],
+        backgroundColor: [
+          'blue',
+          "gray",
+          "gray",
+          
+        ],
+        borderColor: "#fff"
+      }];
+
+
+var ctx = document.getElementById("myChart").getContext("2d");
+let myChart = new Chart(ctx, {
+    type: 'pie',
+    data: {
+    labels: ['Depreciação','Total','Total'],
+      datasets: data
+    },
+    options: options
+  });  
+
+//new Chart(ctx).Doughnut(data);
 
 </script>

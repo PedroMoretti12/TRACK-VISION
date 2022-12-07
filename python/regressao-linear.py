@@ -396,4 +396,4 @@ app.layout = dbc.Container([
     ])
 ])
 
-app.run(debug=True, port=8008)
+app.run(host='0.0.0.0',debug=True, port=8008)

@@ -306,6 +306,18 @@
 											<p>Dashboard Tecnico</p>
 
 										</a>
+										<a href="dashboardVidaUtil">
+											<i class="fas fa-th-list"></i>
+											<p>Dashboard Gabriel</p>
+										</a>
+										<a href="http://127.0.0.1:8008/">
+											<i class="fas fa-th-list"></i>
+											<p>Dashboard Pedro</p>
+										</a>
+										<a href="dashboardTemp">
+											<i class="fas fa-th-list"></i>
+											<p>Dashboard Michelly</p>
+										</a>
 								</ul>
 							</div>
 						</li>
@@ -364,12 +376,12 @@
 									<div class="row">
 										<div class="col-5">
 											<div class="icon-big text-center">
-												<i class="glyph-icon flaticon-error"></i>
+												<i class="flaticon-exclamation text-danger"></i>
 											</div>
 										</div>
 										<div class="col-7 col-stats">
-											<div class="numbers">
-												<p class="card-category">Processos Ativos:</p>
+											<div class="numbers"  >
+												<p class="card-category" >Processos Ativos:</p>
 												<h4 class="card-title" id="processinhos">210</h4>
 											</div>
 										</div>
@@ -385,12 +397,12 @@
 									<div class="row">
 										<div class="col-5">
 											<div class="icon-big text-center">
-												<i class="glyph-icon flaticon-exclamation"></i>
+												<i class="flaticon-exclamation text-danger"></i>
 											</div>
 										</div>
 										<div class="col-7 col-stats">
-											<div class="numbers">
-												<p class="card-category">Serviços Ativos:</p>
+											<div class="numbers" >
+												<p class="card-category" id="serv">Serviços Ativos:</p>
 												<h4 class="card-title" id="servicinhos">19</h4>
 											</div>
 										</div>
@@ -459,7 +471,7 @@
 							</div>
 						</div>
 
-						<div class="row row-card-no-pd">
+						<div style="width: 108%;" class="row row-card-no-pd">
 							<div class="col-md-12">
 								<div class="card">
 									<div class="card-header">
@@ -478,18 +490,19 @@
 										<p class="card-category">
 											Importante que essas métricas se encontrem zeradas</p>
 									</div>
-									<div class="card-body" style="justify-content:space-around ; ">
-										<div class="row">
-											<div style="margin-bottom: 10%; color: #fff;" class="col-md-6">
-												aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-												<div class="chart-container" style="height: 100%; width: 100%;">
-													<canvas id="myChart"></canvas>
-												</div>
-											</div>
-											
-											<div class="col-md-6">
+									<div class="card-body" style="justify-content:space-around ; height: 150px; ">
+										<div class="row"
+										
+											 style="height: 100%;
+											 width: 100%;
+											 justify-content: space-evenly;
+											 display: flex;
+    flex-direction: row;
+    align-content: center;
+    align-items: center;
+    flex-wrap: nowrap;"> 
 												<div style="
-    box-shadow: 2px 6px 15px 0 rgb(69 65 78 / 10%);
+    box-shadow: 4px 7px 15px 4px rgb(69 65 78 / 10%);
     border: 0;    
 	border-radius: 5px;
     margin-left: 0;
@@ -503,13 +516,13 @@
     align-items: center;
     flex-wrap: nowrap;
     padding: 1%;
-	height: 30%;
-    width: 78%;"                               class="card-category">
+	height: 100%;
+    width: 80%;"                               class="card-category" >
 													Serviços Possívelmente perigosos:<h4 class="card-title" id="servicinhoP">2</h4>
 
 												</div>
 												<div style="
-												box-shadow: 2px 6px 15px 0 rgb(69 65 78 / 10%);
+												box-shadow: 4px 6px 15px 4px rgb(69 65 78 / 10%);
 												border: 0;    
 												border-radius: 5px;
 												margin-left: 0;
@@ -523,13 +536,14 @@
 												align-items: center;
 												flex-wrap: nowrap;
 												padding: 1%;
-												height: 30%;
-                                                width: 78%;" class="card-category">
+												height: 100%;
+                                                width: 78%;" 
+												class="card-category" id="proce">
 													Processos Possívelmente perigosos:<h4 class="card-title" id="processinhoP">4</h4>
 
 												</div>
 												<div style="
-												box-shadow: 2px 6px 15px 0 rgb(69 65 78 / 10%);
+												box-shadow: 4px 6px 15px 4px rgb(69 65 78 / 10%);
 												border: 0;    
 												border-radius: 5px;
 												margin-left: 0;
@@ -543,13 +557,13 @@
 												align-items: center;
 												flex-wrap: nowrap;
 												padding: 1%;
-												height: 30%;
+												height: 100%;
 												width: 78%;"                               class="card-category">
 																								Quantidade de alertas por máquina:<h4 class="card-title" id="qtd_alerta">80</h4>
 											
 																							</div>
 											</div>
-										</div>
+										
 									</div>
 								</div>
 							</div>
@@ -921,20 +935,56 @@
 		})
 	}
 
-
+	let qtd_alertas = 0;
 	
 	function pegarCard2(idCaixa) {
 		processinhoP.innerHTML = ``
 		servicinhoP.innerHTML = ``
-		let servicoss = []
-        let procesoss = []
+		vetor_alertaMemoria = []
 		fetch(`/data/atualizarcards2/${idCaixa}`, { cache: 'no-store' }).then(function (response) {
 			if (response.ok) {
+
 				response.json().then(function (response) {
 					console.log("Estou aquiii", response);
 					console.log("Estou no card2" + response[0].ProcessP)
+
+					var processinholindo = response[0].ProcessP
+					var servicinholindo = response[0].ServiceP
+
 					servicinhoP.innerHTML = response[0].ServiceP
 					processinhoP.innerHTML = response[0].ProcessP
+
+					if(processinholindo > 5|| processinholindo < -5){
+						proce.style.backgroundColor = '#ff9e27'
+						proce.style.color = 'white'
+						document.getElementById("processinhoP").style.color = 'white'
+						
+					}
+					if(servicinholindo > 5|| servicinholindo < -5){
+						serv.style.backgroundColor = '#ff9e27'
+						serv.style.color = 'white'
+						document.getElementById("servicinhoP").style.color = 'white'
+					}
+
+					if(processinholindo > 10|| processinholindo < -10){
+						proce.style.backgroundColor = '#f73636'
+						proce.style.color = 'white'
+						document.getElementById("processinhoP").style.color = 'white'
+						
+					}
+					if(servicinholindo > 10|| servicinholindo < -10){
+						serv.style.backgroundColor = '#f73636'
+						serv.style.color = 'white'
+						document.getElementById("servicinhoP").style.color = 'white'
+					}
+
+				for (cont = 0; cont < 5; cont++)  {
+                  if (response[cont].ProcessP > 0 || response[cont].ServiceP > 0) {
+                    vetor_alertaMemoria.push(response[cont].ProcessP)
+                  }
+                }
+                qtd_alertas = vetor_alertaMemoria.length
+                qtd_alerta.innerHTML = qtd_alertas
 
 				})
 
@@ -945,100 +995,7 @@
 		})
 	}
 
-     function capturardados(idCaixa) { 
-	
-	if (proximaAtualizacao != undefined) {
-			clearTimeout(proximaAtualizacao);
-		}
-		fetch(`/data/obterdados/${idCaixa}`, { cache: 'no-store' }).then(function (response) {
-			
-			if (response.ok) { 	
-				response.json().then(function (response) {
-					console.log('aa' + JSON.stringify(response))
-					for (cont = 0; cont < 5; cont++) {
-						vetor_servicos.push(response[cont].servicosPerigosos);
-						vetor_processos.push(response[cont].processosPerigosos);
-					}
-				});
-			} else {
-				console.error("Falha ao Executar a API")
-				return
-			}
-		});
-	}
 
-
-        setTimeout(() => plotarGrafico('myChart'), 1000);
-
-	function plotarGrafico(idCanva){
-		idCaixa = 1
-		fetch(`/data/obterdados/${idCaixa}`, { cache: 'no-store' }).then(function (response) {
-			if (response.ok) { 	
-				response.json().then(function (response) {
-					console.log('aa' + JSON.stringify(response))
-						vetor_servicosP.push(response[0].servicosPerigosos);
-						vetor_processosP.push(response[0].processosPerigosos);
-						console.log("porra")
-				    console.log(vetor_processosP[0])
-					console.log(vetor_servicosP[0])
-				});
-			} else {
-				console.error("Falha ao Executar a API")
-				return
-			}
-		});
-
-        var ctx1 = document.getElementById(idCanva);
-
-        const data = {
-            labels: [
-                'Serviços',
-                'Processos',
-                
-            ],
-            datasets: [{
-                label: 'Qtde de programas perigosos',
-                data: ([vetor_processosP[0],vetor_servicosP[0]]),
-                backgroundColor: [
-                    'yellow',
-                    'orange',
-                    
-                ],
-                borderColor: ['#FFD700',  'rgb(230, 22, 22)'],
-                hoverOffset: 4
-            }]
-        };
-
-        console.log(data)
-
-
-        let myChart = new Chart(ctx1, {
-            type: 'doughnut',
-            data: data,
-        });
-
-        setTimeout(() => atualizarGraficosComponentes(data,myChart,idCanva), 20000);
-
-    }
-
-
-	function atualizarGraficosComponentes(data, myChart, idCanva){
-        
-        if(idCanva == 'myChart'){
-        
-
-        myChart.destroy()
-        
-        
-        vetor_servicos = []
-        vetor_processos = []
-
-        setTimeout (() => capturardados(), 1000)
-       
-
-   
-
-    }
 
 	var verificar = 0
 
@@ -1056,7 +1013,7 @@
 			labels: [],
 			datasets: [{
 				label: "Cpu",
-				borderColor: '#f3545d',
+				borderColor: '#f73636',
 				pointBackgroundColor: 'rgba(243, 84, 93, 0.6)',
 				pointRadius: 0,
 				backgroundColor: 'rgba(243, 84, 93, 0.4)',
@@ -1066,7 +1023,7 @@
 				data: ["CPU"]
 			}, {
 				label: "Memória",
-				borderColor: '#fdaf4b',
+				borderColor: '#ff9e27',
 				pointBackgroundColor: 'rgba(253, 175, 75, 0.6)',
 				pointRadius: 0,
 				backgroundColor: 'rgba(253, 175, 75, 0.4)',
@@ -1145,12 +1102,7 @@
 		legendItems[i].addEventListener("click", legendClickCallback, false);
 	}
 
-	var ctx2 = document.getElementById('statisticsChart2').getContext('2d');
-	setInterval(() => {
-		if (sessionStorage.getItem('Nome') == null) {
-			location.href = 'login'
-		}
-	}, 3000);
+
 
 
   /////////////////////////////////////////////////////////////
@@ -1219,9 +1171,6 @@
 					var cpu = resposta[0].usoCpuProcesso
 					var mem = resposta[0].usoMemoriaProcesso
 
-
-					 
-
 					verificar++
 					console.log(verificar)
 					if (verificar == 15) {
@@ -1265,38 +1214,7 @@
 		}
 	}
 
-	   let qtd_alertas = 0;
-        
 
-          setInterval(function () {
-            atualizar()
-          }, 3600)
-
-           
-          function atualizar(idCaixa) {
-
-            vetor_alerta = []
-            fetch(`/atualizarcards/${idCaixa}`)
-              .then(result => result.json())
-              .then(formatted => {
-                console.log("aa"+formatted)
-                for (i = 0; i < formatted.length; i++) {
-                  if (formatted[i].ProcessP > 0 && formatted[i].ServiceP > 0) {
-                    vetor_alertaMemoria.push(formatted[i].ProcessP)
-					vetor_alertaMemoria.push(formatted[i].ServiceP)
-                  }
-                }
-                qtd_alertas = vetor_alertaMemoria.length
-                qtd_alerta.innerHTML = qtd_alertas
-
-             
-              })
-              .catch((error) => console.error(error))
-
-
-
-          }
-		}
 
 
 

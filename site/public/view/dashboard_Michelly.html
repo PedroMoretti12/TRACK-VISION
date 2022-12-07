@@ -1038,7 +1038,7 @@
 				pointRadius: 0,
 				backgroundColor: 'rgba(243, 84, 93, 0.4)',
 				legendColor: '#f3545d',
-				fill: true,
+				fill: false,
 				borderWidth: 2,
 				data: ["Cpu"]
 			}, {
@@ -1048,7 +1048,7 @@
 				pointRadius: 0,
 				backgroundColor: 'rgba(253, 175, 75, 0.4)',
 				legendColor: '#fdaf4b',
-				fill: true,
+				fill: false,
 				borderWidth: 2,
 				data: ["Temperatura"]
 			}
@@ -1151,18 +1151,13 @@
 			console.log(momento)
 			if (response.ok) {
 				response.json().then(function (response) {
-					for (cont = 0; cont < 5; cont++) {
+					for (cont = 0; cont < response.length; cont++) {
 						dados_cpu.push(response[cont].cpuPorcentagem);
 						dados_Temperatura.push(response[cont].tempCpuMed);
-						// dados_disco.push(response[cont].hdPorcentagem);
-						// dados_memoria.push(response[cont].ramPorcentagem);
-						momento.push(response[cont].hora);
-						
+						momento.push(response[cont].formatada);
 					}
 					statisticsChart.data.datasets[0].data = dados_cpu
-					statisticsChart.data.datasets[0].data = dados_Temperatura
-					// statisticsChart.data.datasets[1].data = dados_memoria
-					// statisticsChart.data.datasets[2].data = dados_disco
+					statisticsChart.data.datasets[1].data = dados_Temperatura
 					statisticsChart.data.labels = momento
 					statisticsChart.update()
 					atualizardadosMichelly(statisticsChart, idCaixa)
@@ -1179,7 +1174,7 @@
 			if (response.ok) {
 				response.json().then(function (response) {
 					statisticsChart.data.labels.shift()
-					statisticsChart.data.labels.push(response[0].momento); // incluir um novo momento
+					statisticsChart.data.labels.push(response[0].formatada); // incluir um novo momento
 
 					statisticsChart.data.datasets[0].data.shift();  // apagar o primeiro de umidade
 					statisticsChart.data.datasets[0].data.push(response[0].cpuPorcentagem); // incluir uma nova medida de umidade

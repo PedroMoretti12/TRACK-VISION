@@ -47,5 +47,4 @@ router.get('/atualizarCards2/:idCaixa', function(req, res) {
     dataController.atualizarCards2(req, res)
 })
 
-
 export default router

@@ -359,7 +359,7 @@
 						<div class="d-flex align-items-left align-items-md-center flex-column flex-md-row">
 							<div>
 								<h2 class="text-black h1 fw-bold">Monitoramento de ATM'S</h2>
-								<h5 class="text-black  h2 op-7 mb-2">Média de uso dos componentes por agência</h5>
+								<h5 class="text-black  h2 op-7 mb-2">Desempenho de Temperatura - CPU</h5>
 							</div>
 							<div class="ml-md-auto py-2 py-md-0">
 
@@ -824,7 +824,7 @@
 				response.json().then(function (response) {
 					for (cont = 0; cont < 5; cont++) {
 						dados_cpu.push(response[cont].cpuPorcentagem);
-						dados_disco.push(response[cont].hdPorcentagem);
+						// dados_disco.push(response[cont].hdPorcentagem);
 						dados_memoria.push(response[cont].ramPorcentagem);
 						momento.push(response[cont].momento);
 						

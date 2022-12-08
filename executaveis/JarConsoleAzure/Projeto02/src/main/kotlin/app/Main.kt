@@ -10,7 +10,7 @@ fun main() {
 
     val processJ = repositorio.grupoDeProcessos.processos
     val processosPadrao = mutableListOf<String>()
-    val  servicosPadrao = mutableListOf<String>()
+    val servicosPadrao = mutableListOf<String>()
 
     var c = 0
     while (c < processJ.size - 1) {
@@ -46,7 +46,7 @@ fun main() {
         )
 
         println("foi")
-       var r = 0
+        var r = 0
         while (r < repositorio.grupoDeProcessos.processos.size - 1) {
             if (processJ[r].usoCpu > 0.5) {
                 val pid = (processJ[r].pid).toInt()
@@ -64,5 +64,6 @@ fun main() {
         }
 
 
+    }
 }
 
